@@ -1,0 +1,1819 @@
+{
+  "baseline": "R0.10",
+  "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+  "historical_accepted": 26,
+  "historical_proposed_selected": 155,
+  "note": "Estados históricos; ratificaciones D-01..07 se registran separadamente sin reescribir esta fuente.",
+  "entries": [
+    {
+      "id": "R0.1-01",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Naturaleza del producto",
+      "description": "Framework reutilizable y SaaS: núcleo separado del Control Plane; instalación independiente objetivo progresivo.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-02",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Explotación inicial",
+      "description": "Infraestructura multi-tenant compartida; despliegues dedicados posteriores.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-03",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Empresa y marca",
+      "description": "Una empresa tiene múltiples tiendas, con catálogos propios o compartidos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-04",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Frontends",
+      "description": "Backend por API/SDK agnóstico; Angular como referencia.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-05",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Personalización",
+      "description": "Configuración validada y adaptadores mediante interfaces; no código arbitrario por tenant.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-06",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Productos",
+      "description": "Digitales y físicos en el alcance del producto; vertical inicial digital.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-07",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Compradores",
+      "description": "Perfiles comerciales separados por empresa; identidad técnica compartida posible.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-08",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Código fuente",
+      "description": "Repositorio público, open source; licencia concreta aún propuesta (Apache-2.0 candidata).",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-09",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Primera entrega",
+      "description": "MVP desplegable, evolutivo; no equivale a preparación comercial certificada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-10",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Entorno",
+      "description": "WSL2/Linux y VS Code como entorno principal.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-11",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Repositorios",
+      "description": "Monorepo coordinado con Nx y pnpm.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.1-12",
+      "round": "R0.1",
+      "status": "ACCEPTED",
+      "title": "Prioridad",
+      "description": "Aprendizaje profundo y evidencia verificable de arquitectura viable para producción.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-01",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Jerarquía",
+      "description": "Tenant tiene Brands y Stores independientes con asociaciones explícitas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-02",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Catálogos compartidos",
+      "description": "Se comparte definición de productos y variantes; publicación, precios y stock por tienda; pools comunes solo por asignaciones explícitas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-03",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Catálogos maestros y locales",
+      "description": "Coexisten referencias maestras del tenant y productos locales, con ownership y sobrescrituras controladas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-04",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Entre tenants",
+      "description": "Solo importación o copia explícita, sin referencias privadas cruzadas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-05",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Canales",
+      "description": "Una tienda admite múltiples storefronts y canales; interfaz y canal son conceptos diferentes.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-06",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Clientes",
+      "description": "Perfil por tienda; vinculación controlada y autorizada con identidad técnica compartida.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-07",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Atributos",
+      "description": "Esquemas tipados, validados y versionados por tenant.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-08",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Oferta e inventario",
+      "description": "Precios por oferta/canal; existencias por ubicación o pool, compartibles de forma controlada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-09",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "eGame",
+      "description": "Primera vertical de claves de activación individuales, acceso seguro e idempotencia.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-10",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Checkout extensible",
+      "description": "Flujo común y estados/invariantes compartidos; políticas y estrategias reemplazables.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-11",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Distribución",
+      "description": "Paquetes npm y backend autoinstalable por Docker/Helm, de forma progresiva y validada con consumidores externos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-12",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Configuración",
+      "description": "Persistida; adaptadores desplegados por la plataforma; terceros no ejecutan código en SaaS.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-13",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Topología inicial",
+      "description": "Núcleo comercial modular, integraciones independientes; extracción obligatoria posterior de bounded contexts.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.2-14",
+      "round": "R0.2",
+      "status": "ACCEPTED",
+      "title": "Angular",
+      "description": "Storefront reutilizable con temas, configuración, extensiones; APIs independientes del frontend.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-01",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "SKU",
+      "description": "Único por namespace/catálogo, con identificador interno estable/global.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-02",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Producto local",
+      "description": "Vínculo con maestro y overrides definidos y controlados.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-03",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Herencia",
+      "description": "Propagación por atributo/campo conforme a políticas versionadas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-04",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Listing / Offer",
+      "description": "Listing controla publicación y visibilidad; Offer las condiciones de venta.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-05",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Dinero",
+      "description": "Unidades menores exactas y reglas de moneda; aritmética decimal exacta para cálculos intermedios; no floats binarios para importes.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-06",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Precio checkout",
+      "description": "Recalcular, presentar cambios y guardar snapshot económico aceptado e inmutable.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-07",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Promociones",
+      "description": "Fuera del primer MVP; precio estándar.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-08",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Fiscalidad",
+      "description": "Puerto y adaptador demostrativo no apto para fiscalidad real.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-09",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Inventario",
+      "description": "StockPool con unidades o cantidades y asignaciones comerciales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-10",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Pools compartidos",
+      "description": "Política configurable de pool común o cuotas protegidas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-11",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Reservas",
+      "description": "Temporal, TTL por defecto 15 minutos; NO confundir con duración de sesión externa/pago pendiente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-12",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Insuficiencia de stock",
+      "description": "Rechazar checkout completo; sin compra parcial ni backorders iniciales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-13",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Carrito",
+      "description": "Invitado persistido en backend con token seguro; origen autoritativo durable.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-14",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Checkout",
+      "description": "Una tienda por checkout; nunca mezcla de tenants.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-15",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Orquestación",
+      "description": "Saga de compra con estado durable, compensaciones y reconciliación.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-16",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Pago tardío",
+      "description": "Política explícita de expiración, pagos pendientes y conciliación; aún P0-01 abierto.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-17",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Stripe",
+      "description": "Stripe Checkout alojado y Connect en test mode; configuración exacta de Connect condicionada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-18",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Pago definitivo",
+      "description": "Webhook verificado y reconciliación; no confiar en redirección del navegador; idempotencia persistente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-19",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Reembolsos",
+      "description": "Reembolso completo administrativo de prueba.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-20",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Fallo postcobro",
+      "description": "Saga durable, reintentos/reparación y reembolso si no se puede cumplir.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-21",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Claves",
+      "description": "Reservar capacidad inicialmente; asignar licencia individual solo tras pago confirmado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-22",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Protección",
+      "description": "Cifrado autenticado y gestión de claves con acceso auditable.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-23",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Visualización",
+      "description": "Área autenticada/controlada; email solo como aviso sin licencia.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.3-24",
+      "round": "R0.3",
+      "status": "PROPOSED — SELECTED",
+      "title": "Físicos",
+      "description": "Contratos previstos; implementación de fulfillment físico posterior.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-01",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Inicio",
+      "description": "Núcleo NestJS modular, workers separados y extracción progresiva.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-02",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Control Plane",
+      "description": "CommerceCloud desplegado de forma independiente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-03",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Procesos independientes",
+      "description": "Outbox Publisher, Payment Integration y Notifications; Payment Integration no es el agregado Payments.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-04",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Extracción",
+      "description": "Catalog, Payments, Inventory y Ordering obligatorios, cada uno con criterios y métricas comparativas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-05",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "API",
+      "description": "REST/OpenAPI públicos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-06",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "BFF",
+      "description": "Gateway y BFF separados de storefront y administración, sin negocio fundamental.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-07",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "HTTP interno",
+      "description": "REST versionado entre ejecutables; puertos locales dentro del mismo runtime.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-08",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Asíncrono",
+      "description": "Kafka para eventos; contratos síncronos donde se necesite respuesta inmediata.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-09",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Ownership",
+      "description": "Colecciones privadas por contexto; bases y credenciales separadas tras extracción.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-10",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Eventos",
+      "description": "JSON Schema y envelope común versionado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-11",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Compatibilidad",
+      "description": "Contratos versionados, conformidad y tests de compatibilidad.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-12",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Entrega",
+      "description": "At-least-once, Transactional Outbox e Inbox/idempotencia.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-13",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Resiliencia",
+      "description": "Timeouts, backoff, circuit breakers selectivos y errores explícitos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-14",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Horizontalidad",
+      "description": "HTTP stateless replicable; workers con concurrencia controlada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-15",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Despliegue",
+      "description": "Imágenes, versiones y releases independientes sin romper consumidores.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.4-16",
+      "round": "R0.4",
+      "status": "PROPOSED — SELECTED",
+      "title": "Entornos",
+      "description": "Compose local, Kubernetes laboratorio y cloud cuando proceda.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-01",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "GitHub",
+      "description": "Organización dedicada a CommerceCore; repositorio público.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-02",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Ramas",
+      "description": "Trunk-based con PR y release branches cuando sean necesarias.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-03",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Workspace",
+      "description": "Nx + pnpm workspaces y package.json por proyecto.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-04",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Paquetes",
+      "description": "Proyectos por bounded context y por Domain/Application/Adapters; evitar fragmentación arbitraria.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-05",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Límites",
+      "description": "ESLint + Nx tags + pruebas de arquitectura CI.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-06",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Publicación",
+      "description": "Solo SDK, contratos y componentes explícitos del framework; privados el resto.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-07",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "NestJS",
+      "description": "Domain y Application TypeScript puros; DI y decoradores en composición/adaptadores.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-08",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Validación",
+      "description": "OpenAPI contract-first + JSON Schema y Ajv; DTO de transporte ≠ entidades.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-09",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Runtime",
+      "description": "Node 24 LTS candidato seleccionado, lockfile y compatibilidad fijada al comenzar.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-10",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Frontend",
+      "description": "Shell Angular, UI/commerce compartida y apps específicas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-11",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Estado",
+      "description": "Signals, servicios y RxJS cuando aporte valor.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-12",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "SDK",
+      "description": "Generación TS reproducible desde OpenAPI; otros lenguajes posteriores.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-13",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Unit testing",
+      "description": "Vitest principal, adaptadores específicos si se necesitan.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-14",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Integración",
+      "description": "Testcontainers con MongoDB/Kafka y pruebas contractuales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-15",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "E2E/performance",
+      "description": "Playwright y k6.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-16",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "CI",
+      "description": "GitHub Actions, Nx affected y controles globales no omitibles.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-17",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Releases",
+      "description": "Changesets para npm; política propia para contenedores/apps.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.5-18",
+      "round": "R0.5",
+      "status": "PROPOSED — SELECTED",
+      "title": "Docs",
+      "description": "Docs-as-code, ADR, diagramas C4 e issues; trazabilidad con pruebas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-01",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Mongo local",
+      "description": "Replica set simplificado incluso en Compose; no implica HA.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-02",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Contextos",
+      "description": "commerce_db compartida inicialmente, colecciones exclusivas por contexto; CommerceCloud persistencia separada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-03",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Multi-tenancy",
+      "description": "Documentos compartidos filtrados mediante TenantContext confiable y pruebas cruzadas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-04",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Índices",
+      "description": "Diseño por patrón de consulta, unicidad según ámbito; no prefijo tenantId universal.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-05",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Driver",
+      "description": "MongoDB driver oficial tras repositorios/puertos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-06",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Transacciones",
+      "description": "Atomicidad documental preferente, multidocumento local cuando sea imprescindible; no transacciones externas prolongadas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-07",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Migraciones",
+      "description": "Versionadas, idempotentes y expand–migrate–contract.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-08",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Backups",
+      "description": "Cifrados, externos, retención y restauración ensayada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-09",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Redis",
+      "description": "Usos efímeros justificados, no fuente de verdad económica.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-10",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Caché",
+      "description": "Cache-aside, TTL, invalidación, fallback y control de stampede.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-11",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Carritos",
+      "description": "Persistencia MongoDB; Redis solo aceleración.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-12",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Caída Redis",
+      "description": "Fallback de lectura seguro o fallo explícito de controles críticos; sin fail-open indiscriminado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-13",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Kafka",
+      "description": "KRaft Compose; Strimzi K8s laboratorio; gestionado futuro si coste/operación lo justifican.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-14",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Topics",
+      "description": "Por bounded context o flujo, no un topic por evento ni único global.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-15",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Particiones",
+      "description": "Clave por agregado u otra entidad que exija orden; no orden global entre topics.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-16",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Esquemas",
+      "description": "JSON Schema, compatibilidad automática, Schema Registry posterior.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-17",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Outbox",
+      "description": "Polling con leasing, fencing/token, confirmación Kafka y recuperación; Change Streams evaluación futura.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-18",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Inbox",
+      "description": "Deduplicación persistente y efecto local atómico cuando sea posible.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-19",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Reintentos",
+      "description": "Backoff acotado, retry topics, DLQ y replay autorizado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-20",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Rebuild",
+      "description": "Kafka dentro de retención y reconstrucción desde fuente persistente; no event sourcing universal.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-21",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Sharding",
+      "description": "Replica set primero; laboratorio posterior de shard keys por colección.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-22",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Extracción",
+      "description": "Migración expand–migrate–contract con un único escritor autoritativo tras cutover.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-23",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Proyecciones",
+      "description": "Consistencia eventual con versiones, checkpoint, medición de lag y reparación.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.6-24",
+      "round": "R0.6",
+      "status": "PROPOSED — SELECTED",
+      "title": "Chaos",
+      "description": "Pruebas de caída, particiones, duplicados, recuperación y restauración reproducibles.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-01",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Realms",
+      "description": "Administración B2B y compradores B2C separados.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-02",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Tenants",
+      "description": "CommerceCloud autoridad de tenants y membresías; sincronización recuperable Keycloak Organizations.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-03",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "BFF",
+      "description": "Authorization Code/PKCE, sesiones HttpOnly, tokens solo servidor, CSRF; callbacks dominios validados.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-04",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Compradores",
+      "description": "Identidad B2C reutilizable, perfiles separados por tienda.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-05",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Autorización",
+      "description": "RBAC + ABAC por tenant, tienda, actor, recurso y acción.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-06",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Autoridad",
+      "description": "Keycloak autentica; CommerceCloud mantiene membresías/políticas comerciales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-07",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "TenantContext",
+      "description": "Se resuelve y autoriza en frontera confiable; propagación interna autenticada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-08",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Soporte",
+      "description": "Elevación explícita, caducidad, mínimo privilegio y auditoría.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-09",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "MFA",
+      "description": "Obligatorio para administración; comprador según riesgo.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-10",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Invitados",
+      "description": "Enlace de un uso, expirable, verificación + cuenta autenticada; vinculación atómica.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-11",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Revocación",
+      "description": "Sesiones breves, revocación, revalidación en operaciones críticas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-12",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Membresías",
+      "description": "Tenant activo explícito; no unir permisos de tenants distintos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-13",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Workloads",
+      "description": "OAuth2 Client Credentials con audiencias y scopes; no sustituye autorización de usuario delegado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-14",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Red",
+      "description": "NetworkPolicies deny-by-default reales; TLS apropiado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-15",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Perímetro",
+      "description": "Cloudflare WAF/rate limits más protección Gateway/API y origen.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-16",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Secretos",
+      "description": "Secret manager externo; integración Kubernetes; material fuera de Git.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-17",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Licencias",
+      "description": "Envelope encryption (KEK/DEK), versiones y auditoría; esquema exacto pendiente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-18",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Privacidad",
+      "description": "Minimización, retención diferenciada, borrado/anominización conforme a obligaciones.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-19",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "Auditoría",
+      "description": "Append-only con integridad verificable, sin asumir inmutabilidad de colección.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-20",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "CI seguridad",
+      "description": "SAST, SCA, secret scanning, escaneo de imagen y pruebas de autorización.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.7-21",
+      "round": "R0.7",
+      "status": "PROPOSED — SELECTED",
+      "title": "BOLA/BFLA",
+      "description": "Matriz automatizada por tenant, tienda, roles, comprador, recursos y APIs.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-01",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Laboratorio",
+      "description": "k3d local; k3s VPS; Compose principal de desarrollo.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-02",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Cloud",
+      "description": "VPS autogestionado y después comparación con Kubernetes gestionado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-03",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Entornos",
+      "description": "Compose, laboratorio K8s; futura producción aislada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-04",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "HA",
+      "description": "No garantizada inicialmente; ensayos multinodo posteriores.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-05",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Gateway",
+      "description": "Envoy Gateway sobre Gateway API; evitar conflicto de Traefik de k3s.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-06",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Balanceador",
+      "description": "Nativo proveedor donde exista; MetalLB en laboratorio cuando tenga sentido; evaluar ServiceLB VPS.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-07",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Cloudflare",
+      "description": "DNS, CDN, WAF, proxy; origen restringido y planes/costes de SaaS a evaluar.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-08",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "TLS",
+      "description": "Extremo a extremo y certificados automatizados con titularidad de dominio verificada.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-09",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Mongo operador",
+      "description": "Operador oficial en laboratorio; gestionado posible para producción candidata; backup por separado.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-10",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Kafka operador",
+      "description": "Strimzi laboratorio; gestión externa posterior según necesidad.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-11",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Volúmenes",
+      "description": "CSI/StorageClass por entorno, backup y restauración real.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-12",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Keycloak/telemetría",
+      "description": "Autogestionados en laboratorio; alternativa gestionada evaluable.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-13",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Helm",
+      "description": "Charts de aplicación y valores por entorno.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-14",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Terraform",
+      "description": "Infraestructura cloud y recursos externos; sin doble propietario GitOps.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-15",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Argo CD",
+      "description": "Estado deseado Kubernetes reconciliado desde Git.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-16",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Secretos K8s",
+      "description": "External Secrets Operator con secret manager de referencia.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-17",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Escalado",
+      "description": "HPA por recursos, KEDA Kafka después; medición antes.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-18",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "NetworkPolicies",
+      "description": "CNI que realmente las aplique, pruebas positivas/negativas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-19",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Costes",
+      "description": "Laboratorios temporales con límites, alertas y borrado de recursos residuales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.8-20",
+      "round": "R0.8",
+      "status": "PROPOSED — SELECTED",
+      "title": "Recuperación",
+      "description": "Ensayos de pod, nodo, red, backups, GitOps y rollback.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-01",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "OpenTelemetry",
+      "description": "Instrumentación automática y spans manuales comerciales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-02",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Propagación",
+      "description": "W3C Trace Context HTTP/Kafka, Span Links cuando proceda y correlación de negocio mínima.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-03",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Sampling",
+      "description": "Por entorno/criticidad; estado de saga persiste independientemente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-04",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Logs",
+      "description": "Fluent Bit / collector, formato estructurado, redacción y pipeline central.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-05",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Elastic",
+      "description": "Un clúster laboratorio para búsqueda y logs, separados por índices y permisos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-06",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Retención",
+      "description": "7–14 días logs de laboratorio; políticas por dataset y entorno.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-07",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Métricas",
+      "description": "Prometheus scrape e instrumentación OpenTelemetry según fuente.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-08",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Dashboards",
+      "description": "RED/USE, plataforma, mensajería, comercio, seguridad.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-09",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Tenant metrics",
+      "description": "Cardinalidad controlada; no IDs de pedido/usuario como labels globales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-10",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "SLO",
+      "description": "Por recorridos comerciales con definición formal y benchmarks.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-11",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Alertas",
+      "description": "Prometheus/Alertmanager y Grafana, severidades, agrupación y no duplicación.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-12",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Prioridad",
+      "description": "Impacto, error budgets/burn rate y síntomas operativos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-13",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Compra",
+      "description": "Checkout, Inventory, Stripe, Ordering, Fulfillment correlacionados por ID durable.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-14",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Analítica",
+      "description": "Eventos y proyecciones de negocio, no métricas/trazas como fuente de verdad.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-15",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Tenant dashboard",
+      "description": "Datos derivados autorizados; sin acceso general a Kibana/Grafana internos.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-16",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Perfiles",
+      "description": "Telemetría local ligera y stack integral solo cuando se necesita.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-17",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Incidentes",
+      "description": "Runbooks, SEV, simulacros, postmortems y análisis causal.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.9-18",
+      "round": "R0.9",
+      "status": "PROPOSED — SELECTED",
+      "title": "Ensayos",
+      "description": "Fallos inyectados y comprobación real de señales y alertas.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-01",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Ratificación",
+      "description": "Aceptar como intención la dirección general; detalles derivados continúan pendientes y estado global PROPOSED — SELECTED.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-02",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "ADRs",
+      "description": "Normalizar por decisiones arquitectónicas independientes; requisitos/experimentos separados.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-03",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Documentos",
+      "description": "PRD, SAD, ADR, contratos, matrices, roadmap versionados en Git.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-04",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Reserva/pago",
+      "description": "Política temporal y máquina de estados formal antes de Stripe.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-05",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Claves",
+      "description": "Protocolo Inventory/Fulfillment y exclusividad antes del checkout.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-06",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Invitados",
+      "description": "Reclamación y sesión segura antes de primera entrega.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-07",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Pagos reales",
+      "description": "Prohibidos hasta validación comercial/fiscal/legal/operativa y de seguridad.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-08",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Evidencia",
+      "description": "ADR con experimentos en riesgos relevantes; argumentación en bajo riesgo.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-09",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Extracciones",
+      "description": "Catalog, Payments, Inventory, Ordering obligatorias con métricas antes/después.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-10",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Reutilización",
+      "description": "Instalación independiente del framework y dos consumidores reales.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-11",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Fiabilidad",
+      "description": "Pruebas reproducibles de concurrencia, fallos, backups, seguridad y telemetría.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-12",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Hitos",
+      "description": "M00–M09 verticales, dependencias, DoD y gates.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-13",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Coste",
+      "description": "Local-first y laboratorios cloud temporales con presupuesto.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    },
+    {
+      "id": "R0.10-14",
+      "round": "R0.10",
+      "status": "PROPOSED — SELECTED",
+      "title": "Autorización",
+      "description": "Diseño exclusivamente hasta aprobación expresa posterior, por alcance.",
+      "source": "CommerceCore_Decisiones_Maestro_R0.10.docx",
+      "source_kind": "historical_selected",
+      "evidence": "NOT_EVALUATED"
+    }
+  ]
+}
