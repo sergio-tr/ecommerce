@@ -1,481 +1,874 @@
 {
   "snapshot": "2026-10-13",
-  "source": "ratifications and audit synthesis",
-  "historical_registry": "../01-historical-baseline/R0.10_181_decisions.json",
+  "totalHistoricalEntries": 181,
+  "previousScopedEntryCount": 79,
+  "additionalExplicitGovernancePolicyCount": 4,
+  "sourcePrecedence": "later explicit ratification > 26 foundational accepted > inherited selected proposals > assistant proposals",
+  "warning": "English translation preserves all 79 previously registered status strings. The newest four governance policies are direct explicit user instructions.",
   "records": [
     {
       "id": "D-01",
       "status": "ACCEPTED",
-      "summary": "Reserva 15 minutos para iniciar checkout; protección durable antes de Stripe; Commit tras cobro verificado; liberar por prueba negativa segura",
-      "evidence": null
+      "summary": "Protected inventory and evidence-gated release before Stripe",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-01-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-02",
       "status": "ACCEPTED",
-      "summary": "Session Stripe configurable/versionada con expires_at real; sin recuperación automática inicial",
-      "evidence": null
+      "summary": "Configurable/versioned Stripe Checkout Session expiration",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-02-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-03",
       "status": "ACCEPTED",
-      "summary": "Stripe Checkout hosted tarjetas y 3DS; sin pagos diferidos",
-      "evidence": null
+      "summary": "Hosted card payments and 3DS for initial eGame",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-03-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-04",
       "status": "ACCEPTED",
-      "summary": "Cobro crea obligación; recuperación o refund completo si imposible cumplir sin entrega parcial",
-      "evidence": null
+      "summary": "Preserve paid obligations and safely compensate unfulfillable orders",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-04-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05",
       "status": "ACCEPTED",
-      "summary": "Inbox verificado; Outbox local atómico; intentos externos previos y saga recuperable sin Kafka M04",
-      "evidence": null
+      "summary": "Durable financial Inbox/Outbox and crash recovery before Kafka",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06",
       "status": "ACCEPTED",
-      "summary": "PaymentAttempts comerciales secuenciales limitados y exclusividad cobrable",
-      "evidence": null
+      "summary": "Limited sequential commercial payment attempts",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07",
       "status": "ACCEPTED",
-      "summary": "Cancelación expresa autorizada; expiración Session open y conciliación antes liberación",
-      "evidence": null
+      "summary": "Authorized cancellation and early Session expiry with reconciliation",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-01-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "Reservation RESERVED/PAYMENT_PROTECTED/COMMITTED/RELEASED",
-      "evidence": null
+      "summary": "Candidate Reservation capacity-only FSM, not ratified",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-01-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-02-P01",
       "status": "PROPOSED — SELECTED",
-      "summary": "35 minutos duración candidata",
-      "evidence": null
+      "summary": "Candidate 35-minute Session duration, not ratified",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-02-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-03-WALLET",
       "status": "DEFERRED",
-      "summary": "Wallets Apple Pay/Google Pay después",
-      "evidence": null
+      "summary": "Apple Pay and Google Pay deferred",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-03-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-03-LINK",
       "status": "PENDING",
-      "summary": "Stripe Link",
-      "evidence": null
+      "summary": "Stripe Link settlement instrument evaluation pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-03-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-03-CONFIG",
       "status": "PENDING",
-      "summary": "Restricción métodos efectiva",
-      "evidence": null
+      "summary": "Effective provider API/store payment-method restriction pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-03-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-03-CAPTURE",
       "status": "PENDING",
-      "summary": "Modo de captura; alias de auditoría no ratificado",
-      "evidence": null
+      "summary": "Audit alias for capture-mode question; not a ratified canonical identifier",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-03-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-04-EXCL",
       "status": "ACCEPTED",
-      "summary": "Exclusión fulfillment/refund incompatibles",
-      "evidence": null
+      "summary": "Exclusion of incompatible fulfillment and failure-compensation refund",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-04-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-04-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "FSM resolución",
-      "evidence": null
+      "summary": "Candidate commercial-resolution state machine",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-04-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-04-P01",
       "status": "PENDING",
-      "summary": "Plazos reparación",
-      "evidence": null
+      "summary": "Recovery retry/backoff/escalation values pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-04-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-04-CONNECT",
       "status": "PENDING",
-      "summary": "Refunds Connect",
-      "evidence": null
+      "summary": "Refund processing under Stripe Connect pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-04-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-INBOX",
       "status": "ACCEPTED",
-      "summary": "Webhook verificado persist-before-2xx",
-      "evidence": null
+      "summary": "Verified durable webhook Inbox before provider 2xx",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-OUTBOX",
       "status": "ACCEPTED",
-      "summary": "Trabajo saliente atómico local",
-      "evidence": null
+      "summary": "Locally atomic mandatory outbound work",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-RECOVERY",
       "status": "ACCEPTED",
-      "summary": "Saga durable recuperable",
-      "evidence": null
+      "summary": "Durable crash and message recovery for business saga",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-IMPL",
       "status": "PROPOSED — SELECTED",
-      "summary": "Materialización Inbox/Outbox/polling",
-      "evidence": null
+      "summary": "Candidate physical inbox/outbox/worker polling",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-CONCURRENCY",
       "status": "PENDING",
-      "summary": "Leases/fencing físicos",
-      "evidence": null
+      "summary": "Worker leasing, fencing and concurrency pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-MONGO",
       "status": "PENDING",
-      "summary": "Transacciones/write concern/journal/commit ambiguo",
-      "evidence": null
+      "summary": "Mongo write concern, transaction atomicity, journaling and commit-unknown behavior pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-05-OPS",
       "status": "PENDING",
-      "summary": "Polling/reintentos/alertas",
-      "evidence": null
+      "summary": "Polling, reconciliation, alerts and escalation pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-05-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-EXCL",
       "status": "ACCEPTED",
-      "summary": "Una oportunidad cobrable simultánea por obligación",
-      "evidence": null
+      "summary": "Only one potentially collectible commercial opportunity at once",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-P01",
       "status": "PROPOSED — SELECTED",
-      "summary": "Dos sesiones máximo candidato",
-      "evidence": null
+      "summary": "Two hosted commercial Sessions candidate, not ratified",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "FSM secuencial",
-      "evidence": null
+      "summary": "Candidate PaymentAttempt admission and successor guards",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-OPS",
       "status": "PENDING",
-      "summary": "Antifraude/limitación",
-      "evidence": null
+      "summary": "Anti-abuse limits, operational metrics and thresholds pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-RETRY-WINDOW",
       "status": "PENDING",
-      "summary": "Ventana nuevo intento",
-      "evidence": null
+      "summary": "Post-negative commercial retry request window pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-06-INTENT",
       "status": "PENDING",
-      "summary": "Correlación entre checkouts",
-      "evidence": null
+      "summary": "Commercial intent correlation across checkouts pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-06-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07-EXCL",
       "status": "ACCEPTED",
-      "summary": "Cancelación bloquea nueva admisión incompatible",
-      "evidence": null
+      "summary": "Accepted cancellation blocks new incompatible financial admission",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "FSM cancelación",
-      "evidence": null
+      "summary": "Candidate cancellation process FSM",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07-CONCURRENCY",
       "status": "PENDING",
-      "summary": "Carreras cancelación/despacho",
-      "evidence": null
+      "summary": "Cancellation versus payment/session race protocol pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07-AUTH",
       "status": "PENDING",
-      "summary": "Cancelación checkout invitado",
-      "evidence": null
+      "summary": "Guest cancellation authorization to M00.3 pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "D-07-OPS",
       "status": "PENDING",
-      "summary": "Intervalos/reintentos/escalado",
-      "evidence": null
+      "summary": "Cancel/reconcile timing and escalation pending",
+      "evidenceStatus": "NOT_EVALUATED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/02-decisions/D-07-full-adr.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01-DIR",
       "status": "ACCEPTED",
-      "summary": "Admisión versionada, cierre durable, liberación condicional",
-      "evidence": "TEST_PLANNED"
+      "summary": "Versioned financial admission, durable closing barrier, conditional release direction",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01-DISPATCH-POLICY",
       "status": "ACCEPTED",
-      "summary": "Despacho habilitado potencialmente ejecutable hasta cierre acreditado",
-      "evidence": "TEST_PLANNED"
+      "summary": "Conservative durable dispatch exposure and evidence-gated closure",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01-DISPATCH-NEUTRALIZATION",
       "status": "PENDING / BLOCKING",
-      "summary": "Neutralizar POST Stripe tardíos",
-      "evidence": "TEST_PLANNED"
+      "summary": "Unproved quiescence of previously enabled Stripe HTTP sends",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01-DISPATCH-PROVIDER-WINDOW",
       "status": "PENDING",
-      "summary": "expires_at absoluto solo hipótesis",
-      "evidence": "TEST_PLANNED"
+      "summary": "Absolute expires_at as unverified provider hypothesis only",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01-PROTOCOL",
       "status": "PROPOSED — SELECTED",
-      "summary": "Protocolo intercontexto",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate final cross-context command and guard protocol",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-02-RECOVERY-POLICY",
       "status": "ACCEPTED",
-      "summary": "Reconciliación multicapa; no inferir ausencia de búsqueda negativa",
-      "evidence": "TEST_PLANNED"
+      "summary": "Multi-layer financial recovery and positive-evidence closure",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-02-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-02-PROTOCOL",
       "status": "PROPOSED — SELECTED",
-      "summary": "Flujo concreto recuperación",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate source-correlated provider recovery steps",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-02-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-02-PROVIDER-PROOF",
       "status": "PENDING / BLOCKING",
-      "summary": "Prueba proveedor Session ID desconocido",
-      "evidence": "TEST_PLANNED"
+      "summary": "Insufficient proof of universal closure for Session-ID-unknown operations",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-02-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-02-OPS",
       "status": "PENDING",
-      "summary": "Operación/escalado",
-      "evidence": "TEST_PLANNED"
+      "summary": "Unknown operation investigation and escalation pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-02-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-OBLIGATION-POLICY",
       "status": "ACCEPTED",
-      "summary": "Order durable previo; distinción prestación exigible",
-      "evidence": "TEST_PLANNED"
+      "summary": "Preexisting Order and preserved captured commercial obligation",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-PROPAGATION",
       "status": "ACCEPTED",
-      "summary": "Pagos y propagación atómica local, recepción idempotente",
-      "evidence": "TEST_PLANNED"
+      "summary": "Mandatory durable/idempotent Payments-to-Ordering propagation",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-CONTRACT",
       "status": "PROPOSED — SELECTED",
-      "summary": "Contrato semántico conceptual",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate financial-fact and commercial-incorporation contract",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "FSM obligación",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate obligation/Order transition model",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-IMPL",
       "status": "PENDING",
-      "summary": "Persistencia/transporte",
-      "evidence": "TEST_PLANNED"
+      "summary": "Physical Mongo/transport implementation pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03-CAPTURE",
       "status": "PENDING",
-      "summary": "Autorizado vs captured",
-      "evidence": "TEST_PLANNED"
+      "summary": "Capture semantics and evidence threshold pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04-EXCLUSION-POLICY",
       "status": "ACCEPTED",
-      "summary": "Una resolución comercial incompatible a la vez",
-      "evidence": "TEST_PLANNED"
+      "summary": "Exclusive commercial resolution under irreversible effects",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04-EFFECT-HANDOFF",
       "status": "PROPOSED — SELECTED",
-      "summary": "Despacho controlado de efectos",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate versioned effect execution/handoff",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04-QUIESCENCE",
       "status": "PENDING / BLOCKING",
-      "summary": "Neutralización efectos de entrega/refund",
-      "evidence": "TEST_PLANNED"
+      "summary": "Unproved cessation of stale license disclosure or refund effects",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04-SM",
       "status": "PROPOSED — SELECTED",
-      "summary": "FSM reparación",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate compensation/refund/fulfillment FSM",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04-IMPL",
       "status": "PENDING",
-      "summary": "Materialización",
-      "evidence": "TEST_PLANNED"
+      "summary": "Physical execution and storage protocol pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-01-FSM-POLICY",
       "status": "ACCEPTED",
-      "summary": "FSM de cuatro estados como candidata; StockPool aún sin modelo atómico",
-      "evidence": "TEST_PLANNED"
+      "summary": "Accepted direction toward capacity-only four-state Reservation FSM",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02-OWNERSHIP-POLICY",
       "status": "ACCEPTED",
-      "summary": "Autoridades por bounded context",
-      "evidence": "TEST_PLANNED"
+      "summary": "Separate authoritative facts by bounded context",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02-COORDINATION-POLICY",
       "status": "ACCEPTED",
-      "summary": "CheckoutProcess saga durable no fuente financiera",
-      "evidence": "TEST_PLANNED"
+      "summary": "Minimal but durable CheckoutProcess as recovery coordinator",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02-FSM-MIN",
       "status": "PENDING",
-      "summary": "No existe FSM mínima seleccionada",
-      "evidence": "TEST_PLANNED"
+      "summary": "Concrete minimal saga FSM not selected; PENDING",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02-CONTRACT",
       "status": "PROPOSED — SELECTED",
-      "summary": "Contrato conceptual de coordinación",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate semantic contract between Order, coordinator and Payments",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02-IMPL",
       "status": "PENDING",
-      "summary": "Persistencia efectiva",
-      "evidence": "TEST_PLANNED"
+      "summary": "Atomicity and concrete storage/recovery pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03-WINDOW-POLICY",
       "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Doble límite comercial, NO ratificado",
-      "evidence": "TEST_PLANNED"
+      "summary": "Relative and absolute retry admission windows only proposed, NOT ratified",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03-SAFE-RETENTION",
       "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Retención segura propuesta, NO ratificada independientemente",
-      "evidence": "TEST_PLANNED"
+      "summary": "Safe protected-capacity condition inside unratified retry proposal",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03-WINDOW-VALUES",
       "status": "PENDING",
-      "summary": "Valores ventanas",
-      "evidence": "TEST_PLANNED"
+      "summary": "Commercial retry window parameters pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03-PROTOCOL",
       "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Protocolo doble ventana, NO ratificado",
-      "evidence": "TEST_PLANNED"
+      "summary": "Candidate commercial admission deadlines, NOT ratified",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03-OPS",
       "status": "PENDING",
-      "summary": "Operación límites",
-      "evidence": "TEST_PLANNED"
+      "summary": "Operational expiry/escalation model pending",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-01",
       "status": "OPEN / BLOCKING",
-      "summary": "Exclusión financiera y liberación",
-      "evidence": "TEST_PLANNED"
+      "summary": "P0 blocker: old external Stripe dispatch may still create a collectible Session",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-01-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-02",
       "status": "OPEN / BLOCKING",
-      "summary": "Recuperación externa sin Session ID",
-      "evidence": "TEST_PLANNED"
+      "summary": "P0 blocker: unknown Stripe Session without ID cannot always be conclusively closed",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-02-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-03",
       "status": "OPEN / BLOCKING",
-      "summary": "Obligación cobrada vs Ordering caído",
-      "evidence": "TEST_PLANNED"
+      "summary": "P0 blocker: capture and obligation propagation must survive inter-context failure",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-03-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P0-04",
       "status": "OPEN / BLOCKING",
-      "summary": "Fulfillment y refund ya en vuelo",
-      "evidence": "TEST_PLANNED"
+      "summary": "P0 blocker: prior irreversible Fulfillment/Refund effects cannot be assumed neutralized",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [
+        "docs/04-audit/AUD-P0-04-deep-dive.md"
+      ],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-01",
       "status": "OPEN",
-      "summary": "Reservation R1 vs D-01-SM",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: Reservation FSM and StockPool conservation",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-02",
       "status": "OPEN",
-      "summary": "Autoridad Order/CheckoutProcess/Payments",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: duplicate authorities among Order/CheckoutProcess/Payment",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-03",
       "status": "OPEN / NOT RATIFIED",
-      "summary": "Ventanas comerciales pendiente ratificación",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: commercial retry windows not ratified",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-04",
       "status": "OPEN",
-      "summary": "Stripe Connect/captura/config métodos",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: Stripe Connect, capture and method restriction",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-05",
       "status": "OPEN",
-      "summary": "Atomicidad física Mongo",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: Mongo financial atomicity and persistence guarantees",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P1-06",
       "status": "OPEN",
-      "summary": "Protección y entrega multilínea",
-      "evidence": "TEST_PLANNED"
+      "summary": "P1 open: multi-line all-or-nothing capacity and fulfillment",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P2-01",
       "status": "OPEN",
-      "summary": "Glosario",
-      "evidence": "TEST_PLANNED"
+      "summary": "P2 open: exact domain/provider vocabulary and meanings",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P2-02",
       "status": "OPEN",
-      "summary": "35 minutos y 2 sesiones sin probar",
-      "evidence": "TEST_PLANNED"
+      "summary": "P2 open: evidence for proposed 35-minute and two-session defaults",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
     },
     {
       "id": "AUD-P2-03",
       "status": "OPEN",
-      "summary": "Trazabilidad pruebas dispersa",
-      "evidence": "TEST_PLANNED"
+      "summary": "P2 open: unified trace from requirement to actual test evidence",
+      "evidenceStatus": "TEST_PLANNED",
+      "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
+      "sourceLinks": [],
+      "date": "2026-10-13"
+    },
+    {
+      "id": "GOV-001",
+      "status": "ACCEPTED",
+      "summary": "English is mandatory for all future repository artifacts, issues, commits, planning records and communication.",
+      "evidenceStatus": "NOT_APPLICABLE",
+      "sourceCategory": "LATEST_EXPLICIT_USER_POLICY",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "GOV-002",
+      "status": "ACCEPTED",
+      "summary": "All changes happen on independent feature/*, bugfix/* or equivalent scoped branches and reviewed pull requests, never directly on main.",
+      "evidenceStatus": "NOT_APPLICABLE",
+      "sourceCategory": "LATEST_EXPLICIT_USER_POLICY",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "GOV-003",
+      "status": "ACCEPTED",
+      "summary": "Use Conventional Commits with type(scope): message; never credit assistants, tools or external services as co-authors or contributors.",
+      "evidenceStatus": "NOT_APPLICABLE",
+      "sourceCategory": "LATEST_EXPLICIT_USER_POLICY",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "GOV-004",
+      "status": "ACCEPTED",
+      "summary": "GitHub account sergio-tr is the sole default owner, author and responsible assignee across code and planning.",
+      "evidenceStatus": "NOT_APPLICABLE",
+      "sourceCategory": "LATEST_EXPLICIT_USER_POLICY",
+      "date": "2026-10-13"
     }
   ]
 }

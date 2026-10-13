@@ -1,509 +1,541 @@
 {
   "snapshot": "2026-10-13",
-  "number_of_tests": 148,
-  "policy": "TEST_PLANNED is not VERIFIED. Enunciados de D05..D07 SOURCE_GAP; nombres reconstruidos no son literales del archivo histórico. AUD13 propone ensayos para decisión no ratificada.",
-  "suites": {
-    "D05": {
-      "count": 10,
-      "theme": "Inbox/Outbox, durable Stripe ops y saga"
-    },
-    "D06": {
-      "count": 14,
-      "theme": "PaymentAttempts comerciales secuenciales"
-    },
-    "D07": {
-      "count": 14,
-      "theme": "Cancelación express Stripe y reconciliación"
-    },
-    "AUD01": {
-      "count": 12,
-      "theme": "Exclusión financiera y liberación"
-    },
-    "AUD01-DT": {
-      "count": 10,
-      "theme": "Neutralización de despacho Stripe"
-    },
-    "AUD02": {
-      "count": 16,
-      "theme": "Stripe sin Session ID, conciliación"
-    },
-    "AUD03": {
-      "count": 16,
-      "theme": "Order obligación, Payment y propagación"
-    },
-    "AUD04": {
-      "count": 16,
-      "theme": "Fulfillment vs Refund"
-    },
-    "AUD11": {
-      "count": 12,
-      "theme": "FSM Reservation y balance de capacidad"
-    },
-    "AUD12": {
-      "count": 12,
-      "theme": "Order/CheckoutProcess/Payments ownership"
-    },
-    "AUD13": {
-      "count": 16,
-      "theme": "Ventana doble propuesta NO ratificada"
-    }
-  },
+  "testCount": 148,
+  "explicitlySourceReconciled": 38,
+  "source": "19 uploaded source artifacts (manifest SHA-256); D05/D06/D07 tables directly reconstructed in English; other tests retain their previous descriptive titles and require exact source-table oracle review",
+  "policy": "These are future experiments, not executed tests. Never claim VERIFIED from definitions or mocked Stripe responses. AUD13 belongs to an unratified proposal.",
   "tests": [
     {
       "id": "D05-T01",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe response is received, process crashes before recording its result",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Recover and reconcile the identifiable original external operation",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T02",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Payments captures a successful charge, process stops before Ordering records paid",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Ordering eventually applies the payment exactly once",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T03",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "The same webhook arrives again or out of order",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "No illegitimate financial regression or duplicated business effect",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T04",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Two workers claim the same durable operation",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "One semantic commercial effect",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T05",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "MongoDB is unavailable during an externally valid charge",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Preserve and recover the commercial obligation after database recovery",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T06",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "An internal financial-result message is lost",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Detect and execute the pending durable handoff",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T07",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "CreateRefund returns an HTTP timeout",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Never issue an uncorrelated duplicate refund; reconcile first",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T08",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe event belongs to another account or tenant",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reject attribution and prevent cross-scope mutation",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T09",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "MongoDB reports an ambiguous local write result",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Re-read/reconcile; timeout is not proof the write failed",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D05-T10",
       "suite": "D05",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "A process restarts after automatic retries are exhausted",
       "theme": "Inbox/Outbox, durable Stripe ops y saga",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Durable case persists and is escalated, not silently erased",
+      "source_scope": "D-05 original review"
     },
     {
       "id": "D06-T01",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Buyer double-clicks Pay concurrently",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Only one commercial Session authorized and one logical result",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T02",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Card fails within an existing open Stripe Session",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not automatically create another commercial PaymentAttempt",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T03",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Session expires and prior negative financial closure is proven",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Allow a successor only if protected Reservation and guards remain valid",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T04",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe Session A was created but its response was lost",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Investigate A; never create successor B merely due to the timeout",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T05",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Session A is complete but its PaymentIntent is processing",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not authorize Session B while prior money can settle",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T06",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Late provider webhook contradicts an earlier local closure",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Preserve exposure, investigate, avoid duplicate fulfillment",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T07",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Two workers try to create successor Session B",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Authorize one generation only",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T08",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Worker crashes after authorizing B and before calling Stripe",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Recover the same original external operation identity",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T09",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Original Reservation was already released before requesting B",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reject reuse of released capacity",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T10",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "The accepted number-of-attempts limit was reached",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not create another commercial Session absent new approved policy",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T11",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Offer price changes between Session A and B",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Accepted immutable Order snapshot remains unchanged",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T12",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "A buyer from another Store attempts to reuse an Attempt",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reject with no cross-store financial effects",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T13",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "First payment confirms while a second opportunity is requested",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Deny incompatible new Session and preserve the confirmed obligation",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D06-T14",
       "suite": "D06",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Prior attempt has an unresolved refund",
       "theme": "PaymentAttempts comerciales secuenciales",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not re-collect the same obligation automatically",
+      "source_scope": "D-06 original review"
     },
     {
       "id": "D07-T01",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Authorized express cancellation while Stripe Session is open",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Verify provider expiration and release only after safe financial reconciliation",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T02",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Buyer submits duplicate cancellation requests",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Only one effective commercial cancellation resolution",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T03",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Cancellation competes with 3D Secure confirmation",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not release while there is confirmed or unknown money",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T04",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe expiration request response is lost",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reconcile its actual outcome before Inventory release",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T05",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe reports the Session already expired",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reconcile all financial opportunities; this is not automatic safe release",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T06",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Stripe reports Session not eligible for expiration",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Inspect completed/processing outcomes and preserve obligation",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T07",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Cancellation occurs while Session creation result is unknown",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not orphan a collectible Stripe Session",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T08",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Cancellation races with D-06 successor authorization",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Exclude incompatible financial admissions conditionally",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T09",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Provider webhooks are duplicated or out of order",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "No duplicate capacity release or state regression",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T10",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "MongoDB or worker crashes after requesting Session expiration",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Recover exact operation identity and reconcile after restart",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T11",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Browser arrives via cancel_url or closes a tab without authorization",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Do not interpret navigation as commercial/financial cancellation",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T12",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Actor tries to cancel a different Store's checkout",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reject authorization with no cross-store effects",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T13",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "Cancellation is requested after capture is confirmed",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Preserve the paid Order's commercial obligation",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "D07-T14",
       "suite": "D07",
-      "title": "SOURCE_GAP: enunciado original no íntegramente disponible",
+      "title": "An obsolete release command targets a newly legitimate Reservation",
       "theme": "Cancelación express Stripe y reconciliación",
-      "description_provenance": "IDENTIFIER_ONLY",
+      "description_provenance": "SOURCE_TABLE_TRANSLATED_TO_ENGLISH",
       "decision_status": "ACCEPTED_POLICY_OR_PLANNED_SCENARIO",
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "Reject stale identity/version and preserve valid capacity",
+      "source_scope": "D-07 original review"
     },
     {
       "id": "AUD01-T01",
@@ -515,7 +547,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T02",
@@ -527,7 +560,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T03",
@@ -539,7 +573,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T04",
@@ -551,7 +586,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T05",
@@ -563,7 +599,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T06",
@@ -575,7 +612,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T07",
@@ -587,7 +625,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T08",
@@ -599,7 +638,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T09",
@@ -611,7 +651,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T10",
@@ -623,7 +664,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T11",
@@ -635,7 +677,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-T12",
@@ -647,7 +690,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT01",
@@ -659,7 +703,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT02",
@@ -671,7 +716,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT03",
@@ -683,7 +729,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT04",
@@ -695,7 +742,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT05",
@@ -707,7 +755,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT06",
@@ -719,7 +768,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT07",
@@ -731,7 +781,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT08",
@@ -743,7 +794,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT09",
@@ -755,7 +807,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD01-DT10",
@@ -767,7 +820,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T01",
@@ -779,7 +833,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T02",
@@ -791,7 +846,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T03",
@@ -803,7 +859,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T04",
@@ -815,7 +872,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T05",
@@ -827,7 +885,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T06",
@@ -839,7 +898,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T07",
@@ -851,7 +911,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T08",
@@ -863,7 +924,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T09",
@@ -875,7 +937,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T10",
@@ -887,7 +950,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T11",
@@ -899,7 +963,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T12",
@@ -911,7 +976,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T13",
@@ -923,7 +989,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T14",
@@ -935,7 +1002,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T15",
@@ -947,7 +1015,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD02-T16",
@@ -959,7 +1028,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T01",
@@ -971,7 +1041,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T02",
@@ -983,7 +1054,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T03",
@@ -995,7 +1067,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T04",
@@ -1007,7 +1080,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T05",
@@ -1019,7 +1093,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T06",
@@ -1031,7 +1106,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T07",
@@ -1043,7 +1119,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T08",
@@ -1055,7 +1132,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T09",
@@ -1067,7 +1145,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T10",
@@ -1079,7 +1158,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T11",
@@ -1091,7 +1171,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T12",
@@ -1103,7 +1184,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T13",
@@ -1115,7 +1197,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T14",
@@ -1127,7 +1210,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T15",
@@ -1139,7 +1223,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD03-T16",
@@ -1151,7 +1236,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T01",
@@ -1163,7 +1249,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T02",
@@ -1175,7 +1262,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T03",
@@ -1187,7 +1275,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T04",
@@ -1199,7 +1288,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T05",
@@ -1211,7 +1301,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T06",
@@ -1223,7 +1314,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T07",
@@ -1235,7 +1327,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T08",
@@ -1247,7 +1340,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T09",
@@ -1259,7 +1353,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T10",
@@ -1271,7 +1366,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T11",
@@ -1283,7 +1379,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T12",
@@ -1295,7 +1392,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T13",
@@ -1307,7 +1405,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T14",
@@ -1319,7 +1418,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T15",
@@ -1331,7 +1431,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD04-T16",
@@ -1343,7 +1444,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T01",
@@ -1355,7 +1457,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T02",
@@ -1367,7 +1470,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T03",
@@ -1379,7 +1483,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T04",
@@ -1391,7 +1496,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T05",
@@ -1403,7 +1509,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T06",
@@ -1415,7 +1522,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T07",
@@ -1427,7 +1535,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T08",
@@ -1439,7 +1548,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T09",
@@ -1451,7 +1561,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T10",
@@ -1463,7 +1574,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T11",
@@ -1475,7 +1587,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD11-T12",
@@ -1487,7 +1600,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T01",
@@ -1499,7 +1613,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T02",
@@ -1511,7 +1626,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T03",
@@ -1523,7 +1639,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T04",
@@ -1535,7 +1652,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T05",
@@ -1547,7 +1665,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T06",
@@ -1559,7 +1678,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T07",
@@ -1571,7 +1691,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T08",
@@ -1583,7 +1704,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T09",
@@ -1595,7 +1717,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T10",
@@ -1607,7 +1730,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T11",
@@ -1619,7 +1743,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD12-T12",
@@ -1631,7 +1756,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T01",
@@ -1643,7 +1769,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T02",
@@ -1655,7 +1782,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T03",
@@ -1667,7 +1795,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T04",
@@ -1679,7 +1808,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T05",
@@ -1691,7 +1821,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T06",
@@ -1703,7 +1834,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T07",
@@ -1715,7 +1847,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T08",
@@ -1727,7 +1860,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T09",
@@ -1739,7 +1873,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T10",
@@ -1751,7 +1886,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T11",
@@ -1763,7 +1899,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T12",
@@ -1775,7 +1912,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T13",
@@ -1787,7 +1925,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T14",
@@ -1799,7 +1938,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T15",
@@ -1811,7 +1951,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     },
     {
       "id": "AUD13-T16",
@@ -1823,7 +1964,8 @@
       "evidence_status": "TEST_PLANNED",
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
-      "milestone": "M00.1 design / M04 future test"
+      "milestone": "M00.1 design / M04 future test",
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
     }
   ]
 }

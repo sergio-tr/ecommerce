@@ -1,154 +1,154 @@
-# ComercioCore — Catálogo de experimentos
+# CommerceCore — Recovered Future Experiment Catalog
 
-**148 identificadores planificados. No hay resultados de ejecución ni estado VERIFIED.** AUD13 corresponde a una propuesta aún NO RATIFICADA. En D05/D06/D07 faltan enunciados originales íntegros: mantener SOURCE_GAP en lugar de inventarlos.
+**148 stable IDs.** All evidence statuses are **TEST_PLANNED**, all execution statuses **NOT_RUN**, and none are VERIFIED. The 38 D05/D06/D07 scenarios are now source-reconciled from the uploaded original review tables and include expected observable outcomes. Other entries are retained from the previous reconstruction and require detailed oracle verification against the source review before implementation. AUD13 belongs to an **unratified** policy option.
 
-| ID | Suite | Escenario resumido | Evidencia |
+| Test ID | Case | Required observable result | Source certainty |
 |---|---|---|---|
-| D05-T01 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T02 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T03 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T04 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T05 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T06 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T07 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T08 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T09 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D05-T10 | D05 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T01 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T02 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T03 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T04 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T05 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T06 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T07 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T08 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T09 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T10 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T11 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T12 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T13 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D06-T14 | D06 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T01 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T02 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T03 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T04 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T05 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T06 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T07 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T08 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T09 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T10 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T11 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T12 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T13 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| D07-T14 | D07 | SOURCE_GAP: enunciado original no íntegramente disponible | TEST_PLANNED |
-| AUD01-T01 | AUD01 | ProtectReservation contra expiración inicial | TEST_PLANNED |
-| AUD01-T02 | AUD01 | Autorización antigua rechazada tras barrera | TEST_PLANNED |
-| AUD01-T03 | AUD01 | Cancelación simultánea con nuevo intento | TEST_PLANNED |
-| AUD01-T04 | AUD01 | Worker suspendido conserva exposición | TEST_PLANNED |
-| AUD01-T05 | AUD01 | Session creada después de solicitud de cancelación | TEST_PLANNED |
-| AUD01-T06 | AUD01 | 3DS confirmado durante expire | TEST_PLANNED |
-| AUD01-T07 | AUD01 | Liberación duplicada solo una transición | TEST_PLANNED |
-| AUD01-T08 | AUD01 | Permiso liberación con versión o reserva equivocada | TEST_PLANNED |
-| AUD01-T09 | AUD01 | Caída tras sello financiero antes de Inventory | TEST_PLANNED |
-| AUD01-T10 | AUD01 | Dos workers con comando financiero obsoleto | TEST_PLANNED |
-| AUD01-T11 | AUD01 | Outcome externo desconocido prolongado | TEST_PLANNED |
-| AUD01-T12 | AUD01 | Separar Payments y mantener invariantes | TEST_PLANNED |
-| AUD01-DT01 | AUD01-DT | Worker suspendido antes de habilitar despacho | TEST_PLANNED |
-| AUD01-DT02 | AUD01-DT | Worker suspendido después habilitar pero antes POST | TEST_PLANNED |
-| AUD01-DT03 | AUD01-DT | Lease caduco y worker revivido | TEST_PLANNED |
-| AUD01-DT04 | AUD01-DT | POST llega a Stripe sin respuesta | TEST_PLANNED |
-| AUD01-DT05 | AUD01-DT | Proceso termina tras enviar POST | TEST_PLANNED |
-| AUD01-DT06 | AUD01-DT | POST repetido tras posible purga de 24h de key | TEST_PLANNED |
-| AUD01-DT07 | AUD01-DT | Session expirada y POST viejo crea otra | TEST_PLANNED |
-| AUD01-DT08 | AUD01-DT | Cancelación contra habilitación de despacho | TEST_PLANNED |
-| AUD01-DT09 | AUD01-DT | Stripe outage con operación UNKNOWN | TEST_PLANNED |
-| AUD01-DT10 | AUD01-DT | Hipótesis límite expires_at inmutable test mode | TEST_PLANNED |
-| AUD02-T01 | AUD02 | POST crea Session y respuesta perdida | TEST_PLANNED |
-| AUD02-T02 | AUD02 | Repetición con key original conservada | TEST_PLANNED |
-| AUD02-T03 | AUD02 | POST original no ejecutado y repetición que puede crear | TEST_PLANNED |
-| AUD02-T04 | AUD02 | 500 guardado bajo clave idempotente | TEST_PLANNED |
-| AUD02-T05 | AUD02 | Session sin PaymentIntent conocido | TEST_PLANNED |
-| AUD02-T06 | AUD02 | List Sessions por intervalo y correlación | TEST_PLANNED |
-| AUD02-T07 | AUD02 | Search PaymentIntent eventual negativo | TEST_PLANNED |
-| AUD02-T08 | AUD02 | Webhook tardío después de consulta negativa | TEST_PLANNED |
-| AUD02-T09 | AUD02 | Dos Sessions candidatas y misma correlación | TEST_PLANNED |
-| AUD02-T10 | AUD02 | Key posiblemente purgada y no retry inseguro | TEST_PLANNED |
-| AUD02-T11 | AUD02 | Sesión expirada pero trabajador viejo ejecutable | TEST_PLANNED |
-| AUD02-T12 | AUD02 | Stripe indisponible horas y escalado | TEST_PLANNED |
-| AUD02-T13 | AUD02 | Tenant/account/mode incorrecto | TEST_PLANNED |
-| AUD02-T14 | AUD02 | Cancelación con CreateSession unknown | TEST_PLANNED |
-| AUD02-T15 | AUD02 | Caída antes persistir Session ID recuperado | TEST_PLANNED |
-| AUD02-T16 | AUD02 | Prueba ventana expires_at absoluto | TEST_PLANNED |
-| AUD03-T01 | AUD03 | Stripe confirma con Ordering caído | TEST_PLANNED |
-| AUD03-T02 | AUD03 | Payments cae después de persistir hecho | TEST_PLANNED |
-| AUD03-T03 | AUD03 | Ordering ACK perdido tras aplicar transición | TEST_PLANNED |
-| AUD03-T04 | AUD03 | Dos webhooks por un mismo cobro | TEST_PLANNED |
-| AUD03-T05 | AUD03 | Eventos externos desordenados | TEST_PLANNED |
-| AUD03-T06 | AUD03 | PaymentAttempt conocido, Order inaccesible | TEST_PLANNED |
-| AUD03-T07 | AUD03 | Cobro sin Order acreditable | TEST_PLANNED |
-| AUD03-T08 | AUD03 | Order PENDING_PAYMENT aunque cobro confirmado | TEST_PLANNED |
-| AUD03-T09 | AUD03 | Cobro tardío después cancelación | TEST_PLANNED |
-| AUD03-T10 | AUD03 | Monto/moneda contra snapshot | TEST_PLANNED |
-| AUD03-T11 | AUD03 | Crash al persistir Order y continuación | TEST_PLANNED |
-| AUD03-T12 | AUD03 | Mongo commit local desconocido | TEST_PLANNED |
-| AUD03-T13 | AUD03 | Dos workers entregan PaymentConfirmed | TEST_PLANNED |
-| AUD03-T14 | AUD03 | Otro tenant/cuenta atribución prohibida | TEST_PLANNED |
-| AUD03-T15 | AUD03 | requires_capture no significa captura | TEST_PLANNED |
-| AUD03-T16 | AUD03 | Extraer Payments sin escrituras cruzadas | TEST_PLANNED |
-| AUD04-T01 | AUD04 | Dos workers autorizan ramas distintas | TEST_PLANNED |
-| AUD04-T02 | AUD04 | Licencia entregada, respuesta perdida | TEST_PLANNED |
-| AUD04-T03 | AUD04 | CreateRefund enviada, respuesta perdida | TEST_PLANNED |
-| AUD04-T04 | AUD04 | Worker Fulfillment suspendido antes exponer | TEST_PLANNED |
-| AUD04-T05 | AUD04 | Comando de entrega obsoleto | TEST_PLANNED |
-| AUD04-T06 | AUD04 | Refund pending mientras reaparece stock | TEST_PLANNED |
-| AUD04-T07 | AUD04 | Refund confirmado con webhook duplicado | TEST_PLANNED |
-| AUD04-T08 | AUD04 | Refund failed/unknown y obligación abierta | TEST_PLANNED |
-| AUD04-T09 | AUD04 | Licencia ya expuesta antes de refund | TEST_PLANNED |
-| AUD04-T10 | AUD04 | Dos líneas, una sin asignar antes exposición | TEST_PLANNED |
-| AUD04-T11 | AUD04 | Exposición parcial excepcional | TEST_PLANNED |
-| AUD04-T12 | AUD04 | Caída tras seleccionar rama, antes comando | TEST_PLANNED |
-| AUD04-T13 | AUD04 | Caída tras habilitar efecto sin resultado | TEST_PLANNED |
-| AUD04-T14 | AUD04 | Cross-tenant/account rechazado | TEST_PLANNED |
-| AUD04-T15 | AUD04 | Eventos distintos del mismo Refund | TEST_PLANNED |
-| AUD04-T16 | AUD04 | Extraer Payments/Fulfillment manteniendo invariantes | TEST_PLANNED |
-| AUD11-T01 | AUD11 | Dos reservas última unidad | TEST_PLANNED |
-| AUD11-T02 | AUD11 | TTL inicial contra transición protección | TEST_PLANNED |
-| AUD11-T03 | AUD11 | Stripe abierta tras quince minutos | TEST_PLANNED |
-| AUD11-T04 | AUD11 | Stripe expirada pero resultado financiero unknown | TEST_PLANNED |
-| AUD11-T05 | AUD11 | Segundo intento sin resetear TTL | TEST_PLANNED |
-| AUD11-T06 | AUD11 | Liberación contra nueva sesión | TEST_PLANNED |
-| AUD11-T07 | AUD11 | Commit repetido tras respuesta perdida | TEST_PLANNED |
-| AUD11-T08 | AUD11 | Worker viejo intenta liberar committed | TEST_PLANNED |
-| AUD11-T09 | AUD11 | Reactivar RELEASED imposible | TEST_PLANNED |
-| AUD11-T10 | AUD11 | Refund no vuelve committed a available | TEST_PLANNED |
-| AUD11-T11 | AUD11 | Pedido multilínea stock insuficiente | TEST_PLANNED |
-| AUD11-T12 | AUD11 | Crash escritura StockPool/Reservation | TEST_PLANNED |
-| AUD12-T01 | AUD12 | Payment paid y Order pendiente | TEST_PLANNED |
-| AUD12-T02 | AUD12 | Saga recibe mismo evento duplicado | TEST_PLANNED |
-| AUD12-T03 | AUD12 | Dos eventos mismo cobro | TEST_PLANNED |
-| AUD12-T04 | AUD12 | Ordering cae antes ACK | TEST_PLANNED |
-| AUD12-T05 | AUD12 | Refund unknown no compensa Order | TEST_PLANNED |
-| AUD12-T06 | AUD12 | Refund confirmado conserva cobro histórico | TEST_PLANNED |
-| AUD12-T07 | AUD12 | Cancelación contradice cobro tardío | TEST_PLANNED |
-| AUD12-T08 | AUD12 | Saga stale no abre otro PaymentAttempt | TEST_PLANNED |
-| AUD12-T09 | AUD12 | Proyección stale no autoriza efectos | TEST_PLANNED |
-| AUD12-T10 | AUD12 | Nuevos hechos no borran histórico | TEST_PLANNED |
-| AUD12-T11 | AUD12 | Evento otro tenant/store | TEST_PLANNED |
-| AUD12-T12 | AUD12 | Extraer Payments sin escrituras cruzadas | TEST_PLANNED |
-| AUD13-T01 | AUD13 | Reintento dentro de ventana relativa | TEST_PLANNED |
-| AUD13-T02 | AUD13 | Reintento vencida ventana relativa | TEST_PLANNED |
-| AUD13-T03 | AUD13 | Ventana relativa vigente pero global vencida | TEST_PLANNED |
-| AUD13-T04 | AUD13 | Deadline global con Stripe Session abierta | TEST_PLANNED |
-| AUD13-T05 | AUD13 | Reintento y cierre concurrentes | TEST_PLANNED |
-| AUD13-T06 | AUD13 | Ventana expira mientras Payments caído | TEST_PLANNED |
-| AUD13-T07 | AUD13 | Cobro confirmado tras plazo de admisión | TEST_PLANNED |
-| AUD13-T08 | AUD13 | UNKNOWN supera todos los deadlines | TEST_PLANNED |
-| AUD13-T09 | AUD13 | Segundo intento con Reservation protegida | TEST_PLANNED |
-| AUD13-T10 | AUD13 | Reserva liberada y UI presenta ventana | TEST_PLANNED |
-| AUD13-T11 | AUD13 | Configuración cambia a mitad checkout | TEST_PLANNED |
-| AUD13-T12 | AUD13 | Varios checkouts una intención | TEST_PLANNED |
-| AUD13-T13 | AUD13 | Compra adicional legítima | TEST_PLANNED |
-| AUD13-T14 | AUD13 | Deadline con comunicación pendiente | TEST_PLANNED |
-| AUD13-T15 | AUD13 | Crash después expirar ventana antes sellar | TEST_PLANNED |
-| AUD13-T16 | AUD13 | Reserva anómala detectable/escalable | TEST_PLANNED |
+| D05-T01 | Stripe response is received, process crashes before recording its result | Recover and reconcile the identifiable original external operation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T02 | Payments captures a successful charge, process stops before Ordering records paid | Ordering eventually applies the payment exactly once | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T03 | The same webhook arrives again or out of order | No illegitimate financial regression or duplicated business effect | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T04 | Two workers claim the same durable operation | One semantic commercial effect | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T05 | MongoDB is unavailable during an externally valid charge | Preserve and recover the commercial obligation after database recovery | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T06 | An internal financial-result message is lost | Detect and execute the pending durable handoff | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T07 | CreateRefund returns an HTTP timeout | Never issue an uncorrelated duplicate refund; reconcile first | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T08 | Stripe event belongs to another account or tenant | Reject attribution and prevent cross-scope mutation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T09 | MongoDB reports an ambiguous local write result | Re-read/reconcile; timeout is not proof the write failed | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D05-T10 | A process restarts after automatic retries are exhausted | Durable case persists and is escalated, not silently erased | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T01 | Buyer double-clicks Pay concurrently | Only one commercial Session authorized and one logical result | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T02 | Card fails within an existing open Stripe Session | Do not automatically create another commercial PaymentAttempt | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T03 | Session expires and prior negative financial closure is proven | Allow a successor only if protected Reservation and guards remain valid | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T04 | Stripe Session A was created but its response was lost | Investigate A; never create successor B merely due to the timeout | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T05 | Session A is complete but its PaymentIntent is processing | Do not authorize Session B while prior money can settle | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T06 | Late provider webhook contradicts an earlier local closure | Preserve exposure, investigate, avoid duplicate fulfillment | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T07 | Two workers try to create successor Session B | Authorize one generation only | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T08 | Worker crashes after authorizing B and before calling Stripe | Recover the same original external operation identity | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T09 | Original Reservation was already released before requesting B | Reject reuse of released capacity | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T10 | The accepted number-of-attempts limit was reached | Do not create another commercial Session absent new approved policy | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T11 | Offer price changes between Session A and B | Accepted immutable Order snapshot remains unchanged | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T12 | A buyer from another Store attempts to reuse an Attempt | Reject with no cross-store financial effects | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T13 | First payment confirms while a second opportunity is requested | Deny incompatible new Session and preserve the confirmed obligation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D06-T14 | Prior attempt has an unresolved refund | Do not re-collect the same obligation automatically | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T01 | Authorized express cancellation while Stripe Session is open | Verify provider expiration and release only after safe financial reconciliation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T02 | Buyer submits duplicate cancellation requests | Only one effective commercial cancellation resolution | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T03 | Cancellation competes with 3D Secure confirmation | Do not release while there is confirmed or unknown money | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T04 | Stripe expiration request response is lost | Reconcile its actual outcome before Inventory release | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T05 | Stripe reports the Session already expired | Reconcile all financial opportunities; this is not automatic safe release | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T06 | Stripe reports Session not eligible for expiration | Inspect completed/processing outcomes and preserve obligation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T07 | Cancellation occurs while Session creation result is unknown | Do not orphan a collectible Stripe Session | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T08 | Cancellation races with D-06 successor authorization | Exclude incompatible financial admissions conditionally | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T09 | Provider webhooks are duplicated or out of order | No duplicate capacity release or state regression | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T10 | MongoDB or worker crashes after requesting Session expiration | Recover exact operation identity and reconcile after restart | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T11 | Browser arrives via cancel_url or closes a tab without authorization | Do not interpret navigation as commercial/financial cancellation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T12 | Actor tries to cancel a different Store's checkout | Reject authorization with no cross-store effects | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T13 | Cancellation is requested after capture is confirmed | Preserve the paid Order's commercial obligation | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| D07-T14 | An obsolete release command targets a newly legitimate Reservation | Reject stale identity/version and preserve valid capacity | SOURCE_TABLE_TRANSLATED_TO_ENGLISH |
+| AUD01-T01 | ProtectReservation contra expiración inicial | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T02 | Autorización antigua rechazada tras barrera | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T03 | Cancelación simultánea con nuevo intento | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T04 | Worker suspendido conserva exposición | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T05 | Session creada después de solicitud de cancelación | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T06 | 3DS confirmado durante expire | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T07 | Liberación duplicada solo una transición | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T08 | Permiso liberación con versión o reserva equivocada | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T09 | Caída tras sello financiero antes de Inventory | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T10 | Dos workers con comando financiero obsoleto | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T11 | Outcome externo desconocido prolongado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-T12 | Separar Payments y mantener invariantes | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT01 | Worker suspendido antes de habilitar despacho | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT02 | Worker suspendido después habilitar pero antes POST | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT03 | Lease caduco y worker revivido | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT04 | POST llega a Stripe sin respuesta | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT05 | Proceso termina tras enviar POST | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT06 | POST repetido tras posible purga de 24h de key | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT07 | Session expirada y POST viejo crea otra | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT08 | Cancelación contra habilitación de despacho | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT09 | Stripe outage con operación UNKNOWN | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD01-DT10 | Hipótesis límite expires_at inmutable test mode | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T01 | POST crea Session y respuesta perdida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T02 | Repetición con key original conservada | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T03 | POST original no ejecutado y repetición que puede crear | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T04 | 500 guardado bajo clave idempotente | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T05 | Session sin PaymentIntent conocido | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T06 | List Sessions por intervalo y correlación | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T07 | Search PaymentIntent eventual negativo | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T08 | Webhook tardío después de consulta negativa | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T09 | Dos Sessions candidatas y misma correlación | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T10 | Key posiblemente purgada y no retry inseguro | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T11 | Sesión expirada pero trabajador viejo ejecutable | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T12 | Stripe indisponible horas y escalado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T13 | Tenant/account/mode incorrecto | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T14 | Cancelación con CreateSession unknown | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T15 | Caída antes persistir Session ID recuperado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD02-T16 | Prueba ventana expires_at absoluto | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T01 | Stripe confirma con Ordering caído | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T02 | Payments cae después de persistir hecho | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T03 | Ordering ACK perdido tras aplicar transición | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T04 | Dos webhooks por un mismo cobro | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T05 | Eventos externos desordenados | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T06 | PaymentAttempt conocido, Order inaccesible | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T07 | Cobro sin Order acreditable | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T08 | Order PENDING_PAYMENT aunque cobro confirmado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T09 | Cobro tardío después cancelación | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T10 | Monto/moneda contra snapshot | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T11 | Crash al persistir Order y continuación | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T12 | Mongo commit local desconocido | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T13 | Dos workers entregan PaymentConfirmed | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T14 | Otro tenant/cuenta atribución prohibida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T15 | requires_capture no significa captura | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD03-T16 | Extraer Payments sin escrituras cruzadas | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T01 | Dos workers autorizan ramas distintas | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T02 | Licencia entregada, respuesta perdida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T03 | CreateRefund enviada, respuesta perdida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T04 | Worker Fulfillment suspendido antes exponer | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T05 | Comando de entrega obsoleto | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T06 | Refund pending mientras reaparece stock | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T07 | Refund confirmado con webhook duplicado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T08 | Refund failed/unknown y obligación abierta | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T09 | Licencia ya expuesta antes de refund | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T10 | Dos líneas, una sin asignar antes exposición | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T11 | Exposición parcial excepcional | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T12 | Caída tras seleccionar rama, antes comando | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T13 | Caída tras habilitar efecto sin resultado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T14 | Cross-tenant/account rechazado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T15 | Eventos distintos del mismo Refund | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD04-T16 | Extraer Payments/Fulfillment manteniendo invariantes | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T01 | Dos reservas última unidad | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T02 | TTL inicial contra transición protección | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T03 | Stripe abierta tras quince minutos | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T04 | Stripe expirada pero resultado financiero unknown | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T05 | Segundo intento sin resetear TTL | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T06 | Liberación contra nueva sesión | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T07 | Commit repetido tras respuesta perdida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T08 | Worker viejo intenta liberar committed | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T09 | Reactivar RELEASED imposible | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T10 | Refund no vuelve committed a available | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T11 | Pedido multilínea stock insuficiente | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD11-T12 | Crash escritura StockPool/Reservation | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T01 | Payment paid y Order pendiente | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T02 | Saga recibe mismo evento duplicado | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T03 | Dos eventos mismo cobro | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T04 | Ordering cae antes ACK | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T05 | Refund unknown no compensa Order | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T06 | Refund confirmado conserva cobro histórico | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T07 | Cancelación contradice cobro tardío | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T08 | Saga stale no abre otro PaymentAttempt | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T09 | Proyección stale no autoriza efectos | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T10 | Nuevos hechos no borran histórico | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T11 | Evento otro tenant/store | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD12-T12 | Extraer Payments sin escrituras cruzadas | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T01 | Reintento dentro de ventana relativa | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T02 | Reintento vencida ventana relativa | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T03 | Ventana relativa vigente pero global vencida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T04 | Deadline global con Stripe Session abierta | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T05 | Reintento y cierre concurrentes | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T06 | Ventana expira mientras Payments caído | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T07 | Cobro confirmado tras plazo de admisión | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T08 | UNKNOWN supera todos los deadlines | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T09 | Segundo intento con Reservation protegida | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T10 | Reserva liberada y UI presenta ventana | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T11 | Configuración cambia a mitad checkout | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T12 | Varios checkouts una intención | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T13 | Compra adicional legítima | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T14 | Deadline con comunicación pendiente | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T15 | Crash después expirar ventana antes sellar | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
+| AUD13-T16 | Reserva anómala detectable/escalable | SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation | RECONSTRUCTED_FROM_CONVERSATION |
