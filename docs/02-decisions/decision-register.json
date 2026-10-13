@@ -1,0 +1,481 @@
+{
+  "snapshot": "2026-10-13",
+  "source": "ratifications and audit synthesis",
+  "historical_registry": "../01-historical-baseline/R0.10_181_decisions.json",
+  "records": [
+    {
+      "id": "D-01",
+      "status": "ACCEPTED",
+      "summary": "Reserva 15 minutos para iniciar checkout; protección durable antes de Stripe; Commit tras cobro verificado; liberar por prueba negativa segura",
+      "evidence": null
+    },
+    {
+      "id": "D-02",
+      "status": "ACCEPTED",
+      "summary": "Session Stripe configurable/versionada con expires_at real; sin recuperación automática inicial",
+      "evidence": null
+    },
+    {
+      "id": "D-03",
+      "status": "ACCEPTED",
+      "summary": "Stripe Checkout hosted tarjetas y 3DS; sin pagos diferidos",
+      "evidence": null
+    },
+    {
+      "id": "D-04",
+      "status": "ACCEPTED",
+      "summary": "Cobro crea obligación; recuperación o refund completo si imposible cumplir sin entrega parcial",
+      "evidence": null
+    },
+    {
+      "id": "D-05",
+      "status": "ACCEPTED",
+      "summary": "Inbox verificado; Outbox local atómico; intentos externos previos y saga recuperable sin Kafka M04",
+      "evidence": null
+    },
+    {
+      "id": "D-06",
+      "status": "ACCEPTED",
+      "summary": "PaymentAttempts comerciales secuenciales limitados y exclusividad cobrable",
+      "evidence": null
+    },
+    {
+      "id": "D-07",
+      "status": "ACCEPTED",
+      "summary": "Cancelación expresa autorizada; expiración Session open y conciliación antes liberación",
+      "evidence": null
+    },
+    {
+      "id": "D-01-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Reservation RESERVED/PAYMENT_PROTECTED/COMMITTED/RELEASED",
+      "evidence": null
+    },
+    {
+      "id": "D-02-P01",
+      "status": "PROPOSED — SELECTED",
+      "summary": "35 minutos duración candidata",
+      "evidence": null
+    },
+    {
+      "id": "D-03-WALLET",
+      "status": "DEFERRED",
+      "summary": "Wallets Apple Pay/Google Pay después",
+      "evidence": null
+    },
+    {
+      "id": "D-03-LINK",
+      "status": "PENDING",
+      "summary": "Stripe Link",
+      "evidence": null
+    },
+    {
+      "id": "D-03-CONFIG",
+      "status": "PENDING",
+      "summary": "Restricción métodos efectiva",
+      "evidence": null
+    },
+    {
+      "id": "D-03-CAPTURE",
+      "status": "PENDING",
+      "summary": "Modo de captura; alias de auditoría no ratificado",
+      "evidence": null
+    },
+    {
+      "id": "D-04-EXCL",
+      "status": "ACCEPTED",
+      "summary": "Exclusión fulfillment/refund incompatibles",
+      "evidence": null
+    },
+    {
+      "id": "D-04-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "FSM resolución",
+      "evidence": null
+    },
+    {
+      "id": "D-04-P01",
+      "status": "PENDING",
+      "summary": "Plazos reparación",
+      "evidence": null
+    },
+    {
+      "id": "D-04-CONNECT",
+      "status": "PENDING",
+      "summary": "Refunds Connect",
+      "evidence": null
+    },
+    {
+      "id": "D-05-INBOX",
+      "status": "ACCEPTED",
+      "summary": "Webhook verificado persist-before-2xx",
+      "evidence": null
+    },
+    {
+      "id": "D-05-OUTBOX",
+      "status": "ACCEPTED",
+      "summary": "Trabajo saliente atómico local",
+      "evidence": null
+    },
+    {
+      "id": "D-05-RECOVERY",
+      "status": "ACCEPTED",
+      "summary": "Saga durable recuperable",
+      "evidence": null
+    },
+    {
+      "id": "D-05-IMPL",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Materialización Inbox/Outbox/polling",
+      "evidence": null
+    },
+    {
+      "id": "D-05-CONCURRENCY",
+      "status": "PENDING",
+      "summary": "Leases/fencing físicos",
+      "evidence": null
+    },
+    {
+      "id": "D-05-MONGO",
+      "status": "PENDING",
+      "summary": "Transacciones/write concern/journal/commit ambiguo",
+      "evidence": null
+    },
+    {
+      "id": "D-05-OPS",
+      "status": "PENDING",
+      "summary": "Polling/reintentos/alertas",
+      "evidence": null
+    },
+    {
+      "id": "D-06-EXCL",
+      "status": "ACCEPTED",
+      "summary": "Una oportunidad cobrable simultánea por obligación",
+      "evidence": null
+    },
+    {
+      "id": "D-06-P01",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Dos sesiones máximo candidato",
+      "evidence": null
+    },
+    {
+      "id": "D-06-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "FSM secuencial",
+      "evidence": null
+    },
+    {
+      "id": "D-06-OPS",
+      "status": "PENDING",
+      "summary": "Antifraude/limitación",
+      "evidence": null
+    },
+    {
+      "id": "D-06-RETRY-WINDOW",
+      "status": "PENDING",
+      "summary": "Ventana nuevo intento",
+      "evidence": null
+    },
+    {
+      "id": "D-06-INTENT",
+      "status": "PENDING",
+      "summary": "Correlación entre checkouts",
+      "evidence": null
+    },
+    {
+      "id": "D-07-EXCL",
+      "status": "ACCEPTED",
+      "summary": "Cancelación bloquea nueva admisión incompatible",
+      "evidence": null
+    },
+    {
+      "id": "D-07-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "FSM cancelación",
+      "evidence": null
+    },
+    {
+      "id": "D-07-CONCURRENCY",
+      "status": "PENDING",
+      "summary": "Carreras cancelación/despacho",
+      "evidence": null
+    },
+    {
+      "id": "D-07-AUTH",
+      "status": "PENDING",
+      "summary": "Cancelación checkout invitado",
+      "evidence": null
+    },
+    {
+      "id": "D-07-OPS",
+      "status": "PENDING",
+      "summary": "Intervalos/reintentos/escalado",
+      "evidence": null
+    },
+    {
+      "id": "AUD-P0-01-DIR",
+      "status": "ACCEPTED",
+      "summary": "Admisión versionada, cierre durable, liberación condicional",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-01-DISPATCH-POLICY",
+      "status": "ACCEPTED",
+      "summary": "Despacho habilitado potencialmente ejecutable hasta cierre acreditado",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-01-DISPATCH-NEUTRALIZATION",
+      "status": "PENDING / BLOCKING",
+      "summary": "Neutralizar POST Stripe tardíos",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-01-DISPATCH-PROVIDER-WINDOW",
+      "status": "PENDING",
+      "summary": "expires_at absoluto solo hipótesis",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-01-PROTOCOL",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Protocolo intercontexto",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-02-RECOVERY-POLICY",
+      "status": "ACCEPTED",
+      "summary": "Reconciliación multicapa; no inferir ausencia de búsqueda negativa",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-02-PROTOCOL",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Flujo concreto recuperación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-02-PROVIDER-PROOF",
+      "status": "PENDING / BLOCKING",
+      "summary": "Prueba proveedor Session ID desconocido",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-02-OPS",
+      "status": "PENDING",
+      "summary": "Operación/escalado",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-OBLIGATION-POLICY",
+      "status": "ACCEPTED",
+      "summary": "Order durable previo; distinción prestación exigible",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-PROPAGATION",
+      "status": "ACCEPTED",
+      "summary": "Pagos y propagación atómica local, recepción idempotente",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-CONTRACT",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Contrato semántico conceptual",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "FSM obligación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-IMPL",
+      "status": "PENDING",
+      "summary": "Persistencia/transporte",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03-CAPTURE",
+      "status": "PENDING",
+      "summary": "Autorizado vs captured",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04-EXCLUSION-POLICY",
+      "status": "ACCEPTED",
+      "summary": "Una resolución comercial incompatible a la vez",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04-EFFECT-HANDOFF",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Despacho controlado de efectos",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04-QUIESCENCE",
+      "status": "PENDING / BLOCKING",
+      "summary": "Neutralización efectos de entrega/refund",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04-SM",
+      "status": "PROPOSED — SELECTED",
+      "summary": "FSM reparación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04-IMPL",
+      "status": "PENDING",
+      "summary": "Materialización",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-01-FSM-POLICY",
+      "status": "ACCEPTED",
+      "summary": "FSM de cuatro estados como candidata; StockPool aún sin modelo atómico",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02-OWNERSHIP-POLICY",
+      "status": "ACCEPTED",
+      "summary": "Autoridades por bounded context",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02-COORDINATION-POLICY",
+      "status": "ACCEPTED",
+      "summary": "CheckoutProcess saga durable no fuente financiera",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02-FSM-MIN",
+      "status": "PENDING",
+      "summary": "No existe FSM mínima seleccionada",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02-CONTRACT",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Contrato conceptual de coordinación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02-IMPL",
+      "status": "PENDING",
+      "summary": "Persistencia efectiva",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03-WINDOW-POLICY",
+      "status": "PROPOSED — NOT RATIFIED",
+      "summary": "Doble límite comercial, NO ratificado",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03-SAFE-RETENTION",
+      "status": "PROPOSED — NOT RATIFIED",
+      "summary": "Retención segura propuesta, NO ratificada independientemente",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03-WINDOW-VALUES",
+      "status": "PENDING",
+      "summary": "Valores ventanas",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03-PROTOCOL",
+      "status": "PROPOSED — NOT RATIFIED",
+      "summary": "Protocolo doble ventana, NO ratificado",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03-OPS",
+      "status": "PENDING",
+      "summary": "Operación límites",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-01",
+      "status": "OPEN / BLOCKING",
+      "summary": "Exclusión financiera y liberación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-02",
+      "status": "OPEN / BLOCKING",
+      "summary": "Recuperación externa sin Session ID",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-03",
+      "status": "OPEN / BLOCKING",
+      "summary": "Obligación cobrada vs Ordering caído",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P0-04",
+      "status": "OPEN / BLOCKING",
+      "summary": "Fulfillment y refund ya en vuelo",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-01",
+      "status": "OPEN",
+      "summary": "Reservation R1 vs D-01-SM",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-02",
+      "status": "OPEN",
+      "summary": "Autoridad Order/CheckoutProcess/Payments",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-03",
+      "status": "OPEN / NOT RATIFIED",
+      "summary": "Ventanas comerciales pendiente ratificación",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-04",
+      "status": "OPEN",
+      "summary": "Stripe Connect/captura/config métodos",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-05",
+      "status": "OPEN",
+      "summary": "Atomicidad física Mongo",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P1-06",
+      "status": "OPEN",
+      "summary": "Protección y entrega multilínea",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P2-01",
+      "status": "OPEN",
+      "summary": "Glosario",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P2-02",
+      "status": "OPEN",
+      "summary": "35 minutos y 2 sesiones sin probar",
+      "evidence": "TEST_PLANNED"
+    },
+    {
+      "id": "AUD-P2-03",
+      "status": "OPEN",
+      "summary": "Trazabilidad pruebas dispersa",
+      "evidence": "TEST_PLANNED"
+    }
+  ]
+}
