@@ -1,15 +1,11 @@
-# Fuentes maestras y custodia de originales
+# Source custody and recovery
 
-## Fuentes verificadas
-- Documento original CommerceCore_Decisiones_Maestro_R0.10.docx del 12/10/2026, incorporado al ZIP de traspaso. Su texto completo y las 181 decisiones estructuradas se guardan en docs/01-historical-baseline/.
-- Consolidacion_historica_R0.10_original.txt forma parte del ZIP original; no modifica las 181 selecciones.
-- Ratificaciones D-01–D-07 y AUD posteriores obtenidas de la conversación original. Las narrativas GitHub son síntesis fieles, no transcripciones literales. No se cuenta con export íntegro de M00.1-R1.
-- ZIP previo CommerceCore_contexto_completo_2026-10-13.zip archivado en Biblioteca ChatGPT, ruta /CommerceCore/architecture-baselines/CommerceCore_contexto_completo_2026-10-13.zip.
-- Copia aportada por el usuario CommerceCore_contexto_completo_2026-10-13(1).zip: SHA-256 53a92bcee4bc6fbadfdcbb2913af2a7a05e10d50f0ce5e28a0d9fc8d22b85fa9, 27 archivos.
-- El DOCX binario original no se ha subido al repositorio público; el texto estructurado y original extraído sí, y la copia ZIP persiste por separado.
+The original R0.10 DOCX, the separate proposed M00.1-R1 text, all seven D-01..D-07 design reviews, global audit and P0/P1 reviews are individually hashed in [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md). **All 19 attached source artifacts were inspected.** The canonical repository is English only and publishes reviewed English source-based renderings, not untranslated original prose.
 
-## Cómo recuperar
-Consultar docs/07-handoff/START_HERE.md. Descargar desde Biblioteca el ZIP de custodia para disponer del DOCX y los documentos históricos originales. Consultar GitHub commit/version exacta y luego Linear para el backlog; no reconstruir estados por recuerdos no documentados.
+The original bytes remain in the user-supplied custody archives, including the prior CommerceCore_contexto_completo_2026-10-13.zip stored separately in the ChatGPT Library. A future import must verify SHA-256 before treating any file as the same historical revision. Additional files supplied in this turn should be archived alongside that custody baseline, not silently substituted.
 
-## Criterios de integridad
-El texto R0.10 estructurado contiene 181 IDs únicos R0.x-yy. El registro de decisiones posteriores contiene 79 IDs. Los tests contienen 148 IDs y TEST_PLANNED. Estos conteos no significan que todas las condiciones textuales posteriores hayan sido exportadas literalmente.
+A source text with a heading that says ratification pending is only an earlier *review source*. The later user messages ratified D-01..07 and several audit policies. Keep historical source semantics and current policy status as separate columns.
+
+**Known limitations:** A literal, independently verifiable export of every user ratification message from the conversation is not included among the 19 source files. The ratification detail was reconstructed from the conversation and may not be a verbatim transcript. Additional strict verification must compare against original user messages where available; unverified clauses must be labeled SOURCE_GAP.
+
+**The R1 source is no longer missing.** Its SHA-256 is registered; it was a PROPOSED document and remains a proposed baseline for future R2 diff. Never infer an R2 was accepted or produced merely by these reconstructions.
