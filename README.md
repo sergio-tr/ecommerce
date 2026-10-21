@@ -2,6 +2,10 @@
 
 CommerceCore is a reusable, headless, frontend-agnostic commerce engine. CommerceCloud is an independent multi-tenant SaaS and Control Plane. eGame is the first consumer: controlled sales and delivery of individual digital activation licenses. Standalone distribution and a second independent consumer are future validation gates.
 
+## Latest reviewed planning state (2026-10-21)
+
+[Wave 1 validation report and approved planning directions](docs/planning/wave1/README.md) — draft PR #17, still unmerged. W1-AP-01 accepted the bounded recoverable M04 scope **direction**; W1-AP-02 retained M00–M09 but did not approve M00.5; W1-AP-03/04/05 accepted canonical ID preservation, evidence-based G0–G6 and source reconciliation priorities. The 140 capabilities and 103 work questions remain a validated **inventory with gaps**, not fully ratified implementation scope. Four M00.1 financial P0s remain OPEN / BLOCKING, 148 experiments planned and none VERIFIED.
+
 ## Reading order
 
 1. [Current state](docs/00-governance/CURRENT_STATE.md) and [restoration guide](docs/07-handoff/START_HERE.md).

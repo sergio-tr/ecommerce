@@ -1,0 +1,136 @@
+{
+  "state": "PROPOSED_NO_CANONICAL_CHILD_IDS",
+  "entries": [
+    {
+      "parent": "CAP-PAY-012",
+      "key": "wallets",
+      "source": "D-03-WALLET = DEFERRED",
+      "recommendation": "Deferred",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Cards and 3DS are the approved initial method; wallet integration is not required",
+      "guard": "Dynamic Stripe configuration must not silently enable wallets",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-PAY-012",
+      "key": "link",
+      "source": "D-03-LINK = PENDING; D-03-CONFIG = PENDING",
+      "recommendation": "Still Unresolved",
+      "role": "NOT_ENABLED_UNTIL_DECIDED",
+      "rationale": "Effective Stripe Link behavior must be intentionally included or excluded",
+      "guard": "Actual provider method restrictions require contract and testmode checks",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-EGAME-007",
+      "key": "current-order-status",
+      "source": "D-03, D-07, AUD-P0-03; CAP-EGAME-005",
+      "recommendation": "Included",
+      "role": "IN_SCOPE_MINIMUM",
+      "rationale": "Buyer must see current order pending/unknown, paid/fulfillment and refund accurately",
+      "guard": "UI/projection never authorizes second charge",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-EGAME-007",
+      "key": "cross-order-history",
+      "source": "R0.2-09 supports eGame but not account-wide history",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Multi-order browsing is not required for a recoverable individual purchase",
+      "guard": "Ordering/Payments still retain authoritative history",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-EGAME-009",
+      "key": "accessibility",
+      "source": "R0.2-09 not a precise accessibility acceptance standard",
+      "recommendation": "Still Unresolved",
+      "role": "M04_CRITERIA_REQUIRED",
+      "rationale": "Accessible cancellation, checkout, status and license reveal need an explicit acceptance rule",
+      "guard": "Target standard and test oracles must be ratified",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-EGAME-009",
+      "key": "localization",
+      "source": "SOURCE_GAP: no initial locale-count requirement",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "One UI language is adequate as a *proposal* for first slice",
+      "guard": "Money/currency rendering and commercial text remain accurate",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-EGAME-009",
+      "key": "theming",
+      "source": "Historical reusable shell candidate, not approved initial UI",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Brand/theme customization can be postponed",
+      "guard": "Domain packages remain frontend-independent",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-CAT-008",
+      "key": "translated-product-copy",
+      "source": "SOURCE_GAP for M04 translations",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Single language product name/description adequate first scope proposal",
+      "guard": "Required purchase terms cannot be omitted",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-CAT-008",
+      "key": "managed-media-assets",
+      "source": "SOURCE_GAP for product media pipeline",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Product discovery can begin without image upload/CDN",
+      "guard": "No untrusted media provider assumptions",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-ORD-009",
+      "key": "durable-commercial-financial-history",
+      "source": "D-04, D-05, AUD-P0-03",
+      "recommendation": "Included",
+      "role": "IN_SCOPE_MANDATORY",
+      "rationale": "Historical paid/refunded facts and provider evidence cannot be overwritten",
+      "guard": "Local atomicity and source-of-truth guards still pending",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-ORD-009",
+      "key": "full-buyer-history-archive",
+      "source": "No explicit M04 requirement",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Multi-purchase history is separate from status of current order",
+      "guard": "Incident history remains available to authorized operations",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-ADMIN-008",
+      "key": "tamper-evident-operation-trail",
+      "source": "R0.7-08, R0.7-19 PROPOSED — SELECTED",
+      "recommendation": "Included",
+      "role": "IN_SCOPE_MANDATORY",
+      "rationale": "Privileged refunds, inventory and key operations need attributable evidence",
+      "guard": "Mutable DB collection cannot be claimed immutable without further proof",
+      "approvalState": "NOT_RATIFIED"
+    },
+    {
+      "parent": "CAP-ADMIN-008",
+      "key": "rich-audit-review-UI",
+      "source": "No accepted first-slice administration requirement",
+      "recommendation": "Excluded",
+      "role": "OUT_OF_SCOPE",
+      "rationale": "Minimal authorized incident audit read is adequate",
+      "guard": "Sensitive evidence scoped by tenant/role",
+      "approvalState": "NOT_RATIFIED"
+    }
+  ],
+  "parentStatusesPreserved": true
+}

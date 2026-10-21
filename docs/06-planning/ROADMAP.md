@@ -8,7 +8,7 @@
 - **M00.2 — Inventory and DigitalLicense fulfillment.** Specify StockPool/Reservation authority and true capacity-conservation atomicity, shared pools/protected quotas, unique DigitalLicense assignment per orderLineId, encrypted and auditable access, full multi-line preparation before potentially irreversible disclosure, idempotent repair after partial failure. Must distinguish COMMITTED capacity from disclosed license.
 - **M00.3 — Identity, guest claims and authorization.** Specify guest carts/sessions, one-use expiring claim links, verification, OIDC Keycloak realms, B2B vs B2C profiles, trusted TenantContext, per-resource RBAC/ABAC, delegated scope, CSRF, revocation, cancellation authorization for guest checkouts and safe key access.
 - **M00.4 — Domain and cross-context contracts.** Finalize context map, aggregates, ports, OpenAPI/JSON Schema event contracts, error taxonomy, commercial generation and version semantics, ownership boundaries, local atomicity assumptions and microservice extraction compatibility.
-- **M00.5 — Architecture ratification and implementation readiness.** Normalize independent ADRs, preserve original R0.10 and R1, review all unresolved audits and costs, define acceptance/test gates, establish explicit scope for a future M01 implementation authorization. This phase must not auto-approve earlier proposals.
+- **M00.5 — NOT APPROVED / NOT A MILESTONE.** This was a historical planning suggestion only. W1-AP-02 retains M00–M09 and requires demonstrated necessity before adding a separate checkpoint. Current completeness/readiness functions belong to M00.1–M00.4 and G0–G6; no M00.5 scheduling object is introduced.
 
 ## M01 — Reproducible engineering foundations
 
@@ -59,3 +59,7 @@ Run deterministic concurrency/chaos, backup restore, authorization isolation, re
 FINANCIAL: payment capture/refund and unknown external outcomes; INVENTORY: capacity conservation and unique license assignment; SECURITY: multi-tenant/authn/authz/secret handling; DISTRIBUTED: recovery/Inbox/Outbox/Kafka; DATA-MIGRATION: single writer and restore; OPERATIONS: telemetry, runbooks and rollback; FRAMEWORK: independent installation/second consumer. For each gate, preserve experiment setup, observable oracle and actual evidence rather than inferring readiness from diagrams.
 
 **No approved dates or budget schedule exist.** Temporary labs and local-first cost control are selected historical directions, not permission to deploy or spend.
+
+## Current Wave 1 scope and gates (2026-10-21)
+
+W1-AP-01 accepted the bounded but complete Stripe-test-mode eGame digital-license purchase **planning target**; contracts, implementation and experiments remain unapproved. W1-AP-02 rejected automatic M00.5 adoption. W1-AP-03 accepted ID preservation; W1-AP-04 accepted G0–G6 with measurable evidence conditions; W1-AP-05 accepted provenance/test reconciliation priorities. For per-capability scope consult docs/planning/wave1/M04_SCOPE_MATRIX.md. None of these changes modifies the historical 181 selections or closes AUD-P0-01..04.
