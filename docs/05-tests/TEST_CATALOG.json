@@ -548,7 +548,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T02",
@@ -561,7 +566,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T03",
@@ -574,7 +584,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T04",
@@ -587,7 +602,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T05",
@@ -600,7 +620,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T06",
@@ -613,7 +638,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T07",
@@ -626,7 +656,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T08",
@@ -639,7 +674,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T09",
@@ -652,7 +692,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T10",
@@ -665,7 +710,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T11",
@@ -678,7 +728,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-T12",
@@ -691,7 +746,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (11)(1).txt",
+      "originalSourceSha256": "821894b044748c57437dee5ac45e04817b41021f3d6e3b3900c99603a1a258e7",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT01",
@@ -704,7 +764,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT02",
@@ -717,7 +782,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT03",
@@ -730,7 +800,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT04",
@@ -743,7 +818,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT05",
@@ -756,7 +836,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT06",
@@ -769,7 +854,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT07",
@@ -782,7 +872,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT08",
@@ -795,7 +890,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT09",
@@ -808,7 +908,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD01-DT10",
@@ -821,7 +926,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (12)(1).txt",
+      "originalSourceSha256": "ef416b35c7874d55e0fa51647d0b17d995acce68f947bde51b3d2cee53975e5f",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T01",
@@ -834,7 +944,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T02",
@@ -847,7 +962,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T03",
@@ -860,7 +980,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T04",
@@ -873,7 +998,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T05",
@@ -886,7 +1016,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T06",
@@ -899,7 +1034,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T07",
@@ -912,7 +1052,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T08",
@@ -925,7 +1070,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T09",
@@ -938,7 +1088,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T10",
@@ -951,7 +1106,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T11",
@@ -964,7 +1124,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T12",
@@ -977,7 +1142,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T13",
@@ -990,7 +1160,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T14",
@@ -1003,7 +1178,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T15",
@@ -1016,7 +1196,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD02-T16",
@@ -1029,7 +1214,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (13).txt",
+      "originalSourceSha256": "825dd27c5cba2feba58f927a398aca00efeaa36261317dbe321692b5feb976c1",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T01",
@@ -1042,7 +1232,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T02",
@@ -1055,7 +1250,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T03",
@@ -1068,7 +1268,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T04",
@@ -1081,7 +1286,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T05",
@@ -1094,7 +1304,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T06",
@@ -1107,7 +1322,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T07",
@@ -1120,7 +1340,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T08",
@@ -1133,7 +1358,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T09",
@@ -1146,7 +1376,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T10",
@@ -1159,7 +1394,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T11",
@@ -1172,7 +1412,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T12",
@@ -1185,7 +1430,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T13",
@@ -1198,7 +1448,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T14",
@@ -1211,7 +1466,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T15",
@@ -1224,7 +1484,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD03-T16",
@@ -1237,7 +1502,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (14).txt",
+      "originalSourceSha256": "b2ed8c1808418f9d738aecc0f9302c04473a1454a3692a444039c5af98190696",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T01",
@@ -1250,7 +1520,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T02",
@@ -1263,7 +1538,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T03",
@@ -1276,7 +1556,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T04",
@@ -1289,7 +1574,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T05",
@@ -1302,7 +1592,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T06",
@@ -1315,7 +1610,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T07",
@@ -1328,7 +1628,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T08",
@@ -1341,7 +1646,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T09",
@@ -1354,7 +1664,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T10",
@@ -1367,7 +1682,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T11",
@@ -1380,7 +1700,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T12",
@@ -1393,7 +1718,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T13",
@@ -1406,7 +1736,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T14",
@@ -1419,7 +1754,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T15",
@@ -1432,7 +1772,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD04-T16",
@@ -1445,7 +1790,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (15).txt",
+      "originalSourceSha256": "fc7132daabad6647d4a83a91806a1927d318a03b59f0fb60dcb6cd440a2088fc",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T01",
@@ -1458,7 +1808,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T02",
@@ -1471,7 +1826,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T03",
@@ -1484,7 +1844,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T04",
@@ -1497,7 +1862,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T05",
@@ -1510,7 +1880,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T06",
@@ -1523,7 +1898,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T07",
@@ -1536,7 +1916,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T08",
@@ -1549,7 +1934,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T09",
@@ -1562,7 +1952,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T10",
@@ -1575,7 +1970,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T11",
@@ -1588,7 +1988,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD11-T12",
@@ -1601,7 +2006,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (16).txt",
+      "originalSourceSha256": "ef738f61785c4754dd81f24bb0f6e9bca14089a82169976e87a09469792a41c8",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T01",
@@ -1614,7 +2024,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T02",
@@ -1627,7 +2042,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T03",
@@ -1640,7 +2060,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T04",
@@ -1653,7 +2078,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T05",
@@ -1666,7 +2096,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T06",
@@ -1679,7 +2114,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T07",
@@ -1692,7 +2132,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T08",
@@ -1705,7 +2150,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T09",
@@ -1718,7 +2168,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T10",
@@ -1731,7 +2186,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T11",
@@ -1744,7 +2204,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD12-T12",
@@ -1757,7 +2222,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (17).txt",
+      "originalSourceSha256": "ae79d0901d9579b3c7df41e6aab90a3d57b607345facabaafe6a27f55a837298",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T01",
@@ -1770,7 +2240,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T02",
@@ -1783,7 +2258,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T03",
@@ -1796,7 +2276,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T04",
@@ -1809,7 +2294,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T05",
@@ -1822,7 +2312,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T06",
@@ -1835,7 +2330,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T07",
@@ -1848,7 +2348,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T08",
@@ -1861,7 +2366,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T09",
@@ -1874,7 +2384,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T10",
@@ -1887,7 +2402,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T11",
@@ -1900,7 +2420,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T12",
@@ -1913,7 +2438,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T13",
@@ -1926,7 +2456,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T14",
@@ -1939,7 +2474,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T15",
@@ -1952,7 +2492,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     },
     {
       "id": "AUD13-T16",
@@ -1965,7 +2510,12 @@
       "execution_status": "NOT_RUN",
       "real_provider_validation": "WHEN_RELEVANT",
       "milestone": "M00.1 design / M04 future test",
-      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation"
+      "expected_outcome": "SOURCE-REVIEW: confirm exact acceptance oracle against the source table before implementation",
+      "originalSourceIdPresence": "MATCHED_IN_HASH_VERIFIED_SOURCE_FILE",
+      "originalSourceName": "Texto pegado (18).txt",
+      "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+      "sourceDescriptionAndOracleStatus": "PENDING_SEMANTIC_RECONCILIATION",
+      "sourceVerificationMethod": "Confirmed literal stable test ID occurrence in original source; file SHA-256 matches SOURCE_MANIFEST; exact row English wording/oracle not yet reconciled"
     }
   ],
   "englishMetadataNormalization": {
@@ -1973,5 +2523,14 @@
     "description": "Only theme labels translated to English; source fidelity, test IDs, evidence_status and execution_status untouched",
     "sourceReconciledUnchanged": 38,
     "reconstructedStillPending": 110
+  },
+  "sourceIdPresenceReview": {
+    "reviewDate": "2026-10-21",
+    "matchedFromPreviouslyReconstructed": 110,
+    "allEightSourceSha256Verified": true,
+    "exactTestTitleAndOracleReviewPending": 110,
+    "descriptionProvenanceUnchanged": true,
+    "evidenceStatusUnchanged": true,
+    "executionStatusUnchanged": true
   }
 }

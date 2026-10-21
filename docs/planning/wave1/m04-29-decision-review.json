@@ -1,0 +1,1104 @@
+{
+  "artifactId": "W1-M04-29-REVIEW",
+  "state": "PROPOSED_RECOMMENDATIONS_NOT_RATIFIED",
+  "originalUnresolved": 29,
+  "countByRecommendation": {
+    "Excluded": 13,
+    "Included": 6,
+    "Still Unresolved": 7,
+    "Deferred": 3
+  },
+  "sourceManifestId": "R0.10-MASTER",
+  "sourceSha256": "ecccb7042c3ddd0a98325b17bda2d5787baba1c0f8b8943b4e265062907a4d00",
+  "allOriginalM04StatusesUnchanged": true,
+  "records": [
+    {
+      "capabilityId": "CAP-CAT-003",
+      "capabilityName": "Shared master catalog",
+      "preciseFunctionalDescription": "Tenant-master reuse and sharing across several stores, distinct from a sellable single-store product catalog.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-03",
+          "status": "ACCEPTED",
+          "historicalClause": "Support tenant master references and store-local products with ownership and controlled overrides.",
+          "docxParagraph": 37
+        },
+        {
+          "id": "R0.2-02",
+          "status": "ACCEPTED",
+          "historicalClause": "Share product and variant definitions; publication, prices and stock are store-scoped; share pools only through explicit allocations.",
+          "docxParagraph": 36
+        }
+      ],
+      "sourceAssessment": "DIRECT_FOR_MASTER_OPTION; deferral is design inference",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "One eGame Store can sell a locally owned product/variant; the accepted R0.2-03 direction remains a later reusable framework capability.",
+      "whenIncluded": "Requires master/local ownership, import/override contracts and cross-store publication propagation in M04.",
+      "whenExcluded": "Keep tenant/store-scoped Product identity and a future master-reference boundary; lose no one-store purchase invariant.",
+      "dependenciesAndContexts": "Catalog, CommerceCloud, Tenant/Store identity, M00.4; R0.2-03",
+      "latestRequiredMilestone": "Before M03 master/local design; M06 reuse before second consumer",
+      "blocksFirstPurchase": "NO",
+      "requiredEvidence": "One-store product can be quoted/purchased with correct tenant/store ownership; acceptance of postponed master reuse.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CAT-004",
+      "capabilityName": "Store-local catalog",
+      "preciseFunctionalDescription": "Store-owned product definition with stable Product/Variant identity usable by eGame; full master import/overrides not required.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-03",
+          "status": "ACCEPTED",
+          "historicalClause": "Support tenant master references and store-local products with ownership and controlled overrides.",
+          "docxParagraph": 37
+        },
+        {
+          "id": "R0.3-02",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keep an explicit link to the master product and governed overrides.",
+          "docxParagraph": 52
+        }
+      ],
+      "sourceAssessment": "DIRECT for local product; narrower MVP scope is inference",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "A sellable product must exist in the Store's commercial scope; full master/local inheritance is separable.",
+      "whenIncluded": "Need Product/Variant and Store owner ports, validation, Offer/Listing links.",
+      "whenExcluded": "Must provide an alternative approved per-store product reference or the checkout cannot evaluate a real offer.",
+      "dependenciesAndContexts": "Catalog, CommerceCloud, Pricing, M00.4; R0.2-03",
+      "latestRequiredMilestone": "M03 design before M04 catalog",
+      "blocksFirstPurchase": "YES — store product identity; NO — master override implementation",
+      "requiredEvidence": "Reference Product/Variant resolves to one Store and accepted Quote without cross-tenant reads.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CAT-005",
+      "capabilityName": "Typed attribute schema",
+      "preciseFunctionalDescription": "Runtime-extensible, tenant-typed and versioned product-attribute schemas, beyond fixed fields necessary to sell game keys.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-07",
+          "status": "ACCEPTED",
+          "historicalClause": "Use typed, validated and versioned tenant-specific attribute schemas.",
+          "docxParagraph": 41
+        }
+      ],
+      "sourceAssessment": "DIRECT original R0.2-07; original CAP source references wrongly omitted it",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Fixed validated digital-key Product/Variant fields can sustain a one-product vertical; no dynamic schema required for first sale.",
+      "whenIncluded": "Schema evolution and per-tenant attribute validation/import complexity introduced early.",
+      "whenExcluded": "Must keep fixed field validation, migrations and evolution path; broader attribute framework remains in roadmap.",
+      "dependenciesAndContexts": "Catalog, Tenant configuration, M00.4; R0.2-07",
+      "latestRequiredMilestone": "Before M03 extensible catalog generalization / M06 consumer reuse",
+      "blocksFirstPurchase": "NO (fixed contractual fields still mandatory)",
+      "requiredEvidence": "Catalog/Quote/Order works with fixed typed fields; mapped historical acceptance kept.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CAT-006",
+      "capabilityName": "Field inheritance and overrides",
+      "preciseFunctionalDescription": "Per-field versioned inheritance and master-to-local overrides, excluding one-store accepted product fields.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.3-02",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keep an explicit link to the master product and governed overrides.",
+          "docxParagraph": 52
+        },
+        {
+          "id": "R0.3-03",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Propagate individual fields based on versioned inheritance policies.",
+          "docxParagraph": 53
+        }
+      ],
+      "sourceAssessment": "DIRECT selected historical clauses; implementation scope unapproved",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Requires master/local propagation that cannot be exercised by the single-store first vertical.",
+      "whenIncluded": "Adds policy snapshots, update-race tests and inheritance invalidation.",
+      "whenExcluded": "Catalog must retain no-inheritance assumption as explicit scope; future compatibility reviewed when master sync arrives.",
+      "dependenciesAndContexts": "Catalog/Merchandising, R0.3-02/03, M00.4",
+      "latestRequiredMilestone": "Before M03 multi-store inheritance implementation / M06 framework reuse",
+      "blocksFirstPurchase": "NO",
+      "requiredEvidence": "eGame product values remain stable and explicit when master references are not enabled.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CAT-008",
+      "capabilityName": "Localization and product assets",
+      "preciseFunctionalDescription": "Localized descriptions and managed product-image/media asset pipeline; minimal product name and text still mandatory.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-03",
+          "status": "ACCEPTED",
+          "historicalClause": "Support tenant master references and store-local products with ownership and controlled overrides.",
+          "docxParagraph": 37
+        }
+      ],
+      "sourceAssessment": "SOURCE_GAP for assets/localization: cited clause supports master/local ownership only",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "The accepted first purchase does not require translated catalog or rich image asset management.",
+      "whenIncluded": "Localization fallback, storage/upload validation, rights and media security added to first slice.",
+      "whenExcluded": "Single documented display language and basic textual Product representation; future assets remain proposed, not historically ratified.",
+      "dependenciesAndContexts": "Catalog/eGame/BFF security, M03, M06",
+      "latestRequiredMilestone": "Before expanding M03 discovery UI or M06 reference-shell features",
+      "blocksFirstPurchase": "NO — product identity and truthful price text still mandatory",
+      "requiredEvidence": "Product and purchase display with no image/locale service, valid accessibility text.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-MER-003",
+      "capabilityName": "Channel-based publication",
+      "preciseFunctionalDescription": "Independent channel-specific publication policy across multiple storefronts; M04 uses one named channel.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.3-04"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-05",
+          "status": "ACCEPTED",
+          "historicalClause": "A Store supports multiple storefronts and sales channels; interface and channel are separate concepts.",
+          "docxParagraph": 39
+        },
+        {
+          "id": "R0.3-04",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Listing governs publication and visibility; Offer governs commercial sale terms.",
+          "docxParagraph": 54
+        }
+      ],
+      "sourceAssessment": "DIRECT for future multi-channel and Listing/Offer meanings",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "One Store with one eGame storefront needs Listing eligibility but no multi-channel projection.",
+      "whenIncluded": "Channel-specific precedence and publication synchronization become immediate concerns.",
+      "whenExcluded": "Do not merge Channel and UI identities conceptually; leave explicit channel on accepted sale context.",
+      "dependenciesAndContexts": "Merchandising, Store/Channel, R0.2-05, R0.3-04",
+      "latestRequiredMilestone": "Before multi-channel scope, later than first M04 vertical",
+      "blocksFirstPurchase": "NO — publishable single-channel Listing remains mandatory",
+      "requiredEvidence": "Single-channel Listing/Offer gate correct; no other channel-specific read allowed.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-PRC-004",
+      "capabilityName": "Demonstration tax adapter",
+      "preciseFunctionalDescription": "Demonstration-only tax calculation port and adapter; cannot be interpreted as a production tax engine.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.3-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Expose a tax port and demonstration adapter that is explicitly unsuitable for real taxation.",
+          "docxParagraph": 58
+        },
+        {
+          "id": "R0.3-05",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Use exact minor units with currency rules and exact decimal intermediate calculations; never use binary floating-point amounts.",
+          "docxParagraph": 55
+        },
+        {
+          "id": "R0.3-06",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Reprice and display changes before acceptance, then persist an immutable accepted economic snapshot.",
+          "docxParagraph": 56
+        }
+      ],
+      "sourceAssessment": "DIRECT in R0.3-08 (not in original group IDs)",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Historical R0.3-08 explicitly selects a demo tax port; correct accepted total and the treatment of tax fields must be decided before a purchase can claim a valid quote.",
+      "whenIncluded": "Adds provider-independent tax contract, explicit demo assumptions and minor-unit reconciliation.",
+      "whenExcluded": "Must explicitly approve no-tax synthetic fixture/zero-tax simulation and forbid real-tax claims; cannot silently omit tax fields.",
+      "dependenciesAndContexts": "Pricing, Ordering, Money, R0.3-08, R0.10-07",
+      "latestRequiredMilestone": "M03 Quote contract and before M04 test-mode pricing freeze",
+      "blocksFirstPurchase": "YES — tax treatment/quote consistency decision; NO — full tax engine",
+      "requiredEvidence": "Explicit user-selected simulated tax mode, exact money invariants, displayed and persisted totals equal, visible non-production disclaimer.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ORD-009",
+      "capabilityName": "Order history and reconciliation",
+      "preciseFunctionalDescription": "Immutable/auditable Order-financial reconciliation history and decision evidence; NOT a comprehensive customer-visible shopping history screen.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "D-04",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        },
+        {
+          "id": "D-05",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        },
+        {
+          "id": "AUD-P0-03",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "DIRECT accepted domain policy; composite historical/UX split is inference",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Unknown charges, delayed results and refunds cannot be reconciled if history is overwritten.",
+      "whenIncluded": "Durable fact lineage, Order snapshot, evidence references and privileged source-of-truth reads.",
+      "whenExcluded": "Without equivalent durable historical facts D-04/D-05 and AUD-P0-03 correctness/recovery obligations break.",
+      "dependenciesAndContexts": "Ordering, Payments, CheckoutProcess, D-04, D-05, AUD-P0-03",
+      "latestRequiredMilestone": "M00.4 contract / before M04 financial integration",
+      "blocksFirstPurchase": "YES — durable history; NO — consumer history UI",
+      "requiredEvidence": "Duplicate/late capture and refund still attributable to original Order/generation with no lost financial facts.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-INV-007",
+      "capabilityName": "Inventory administrative adjustment",
+      "preciseFunctionalDescription": "General-purpose manual stock adjustment UI and inventory correction workflows.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "D-01",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        },
+        {
+          "id": "AUD-P1-01",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "SOURCE_GAP for general adjustment UI; sources primarily constrain release",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Unrestricted adjustment while stock is financially protected introduces capacity-reconciliation risk; first sale needs verified initial supply/import and safe incident quarantine, not arbitrary edits.",
+      "whenIncluded": "Requires operator policy and atomic correction semantics under held/committed stock.",
+      "whenExcluded": "Must retain safe invalid-key quarantine, protected-capacity incident actions and deterministic test fixture import; not permission for ad hoc DB changes.",
+      "dependenciesAndContexts": "Inventory, Fulfillment, Administration, AUD-P1-01, M00.2",
+      "latestRequiredMilestone": "Before M04 operational tool expansion / correction feature release",
+      "blocksFirstPurchase": "NO — safe capacity conservation and invalid-key handling YES",
+      "requiredEvidence": "Cannot increase saleable quantity or free protected Reservation via unguarded operator actions.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-SEC-001",
+      "capabilityName": "B2B/B2C identity separation",
+      "preciseFunctionalDescription": "Full B2B and B2C realm topology and user synchronization; retain distinct commercial actor roles and strong tenant isolation.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-01",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Separate B2B administration from B2C buyers.",
+          "docxParagraph": 141
+        },
+        {
+          "id": "R0.7-06",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keycloak authenticates; CommerceCloud governs commercial memberships and policies.",
+          "docxParagraph": 146
+        }
+      ],
+      "sourceAssessment": "DIRECT selected identity separation; deployed dual-realm scope is inference",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "A guest purchase and restricted operators require separate authorization policies, not necessarily two deployed Keycloak realms during first testmode slice.",
+      "whenIncluded": "Realm provisioning, federation and cross-app identity synchronization needed.",
+      "whenExcluded": "Must specify trusted actors, admin/operator authentication and per-Store buyer authorization; exact physical realm separation remains a future design choice.",
+      "dependenciesAndContexts": "Identity, CommerceCloud, Ordering, M00.3, R0.7-01",
+      "latestRequiredMilestone": "Before full M02 identity rollout and B2B/B2C production use",
+      "blocksFirstPurchase": "NO for physical dual realm; YES for actor/security separation",
+      "requiredEvidence": "Guest token cannot exercise admin/refund/key-import actions and tenant context cannot be forged.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-SEC-002",
+      "capabilityName": "OIDC and BFF sessions",
+      "preciseFunctionalDescription": "OIDC BFF authenticated sessions and server-held tokens versus minimum secure guest and operator sessions.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-03",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Use Authorization Code/PKCE, HttpOnly sessions, server-side tokens, CSRF and validated callback domains.",
+          "docxParagraph": 143
+        },
+        {
+          "id": "R0.4-06",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keep gateway and Storefront/Admin BFF distinct and free from fundamental business ownership.",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "DIRECT selected policy for OIDC BFF, not already accepted implementation",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "A guest buyer flow and privileged refund/investigation flows need concrete secure session mechanisms, but the full proposed BFF/PKCE stack is not yet ratified as M04 physical infrastructure.",
+      "whenIncluded": "More complete BFF session and OIDC integration; meaningful admin auth coverage.",
+      "whenExcluded": "Cannot omit guest claim, actor proof, CSRF/session confinement or privileged operator authentication; need explicit alternative if full OIDC postponed.",
+      "dependenciesAndContexts": "Identity, BFF, CommerceCloud, Ordering, M00.3; R0.7-03",
+      "latestRequiredMilestone": "M00.3 identity contract before M04 guest/admin endpoints",
+      "blocksFirstPurchase": "YES — secure session/privileged auth contract; NO — exact physical BFF technology",
+      "requiredEvidence": "Session hijack, CSRF, redirect and admin token leakage negative tests with specified actor scopes.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-SEC-003",
+      "capabilityName": "Tenant membership lifecycle",
+      "preciseFunctionalDescription": "Self-service lifecycle for multiple tenant memberships, invitations, changes and revocation in the Control Plane.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-06",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keycloak authenticates; CommerceCloud governs commercial memberships and policies.",
+          "docxParagraph": 146
+        },
+        {
+          "id": "R0.2-01",
+          "status": "ACCEPTED",
+          "historicalClause": "A Tenant owns distinct Brands and Stores with explicitly governed associations.",
+          "docxParagraph": 35
+        }
+      ],
+      "sourceAssessment": "INDIRECT source for lifecycle; direct realm authority applies",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Single configured Store and a restricted owner/operator can use an explicitly defined fixed membership for the first testmode purchase, provided authorization is real.",
+      "whenIncluded": "Adds Control Plane role assignment and revocation workflows.",
+      "whenExcluded": "Retain trusted tenant ownership, authorization guards, no implicit open admin privileges and later membership lifecycle planning.",
+      "dependenciesAndContexts": "CommerceCloud, Identity, M00.3; R0.7-06",
+      "latestRequiredMilestone": "Before M02 multiuser tenant administration / wider rollout",
+      "blocksFirstPurchase": "NO for self-service membership lifecycle; YES for authorized operator identity",
+      "requiredEvidence": "Unauthorized actor cannot request refund, read other Stores or reveal unowned keys.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-SEC-011",
+      "capabilityName": "MFA/recovery",
+      "preciseFunctionalDescription": "Administrator MFA and account-recovery policy, with risk-based buyer MFA; exact proof required for privileged actions.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-09",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Require MFA for administration; apply risk-based MFA to buyers.",
+          "docxParagraph": 149
+        },
+        {
+          "id": "R0.7-11",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Use short sessions, revocation and revalidation for critical operations.",
+          "docxParagraph": 151
+        }
+      ],
+      "sourceAssessment": "DIRECT selected historical admin MFA policy not cited in original CAP group",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "R0.7-09 historically selects mandatory admin MFA, and paid-order/refund/secret controls are high-impact. Whether first-slice operator channel can meet it without full identity rollout must be decided.",
+      "whenIncluded": "High-assurance admin identity with MFA and recovery complexity.",
+      "whenExcluded": "Cannot quietly downgrade privileged operator security; alternative must demonstrably satisfy accepted security constraints.",
+      "dependenciesAndContexts": "Identity/Administration, R0.7-09, M00.3",
+      "latestRequiredMilestone": "M00.3 privileged access spec before M04 operation tooling",
+      "blocksFirstPurchase": "YES — admin-auth assurance decision",
+      "requiredEvidence": "Privileged refund/key import inaccessible without required strong operator session; recovery and revocation tested.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CLOUD-001",
+      "capabilityName": "Tenant lifecycle and provisioning",
+      "preciseFunctionalDescription": "Self-service creation, suspension, deletion and idempotent recovery of arbitrary SaaS tenants.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-01",
+          "status": "ACCEPTED",
+          "historicalClause": "A Tenant owns distinct Brands and Stores with explicitly governed associations.",
+          "docxParagraph": 35
+        },
+        {
+          "id": "R0.4-02",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Deploy CommerceCloud separately from CommerceCore.",
+          "docxParagraph": 78
+        }
+      ],
+      "sourceAssessment": "DIRECT Tenant hierarchy; provisioning implementation not directly ratified",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "M04 can exercise an existing, explicitly configured single Tenant/Store while retaining trusted scope and isolation.",
+      "whenIncluded": "SaaS provisioning saga and lifecycle recovery become release requirement.",
+      "whenExcluded": "One Store must still have durable identity, effective policies and bounded administrative scope; demo seeding method is a separate design detail.",
+      "dependenciesAndContexts": "CommerceCloud, M02, Tenant/Store, R0.2-01",
+      "latestRequiredMilestone": "Before M02 public/control-plane provisioning features",
+      "blocksFirstPurchase": "NO for self-service SaaS provisioning; YES for valid Tenant/Store identity",
+      "requiredEvidence": "Selected test Store cannot leak cross-tenant data; initial configuration is versioned and auditable.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CLOUD-004",
+      "capabilityName": "Invitation/membership administration",
+      "preciseFunctionalDescription": "Invitation distribution, user membership acceptance and delegation UX in CommerceCloud.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-06",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Keycloak authenticates; CommerceCloud governs commercial memberships and policies.",
+          "docxParagraph": 146
+        },
+        {
+          "id": "R0.7-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Explicit time-limited privilege elevation with least privilege and audit.",
+          "docxParagraph": 148
+        }
+      ],
+      "sourceAssessment": "INDIRECT; no original accepted invitation lifecycle clause in cited group",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Not needed for one controlled store and a small set of pre-authorized operators.",
+      "whenIncluded": "Provisioning, invitations, expiry, revocation and role UI add scope.",
+      "whenExcluded": "Operations remain restricted to authorized existing identities; no all-access default.",
+      "dependenciesAndContexts": "CommerceCloud, Identity, M00.3, R0.7-06",
+      "latestRequiredMilestone": "Before M02 tenant membership features / multi-operator rollout",
+      "blocksFirstPurchase": "NO for invite UI; YES for role/permission enforcement",
+      "requiredEvidence": "No invitation needed to buy securely, and unauthorized operator cannot access privileged commands.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-CLOUD-008",
+      "capabilityName": "Independent control-plane storage",
+      "preciseFunctionalDescription": "CommerceCloud independent persistence and process boundary versus M04's static Store configuration.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.1-01",
+          "status": "ACCEPTED",
+          "historicalClause": "Reusable headless commerce framework and SaaS offering; separate the commercial engine from the Control Plane; independent installation is a progressive goal.",
+          "docxParagraph": 21
+        },
+        {
+          "id": "R0.4-02",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Deploy CommerceCloud separately from CommerceCore.",
+          "docxParagraph": 78
+        }
+      ],
+      "sourceAssessment": "DIRECT for independence direction; physical persistence isolation not explicit",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "R0.4-02 selects independent deployment; removing the Control Plane from the first slice must not introduce CommerceCore dependence on its private DB.",
+      "whenIncluded": "Early independent Control Plane instance/database boundary and provisioning contract.",
+      "whenExcluded": "Allow one-store configuration through a versioned, provider-neutral port but must document how independent Cloud comes later without cross-writes.",
+      "dependenciesAndContexts": "CommerceCloud/CommerceCore/Architecture, M00.4, R0.1-01, R0.4-02",
+      "latestRequiredMilestone": "M00.4 context map before M02/M04 runtime freeze",
+      "blocksFirstPurchase": "YES — independence/ownership contract; NO — separate running Cloud DB for one test-store if ratified",
+      "requiredEvidence": "CommerceCore can start/configure a Store without writing Cloud private schema and future independent install is feasible.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-EGAME-007",
+      "capabilityName": "Order status/history",
+      "preciseFunctionalDescription": "Authenticated/claimed purchase status and order detail for the current Order; full cross-purchase history excluded from first slice.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-09",
+          "status": "ACCEPTED",
+          "historicalClause": "The first vertical sells individual activation keys through secured access and idempotent operations.",
+          "docxParagraph": 43
+        },
+        {
+          "id": "D-03",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        },
+        {
+          "id": "D-07",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "DIRECT accepted no-browser financial truth; full history not in source clause",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Payment confirmation cannot be inferred from Stripe redirect; buyer must see pending/unknown, successful fulfillment or refund accurately.",
+      "whenIncluded": "Secure single-order status read model and claim/actor scope; requires stale-safe status fields.",
+      "whenExcluded": "Would lack an understandable recoverable buyer journey unless equivalent CAP-EGAME-005 status UI provides detail.",
+      "dependenciesAndContexts": "eGame BFF, Ordering, Payments, Guest Claim, AUD-P1-02, D-03/D-07",
+      "latestRequiredMilestone": "M00.3/M00.4 read contracts; M04 buyer journey",
+      "blocksFirstPurchase": "YES — accurate purchase status; NO — full order-history list",
+      "requiredEvidence": "Out-of-order Stripe results and stale projections never display financial success incorrectly.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-EGAME-009",
+      "capabilityName": "Localization/accessibility/theming",
+      "preciseFunctionalDescription": "Three separable topics: accessible purchase/control experience, translated/localized UI, and independently themeable storefront.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.2-09",
+          "status": "ACCEPTED",
+          "historicalClause": "The first vertical sells individual activation keys through secured access and idempotent operations.",
+          "docxParagraph": 43
+        }
+      ],
+      "sourceAssessment": "SOURCE_GAP for precise accessibility standard, i18n and theming",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Accessibility for the buyer's payment, cancellation and key access is a quality/security gate; language and theming are optional framework features.",
+      "whenIncluded": "Accessible mandatory UI plus optional i18n/theming if approved.",
+      "whenExcluded": "Deferring accessibility without criteria risks unusable/inaccessible core flow; locale/theme can safely be deferred.",
+      "dependenciesAndContexts": "eGame, BFF, Security, M04 UX; R0.2-09 gives only general eGame reference",
+      "latestRequiredMilestone": "Accessibility criterion before M04 UI acceptance; localization/theme before M06 shell",
+      "blocksFirstPurchase": "YES — define minimum accessibility criteria; NO — translated/theme features",
+      "requiredEvidence": "Keyboard-only flow, readable error/status changes, assistive labeling; future locales/theme separately tested.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ADMIN-001",
+      "capabilityName": "Tenant/platform administration",
+      "preciseFunctionalDescription": "Full Tenant/Platform Administration application and self-service provisioning dashboards.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Explicit time-limited privilege elevation with least privilege and audit.",
+          "docxParagraph": 148
+        },
+        {
+          "id": "D-04",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        },
+        {
+          "id": "D-05",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "INDIRECT; source gives privileged support safeguards, not a platform UI mandate",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "The one-store vertical needs secure operator actions, not a comprehensive Cloud administration product.",
+      "whenIncluded": "Full platform UI and multitenant lifecycle scope.",
+      "whenExcluded": "Must provide constrained operator authentication, financial incident handling and inventory inputs by safe ports, never ad hoc data edits.",
+      "dependenciesAndContexts": "CommerceCloud, Identity/Admin, M02, D-05-OPS",
+      "latestRequiredMilestone": "Before M02/multitenant full platform administration rollout",
+      "blocksFirstPurchase": "NO for full platform console; YES for safe privileged operator process",
+      "requiredEvidence": "M04 incident/refund handled through governed commands with audit, without platform admin UI.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ADMIN-002",
+      "capabilityName": "Store catalog editor",
+      "preciseFunctionalDescription": "General-purpose graphical product/Offer editor and publication workflows.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Explicit time-limited privilege elevation with least privilege and audit.",
+          "docxParagraph": 148
+        },
+        {
+          "id": "R0.3-04",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Listing governs publication and visibility; Offer governs commercial sale terms.",
+          "docxParagraph": 54
+        }
+      ],
+      "sourceAssessment": "SOURCE_GAP for editor UI; historical Listing/Offer and support controls relevant",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "A fixed test-store catalog can be provisioned through repeatable validated inputs/commands rather than a production-grade editor.",
+      "whenIncluded": "Adds all CRUD/role/audit user interface contracts early.",
+      "whenExcluded": "A documented catalog fixture/bootstrap input must still be valid, permission-bound and testable.",
+      "dependenciesAndContexts": "Catalog/Merchandising/Admin, M03, M00.3",
+      "latestRequiredMilestone": "Before public Store administration M04 expansion or M06 reuse",
+      "blocksFirstPurchase": "NO for editor UI; YES for controlled product/Offer setup",
+      "requiredEvidence": "Chosen demo Product and Offer reproducibly configured with no unauthorized writes.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ADMIN-007",
+      "capabilityName": "Inventory correction",
+      "preciseFunctionalDescription": "General stock correction console beyond restricted incident quarantine and well-defined capacity repair.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Explicit time-limited privilege elevation with least privilege and audit.",
+          "docxParagraph": 148
+        },
+        {
+          "id": "AUD-P1-01",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "SOURCE_GAP for general stock correction UI",
+      "proposedDisposition": "Excluded",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Stock edits interact with protected holds and unique key assignment; don't introduce generic correction capabilities before M00.2 invariants.",
+      "whenIncluded": "Requires atomic correction protocol, audit and strong operator authorization.",
+      "whenExcluded": "Protect key import/validation and incident management; no manual DB patch permission.",
+      "dependenciesAndContexts": "Inventory/Fulfillment/Admin, M00.2, R0.7-08",
+      "latestRequiredMilestone": "Before future correction feature; quarantine/incident recovery before M04",
+      "blocksFirstPurchase": "NO for full console; YES for safe invalid key handling",
+      "requiredEvidence": "Last-unit reservation never made available by unsafe adjustment; signed operator repair authorization.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ADMIN-008",
+      "capabilityName": "Audit log and privileged review",
+      "preciseFunctionalDescription": "Append-only evidence trail of privileged refund/stock/key operations and authorized audit read; no rich audit-review UI.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.7-08",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Explicit time-limited privilege elevation with least privilege and audit.",
+          "docxParagraph": 148
+        },
+        {
+          "id": "R0.7-19",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Build append-only records with verifiable integrity; a database collection is not automatically immutable.",
+          "docxParagraph": 159
+        }
+      ],
+      "sourceAssessment": "DIRECT for audit integrity and privilege, but physical immutability unproven",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Financial incident repair and license disclosure require reconstructable who/what/why evidence.",
+      "whenIncluded": "Auditable operation IDs, actor scope, retention, read authorization and integrity strategy.",
+      "whenExcluded": "No adequate evidence for commercial repair or privileged misuse investigation.",
+      "dependenciesAndContexts": "Security/Admin/Payments/Inventory/Fulfillment, R0.7-08,R0.7-19, M00.3",
+      "latestRequiredMilestone": "M00.3/M00.4 before M04 privileged operations",
+      "blocksFirstPurchase": "YES — durable audit trail; NO — reviewer dashboard",
+      "requiredEvidence": "Recorded actor, scope, operation identity and immutable evidence reference survive restart; unauthorized reads denied.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-NOTIF-001",
+      "capabilityName": "Purchase confirmation",
+      "preciseFunctionalDescription": "Email/message purchase confirmation separate from authoritative Order status.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.3-23",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Reveal licenses only through controlled authenticated access; emails are notices, not license delivery channels.",
+          "docxParagraph": 73
+        },
+        {
+          "id": "R0.4-03",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Consider Outbox Publisher, Payment Integration and Notifications as separate execution processes; Payment Integration is not the Payments domain aggregate.",
+          "docxParagraph": 79
+        }
+      ],
+      "sourceAssessment": "INDIRECT: emails are notice-only, not user-approved mandatory immediate email",
+      "proposedDisposition": "Deferred",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Customer learns the transaction result through authenticated/claimed eGame status; email cannot be a payment source of truth.",
+      "whenIncluded": "Notification provider, templates, inbox/outbox delivery and privacy requirements.",
+      "whenExcluded": "Product must still expose reliable buyer purchase status; no key in email; customer notification policy later.",
+      "dependenciesAndContexts": "Notifications, Ordering, R0.3-23/R0.4-03",
+      "latestRequiredMilestone": "Before notification feature/public consumer communications launch, after first M04",
+      "blocksFirstPurchase": "NO — safe on-site result and receipts policy to be separately evaluated",
+      "requiredEvidence": "Checkout reaches buyer Order status without email; no secret material in any notice.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-NOTIF-002",
+      "capabilityName": "Fulfillment-ready notification",
+      "preciseFunctionalDescription": "Asynchronous fulfillment-ready email with a secure link and no license key.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.3-23",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Reveal licenses only through controlled authenticated access; emails are notices, not license delivery channels.",
+          "docxParagraph": 73
+        }
+      ],
+      "sourceAssessment": "INDIRECT source email restriction, not a compulsory readiness email",
+      "proposedDisposition": "Deferred",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "A secure claimed order page may expose the license when ready; messages can follow after financial/fulfillment reconciliation design.",
+      "whenIncluded": "Add delivery timing, token linking, resend and notification availability.",
+      "whenExcluded": "Order/access status still queryable; never send plaintext keys as fallback.",
+      "dependenciesAndContexts": "Notifications/Fulfillment/Guest identity, R0.3-23",
+      "latestRequiredMilestone": "Before first email notification milestone after M04",
+      "blocksFirstPurchase": "NO",
+      "requiredEvidence": "No plaintext key in notifications; buyer can access via authorized secure page without a notification.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-NOTIF-003",
+      "capabilityName": "Template/retry/provider handling",
+      "preciseFunctionalDescription": "Notification provider integrations, message templates, retry schedule and delivery SLAs.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.4-03",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Consider Outbox Publisher, Payment Integration and Notifications as separate execution processes; Payment Integration is not the Payments domain aggregate.",
+          "docxParagraph": 79
+        },
+        {
+          "id": "D-05",
+          "status": "SCOPED_STATUS_CHECK_REQUIRED",
+          "historicalClause": "Find canonical D/AUD ratification source",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "INDIRECT: separate process candidate, not immediate feature ratification",
+      "proposedDisposition": "Deferred",
+      "recommendedOption": "B",
+      "technicalFunctionalRationale": "Message transport is independent of the financial Outbox and not required for first correct digital purchase.",
+      "whenIncluded": "Provider selection, external idempotency, retry/disable/error and PII design.",
+      "whenExcluded": "Do not defer financially mandatory Inbox/Outbox; only optional messaging.",
+      "dependenciesAndContexts": "Notifications/Engineering, R0.4-03,D-05",
+      "latestRequiredMilestone": "Before future notification delivery scope",
+      "blocksFirstPurchase": "NO",
+      "requiredEvidence": "No mandatory commercial transition relies on notification ACK; no secret leaks.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-ENG-015",
+      "capabilityName": "Environment budget and costs",
+      "preciseFunctionalDescription": "Documented zero-unapproved-spend rule, local-first development constraints, limits for any future temporary lab.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.8-19",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Use temporary budgeted labs with alerts and teardown checks.",
+          "docxParagraph": 182
+        },
+        {
+          "id": "R0.10-13",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Remain local-first and use temporary budgeted cloud labs.",
+          "docxParagraph": 218
+        }
+      ],
+      "sourceAssessment": "DIRECT historical selected cost clauses omitted from original CAP refs",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Prevents accidental procurement/deployment while designing and later verifying Stripe or service extraction; governance not product runtime scope.",
+      "whenIncluded": "Reviewable environment/sandbox controls, budgets, owner approvals.",
+      "whenExcluded": "Risk unmanaged cost and irreversible provider provisioning; still no infrastructure authorization.",
+      "dependenciesAndContexts": "Engineering/Operations, R0.8-19,R0.10-13, M01",
+      "latestRequiredMilestone": "Before any M01 environment provisioning and M04 provider test setup",
+      "blocksFirstPurchase": "YES — resource authorization governance; NO — checkout algorithm",
+      "requiredEvidence": "Recorded maximum spend/teardown owner for proposed environments, no actual cloud resources provisioned.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-DIST-007",
+      "capabilityName": "Release/deprecation compatibility",
+      "preciseFunctionalDescription": "Minimal internal OpenAPI/event schema compatibility and explicit contract versioning; not a full public SDK release/deprecation program.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.4-15",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Version images and releases independently without breaking dependent clients.",
+          "docxParagraph": 91
+        },
+        {
+          "id": "R0.5-17",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Use Changesets for npm packages; apply a separate policy for application/container releases.",
+          "docxParagraph": null
+        }
+      ],
+      "sourceAssessment": "INDIRECT source for SDK-specific release policy, direct for deployable version compatibility",
+      "proposedDisposition": "Included",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Even modular M04 must preserve event/API meaning under retries and future extraction.",
+      "whenIncluded": "Versioned contract changes and source of authority; keep public deprecation publication for M06.",
+      "whenExcluded": "Contracts may drift and break consumer/saga recovery; conflicts with M00.4 requirements.",
+      "dependenciesAndContexts": "Architecture/Integration, R0.4-15, M00.4",
+      "latestRequiredMilestone": "M00.4 contracts before M01/M04 integration; public deprecation M06",
+      "blocksFirstPurchase": "YES — versioning compatibility; NO — public release lifecycle",
+      "requiredEvidence": "Versioned schema and contract compatibility checks; previous event replay remains interpretable.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-DIST-008",
+      "capabilityName": "Open-source license choice",
+      "preciseFunctionalDescription": "Select exact OSI-compatible repository/package licensing for public source, independent of internal M04 digital purchase.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PENDING_DETAIL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.1-08",
+          "status": "ACCEPTED",
+          "historicalClause": "Use a public open-source repository; the precise license is still only a proposal, with Apache-2.0 a candidate.",
+          "docxParagraph": 28
+        },
+        {
+          "id": "R0.2-11",
+          "status": "ACCEPTED",
+          "historicalClause": "Distribute npm packages and an independently installable backend through Docker/Helm, validated progressively with external consumers.",
+          "docxParagraph": 45
+        }
+      ],
+      "sourceAssessment": "DIRECT original R0.1-08 explicitly says Apache-2.0 candidate only",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "R0.1-08 ACCEPTED public open source but says precise license still candidate Apache-2.0; public repository exists, so license clarity is an immediate governance risk.",
+      "whenIncluded": "License/legal text, copyright/redistribution/third-party dependencies; permits planned package publication.",
+      "whenExcluded": "Do not claim any open-source license or authorize redistribution without decision; internal testmode scope unaffected.",
+      "dependenciesAndContexts": "Governance, Framework, R0.1-08,R0.2-11",
+      "latestRequiredMilestone": "Before public code distribution/contributions; preferably M01 repo policy, not M04 financial blocker",
+      "blocksFirstPurchase": "NO for test-mode transaction; YES for legally unambiguous public distribution",
+      "requiredEvidence": "Explicit license choice and legal/copyright/third-party checks recorded; repo's actual LICENSE file verified.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    },
+    {
+      "capabilityId": "CAP-OPS-003",
+      "capabilityName": "SLOs and error budgets",
+      "preciseFunctionalDescription": "Minimal measurable commercial/financial safety objectives for M04 versus later calibrated full SLO/error-budget program.",
+      "currentStatus": "UNRESOLVED",
+      "sourceMaturity": "PENDING_DETAIL",
+      "technicalSpecificationStatus": "INCOMPLETE",
+      "originalCatalogReferences": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "reviewedHistoricalReferences": [
+        {
+          "id": "R0.9-10",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Define commercial-journey SLOs formally with benchmarks.",
+          "docxParagraph": 195
+        },
+        {
+          "id": "R0.9-12",
+          "status": "PROPOSED — SELECTED",
+          "historicalClause": "Prioritize impact, error budgets/burn rates and operational symptoms.",
+          "docxParagraph": 197
+        }
+      ],
+      "sourceAssessment": "DIRECT selected historical SLO objective, numerical thresholds pending",
+      "proposedDisposition": "Still Unresolved",
+      "recommendedOption": "A",
+      "technicalFunctionalRationale": "Unobservable UNKNOWN/held inventory and stuck fulfillment are forbidden as an operational practice, but numeric production-grade SLOs require measurement.",
+      "whenIncluded": "Define initial alert/event timing targets, benchmark oracle, escalation owner, source of truth.",
+      "whenExcluded": "Cannot claim performance/recovery readiness without objective thresholds and incident monitoring; can postpone full SRE SLO calibration.",
+      "dependenciesAndContexts": "Operations/Payments, R0.9-10,R0.9-12, D-05-OPS",
+      "latestRequiredMilestone": "Initial measurable recovery/alert criteria before M04 test plan; full SLO by M09",
+      "blocksFirstPurchase": "YES for safe operational readiness/test exit; NO for exact final business SLO numbers",
+      "requiredEvidence": "At least observable age/backlog/UNKNOWN counts, escalation owner, rehearsed incident path, predeclared test-mode recovery/alert criteria.",
+      "approvalStatus": "RECOMMENDATION_ONLY_NOT_RATIFIED"
+    }
+  ]
+}

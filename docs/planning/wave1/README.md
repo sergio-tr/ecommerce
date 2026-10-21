@@ -13,6 +13,16 @@ Wave 1's first nine files were reviewed against their actual GitHub content, the
 5. [Wave 2 architecture work packages](WAVE2_WORK_PACKAGES.md) and [JSON](wave2-work-packages.json) — 13 proposed risk/dependency-aligned work packages, including next original AUD-P1-03 review.
 6. [G0–G6 readiness gates](READINESS_GATES.md) and [current evidence/status checklist](readiness-status.json) — accepted governance with measurable, outstanding verification criteria.
 
+## Decision-ready Wave 1 scope review (2026-10-21)
+
+- [29 individually unresolved capability recommendations](M04_29_DECISION_REVIEW.md) and [structured review](m04-29-decision-review.json): no previous UNRESOLVED state upgraded.
+- [Composite capability decomposition](COMPOSITE_CAPABILITIES.md): CAP-PAY-012, CAP-EGAME-007 and CAP-EGAME-009, plus Catalog/Order/Audit variants, without allocating canonical child identifiers.
+- [Minimum coherent digital-license purchase boundary](M04_MINIMUM_COHERENT_SCOPE.md): mandatory commercial and security steps versus deferrable UI/tenant/framework breadth.
+- [Six approval batches](M04_APPROVAL_BATCHES.md), five covering the exact 29 items and a separate Stripe-methods composite check; [first batch](M04_APPROVAL_BATCHES.md) is catalog, Listing/Offer and explicit demo tax scope.
+- [AUD-P1-03 decision-ready individual review](AUD-P1-03_DECISION_PACKAGE.md): option D preferred but NOT RATIFIED; source-derived invariants and test descriptions, P0 guards retained.
+- [Updated source-fidelity status](SOURCE_RECONCILIATION_STATUS.md): original R0.10 plus eight audit hashes verified; 110 test IDs found in original reviews while semantic English-oracle reconciliation remains pending.
+- [Wave 2 entry readiness](WAVE2_ENTRY_READINESS.md): independent documentary planning versus provider-proof-blocked packages.
+
 ## Original nine-file Wave 1 working baseline (updated where needed)
 
 - [Baseline assessment](BASELINE_ASSESSMENT.md) — source/status integrity and remaining gaps.
@@ -33,4 +43,4 @@ Financial correctness, Inventory capacity conservation, unique DigitalLicense ow
 
 ## Next controlled decision
 
-Review the 29 UNRESOLVED M04 capability-scope rows and the three mixed-scope entries, then address the historical unratified AUD-P1-03 review as the next architecture question. Begin Wave 2 contracts only in the documented dependency order; architecture-policy ratification remains separate from actual implementation and evidence.
+Review the first decision batch W1-SCOPE-B01 (seven catalog/pricing scope items) and the independent AUD-P1-03 commercial retry-window package. All 29 scope rows remain UNRESOLVED in the original inventory until explicit ratification. Begin Wave 2 contracts only in the documented dependency order; architecture-policy ratification remains separate from actual implementation and evidence.

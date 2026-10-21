@@ -50,3 +50,9 @@ The current JSON catalog has 148 planned IDs. Exactly 38 descriptions are marked
 - Stripe test mode experiments, real Mongo failover and actual worker restart/HTTP conditions require later authorized execution; do **not** simulate provider guarantees and mark them verified.
 - Source reconciliation may legitimately end in SOURCE_GAP or NEEDS_USER_CONFIRMATION. Such rows are blockers/uncertainty, not fake closures.
 - Keep all original TEST_PLANNED, no test passes assigned here, and preserve AUD-P0-01..04 OPEN / BLOCKING.
+
+## Incremental evidence update — 2026-10-21
+
+The original R0.10 DOCX and eight audit source files are available in the current working-file session, with SHA-256 hashes matching SOURCE_MANIFEST. All 110 reconstructed audit experiment **IDs** were found in their appropriate original files. The test catalog now records per-entry original source name/hash and `originalSourceIdPresence=MATCHED_IN_HASH_VERIFIED_SOURCE_FILE`; source-description and acceptance-oracle translation remains `PENDING_SEMANTIC_RECONCILIATION` for the same 110. This is source **presence**, not translation fidelity or provider execution evidence. The original `description_provenance=RECONSTRUCTED_FROM_CONVERSATION`, `evidence_status=TEST_PLANNED` and `execution_status=NOT_RUN` are preserved.
+
+The 29-capability scope review adds exact historical R0.10 paragraph anchors for sources directly inspected. This is progress on those records, not a completed 140/140 requirements crosswalk. Original R1 full clause diff and ratification-message fidelity are still pending; the 14 PLAN-DEC refinement/deduplication candidates remain open.
