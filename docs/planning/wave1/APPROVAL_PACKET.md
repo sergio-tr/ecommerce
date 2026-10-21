@@ -1,53 +1,37 @@
-# Wave 1 — First Decisions Requiring User Approval
+# Wave 1 — Controlled Approval Record (2026-10-21)
 
-**Artifact:** W1-AP-001. **All items remain UNRATIFIED.** Owner: @sergio-tr. This packet requests product-scope and governance choices only; it does not approve implementation, infrastructure, Stripe algorithms or new domain aggregates.
+**Source:** explicit user ratification following draft PR #17. **Accountable owner:** @sergio-tr. **Authority:** scoped planning governance only. **Implementation:** NOT AUTHORIZED. **M00.1:** OPEN; AUD-P0-01..04 OPEN / BLOCKING.
 
-## W1-AP-01 — Bound the first M04 vertical slice
+| Decision ID | Outcome | Precisely approved | Explicit limits |
+|---|---|---|---|
+| W1-AP-01 | ACCEPTED — FUNCTIONAL SCOPE DIRECTION | First M04 target is a bounded but complete recoverable eGame digital-license purchase: catalog, quote, cart, Order, Inventory protection, Stripe test-mode payment, financial proof, unique license, authorized disclosure, cancellation, refund and exception recovery | Does not ratify every CAP row, technical contracts, Stripe capture mode or implementation; P0 blockers intact |
+| W1-AP-02 | ACCEPTED — M00–M09 TAXONOMY; M00.5 NOT APPROVED | Retain historical M00–M09 hierarchy | M00.5 requires proven necessity beyond existing M00 structures and G0–G6; no separate milestone created |
+| W1-AP-03 | ACCEPTED — HISTORICAL ID PRESERVATION | Canonical historical and scoped IDs remain stable; CAP/PLAN IDs provisional | No duplicate work items or automatic promotion to accepted requirements/ADRs |
+| W1-AP-04 | ACCEPTED WITH CONDITIONS — READINESS GOVERNANCE | G0–G6 recognized as planning gates | Individual acceptance criteria and evidence must be objective and inspectable; no planned test is VERIFIED |
+| W1-AP-05 | ACCEPTED — SOURCE RECONCILIATION PRIORITIES | Reconcile original R1 versus ratifications; preserve conditions; reconcile 110 test cases, documentation discrepancies, and provenance | Acceptance of audit work does not imply successful source validation |
 
-**A (recommended candidate):** One eGame Store, one safe Stripe test-mode purchase journey with published Product/Variant/Offer, exact Quote snapshot, durable guest Cart and Order, protected StockPool/Reservation, card+3DS hosted Checkout, Payments reconciliation and Inbox/Outbox, idempotent Order incorporation, Inventory commit, exclusive encrypted digital-key allocation, authorized guest claim and controlled key reveal, safe refund/exception handling and minimum required buyer/operator visibility.
+## Interpretation of W1-AP-01
 
-**B:** Include broad tenant self-service provisioning, complete store-admin dashboards, multiple active stores and shared quotas, advanced discovery/theme/localization, cart account merging and notifications in the very first vertical.
+M04 may be planned around **one eGame Store** and a complete digitally fulfilled test-mode purchase. No full multi-store administration, automatic delayed payment methods, complex promotions, production tax system or live monetary flows were approved. Underlying tenant isolation, correctness, cancellation/refund reconciliation and safe exception operations remain compulsory.
 
-**Recommendation:** candidate A for initial M04 scope, with security and tenant isolation intact. It does **not** waive AUD-P0-01..04, Mongo durability, Connect account choice, the real license exposure frontier or operational incident controls. Store-administration and notification inclusion must be scoped explicitly rather than guessed.
+[Capability-level scope matrix](M04_SCOPE_MATRIX.md): 73 INCLUDED (including prerequisites), 30 EXCLUDED from M04, 8 DEFERRED and 29 UNRESOLVED. These row-level categories are an **auditable derivation for review**, not 140 individually ratified feature commitments. Three composite capability entries require refinement.
 
-**Approval consequence:** classifies CAP records into M04 IN_SCOPE / OUT_OF_SCOPE / DEFERRED, enabling buyer/admin journeys and contract planning; it does **not** create implementation-ready tasks or authorize code.
+## M00.5 burden of proof
 
-## W1-AP-02 — Milestone and gate taxonomy
+The original W1-AP-02 proposal added M00.5 as a readiness checkpoint. The user declined automatic addition. Its suggested functions — baseline verification, scope ratification, G2 architecture review, G3 specification readiness, G4 implementation permission — **can currently be represented by existing M00.1–M00.4 and cross-cutting G0–G6**, so no independent M00.5 justification has been demonstrated. Status: NOT APPROVED / REMOVED FROM CURRENT NORMATIVE MILESTONE STRUCTURE. It may be reconsidered only after a documented irreducible scheduling or governance requirement is shown.
 
-**A (recommended):** Keep historical M00–M09; explicitly identify M00.1 finance, M00.2 Inventory/Fulfillment, M00.3 Identity/Guest, M00.4 context contracts. Add M00.5 as a **new proposed documentary-readiness checkpoint** (not a historical accepted phase), preceding future implementation authorization. M01 platform foundations; M02 tenant/identity; M03 catalog/pricing; M04 purchase; M05 messaging; M06 distribution/reuse; M07 extraction; M08 infrastructure; M09 full verification.
+## Unchanged scopes and restrictions
 
-**B:** Do not introduce M00.5; use the G0–G4 gate inside M00.4.
+- D-01 through D-07 primary policies ACCEPTED with all original reservations; no subordinate financial details upgraded.
+- All 181 R0.x historical decision statuses and all prior scoped decision states preserved.
+- AUD-P0-01..04 stay OPEN / BLOCKING; AUD-P1-03 commercial double window remains NOT RATIFIED.
+- No physical MongoDB schema, License reveal authorization design, Stripe-provider negative proof or global transaction is approved.
+- No implementation issues, code, infrastructure, test execution, Slack publication or merge are authorized by these approvals.
 
-**Approval consequence:** stable parent hierarchy/dependency deadlines, not calendar commitments or approval of all historical technology candidates.
+## Traceability
 
-## W1-AP-03 — Scope and decision-identifier policy
+Existing issue source: GitHub #14 / Linear SER-131 for source recovery. PR #17 is a draft documentation review; no new tracker issue is needed for these decisions. Scope/gates are recorded here and will be reconciled to the canonical decision ledger only through an explicit approved documentation change; these entries do not mutate the existing 83 scoped records.
 
-**Recommended:** Keep the 181 historical selections, original source D/AUD IDs and the 83 scoped records unchanged. CAP-* and PLAN-DEC-* are provisional Wave 1 inventory keys. After deduplicating the 32 historical ARC candidates and R1 definitions, allocate canonical REQ/ADR/SPEC IDs as needed, without renaming historical source IDs. Add independent per-milestone scope status IN_SCOPE / OUT_OF_SCOPE / DEFERRED / EXPERIMENT_ONLY, distinct from accepted/proposed audit/test states.
+## Next individual decisions
 
-**Approval consequence:** unambiguous traceability and resistance to accidentally treating a proposed capability as approved.
-
-## W1-AP-04 — Objective readiness gates
-
-**Recommended:** Formally adopt G0 source accuracy, G1 approved release feature scope, G2 scoped ADR ratification, G3 complete contracts/guards, G4 separately authorized atomic implementation issue, G5 actual executed verification and G6 separate production/live-money approval. Details in READINESS_GATES.md.
-
-**Approval consequence:** objective stop/go and Definition of Done conditions; financial implementation must not bypass P0 blockers or provider evidence. This is not a new approval to implement.
-
-## W1-AP-05 — Source reconciliation order and issue reuse
-
-**Recommended:** Prioritize (1) R1 original clause-to-ratified decision comparison, (2) source fidelity of the ratification conditions and 32-ARC/181/83 crosswalk, (3) reconcile 110 test descriptions not explicitly source-reconciled, (4) deliberate scope ratification. Reuse GitHub #1–#14 and Linear SER-118–SER-131, and defer creating additional tracker issues until approved epic/requirements boundaries are stable.
-
-**Approval consequence:** a reliable baseline before expanding the issue inventory; existing AUD-P0 issues remain OPEN/BLOCKING.
-
-## What these approvals must NEVER imply
-
-No ratification of AUD-P0-01 external dispatch neutralization, AUD-P0-02 universal negative provider proof, AUD-P0-03 capture and Mongo local atomicity, AUD-P0-04 fulfillment/refund quiescence, final D-01-SM or CheckoutProcess FSM, AUD-P1-03 double deadline, candidate 35-minute session, candidate two Session limit, any specific Mongo schema, new microservices, Stripe live mode, external spending or implementation.
-
-## Suggested review order
-
-1. Decide **W1-AP-01** (scope determines the essential system capabilities).
-2. Decide **W1-AP-02** (milestone classification and optional M00.5).
-3. Decide **W1-AP-03** and **W1-AP-04** (identifier and readiness rules).
-4. Decide **W1-AP-05** (source reconciliation and tracker governance).
-5. Resume the independently unratified **AUD-P1-03** while keeping all P0 blockers intact.
-
-Each item may be accepted, modified or rejected individually. Acceptance of Wave 1 as a *work assignment* is not acceptance of these proposed decisions.
+The original five Wave 1 governance directions above have been addressed. The next individual ratification is the exact M04 scope of 29 UNRESOLVED capabilities and three mixed-scope entries; then AUD-P1-03 remains the next historical unratified architecture review. No automatic transition into implementation.

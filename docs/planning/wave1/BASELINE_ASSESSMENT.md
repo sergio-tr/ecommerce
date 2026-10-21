@@ -1,7 +1,7 @@
 # Wave 1 — Authoritative Baseline Assessment
 
 **Artifact ID:** W1-BASE-001  
-**Status:** WORKING DRAFT — FOR USER APPROVAL  
+**Status:** REVIEWED; G0 PARTIAL — SOURCE-LEVEL RECONCILIATION INCOMPLETE  
 **Source snapshot:** \`feature/ser-131-architecture-knowledge-baseline-en\` at \`792e3001285d9e999898179973703fe8de7da993\`, inspected on 2026-10-21.  
 **Accountable owner:** @sergio-tr.  
 **Purpose:** factual coverage, conflict and evidence assessment without changing any historical or current decision status.
@@ -96,3 +96,9 @@ These W1-GAP IDs are **proposed planning identifiers only**, not new accepted AD
 ## 7. Baseline completeness verdict
 
 **Recoverable enough to plan the backlog, not mature enough to authorize M04 payment implementation.** The available material captures major product modules, historical selections and ratified safety directions, but does not provide complete ratification provenance at clause level, final context contracts, complete M04 functional scope or supplier/transactional proof. Every unresolved condition is carried forward rather than guessed.
+
+## 2026-10-21 follow-up validation addendum
+
+The original assessment above describes the pre-review nine-file package. After user decisions W1-AP-01–05, the detailed evidence-based audit is in [VALIDATION_REPORT.md](VALIDATION_REPORT.md). Confirmed defects: subsystem-only source lineage for all 140 CAP entries; five circular scheduling dependencies (corrected as co-design links); 14 possible duplicate/subordinate PLAN-DEC questions; three composite capability rows; 110 test descriptions reconstructed rather than source-table verified. The scope direction is accepted but 29 per-row decisions remain unresolved. G0/G1 are PARTIAL; G3 financial contracts remain BLOCKED; G4–G6 are not authorized/verified.
+
+W1-AP-02 explicitly does not approve M00.5 as a new milestone. The user-requested source and test reconciliation work is planned, not completed. See [APPROVAL_RECORD.md](APPROVAL_RECORD.md), [M04_SCOPE_MATRIX.md](M04_SCOPE_MATRIX.md), [RECONCILIATION_PLAN.md](RECONCILIATION_PLAN.md) and [readiness-status.json](readiness-status.json).

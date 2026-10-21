@@ -28,7 +28,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Aggregate boundaries and lifecycle",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-002",
@@ -43,7 +50,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Unique indexes and tenancy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-003",
@@ -58,7 +72,15 @@
       "designMilestone": "M03",
       "missingDefinition": "Share policy and ownership",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Master catalog is product foundation, but full multi-store capabilities not implied in first slice"
     },
     {
       "id": "CAP-CAT-004",
@@ -73,7 +95,15 @@
       "designMilestone": "M03",
       "missingDefinition": "Copy/import and override rules",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Store-local catalog model required for framework, first-slice full override scope unratified"
     },
     {
       "id": "CAP-CAT-005",
@@ -88,7 +118,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Version/migration and validation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-006",
@@ -103,7 +140,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Update conflict resolution",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-007",
@@ -118,7 +162,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Discovery/query contracts",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-008",
@@ -133,7 +184,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Media, locale and licensing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CAT-009",
@@ -148,7 +206,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Batch errors, idempotency and permissions",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-MER-001",
@@ -162,7 +227,14 @@
       "designMilestone": "M03",
       "missingDefinition": "State and channel rules",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-MER-002",
@@ -176,7 +248,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Currency/date/version constraints",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-MER-003",
@@ -190,7 +269,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Storefront/channel projection",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-MER-004",
@@ -204,7 +290,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Outside initial MVP",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PRC-001",
@@ -219,7 +312,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Currency rounding and minor units",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PRC-002",
@@ -234,7 +334,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Effective Offer/tax policy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PRC-003",
@@ -249,7 +356,18 @@
       "designMilestone": "M03",
       "missingDefinition": "Identity, version and repricing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "supplementalPolicyCandidates": [
+        "D-04",
+        "AUD-P0-03"
+      ]
     },
     {
       "id": "CAP-PRC-004",
@@ -264,7 +382,14 @@
       "designMilestone": "M03",
       "missingDefinition": "No real-tax claim",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PRC-005",
@@ -279,7 +404,14 @@
       "designMilestone": "M03",
       "missingDefinition": "Legal/fiscal readiness separate",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PRC-006",
@@ -294,7 +426,14 @@
       "designMilestone": "M03",
       "missingDefinition": "FX rules not approved",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CART-001",
@@ -308,7 +447,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Token authorization and durable storage",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CART-002",
@@ -322,7 +468,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Actor scope and edits",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CART-003",
@@ -336,7 +489,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Store boundary and quantity changes",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CART-004",
@@ -350,7 +510,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Cross-device merge policy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CART-005",
@@ -364,7 +531,18 @@
       "designMilestone": "M04",
       "missingDefinition": "Snapshot and idempotency",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "supplementalPolicyCandidates": [
+        "D-04",
+        "AUD-P0-03"
+      ]
     },
     {
       "id": "CAP-ORD-001",
@@ -380,7 +558,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Create before charge",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-002",
@@ -396,7 +581,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Capture vs obligation and resolution",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-003",
@@ -412,7 +604,14 @@
       "designMilestone": "M04",
       "missingDefinition": "State/guards/mandatory continuation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-004",
@@ -428,7 +627,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Outbox/Inbox and semantic dedup",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-005",
@@ -444,7 +650,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Request vs settlement vs closure",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-006",
@@ -460,7 +673,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Quiescence before branch switch",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-007",
@@ -476,7 +696,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Projection staleness and access",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-008",
@@ -492,7 +719,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Evidence escalation and operator controls",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ORD-009",
@@ -508,7 +742,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Financial fact history preservation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-001",
@@ -523,7 +764,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Final-unit conservation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-002",
@@ -538,7 +786,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "15m eligibility, no unsafe release",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-003",
@@ -553,7 +808,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Protect before Stripe",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-004",
@@ -568,7 +830,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Financial permit and old command rejection",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-005",
@@ -583,7 +852,15 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Pool/Reservation atomicity",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Cross-store shared quotas excluded from initial one-store delivery, capacity conservation remains mandatory"
     },
     {
       "id": "CAP-INV-006",
@@ -598,7 +875,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "No normal partial purchase",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-007",
@@ -613,7 +897,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Audit invalid/revoked stock",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-INV-008",
@@ -628,7 +919,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "No automatic refund-driven reopen",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-001",
@@ -646,7 +944,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "No Stripe domain coupling",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-002",
@@ -664,7 +969,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Old dispatch quiescence blocked",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-003",
@@ -682,7 +994,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Stable idempotency/account/version",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-004",
@@ -700,7 +1019,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Actual provider settings",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-005",
@@ -718,7 +1044,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "requires_capture not captured",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-006",
@@ -736,7 +1069,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Durable evidence before 2xx",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-007",
@@ -754,7 +1094,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Positive proof/provider limitations",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-008",
@@ -772,7 +1119,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Unknown/pending/succeeded distinction",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-009",
@@ -790,7 +1144,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Negative safe predecessor closure",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-010",
@@ -808,7 +1169,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Direct/destination/other selection",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-011",
@@ -826,7 +1194,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "after_expiration.recovery limits",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-012",
@@ -844,7 +1219,15 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Wallets deferred Link pending",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "COMPOSITE wallets DEFERRED; Stripe Link PENDING; cannot share one exact decision status"
     },
     {
       "id": "CAP-PAY-013",
@@ -862,7 +1245,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "No first-vertical asynchronous methods",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-PAY-014",
@@ -880,7 +1270,14 @@
       "designMilestone": "M00.1/M04",
       "missingDefinition": "Separate legal/support policies",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-001",
@@ -896,7 +1293,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Unique valid key identity",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-002",
@@ -912,7 +1316,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Key rotation and audit",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-003",
@@ -928,7 +1339,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Concurrency and crash idempotency",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-004",
@@ -944,7 +1362,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "No atomic exposure claim",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-005",
@@ -960,7 +1385,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Potential disclosure boundary",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-006",
@@ -976,7 +1408,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "HTTP reply loss not non-delivery",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-007",
@@ -992,7 +1431,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "No incompatible refund",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-008",
@@ -1008,7 +1454,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Not ratified for initial slice",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-FUL-009",
@@ -1024,7 +1477,14 @@
       "designMilestone": "M00.2/M04",
       "missingDefinition": "Future adapter only",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-001",
@@ -1040,7 +1500,15 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Keycloak strategy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Trusted actor/store model mandatory, exact B2B/B2C realm deployment not decided"
     },
     {
       "id": "CAP-SEC-002",
@@ -1056,7 +1524,15 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "PKCE cookies CSRF",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Guest session is required, physical Keycloak/BFF plan remains unratified"
     },
     {
       "id": "CAP-SEC-003",
@@ -1072,7 +1548,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Membership and revocation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-004",
@@ -1088,7 +1571,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Actor/action/resource matrix",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-005",
@@ -1104,7 +1594,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Token scope and integrity",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-006",
@@ -1120,7 +1617,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Replay expiry verification",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-007",
@@ -1136,7 +1640,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "D-07-AUTH unresolved",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-008",
@@ -1152,7 +1663,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Prevent forged scope",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-009",
@@ -1168,7 +1686,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Encryption and operator access",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-010",
@@ -1184,7 +1709,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Time-scoped investigation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-011",
@@ -1200,7 +1732,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "Admin and buyer recovery",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-SEC-012",
@@ -1216,7 +1755,14 @@
       "designMilestone": "M00.3/M02",
       "missingDefinition": "BOLA/BFLA and account mixup",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-001",
@@ -1232,7 +1778,15 @@
       "designMilestone": "M02",
       "missingDefinition": "Create/suspend/teardown rollback",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Single-store tenant isolation accepted; full self-service provisioning not required automatically"
     },
     {
       "id": "CAP-CLOUD-002",
@@ -1248,7 +1802,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Lifecycle/versions",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-003",
@@ -1264,7 +1825,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Boundary to Store",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-004",
@@ -1280,7 +1848,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Access control and syncing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-005",
@@ -1296,7 +1871,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Screens and actors not ratified",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-006",
@@ -1312,7 +1894,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Actual Stripe account topology",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-007",
@@ -1328,7 +1917,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Preserve active checkout parameters",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-008",
@@ -1344,7 +1940,14 @@
       "designMilestone": "M02",
       "missingDefinition": "No cross-context authoritative writes",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-009",
@@ -1360,7 +1963,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Outside first vertical",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-CLOUD-010",
@@ -1376,7 +1986,14 @@
       "designMilestone": "M02",
       "missingDefinition": "Later tenant isolation mode",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-001",
@@ -1392,7 +2009,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Catalog query and Store scope",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-002",
@@ -1408,7 +2032,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Accurate Offer/quote presentation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-003",
@@ -1424,7 +2055,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Persistence and recovery",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-004",
@@ -1440,7 +2078,14 @@
       "designMilestone": "M04",
       "missingDefinition": "No browser financial authority",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-005",
@@ -1456,7 +2101,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Uncertainty shown accurately",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-006",
@@ -1472,7 +2124,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Only request until verified closure",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-007",
@@ -1488,7 +2147,15 @@
       "designMilestone": "M04",
       "missingDefinition": "Authorized read and staleness",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "COMPOSITE minimum order-status presentation included through CAP-EGAME-005; full history scope unresolved"
     },
     {
       "id": "CAP-EGAME-008",
@@ -1504,7 +2171,14 @@
       "designMilestone": "M04",
       "missingDefinition": "No key in email",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-EGAME-009",
@@ -1520,7 +2194,15 @@
       "designMilestone": "M04",
       "missingDefinition": "Acceptance criteria missing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "COMPOSITE accessibility requirements and optional localization/theming require distinct review"
     },
     {
       "id": "CAP-EGAME-010",
@@ -1536,7 +2218,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Future scope",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-001",
@@ -1552,7 +2241,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Provisioning and memberships",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-002",
@@ -1568,7 +2264,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Actor rights",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-003",
@@ -1584,7 +2287,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Dedup encryption and audit",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-004",
@@ -1600,7 +2310,15 @@
       "designMilestone": "M04",
       "missingDefinition": "Sensitive data and projection",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "scopeCaveat": "Minimal authorized incident lookup only; not the full support dashboard"
     },
     {
       "id": "CAP-ADMIN-005",
@@ -1616,7 +2334,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Separate commercial approval and payment",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-006",
@@ -1632,7 +2357,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Escalation and evidence",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-007",
@@ -1648,7 +2380,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Safe adjustments",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-008",
@@ -1664,7 +2403,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Retention and access",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ADMIN-009",
@@ -1680,7 +2426,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Not a source of truth",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-NOTIF-001",
@@ -1695,7 +2448,14 @@
       "designMilestone": "M04",
       "missingDefinition": "No license secret in messages",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-NOTIF-002",
@@ -1710,7 +2470,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Secure link only",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-NOTIF-003",
@@ -1725,7 +2492,14 @@
       "designMilestone": "M04",
       "missingDefinition": "Provider and SLA unselected",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-001",
@@ -1742,7 +2516,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Nx/pnpm and DDD independence",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-002",
@@ -1759,7 +2540,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Compatibility and schema governance",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-003",
@@ -1776,7 +2564,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "English and Conventional Commits",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-004",
@@ -1793,7 +2588,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Real reproducible suites",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-005",
@@ -1810,7 +2612,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "D-05-MONGO guarantees",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-006",
@@ -1827,7 +2636,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "No global exactly-once claim",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-007",
@@ -1844,7 +2660,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Never financial authority",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-008",
@@ -1861,7 +2684,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "M05 not M04 prerequisite",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-009",
@@ -1878,7 +2708,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "M07 single-writer cutover",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-010",
@@ -1895,7 +2732,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Pinned tool versions",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-011",
@@ -1912,7 +2756,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "M08 only",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-012",
@@ -1929,7 +2780,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "Real evidence and RPO/RTO",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-013",
@@ -1946,7 +2804,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "M09, M04 finance alert subset",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-014",
@@ -1963,7 +2828,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "No secret exposure",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-ENG-015",
@@ -1980,7 +2852,14 @@
       "designMilestone": "M01-M09",
       "missingDefinition": "No unapproved spending",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-001",
@@ -1995,7 +2874,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Versioning and scope naming",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-002",
@@ -2010,7 +2896,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "No CommerceCloud dependency",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-003",
@@ -2025,7 +2918,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Contract compatibility",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-004",
@@ -2040,7 +2940,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Extension constraints",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-005",
@@ -2055,7 +2962,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Beyond branded duplicate",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-006",
@@ -2070,7 +2984,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "No arbitrary tenant code",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-007",
@@ -2085,7 +3006,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Policy not finalized",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-008",
@@ -2100,7 +3028,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Apache-2.0 only candidate",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-009",
@@ -2115,7 +3050,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Ports now, shipping later",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-DIST-010",
@@ -2130,7 +3072,14 @@
       "designMilestone": "M06-M09",
       "missingDefinition": "Separate legal/financial approvals",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "SOURCE_DEFERRED",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-001",
@@ -2145,7 +3094,18 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "Durable alerts and responsibility",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "supplementalPolicyCandidates": [
+        "D-05",
+        "AUD-P0-02"
+      ]
     },
     {
       "id": "CAP-OPS-002",
@@ -2160,7 +3120,14 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "Never economic truth",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-003",
@@ -2175,7 +3142,14 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "Targets and measurement unknown",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "UNRESOLVED",
+      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-004",
@@ -2190,7 +3164,14 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "PII and financial evidence policy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-005",
@@ -2205,7 +3186,14 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "Real observation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-006",
@@ -2220,7 +3208,14 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "No unsupported HA claims",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "DERIVED_BOUNDED_SCOPE_TO_REVIEW",
+      "m04DeliveryRole": "LATER_SCOPE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
     },
     {
       "id": "CAP-OPS-007",
@@ -2235,7 +3230,31 @@
       "designMilestone": "M04-M09",
       "missingDefinition": "Unknown charges, keys, refunds",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
-      "implementationIssue": null
+      "implementationIssue": null,
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "W1-AP-01_FUNCTIONAL_DIRECTION_NOT_IMPLEMENTATION",
+      "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
+      "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
+      "sourceEvidenceStatus": "RECONCILIATION_PENDING",
+      "implementationAuthorization": "NOT_AUTHORIZED",
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "supplementalPolicyCandidates": [
+        "D-05",
+        "AUD-P0-04"
+      ]
     }
-  ]
+  ],
+  "m04ScopeRatification": {
+    "id": "W1-AP-01",
+    "state": "ACCEPTED_FUNCTIONAL_DIRECTION_ONLY",
+    "implementation": "NOT_AUTHORIZED",
+    "technicalCompleteness": "NOT_ACCEPTED",
+    "counts": {
+      "INCLUDED": 73,
+      "UNRESOLVED": 29,
+      "EXCLUDED": 30,
+      "DEFERRED": 8
+    },
+    "scopeCaveat": "All per-capability inclusion decisions derived from bounded one-store direction require human review; original decision statuses unchanged"
+  }
 }

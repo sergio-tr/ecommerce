@@ -1,6 +1,6 @@
 # Wave 1 — Objective Readiness and Evidence Gates
 
-**Artifact:** W1-GATE-001. **Status:** PROPOSED FOR APPROVAL, NOT RATIFIED. **Accountable owner:** @sergio-tr. **Scope:** M00–M09.
+**Artifact:** W1-GATE-001. **Status:** G0–G6 GOVERNANCE ACCEPTED WITH EVIDENCE CONDITIONS (W1-AP-04); individual GATE PASS status NOT IMPLIED. **Accountable owner:** @sergio-tr. **Scope:** M00–M09.
 
 **Core rule:** policy ratification, specification completeness, implementation authorization, software completion, and experimental verification are different facts. An issue marked Done does not ratify an ADR. A test listed as TEST_PLANNED has not been executed. Neither provider HTTP 2xx nor a browser redirect proves commercial completion.
 
@@ -74,4 +74,20 @@
 - Evidence meets approved oracle and acceptance gate → VERIFIED in the exact tested scope.
 - Real money always requires separate G6.
 
-**This gate model is a Wave 1 proposal for user ratification, not a new approved decision.**
+**The G0–G6 governance framework was accepted by W1-AP-04 with verifiable-evidence conditions. Passing any particular gate remains an independent determination.**
+
+## Exact evidence manifest required for a gate PASS
+
+Every PASS record must contain gate ID, exact target milestone/contract and version, accountable reviewer, dated explicit decision or sign-off, checklist denominator and count satisfied, source ID/hash where applicable, exception/risk state and durable evidence link. Missing links are FAIL/INCONCLUSIVE, never assumed PASS. No approval state may be inferred from issue completion.
+
+| Gate | Minimum objective completion / PASS condition | Verified Wave 1 observation | Current evaluation |
+|---|---|---|---|
+| G0 | 181/181 historical IDs with preserved status; 83/83 scoped IDs; 19/19 source identities; 100% R1/user ratification clauses either source-located or explicitly SOURCE_GAP with reviewer approval; 148/148 tests have verified source locator or classified known uncertainty | 181,83,19 indexed; only 38/148 tests source-table translated; 110 reconstructed; literal R1 and full approval transcript comparison pending | PARTIAL |
+| G1 | 140/140 capabilities in one user-reviewed M04 disposition, with zero undefined or improperly mixed inclusion for first slice; buyer/operator journeys have explicit minimum access and exclusions | 73 INCLUDED,30 EXCLUDED,8 DEFERRED,29 UNRESOLVED; three composite entries; only overall W1-AP-01 approved | PARTIAL |
+| G2 | Each ratified ID has linked explicit user statement, exact conditions, alternatives/dependencies and unchanged child statuses | D-01..07 accepted; W1-AP-01/03/04/05 accepted within scope; technical children pending | PER_DECISION_PARTIAL |
+| G3 | 100% applicable commands/events/FSM guards with owner, scope, version, local atomicity, external-effect evidence, crash/retry/unknown handling and predeclared test oracles; zero unresolved BLOCKING dependency for behavior | AUD-P0-01..04 OPEN/BLOCKING; M00.2/M00.3/M00.4 incomplete | BLOCKED |
+| G4 | G1/G2/G3 for targeted behavior, specific atomic issue, accepted Given/When/Then tests and explicit implementation authorization | Zero implementation tickets created; none authorized | NOT_AUTHORIZED |
+| G5 | Actual execution artifact with run time, commit, provider/environment, observed authoritative state, pass/fail and reviewer acceptance for every required test | 148 TEST_PLANNED, 0 VERIFIED in financial catalog | NOT_VERIFIED |
+| G6 | Separate merchant/Connect, tax/legal, security, recovery, refund/dispute, live-money monitoring and signed financial/production approval | No production authorization or live-payment validation recorded | NOT_AUTHORIZED |
+
+**Status and source separation:** G1 approval of the bounded first vertical does not ratify 73 per-row technology designs. G0 assessment of source IDs is not proof of clause-level correctness. G5 PASS cannot be claimed from a Stripe mock or a timeout. W1-AP-02 declined M00.5: these gates operate across M00.1–M00.4 and subsequent existing milestones.

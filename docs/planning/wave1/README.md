@@ -1,46 +1,36 @@
-# Wave 1 — Baseline and Product Scope
+# CommerceCore — Wave 1 Validation and Planning Baseline
 
-**Owner:** @sergio-tr. **Snapshot:** 2026-10-21. **Decision state:** REVIEW DRAFT. **No implementation or implementation-ready ticket is authorized.**
+**As of:** 2026-10-21. **Accountable owner:** @sergio-tr. **State:** PARTIALLY VALIDATED; REVIEW REQUIRED. **Implementation authorization:** NONE.
 
-This documentation package is the first of the approved four-wave planning activities. It **does not** introduce new ratified domain decisions or resolve the four M00.1 P0 findings.
+Wave 1's first nine files were reviewed against their actual GitHub content, the historical/scoped decision records, source manifest and test catalog. The review and corrective artifacts are linked here. W1-AP-01,03,04,05 have explicit scope-limited approvals. W1-AP-02 preserves M00–M09 and **does not approve M00.5**. None authorizes implementation or closes M00.1.
 
-## Deliverables
+## Begin with the validated findings
 
-| Artifact | Contents | Decision maturity |
-|---|---|---|
-| [BASELINE_ASSESSMENT.md](BASELINE_ASSESSMENT.md) | Reconciliation of historical and scoped decisions, 19 source hashes, current audits, 148 tests, conflicts and source-fidelity gaps | Read-only findings |
-| [FUNCTIONAL_INVENTORY.md](FUNCTIONAL_INVENTORY.md) + [JSON](functional-inventory.json) | 140 proposed capability inventory entries covering CommerceCore, CommerceCloud, eGame, identity, administration, engineering, distribution and operations | Scope NOT RATIFIED |
-| [DECISION_BACKLOG.md](DECISION_BACKLOG.md) + [JSON](decision-backlog.json) | 103 decision/specification work packages: 30 existing canonical IDs and 73 new **planning-only** questions, each with owner, deadline gate, dependency, spec and validation | NO NEW ADR ACCEPTED |
-| [PLANNING_HIERARCHY.md](PLANNING_HIERARCHY.md) | Requirements, ADR, specs, epic, Linear/GitHub, branches, tests and evidence relationships across M00–M09 | PROPOSED |
-| [READINESS_GATES.md](READINESS_GATES.md) | Objective G0–G6 checks for baseline, scope, ADRs, specs, implementation issue, executed verification and live money | PROPOSED |
-| [APPROVAL_PACKET.md](APPROVAL_PACKET.md) | Five individual approval questions; M04 feature scope comes first | ALL PENDING |
+1. [Substantive validation report](VALIDATION_REPORT.md) — 16 recorded issues with exact paths, evidence, corrected versus open status.
+2. [Approval record](APPROVAL_RECORD.md) and [JSON](approval-record.json) — exact W1-AP-01..05 outcomes; [approval packet](APPROVAL_PACKET.md) mirrors accepted decisions.
+3. [M04 capability inclusion/exclusion matrix](M04_SCOPE_MATRIX.md) — 140 IDs; INCLUDED 73 (including prerequisites), EXCLUDED 30, DEFERRED 8, UNRESOLVED 29; not 140 individual ratifications.
+4. [Source and test reconciliation plan](RECONCILIATION_PLAN.md) — R1/user ratification fidelity, canonical ID crosswalk and 110 reconstructed test entries.
+5. [Wave 2 architecture work packages](WAVE2_WORK_PACKAGES.md) and [JSON](wave2-work-packages.json) — 13 proposed risk/dependency-aligned work packages, including next original AUD-P1-03 review.
+6. [G0–G6 readiness gates](READINESS_GATES.md) and [current evidence/status checklist](readiness-status.json) — accepted governance with measurable, outstanding verification criteria.
 
-## Scope classification in the candidate inventory
+## Original nine-file Wave 1 working baseline (updated where needed)
 
-- 53 M04_REQUIRED_DIRECTION: source-derived prerequisites of a coherent first digital purchase, not completed technical specifications or implementation authorization.
-- 20 M04_CANDIDATE: possible first-slice features awaiting explicit approval.
-- 34 PRE_M04: prerequisite domains and engineering designs, not automatically approved implementation.
-- 25 POST_M04: candidate later features.
-- 8 DEFERRED: preserve historical later/out-of-scope treatment.
+- [Baseline assessment](BASELINE_ASSESSMENT.md) — source/status integrity and remaining gaps.
+- [Functional inventory](FUNCTIONAL_INVENTORY.md) and [structured 140-entry catalog](functional-inventory.json). All source IDs resolve to known decision IDs, but **clause-level provenance is not yet validated**.
+- [Decision/dependency backlog](DECISION_BACKLOG.md) and [structured 103-entry catalog](decision-backlog.json) — 30 existing canonical items, 73 planning-only, 14 overlapping existing work; five original hard-dependency cycles corrected.
+- [Planning hierarchy](PLANNING_HIERARCHY.md) — no duplicate audit issues, only reviewed topic-branch/PR changes.
 
-Any newly inferred feature is labeled PROPOSED_SCOPE, not ACCEPTED.
+## Core invariants and open proof
 
-## Baseline status not changed
+Financial correctness, Inventory capacity conservation, unique DigitalLicense ownership, tenant isolation and durable recovery remain non-negotiable. The four AUD-P0-01..04 findings remain OPEN / BLOCKING. D-05-MONGO, capture mode, Stripe post-dispatch negative proof and fulfillment/refund quiescence are not physically specified or verified. Every original checkout/audit experiment remains TEST_PLANNED, none VERIFIED.
 
-Historical 181 records (26 ACCEPTED, 155 PROPOSED — SELECTED); 83 currently scoped records; 13 audit findings (four P0 OPEN / BLOCKING); 148 TEST_PLANNED and zero VERIFIED. The current catalog explicitly reconciles only 38 test titles to original source tables: the other 110 require source-specific audit before claiming complete test coverage. No final M00.1-R2, final Inventory/Ordering FSM, or supplier-specific negative proof is assumed.
+## Existing source-of-truth and tracking
 
-## Original issue reuse
+- Historical [181 R0.x selections](../../01-historical-baseline/R0.10_181_decisions.md) and [83 scoped records](../../02-decisions/decision-register.json) are unchanged.
+- Original [19-source manifest](../../00-governance/SOURCE_MANIFEST.md) records hashes but a SHA is not clause-level proof.
+- Existing AUD finding mappings [GitHub #1..#13 / Linear SER-118..SER-130](../../06-planning/LINKED_ISSUES.md) remain used. English recovery [GitHub #14](https://github.com/sergio-tr/ecommerce/issues/14)/[SER-131](https://linear.app/sergiotr/issue/SER-131) is reused; no new implementation issues, Slack messages or Linear tasks are created.
+- Current review: draft [PR #17](https://github.com/sergio-tr/ecommerce/pull/17), independent feature/ser-131-wave1-planning-foundation branch stacked on the English-baseline branch, **not merged**.
 
-AUD-P0-01..04: GitHub #1..4 / Linear SER-118..121. AUD-P1-01..06: GitHub #5..10 / Linear SER-122..127. AUD-P2-01..03: GitHub #11..13 / Linear SER-128..130. English source recovery: GitHub #14 / Linear SER-131. **No additional GitHub, Linear or Slack item was created just by writing this package.**
+## Next controlled decision
 
-## Review order
-
-1. Review and ratify M04 scope W1-AP-01.
-2. Review milestone taxonomy and proposed M00.5 gate W1-AP-02.
-3. Review scope/identifier policy W1-AP-03 and readiness G0–G6 W1-AP-04.
-4. Review source-reconciliation work and issue reuse W1-AP-05.
-5. Resume AUD-P1-03 as the next unratified individual audit. Keep financial P0s open.
-
-## Change governance
-
-All artifacts must be English. Use independent feature/*/bugfix/* branches, conventional type(scope): commit subjects, PR review and @sergio-tr accountable ownership. Do not put assistant or tool co-author credit in commits. The current Wave 1 branch was created from the still-reviewable English-baseline branch, so its PR should target that branch rather than implying main already includes all historical recovered material.
+Review the 29 UNRESOLVED M04 capability-scope rows and the three mixed-scope entries, then address the historical unratified AUD-P1-03 review as the next architecture question. Begin Wave 2 contracts only in the documented dependency order; architecture-policy ratification remains separate from actual implementation and evidence.

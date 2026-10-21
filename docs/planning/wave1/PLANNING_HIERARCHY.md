@@ -1,6 +1,6 @@
 # Wave 1 — Planning Hierarchy and Dependencies
 
-**Artifact:** W1-PLAN-001. **Status:** PROPOSED, NOT RATIFIED. **Owner:** @sergio-tr.
+**Artifact:** W1-PLAN-001. **Status:** Canonical ID preservation ACCEPTED (W1-AP-03); G0–G6 ACCEPTED WITH EVIDENCE CONDITIONS (W1-AP-04). Specific CAP/PLAN hierarchy details remain provisional. **Owner:** @sergio-tr.
 
 ## Canonical identities and reuse
 
@@ -13,7 +13,7 @@ GitHub stores the authoritative, versioned decision and contract texts after exp
 | Layer | Concept | Representation | Status |
 |---|---|---|---|
 | Program | CommerceCore / CommerceCloud / eGame | Existing Linear project + GitHub docs | Existing |
-| Milestone | M00–M09, M00.1..M00.4; optional M00.5 | Roadmap + future Linear milestone objects | Proposed structure, no new objects |
+| Milestone | M00–M09, M00.1..M00.4; M00.5 NOT APPROVED | Roadmap + future Linear milestone objects | Proposed structure, no new objects |
 | Capability / Epic | Inventory, Ordering, Payments, Cloud, Identity, eGame, SDK, Ops etc. | CAP draft records + future epic | 140 draft capabilities |
 | Requirement | Atomic actor/system behavior with priority | Future REQ IDs tied to source | Not allocated or ratified |
 | Risk/Decision | Architectural question with evidence constraints | Existing D/AUD or draft PLAN-DEC | Reuse historical and current statuses |
@@ -61,3 +61,7 @@ All project writing is in English. Use independent feature/*, bugfix/* or other 
 - Wave 4: explicit authorization, implementation, executed tests, and release evidence per milestone.
 
 **This hierarchy and dependency allocation require the W1 approval packet before becoming normative planning policy.**
+
+## 2026-10-21 dependency validation
+
+Five cyclic hard prerequisites in the original decision-backlog export were repaired in the current decision-backlog.json by distinguishing directed hardPrerequisites from coDesignLinks. Zero directed hard-prerequisite cycles remain. Four financial P0s are still OPEN/BLOCKING; co-design does not assert they can be closed independently. Fourteen PLAN-DEC candidates overlap existing audit/decision work and must be refinements, not duplicated GitHub/Linear issues. See [VALIDATION_REPORT.md](VALIDATION_REPORT.md) and [WAVE2_WORK_PACKAGES.md](WAVE2_WORK_PACKAGES.md).
