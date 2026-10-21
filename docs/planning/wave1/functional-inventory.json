@@ -1,0 +1,2241 @@
+{
+  "artifactId": "W1-CAP-001",
+  "state": "DRAFT_NOT_RATIFIED",
+  "owner": "sergio-tr",
+  "total": 140,
+  "scopeCounts": {
+    "PRE_M04": 34,
+    "M04_CANDIDATE": 20,
+    "POST_M04": 25,
+    "DEFERRED": 8,
+    "M04_REQUIRED_DIRECTION": 53
+  },
+  "fields": {
+    "sourceMaturity": "Maturity of source decisions, not capability sign-off",
+    "planningScope": "Proposed rollout timing, not a policy ratification"
+  },
+  "capabilities": [
+    {
+      "id": "CAP-CAT-001",
+      "system": "CommerceCore / Catalog",
+      "name": "Product and Variant identity",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Aggregate boundaries and lifecycle",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-002",
+      "system": "CommerceCore / Catalog",
+      "name": "SKU uniqueness by namespace",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Unique indexes and tenancy",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-003",
+      "system": "CommerceCore / Catalog",
+      "name": "Shared master catalog",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Share policy and ownership",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-004",
+      "system": "CommerceCore / Catalog",
+      "name": "Store-local catalog",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Copy/import and override rules",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-005",
+      "system": "CommerceCore / Catalog",
+      "name": "Typed attribute schema",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Version/migration and validation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-006",
+      "system": "CommerceCore / Catalog",
+      "name": "Field inheritance and overrides",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Update conflict resolution",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-007",
+      "system": "CommerceCore / Catalog",
+      "name": "Categories, search and filtering",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Discovery/query contracts",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-008",
+      "system": "CommerceCore / Catalog",
+      "name": "Localization and product assets",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Media, locale and licensing",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CAT-009",
+      "system": "CommerceCore / Catalog",
+      "name": "Bulk product import",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.2-03",
+        "R0.3-01"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Batch errors, idempotency and permissions",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-MER-001",
+      "system": "CommerceCore / Merchandising",
+      "name": "Listing visibility and publication",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-04"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "State and channel rules",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-MER-002",
+      "system": "CommerceCore / Merchandising",
+      "name": "Offer and sale conditions",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-04"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Currency/date/version constraints",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-MER-003",
+      "system": "CommerceCore / Merchandising",
+      "name": "Channel-based publication",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-04"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Storefront/channel projection",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-MER-004",
+      "system": "CommerceCore / Merchandising",
+      "name": "Advanced discounts and promotions",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "R0.3-04"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Outside initial MVP",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-001",
+      "system": "CommerceCore / Pricing",
+      "name": "Exact money arithmetic",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Currency rounding and minor units",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-002",
+      "system": "CommerceCore / Pricing",
+      "name": "Quote evaluation",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Effective Offer/tax policy",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-003",
+      "system": "CommerceCore / Pricing",
+      "name": "Immutable accepted economic snapshot",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Identity, version and repricing",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-004",
+      "system": "CommerceCore / Pricing",
+      "name": "Demonstration tax adapter",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "No real-tax claim",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-005",
+      "system": "CommerceCore / Pricing",
+      "name": "Production taxation",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "Legal/fiscal readiness separate",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PRC-006",
+      "system": "CommerceCore / Pricing",
+      "name": "Cross-currency pricing",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.3-05",
+        "R0.3-06"
+      ],
+      "designMilestone": "M03",
+      "missingDefinition": "FX rules not approved",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CART-001",
+      "system": "CommerceCore / Cart",
+      "name": "Persistent guest cart",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.3-13"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Token authorization and durable storage",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CART-002",
+      "system": "CommerceCore / Cart",
+      "name": "Authenticated cart",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-13"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Actor scope and edits",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CART-003",
+      "system": "CommerceCore / Cart",
+      "name": "Cart line validation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-13"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Store boundary and quantity changes",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CART-004",
+      "system": "CommerceCore / Cart",
+      "name": "Guest/account cart merging",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.3-13"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Cross-device merge policy",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CART-005",
+      "system": "CommerceCore / Cart",
+      "name": "Cart-to-checkout acceptance",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.3-13"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Snapshot and idempotency",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-001",
+      "system": "CommerceCore / Ordering",
+      "name": "Durable Order identity",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Create before charge",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-002",
+      "system": "CommerceCore / Ordering",
+      "name": "Commercial obligation lifecycle",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Capture vs obligation and resolution",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-003",
+      "system": "CommerceCore / Ordering",
+      "name": "CheckoutProcess recoverable saga",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "State/guards/mandatory continuation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-004",
+      "system": "CommerceCore / Ordering",
+      "name": "Financial fact incorporation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Outbox/Inbox and semantic dedup",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-005",
+      "system": "CommerceCore / Ordering",
+      "name": "Authorized commercial cancellation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Request vs settlement vs closure",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-006",
+      "system": "CommerceCore / Ordering",
+      "name": "Exclusive fulfillment/refund resolution",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Quiescence before branch switch",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-007",
+      "system": "CommerceCore / Ordering",
+      "name": "Customer order read model",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Projection staleness and access",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-008",
+      "system": "CommerceCore / Ordering",
+      "name": "Exceptional commercial repair",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Evidence escalation and operator controls",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ORD-009",
+      "system": "CommerceCore / Ordering",
+      "name": "Order history and reconciliation",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "D-04",
+        "D-05",
+        "AUD-P0-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Financial fact history preservation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-001",
+      "system": "CommerceCore / Inventory",
+      "name": "StockPool capacity",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Final-unit conservation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-002",
+      "system": "CommerceCore / Inventory",
+      "name": "Reservation initial hold",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "15m eligibility, no unsafe release",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-003",
+      "system": "CommerceCore / Inventory",
+      "name": "Financially protected reservation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Protect before Stripe",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-004",
+      "system": "CommerceCore / Inventory",
+      "name": "Versioned commit/release",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Financial permit and old command rejection",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-005",
+      "system": "CommerceCore / Inventory",
+      "name": "Shared pools and store quotas",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Pool/Reservation atomicity",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-006",
+      "system": "CommerceCore / Inventory",
+      "name": "Multi-line capacity all-or-nothing",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "No normal partial purchase",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-007",
+      "system": "CommerceCore / Inventory",
+      "name": "Inventory administrative adjustment",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Audit invalid/revoked stock",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-INV-008",
+      "system": "CommerceCore / Inventory",
+      "name": "Post-commit capacity correction",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "D-01",
+        "AUD-P1-01"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "No automatic refund-driven reopen",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-001",
+      "system": "CommerceCore / Payments",
+      "name": "Provider-neutral finance contracts",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "No Stripe domain coupling",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-002",
+      "system": "CommerceCore / Payments",
+      "name": "Financial admission barrier",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Old dispatch quiescence blocked",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-003",
+      "system": "CommerceCore / Payments",
+      "name": "Pre-POST durable operation record",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Stable idempotency/account/version",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-004",
+      "system": "CommerceCore / Payments",
+      "name": "Stripe hosted cards and 3DS",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Actual provider settings",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-005",
+      "system": "CommerceCore / Payments",
+      "name": "Capture/settlement proof",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "requires_capture not captured",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-006",
+      "system": "CommerceCore / Payments",
+      "name": "Verified webhook Inbox",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Durable evidence before 2xx",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-007",
+      "system": "CommerceCore / Payments",
+      "name": "Unknown Session without ID reconciliation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Positive proof/provider limitations",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-008",
+      "system": "CommerceCore / Payments",
+      "name": "Refund financial execution",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Unknown/pending/succeeded distinction",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-009",
+      "system": "CommerceCore / Payments",
+      "name": "Sequential commercial PaymentAttempts",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Negative safe predecessor closure",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-010",
+      "system": "CommerceCore / Payments",
+      "name": "Stripe Connect charge architecture",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Direct/destination/other selection",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-011",
+      "system": "CommerceCore / Payments",
+      "name": "Session successor/recovery control",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "after_expiration.recovery limits",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-012",
+      "system": "CommerceCore / Payments",
+      "name": "Wallets and Stripe Link",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "DEFERRED_OR_PENDING",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Wallets deferred Link pending",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-013",
+      "system": "CommerceCore / Payments",
+      "name": "Delayed instruments",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "No first-vertical asynchronous methods",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-PAY-014",
+      "system": "CommerceCore / Payments",
+      "name": "Partial refunds/disputes",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "D-02",
+        "D-03",
+        "D-05",
+        "D-06",
+        "AUD-P0-02"
+      ],
+      "designMilestone": "M00.1/M04",
+      "missingDefinition": "Separate legal/support policies",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-001",
+      "system": "CommerceCore / Fulfillment",
+      "name": "DigitalLicense catalog/import",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Unique valid key identity",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-002",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Encrypted license storage",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Key rotation and audit",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-003",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Exclusive key allocation by order line",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Concurrency and crash idempotency",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-004",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Multi-line preparation before exposure",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "No atomic exposure claim",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-005",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Buyer-authorized secure key reveal",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Potential disclosure boundary",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-006",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Delivery evidence tracking",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "HTTP reply loss not non-delivery",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-007",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Fulfillment repair and incident",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "No incompatible refund",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-008",
+      "system": "CommerceCore / Fulfillment",
+      "name": "External redemption validation",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Not ratified for initial slice",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-FUL-009",
+      "system": "CommerceCore / Fulfillment",
+      "name": "Physical fulfillment logistics",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "D-04",
+        "AUD-P0-04",
+        "R0.3-21"
+      ],
+      "designMilestone": "M00.2/M04",
+      "missingDefinition": "Future adapter only",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-001",
+      "system": "Identity and Security",
+      "name": "B2B/B2C identity separation",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Keycloak strategy",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-002",
+      "system": "Identity and Security",
+      "name": "OIDC and BFF sessions",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "PKCE cookies CSRF",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-003",
+      "system": "Identity and Security",
+      "name": "Tenant membership lifecycle",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Membership and revocation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-004",
+      "system": "Identity and Security",
+      "name": "RBAC/ABAC enforcement",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Actor/action/resource matrix",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-005",
+      "system": "Identity and Security",
+      "name": "Secure guest checkout",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Token scope and integrity",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-006",
+      "system": "Identity and Security",
+      "name": "One-time guest Order claim",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Replay expiry verification",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-007",
+      "system": "Identity and Security",
+      "name": "Guest cancellation authorization",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "D-07-AUTH unresolved",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-008",
+      "system": "Identity and Security",
+      "name": "Trusted TenantContext propagation",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Prevent forged scope",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-009",
+      "system": "Identity and Security",
+      "name": "License secret access control",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Encryption and operator access",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-010",
+      "system": "Identity and Security",
+      "name": "Privileged support elevation",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Time-scoped investigation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-011",
+      "system": "Identity and Security",
+      "name": "MFA/recovery",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "Admin and buyer recovery",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-SEC-012",
+      "system": "Identity and Security",
+      "name": "Negative cross-tenant auth tests",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-01",
+        "R0.7-10",
+        "D-07-AUTH"
+      ],
+      "designMilestone": "M00.3/M02",
+      "missingDefinition": "BOLA/BFLA and account mixup",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-001",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Tenant lifecycle and provisioning",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Create/suspend/teardown rollback",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-002",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Brand and Store configuration",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Lifecycle/versions",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-003",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Storefront and Channel configuration",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Boundary to Store",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-004",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Invitation/membership administration",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Access control and syncing",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-005",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Control Plane management UI",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Screens and actors not ratified",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-006",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Payment provider per-store configuration",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Actual Stripe account topology",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-007",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Policy version propagation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Preserve active checkout parameters",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-008",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Independent control-plane storage",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "No cross-context authoritative writes",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-009",
+      "system": "CommerceCloud / Control Plane",
+      "name": "SaaS subscription billing",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Outside first vertical",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-CLOUD-010",
+      "system": "CommerceCloud / Control Plane",
+      "name": "Dedicated tenant deployment tiers",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.1-01",
+        "R0.2-01",
+        "R0.4-02"
+      ],
+      "designMilestone": "M02",
+      "missingDefinition": "Later tenant isolation mode",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-001",
+      "system": "eGame / Buyer storefront",
+      "name": "Published product browsing",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Catalog query and Store scope",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-002",
+      "system": "eGame / Buyer storefront",
+      "name": "Product/price display",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Accurate Offer/quote presentation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-003",
+      "system": "eGame / Buyer storefront",
+      "name": "Secure guest cart journey",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Persistence and recovery",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-004",
+      "system": "eGame / Buyer storefront",
+      "name": "Hosted Checkout redirect",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "No browser financial authority",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-005",
+      "system": "eGame / Buyer storefront",
+      "name": "Pending payment state UX",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Uncertainty shown accurately",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-006",
+      "system": "eGame / Buyer storefront",
+      "name": "Explicit authorized cancellation UI",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Only request until verified closure",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-007",
+      "system": "eGame / Buyer storefront",
+      "name": "Order status/history",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Authorized read and staleness",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-008",
+      "system": "eGame / Buyer storefront",
+      "name": "License reveal page",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "No key in email",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-009",
+      "system": "eGame / Buyer storefront",
+      "name": "Localization/accessibility/theming",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Acceptance criteria missing",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-EGAME-010",
+      "system": "eGame / Buyer storefront",
+      "name": "Buyer support/disputes portal",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.2-09",
+        "D-03",
+        "D-07"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Future scope",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-001",
+      "system": "Store and Platform Administration",
+      "name": "Tenant/platform administration",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Provisioning and memberships",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-002",
+      "system": "Store and Platform Administration",
+      "name": "Store catalog editor",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Actor rights",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-003",
+      "system": "Store and Platform Administration",
+      "name": "License inventory import",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Dedup encryption and audit",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-004",
+      "system": "Store and Platform Administration",
+      "name": "Order/support lookup",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Sensitive data and projection",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-005",
+      "system": "Store and Platform Administration",
+      "name": "Refund initiation authority",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Separate commercial approval and payment",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-006",
+      "system": "Store and Platform Administration",
+      "name": "Unknown charge incident investigation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Escalation and evidence",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-007",
+      "system": "Store and Platform Administration",
+      "name": "Inventory correction",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Safe adjustments",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-008",
+      "system": "Store and Platform Administration",
+      "name": "Audit log and privileged review",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Retention and access",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ADMIN-009",
+      "system": "Store and Platform Administration",
+      "name": "Financial dashboards",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.7-08",
+        "D-04",
+        "D-05"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Not a source of truth",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-NOTIF-001",
+      "system": "Notifications",
+      "name": "Purchase confirmation",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "No license secret in messages",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-NOTIF-002",
+      "system": "Notifications",
+      "name": "Fulfillment-ready notification",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Secure link only",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-NOTIF-003",
+      "system": "Notifications",
+      "name": "Template/retry/provider handling",
+      "planningScope": "M04_CANDIDATE",
+      "sourceMaturity": "PROPOSED_SCOPE",
+      "sourceIds": [
+        "R0.3-23",
+        "R0.4-03"
+      ],
+      "designMilestone": "M04",
+      "missingDefinition": "Provider and SLA unselected",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-001",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Monorepo and import boundaries",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Nx/pnpm and DDD independence",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-002",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "OpenAPI/JSON Schema contracts",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Compatibility and schema governance",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-003",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "CI and PR branch gates",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "English and Conventional Commits",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-004",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Unit/integration/E2E tooling",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Real reproducible suites",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-005",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Mongo durable authority",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "D-05-MONGO guarantees",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-006",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Durable Inbox/Outbox workers",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "No global exactly-once claim",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-007",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Optional Redis",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Never financial authority",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-008",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Kafka transport",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "M05 not M04 prerequisite",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-009",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Domain service extraction",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "M07 single-writer cutover",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-010",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Local Compose runtime",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Pinned tool versions",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-011",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Kubernetes/Helm/Terraform/Argo CD",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "M08 only",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-012",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Backup restore and DR",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "Real evidence and RPO/RTO",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-013",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Telemetry metrics and logs",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "M09, M04 finance alert subset",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-014",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Secrets and network policy",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "No secret exposure",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-ENG-015",
+      "system": "Engineering / Integration / Infrastructure",
+      "name": "Environment budget and costs",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.5-03",
+        "R0.6-06",
+        "R0.8-14",
+        "D-05"
+      ],
+      "designMilestone": "M01-M09",
+      "missingDefinition": "No unapproved spending",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-001",
+      "system": "Framework Reuse / Distribution",
+      "name": "Public npm package boundaries",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Versioning and scope naming",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-002",
+      "system": "Framework Reuse / Distribution",
+      "name": "Independent installable CommerceCore",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "No CommerceCloud dependency",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-003",
+      "system": "Framework Reuse / Distribution",
+      "name": "Generated TypeScript SDK",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Contract compatibility",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-004",
+      "system": "Framework Reuse / Distribution",
+      "name": "Reusable Angular shell/theme",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Extension constraints",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-005",
+      "system": "Framework Reuse / Distribution",
+      "name": "Second real independent consumer",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "ACCEPTED_FOUNDATION",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Beyond branded duplicate",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-006",
+      "system": "Framework Reuse / Distribution",
+      "name": "Provider and strategy adapter ports",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "No arbitrary tenant code",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-007",
+      "system": "Framework Reuse / Distribution",
+      "name": "Release/deprecation compatibility",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Policy not finalized",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-008",
+      "system": "Framework Reuse / Distribution",
+      "name": "Open-source license choice",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Apache-2.0 only candidate",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-009",
+      "system": "Framework Reuse / Distribution",
+      "name": "Physical-product fulfillment",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Ports now, shipping later",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-DIST-010",
+      "system": "Framework Reuse / Distribution",
+      "name": "Live payment commercial compliance",
+      "planningScope": "DEFERRED",
+      "sourceMaturity": "EXPLICIT_DEFERRED",
+      "sourceIds": [
+        "R0.2-11",
+        "R0.10-10"
+      ],
+      "designMilestone": "M06-M09",
+      "missingDefinition": "Separate legal/financial approvals",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-001",
+      "system": "Reliability and Compliance",
+      "name": "Unknown finance operation monitoring",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "Durable alerts and responsibility",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-002",
+      "system": "Reliability and Compliance",
+      "name": "Business event projections",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "Never economic truth",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-003",
+      "system": "Reliability and Compliance",
+      "name": "SLOs and error budgets",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "PENDING_DETAIL",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "Targets and measurement unknown",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-004",
+      "system": "Reliability and Compliance",
+      "name": "Data privacy/retention",
+      "planningScope": "PRE_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "PII and financial evidence policy",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-005",
+      "system": "Reliability and Compliance",
+      "name": "Chaos and partition testing",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "Real observation",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-006",
+      "system": "Reliability and Compliance",
+      "name": "Backup/restore proof",
+      "planningScope": "POST_M04",
+      "sourceMaturity": "SELECTED_HISTORICAL",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "No unsupported HA claims",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "CAP-OPS-007",
+      "system": "Reliability and Compliance",
+      "name": "Incident runbooks/escalation",
+      "planningScope": "M04_REQUIRED_DIRECTION",
+      "sourceMaturity": "ACCEPTED_POLICY",
+      "sourceIds": [
+        "R0.7-18",
+        "R0.9-10"
+      ],
+      "designMilestone": "M04-M09",
+      "missingDefinition": "Unknown charges, keys, refunds",
+      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "implementationIssue": null
+    }
+  ]
+}

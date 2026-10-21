@@ -1,0 +1,1686 @@
+{
+  "artifactId": "W1-DEC-001",
+  "state": "DRAFT_NOT_RATIFIED",
+  "count": 103,
+  "existingCanonical": 30,
+  "proposedPlanningOnly": 73,
+  "byPriority": {
+    "P0": 27,
+    "P1": 59,
+    "P2": 17
+  },
+  "entries": [
+    {
+      "id": "AUD-P0-01",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Prove exclusion across Stripe dispatch cancellation and Inventory release",
+      "owner": "Payments/Ordering/Inventory",
+      "deadline": "Before M00.1 closure",
+      "dependencies": [
+        "AUD-P0-02",
+        "D-05-MONGO"
+      ],
+      "requiredSpecification": "Versioned dispatch/closure/release permits and external quiescence guards",
+      "validationObligation": "Provider-backed late POST tests and recovery",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P0-02",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Prove recovery of Stripe UNKNOWN without Session ID",
+      "owner": "Payments",
+      "deadline": "Before M00.1 closure",
+      "dependencies": [
+        "AUD-P0-01"
+      ],
+      "requiredSpecification": "Correlation, provider capabilities, evidence and safe close",
+      "validationObligation": "Stripe test-mode object search/late dispatch trials",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P0-03",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Prove preserved paid obligation across context failures",
+      "owner": "Payments/Ordering",
+      "deadline": "Before M00.1 closure",
+      "dependencies": [
+        "D-05-MONGO",
+        "AUD-P0-02"
+      ],
+      "requiredSpecification": "Capture fact and atomic local propagation contracts",
+      "validationObligation": "Crash/ACK-loss/tenant isolation tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P0-04",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Prove exclusive irreversible fulfillment or refund",
+      "owner": "Ordering/Fulfillment/Payments",
+      "deadline": "Before M00.1 closure",
+      "dependencies": [
+        "AUD-P0-01",
+        "M00.2"
+      ],
+      "requiredSpecification": "Effect capability quiescence and resolution commands",
+      "validationObligation": "Lost delivery/refund response tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-01",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Select Reservation FSM and StockPool atomicity",
+      "owner": "Inventory",
+      "deadline": "Before M00.2 exit",
+      "dependencies": [
+        "AUD-P0-01",
+        "D-01-SM"
+      ],
+      "requiredSpecification": "Transitions, versions, conservation equation",
+      "validationObligation": "Final-unit races and failover",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-02",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Select concrete Ordering saga FSM and truth boundaries",
+      "owner": "Ordering",
+      "deadline": "Before M00.4 exit",
+      "dependencies": [
+        "AUD-P0-03",
+        "D-05-MONGO"
+      ],
+      "requiredSpecification": "Order/CheckoutProcess status and local atomic continuation",
+      "validationObligation": "Duplicate and out-of-order financial fact",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-03",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Ratify or reject commercial double retry-window policy",
+      "owner": "Ordering/Payments",
+      "deadline": "Before M00.1 design closure",
+      "dependencies": [
+        "D-06-RETRY-WINDOW",
+        "AUD-P0-01"
+      ],
+      "requiredSpecification": "Commercial and provider deadlines distinction",
+      "validationObligation": "AUD13 tests after approval",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-04",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Select Stripe Connect methods and capture enforcement",
+      "owner": "Payments/CommerceCloud",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-03"
+      ],
+      "requiredSpecification": "Account topology, capture and store payment rules",
+      "validationObligation": "Provider actual API/test-mode validation",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-05",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Specify Mongo durability and ambiguous commit",
+      "owner": "Shared persistence ports",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "D-05-MONGO"
+      ],
+      "requiredSpecification": "Document/transaction/write concern/restart contracts",
+      "validationObligation": "Mongo failover tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P1-06",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Specify all-or-nothing multi-line sale and allocation",
+      "owner": "Inventory/Fulfillment",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-04",
+        "AUD-P1-01"
+      ],
+      "requiredSpecification": "Batch capacity/all-line preparation contract",
+      "validationObligation": "Concurrent stock and partial exposure tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P2-01",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Normalize Payment Session Attempt Refund vocabulary",
+      "owner": "Payments/Ordering",
+      "deadline": "Before M00.4 exit",
+      "dependencies": [
+        "AUD-P1-02"
+      ],
+      "requiredSpecification": "Canonical cross-context glossary",
+      "validationObligation": "Contract review",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P2-02",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Validate 35-minute Checkout and two attempt defaults",
+      "owner": "Payments/Commerce",
+      "deadline": "Before M04 tuning",
+      "dependencies": [
+        "D-02-P01",
+        "D-06-P01"
+      ],
+      "requiredSpecification": "Config version and measurement plan",
+      "validationObligation": "Stripe test mode and buyer flow",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P2-03",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Complete evidence and requirement trace coverage",
+      "owner": "Architecture governance",
+      "deadline": "Before M00.5 planning gate",
+      "dependencies": [
+        "W1-GAP-04"
+      ],
+      "requiredSpecification": "Trace matrix and source-oracle mapping",
+      "validationObligation": "Catalog integrity check",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-01-SM",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Formalize capacity-specific Reservation states",
+      "owner": "Inventory",
+      "deadline": "Before M00.2 exit",
+      "dependencies": [
+        "AUD-P1-01"
+      ],
+      "requiredSpecification": "Final FSM transitions and release identity",
+      "validationObligation": "Property tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-02-P01",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Select actual Checkout Session duration policy",
+      "owner": "Payments",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P2-02"
+      ],
+      "requiredSpecification": "Config version/min/max/clock handling",
+      "validationObligation": "Provider experiments",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-03-CONFIG",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Enforce store payment methods with Stripe API",
+      "owner": "Payments/CommerceCloud",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P1-04"
+      ],
+      "requiredSpecification": "Actual API/provider account guard contract",
+      "validationObligation": "Provider card/3DS test mode",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "AUD-P0-03-CAPTURE",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Define authorization vs captured funds evidence",
+      "owner": "Payments/Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-03"
+      ],
+      "requiredSpecification": "Captured/pending/requires_capture semantics",
+      "validationObligation": "Stripe capture-mode tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-04-SM",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Select commercial compensation FSM and evidence",
+      "owner": "Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-04"
+      ],
+      "requiredSpecification": "Branch guards and irreversible effects",
+      "validationObligation": "Refund/license races",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-04-P01",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Choose bounded fulfillment recovery and escalation policy",
+      "owner": "Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-04"
+      ],
+      "requiredSpecification": "Retry budgets without false terminal states",
+      "validationObligation": "Stuck saga scenarios",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-04-CONNECT",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Select refund fund-flow and Stripe Connect scope",
+      "owner": "Payments",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P1-04"
+      ],
+      "requiredSpecification": "Charge owner/refund account/transfer reversal",
+      "validationObligation": "Provider test-mode refunds",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-05-MONGO",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Set local Mongo atomicity and durability contract",
+      "owner": "Infrastructure ports",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-03"
+      ],
+      "requiredSpecification": "Transaction/journal/write concern/unknown commit",
+      "validationObligation": "Failover/commit uncertainty",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-05-CONCURRENCY",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Specify safe worker concurrency and fencing",
+      "owner": "Payments/Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-01"
+      ],
+      "requiredSpecification": "Conditional authorization and worker restart rules",
+      "validationObligation": "Suspended-worker tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-05-OPS",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Specify reconciliation and incident alerting",
+      "owner": "Payments/Operations",
+      "deadline": "Before M04 integration",
+      "dependencies": [
+        "AUD-P0-02"
+      ],
+      "requiredSpecification": "Escalation ownership/rate budgets",
+      "validationObligation": "Stuck operation observability",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-06-P01",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Select maximum sequential hosted Sessions",
+      "owner": "Payments/Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P1-03"
+      ],
+      "requiredSpecification": "Policy value+version",
+      "validationObligation": "Repeat/abuse load tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-06-RETRY-WINDOW",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Choose commercial retry eligibility deadlines",
+      "owner": "Ordering",
+      "deadline": "Before M00.1 design closure",
+      "dependencies": [
+        "AUD-P1-03"
+      ],
+      "requiredSpecification": "Relative/global cutoff semantics",
+      "validationObligation": "Race and expiry tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-06-INTENT",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Prevent incompatible multi-checkout attempts",
+      "owner": "Ordering/Payments",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "D-06-RETRY-WINDOW"
+      ],
+      "requiredSpecification": "Intent identity, legitimate multiple buys",
+      "validationObligation": "Idempotency/abuse tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-07-AUTH",
+      "existingCanonical": true,
+      "priority": "P1",
+      "title": "Authorize guest cancellation and ownership",
+      "owner": "Identity/Ordering",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "M00.3"
+      ],
+      "requiredSpecification": "Actor-resource proof and expiration",
+      "validationObligation": "BOLA negative tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-07-CONCURRENCY",
+      "existingCanonical": true,
+      "priority": "P0",
+      "title": "Specify cancel vs in-flight create/capture",
+      "owner": "Ordering/Payments",
+      "deadline": "Before M04 implementation",
+      "dependencies": [
+        "AUD-P0-01",
+        "AUD-P0-02"
+      ],
+      "requiredSpecification": "Barrier and cancellation contracts",
+      "validationObligation": "Concurrence with 3DS/unknown",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-07-OPS",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Define cancellation recovery and investigation",
+      "owner": "Operations",
+      "deadline": "Before M04 integration",
+      "dependencies": [
+        "D-05-OPS"
+      ],
+      "requiredSpecification": "Safe retries/alerts",
+      "validationObligation": "Stuck cancel tests",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "D-03-LINK",
+      "existingCanonical": true,
+      "priority": "P2",
+      "title": "Decide Stripe Link inclusion and method constraints",
+      "owner": "Payments",
+      "deadline": "Before M04 payment UI freeze",
+      "dependencies": [
+        "D-03-CONFIG"
+      ],
+      "requiredSpecification": "Link policy or defer",
+      "validationObligation": "Provider method enforcement test",
+      "planningStatus": "INHERITED_STATUS_UNCHANGED"
+    },
+    {
+      "id": "PLAN-DEC-001",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "StockPool vs Reservation aggregate",
+      "owner": "Inventory",
+      "priority": "P0",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P1-01"
+      ],
+      "requiredSpecification": "Aggregate ownership and atomic balances",
+      "validationObligation": "Last unit reservation races",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-002",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Shared pools and store quotas",
+      "owner": "Inventory",
+      "priority": "P1",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-10"
+      ],
+      "requiredSpecification": "Store quota model and release",
+      "validationObligation": "Cross-store oversell",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-003",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Multi-line reservation integrity",
+      "owner": "Inventory",
+      "priority": "P0",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P1-06"
+      ],
+      "requiredSpecification": "All-or-nothing holds",
+      "validationObligation": "Partial capacity/crash",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-004",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Unique DigitalLicense assignment",
+      "owner": "Fulfillment",
+      "priority": "P0",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P0-04"
+      ],
+      "requiredSpecification": "Per-orderLine ownership uniqueness",
+      "validationObligation": "Concurrent duplicate claims",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-005",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "License encryption and rotation",
+      "owner": "Fulfillment/Security",
+      "priority": "P1",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-17"
+      ],
+      "requiredSpecification": "DEK/KEK access policy",
+      "validationObligation": "Rotation/no key leakage",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-006",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Irreversible reveal capability",
+      "owner": "Fulfillment",
+      "priority": "P0",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P0-04-QUIESCENCE"
+      ],
+      "requiredSpecification": "Reveal authorization and neutralization",
+      "validationObligation": "Lost HTTP reply",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-007",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Full-order preparation",
+      "owner": "Fulfillment",
+      "priority": "P1",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P1-06"
+      ],
+      "requiredSpecification": "Line readiness before any reveal",
+      "validationObligation": "Multi-line failure",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-008",
+      "existingCanonical": false,
+      "sourceScope": "M00.2",
+      "milestoneTitle": "Inventory and digital license",
+      "title": "Stock adjustment and invalidation",
+      "owner": "Inventory/Admin",
+      "priority": "P2",
+      "deadline": "Before M00.2 execution/closure as applicable",
+      "dependencies": [
+        "CAP-ADMIN-007"
+      ],
+      "requiredSpecification": "Auditable corrective movements",
+      "validationObligation": "Operator auth",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-009",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Keycloak realms and organizations",
+      "owner": "Identity",
+      "priority": "P1",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-01"
+      ],
+      "requiredSpecification": "B2B/B2C authority",
+      "validationObligation": "OIDC integration",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-010",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Actor-resource-action matrix",
+      "owner": "Security",
+      "priority": "P0",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-05"
+      ],
+      "requiredSpecification": "RBAC/ABAC for each effect",
+      "validationObligation": "Cross-tenant negatives",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-011",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Guest checkout secret identity",
+      "owner": "Identity/Cart",
+      "priority": "P0",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "D-07-AUTH"
+      ],
+      "requiredSpecification": "Guest token lifecycle",
+      "validationObligation": "Replay/forgery",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-012",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Guest Order claim and key access",
+      "owner": "Identity/Fulfillment",
+      "priority": "P0",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-10"
+      ],
+      "requiredSpecification": "One-time verified claim",
+      "validationObligation": "Expired token/hijack",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-013",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Trusted TenantContext",
+      "owner": "Security",
+      "priority": "P0",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-07"
+      ],
+      "requiredSpecification": "Scoped command and event identity",
+      "validationObligation": "Tenant mixup",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-014",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Support privilege elevation",
+      "owner": "Security/Ops",
+      "priority": "P2",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-08"
+      ],
+      "requiredSpecification": "Temporal escalation and audit",
+      "validationObligation": "Expired permission",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-015",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "BFF session and CSRF",
+      "owner": "Identity/BFF",
+      "priority": "P1",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-03"
+      ],
+      "requiredSpecification": "PKCE/cookies/redirect checks",
+      "validationObligation": "Session attack",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-016",
+      "existingCanonical": false,
+      "sourceScope": "M00.3",
+      "milestoneTitle": "Identity and tenant security",
+      "title": "Privacy retention and deletion",
+      "owner": "Security/Cloud",
+      "priority": "P1",
+      "deadline": "Before M00.3 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-18"
+      ],
+      "requiredSpecification": "Protected data retention",
+      "validationObligation": "Compliance review",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-017",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Definitive context and aggregate map",
+      "owner": "Architecture",
+      "priority": "P0",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P1-01",
+        "AUD-P1-02"
+      ],
+      "requiredSpecification": "Owner and aggregate boundaries",
+      "validationObligation": "Architecture conformance",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-018",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Command and error semantics",
+      "owner": "Architecture",
+      "priority": "P0",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P2-01"
+      ],
+      "requiredSpecification": "Scope/version/idempotency/conflict",
+      "validationObligation": "Negative contracts",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-019",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "OpenAPI request/response versioning",
+      "owner": "API",
+      "priority": "P1",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "R0.4-05"
+      ],
+      "requiredSpecification": "API compatibility policy",
+      "validationObligation": "Schema diff",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-020",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Event envelope and duplicates",
+      "owner": "Integration",
+      "priority": "P1",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "D-05-OUTBOX"
+      ],
+      "requiredSpecification": "Source authority and dedup",
+      "validationObligation": "Replay tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-021",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Effective store policy versioning",
+      "owner": "CommerceCloud",
+      "priority": "P1",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "R0.2-12"
+      ],
+      "requiredSpecification": "Config precedence/snapshot",
+      "validationObligation": "Mid-checkout policy change",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-022",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Local atomicity map",
+      "owner": "Architecture",
+      "priority": "P0",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "D-05-MONGO"
+      ],
+      "requiredSpecification": "Fact and outbox guarantee",
+      "validationObligation": "Ambiguous DB commits",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-023",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Read projections and command guards",
+      "owner": "Architecture/BFF",
+      "priority": "P1",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P1-02"
+      ],
+      "requiredSpecification": "Lag and stale-safe commands",
+      "validationObligation": "Delayed projections",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-024",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Stripe adapter boundary",
+      "owner": "Payments",
+      "priority": "P1",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "D-03"
+      ],
+      "requiredSpecification": "Provider-neutral port",
+      "validationObligation": "Contract conformance",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-025",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "Contract deprecation rules",
+      "owner": "Integration",
+      "priority": "P2",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "R0.4-11"
+      ],
+      "requiredSpecification": "Version compatibility",
+      "validationObligation": "Old SDK test",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-026",
+      "existingCanonical": false,
+      "sourceScope": "M00.4",
+      "milestoneTitle": "Contracts and shared semantics",
+      "title": "R1-to-ratified policy crosswalk",
+      "owner": "Governance",
+      "priority": "P0",
+      "deadline": "Before M00.4 execution/closure as applicable",
+      "dependencies": [
+        "W1-GAP-01"
+      ],
+      "requiredSpecification": "Retained/changed/rejected clauses",
+      "validationObligation": "Full clause coverage",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-027",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Monorepo and package boundary",
+      "owner": "Engineering",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.5-04"
+      ],
+      "requiredSpecification": "Nx/pnpm modules",
+      "validationObligation": "Forbidden import tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-028",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Runtime/toolchain pinning",
+      "owner": "Engineering",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.5-09"
+      ],
+      "requiredSpecification": "Node/TS/NestJS versions",
+      "validationObligation": "Reproducible clean build",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-029",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "CI branch protections",
+      "owner": "Engineering",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "GOV-002"
+      ],
+      "requiredSpecification": "Required checks and PR flow",
+      "validationObligation": "Enforcement test",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-030",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Test harness responsibilities",
+      "owner": "Quality",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.5-13"
+      ],
+      "requiredSpecification": "Unit/integration/E2E conventions",
+      "validationObligation": "Smoke run",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-031",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Secrets and config boundary",
+      "owner": "Security",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-16"
+      ],
+      "requiredSpecification": "Config validation/secrets",
+      "validationObligation": "Leak scan",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-032",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Open-source license decision",
+      "owner": "Governance",
+      "priority": "P1",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.1-08"
+      ],
+      "requiredSpecification": "License and public releases",
+      "validationObligation": "Legal check",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-033",
+      "existingCanonical": false,
+      "sourceScope": "M01",
+      "milestoneTitle": "Engineering foundations",
+      "title": "Local environment and budget",
+      "owner": "Platform",
+      "priority": "P2",
+      "deadline": "Before M01 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-01"
+      ],
+      "requiredSpecification": "WSL/Compose reproducibility",
+      "validationObligation": "Environment replay",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-034",
+      "existingCanonical": false,
+      "sourceScope": "M02",
+      "milestoneTitle": "Tenant and SaaS",
+      "title": "Tenant/Brand/Store lifecycle",
+      "owner": "CommerceCloud",
+      "priority": "P1",
+      "deadline": "Before M02 execution/closure as applicable",
+      "dependencies": [
+        "R0.2-01"
+      ],
+      "requiredSpecification": "State and ownership",
+      "validationObligation": "Scoped access tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-035",
+      "existingCanonical": false,
+      "sourceScope": "M02",
+      "milestoneTitle": "Tenant and SaaS",
+      "title": "Provisioning to CommerceCore",
+      "owner": "CommerceCloud",
+      "priority": "P1",
+      "deadline": "Before M02 execution/closure as applicable",
+      "dependencies": [
+        "R0.4-02"
+      ],
+      "requiredSpecification": "Independent provisioning saga",
+      "validationObligation": "Partial failure recovery",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-036",
+      "existingCanonical": false,
+      "sourceScope": "M02",
+      "milestoneTitle": "Tenant and SaaS",
+      "title": "Store-scoped customer identity",
+      "owner": "Identity",
+      "priority": "P1",
+      "deadline": "Before M02 execution/closure as applicable",
+      "dependencies": [
+        "R0.2-06"
+      ],
+      "requiredSpecification": "Profile/link lifecycle",
+      "validationObligation": "Tenant isolation",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-037",
+      "existingCanonical": false,
+      "sourceScope": "M02",
+      "milestoneTitle": "Tenant and SaaS",
+      "title": "Invites and membership",
+      "owner": "CommerceCloud",
+      "priority": "P1",
+      "deadline": "Before M02 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-02"
+      ],
+      "requiredSpecification": "Claim/revoke permissions",
+      "validationObligation": "Invitation replay",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-038",
+      "existingCanonical": false,
+      "sourceScope": "M02",
+      "milestoneTitle": "Tenant and SaaS",
+      "title": "Store policy configuration",
+      "owner": "CommerceCloud",
+      "priority": "P1",
+      "deadline": "Before M02 execution/closure as applicable",
+      "dependencies": [
+        "R0.2-12"
+      ],
+      "requiredSpecification": "Versioned precedence",
+      "validationObligation": "Effective policy tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-039",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Product Variant SKU contracts",
+      "owner": "Catalog",
+      "priority": "P1",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-01"
+      ],
+      "requiredSpecification": "Aggregate and index semantics",
+      "validationObligation": "Unique SKU tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-040",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Master/local inheritance",
+      "owner": "Catalog",
+      "priority": "P1",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-03"
+      ],
+      "requiredSpecification": "Override propagation",
+      "validationObligation": "Update conflict",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-041",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Listing vs Offer lifecycle",
+      "owner": "Merchandising",
+      "priority": "P1",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-04"
+      ],
+      "requiredSpecification": "Publication/sale eligibility",
+      "validationObligation": "Unavailable offer",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-042",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Exact money/rounding",
+      "owner": "Pricing",
+      "priority": "P0",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-05"
+      ],
+      "requiredSpecification": "Minor units and precision",
+      "validationObligation": "Money property tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-043",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Quote repricing and acceptance",
+      "owner": "Pricing",
+      "priority": "P1",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-06"
+      ],
+      "requiredSpecification": "Immutable snapshot identity",
+      "validationObligation": "Price-change race",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-044",
+      "existingCanonical": false,
+      "sourceScope": "M03",
+      "milestoneTitle": "Catalog and pricing",
+      "title": "Demo taxation disclaimer",
+      "owner": "Pricing",
+      "priority": "P2",
+      "deadline": "Before M03 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-08"
+      ],
+      "requiredSpecification": "Tax port and limitations",
+      "validationObligation": "Quote tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-045",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "First-slice buyer journey",
+      "owner": "Product/eGame",
+      "priority": "P0",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "W1-AP-01"
+      ],
+      "requiredSpecification": "Full happy/failure path scope",
+      "validationObligation": "E2E acceptance",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-046",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "Admin and store support screens",
+      "owner": "Product/Admin",
+      "priority": "P1",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "W1-AP-01"
+      ],
+      "requiredSpecification": "Roles and minimal UI scope",
+      "validationObligation": "Scope review",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-047",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "Financial investigation responsibility",
+      "owner": "Operations",
+      "priority": "P1",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "D-05-OPS"
+      ],
+      "requiredSpecification": "Escalation runbook",
+      "validationObligation": "Stuck case",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-048",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "Pending/unknown buyer UX",
+      "owner": "eGame/BFF",
+      "priority": "P1",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P0-03"
+      ],
+      "requiredSpecification": "Truthful read contract",
+      "validationObligation": "False success prevention",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-049",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "Refund and fulfillment support",
+      "owner": "Admin",
+      "priority": "P1",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P0-04"
+      ],
+      "requiredSpecification": "Authorized manual repair",
+      "validationObligation": "Contradictory effects",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-050",
+      "existingCanonical": false,
+      "sourceScope": "M04",
+      "milestoneTitle": "Initial eGame purchase",
+      "title": "Notification secret policy",
+      "owner": "Notifications",
+      "priority": "P2",
+      "deadline": "Before M04 execution/closure as applicable",
+      "dependencies": [
+        "R0.3-23"
+      ],
+      "requiredSpecification": "No key in message",
+      "validationObligation": "Content scan",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-051",
+      "existingCanonical": false,
+      "sourceScope": "M05",
+      "milestoneTitle": "Kafka integration",
+      "title": "Kafka adoption rationale",
+      "owner": "Integration",
+      "priority": "P1",
+      "deadline": "Before M05 execution/closure as applicable",
+      "dependencies": [
+        "D-05-OUTBOX"
+      ],
+      "requiredSpecification": "Exit criteria from polling",
+      "validationObligation": "No invariant regression",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-052",
+      "existingCanonical": false,
+      "sourceScope": "M05",
+      "milestoneTitle": "Kafka integration",
+      "title": "Topic and partition strategy",
+      "owner": "Integration",
+      "priority": "P1",
+      "deadline": "Before M05 execution/closure as applicable",
+      "dependencies": [
+        "R0.6-14"
+      ],
+      "requiredSpecification": "Ordering key and event ownership",
+      "validationObligation": "Ordering replay",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-053",
+      "existingCanonical": false,
+      "sourceScope": "M05",
+      "milestoneTitle": "Kafka integration",
+      "title": "DLQ and consumer replay",
+      "owner": "Integration",
+      "priority": "P1",
+      "deadline": "Before M05 execution/closure as applicable",
+      "dependencies": [
+        "R0.6-17"
+      ],
+      "requiredSpecification": "Retry and idempotent resume",
+      "validationObligation": "Crash/replay",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-054",
+      "existingCanonical": false,
+      "sourceScope": "M05",
+      "milestoneTitle": "Kafka integration",
+      "title": "Schema evolution",
+      "owner": "Integration",
+      "priority": "P2",
+      "deadline": "Before M05 execution/closure as applicable",
+      "dependencies": [
+        "R0.6-16"
+      ],
+      "requiredSpecification": "Registry and contracts",
+      "validationObligation": "Compatibility run",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-055",
+      "existingCanonical": false,
+      "sourceScope": "M06",
+      "milestoneTitle": "Framework distribution",
+      "title": "Public npm boundary",
+      "owner": "Framework",
+      "priority": "P1",
+      "deadline": "Before M06 execution/closure as applicable",
+      "dependencies": [
+        "R0.5-06"
+      ],
+      "requiredSpecification": "Publishable exports",
+      "validationObligation": "Compatibility",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-056",
+      "existingCanonical": false,
+      "sourceScope": "M06",
+      "milestoneTitle": "Framework distribution",
+      "title": "Standalone CommerceCore install",
+      "owner": "Framework",
+      "priority": "P1",
+      "deadline": "Before M06 execution/closure as applicable",
+      "dependencies": [
+        "R0.10-10"
+      ],
+      "requiredSpecification": "No Cloud dependency",
+      "validationObligation": "Clean install",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-057",
+      "existingCanonical": false,
+      "sourceScope": "M06",
+      "milestoneTitle": "Framework distribution",
+      "title": "Second consumer validation",
+      "owner": "Framework",
+      "priority": "P1",
+      "deadline": "Before M06 execution/closure as applicable",
+      "dependencies": [
+        "R0.10-10"
+      ],
+      "requiredSpecification": "Distinct use-case acceptance",
+      "validationObligation": "Consumer conformance",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-058",
+      "existingCanonical": false,
+      "sourceScope": "M06",
+      "milestoneTitle": "Framework distribution",
+      "title": "Secure extension ports",
+      "owner": "Framework",
+      "priority": "P1",
+      "deadline": "Before M06 execution/closure as applicable",
+      "dependencies": [
+        "R0.1-05"
+      ],
+      "requiredSpecification": "No arbitrary tenant execution",
+      "validationObligation": "Extension policy",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-059",
+      "existingCanonical": false,
+      "sourceScope": "M06",
+      "milestoneTitle": "Framework distribution",
+      "title": "SDK compatibility and versions",
+      "owner": "SDK",
+      "priority": "P2",
+      "deadline": "Before M06 execution/closure as applicable",
+      "dependencies": [
+        "R0.5-12"
+      ],
+      "requiredSpecification": "Generated TypeScript client",
+      "validationObligation": "Version matrix",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-060",
+      "existingCanonical": false,
+      "sourceScope": "M07",
+      "milestoneTitle": "Context extraction",
+      "title": "Extraction sequence",
+      "owner": "Architecture",
+      "priority": "P1",
+      "deadline": "Before M07 execution/closure as applicable",
+      "dependencies": [
+        "R0.4-04"
+      ],
+      "requiredSpecification": "Context order via metrics",
+      "validationObligation": "Before/after",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-061",
+      "existingCanonical": false,
+      "sourceScope": "M07",
+      "milestoneTitle": "Context extraction",
+      "title": "Single-writer migration",
+      "owner": "Data",
+      "priority": "P0",
+      "deadline": "Before M07 execution/closure as applicable",
+      "dependencies": [
+        "R0.6-22"
+      ],
+      "requiredSpecification": "Expand-migrate-cutover",
+      "validationObligation": "Consistency/recovery",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-062",
+      "existingCanonical": false,
+      "sourceScope": "M07",
+      "milestoneTitle": "Context extraction",
+      "title": "Invariants after service split",
+      "owner": "Architecture",
+      "priority": "P0",
+      "deadline": "Before M07 execution/closure as applicable",
+      "dependencies": [
+        "AUD-P0-01",
+        "AUD-P0-03"
+      ],
+      "requiredSpecification": "Cross-service handoff",
+      "validationObligation": "Partition tests",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-063",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "Kubernetes environment topology",
+      "owner": "Platform",
+      "priority": "P1",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-01"
+      ],
+      "requiredSpecification": "k3d/k3s/provider scope",
+      "validationObligation": "Failure/cost check",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-064",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "Ingress/TLS/Cloudflare",
+      "owner": "Security/Platform",
+      "priority": "P1",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-05"
+      ],
+      "requiredSpecification": "Origin/certificate policy",
+      "validationObligation": "Network scans",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-065",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "Helm/Terraform/Argo ownership",
+      "owner": "Platform",
+      "priority": "P1",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-14"
+      ],
+      "requiredSpecification": "IaC/GitOps authority",
+      "validationObligation": "Drift rollback",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-066",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "Storage/backup topology",
+      "owner": "Data/Platform",
+      "priority": "P0",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-11"
+      ],
+      "requiredSpecification": "CSI/restore/RPO",
+      "validationObligation": "Real restoration",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-067",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "NetworkPolicy CNI",
+      "owner": "Security/Platform",
+      "priority": "P1",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-18"
+      ],
+      "requiredSpecification": "Enforced egress/ingress",
+      "validationObligation": "Allow/deny test",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-068",
+      "existingCanonical": false,
+      "sourceScope": "M08",
+      "milestoneTitle": "Infrastructure and deployment",
+      "title": "Budget/teardown",
+      "owner": "Platform",
+      "priority": "P2",
+      "deadline": "Before M08 execution/closure as applicable",
+      "dependencies": [
+        "R0.8-19"
+      ],
+      "requiredSpecification": "Spend approval and teardown",
+      "validationObligation": "Cost report",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-069",
+      "existingCanonical": false,
+      "sourceScope": "M09",
+      "milestoneTitle": "Reliability and release",
+      "title": "Critical commerce SLO values",
+      "owner": "SRE",
+      "priority": "P1",
+      "deadline": "Before M09 execution/closure as applicable",
+      "dependencies": [
+        "R0.9-10"
+      ],
+      "requiredSpecification": "Measure checkout/recon/reveal",
+      "validationObligation": "Load test",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-070",
+      "existingCanonical": false,
+      "sourceScope": "M09",
+      "milestoneTitle": "Reliability and release",
+      "title": "Trace/log/metric privacy",
+      "owner": "SRE/Security",
+      "priority": "P1",
+      "deadline": "Before M09 execution/closure as applicable",
+      "dependencies": [
+        "R0.9-06"
+      ],
+      "requiredSpecification": "Redaction/retention",
+      "validationObligation": "PII test",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-071",
+      "existingCanonical": false,
+      "sourceScope": "M09",
+      "milestoneTitle": "Reliability and release",
+      "title": "Chaos/restore qualification",
+      "owner": "SRE",
+      "priority": "P0",
+      "deadline": "Before M09 execution/closure as applicable",
+      "dependencies": [
+        "R0.10-11"
+      ],
+      "requiredSpecification": "Crash/recovery gate",
+      "validationObligation": "Executed fault trials",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-072",
+      "existingCanonical": false,
+      "sourceScope": "M09",
+      "milestoneTitle": "Reliability and release",
+      "title": "Security qualification",
+      "owner": "Security",
+      "priority": "P0",
+      "deadline": "Before M09 execution/closure as applicable",
+      "dependencies": [
+        "R0.7-21"
+      ],
+      "requiredSpecification": "Threat model and pen-test",
+      "validationObligation": "Security report",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    },
+    {
+      "id": "PLAN-DEC-073",
+      "existingCanonical": false,
+      "sourceScope": "M09",
+      "milestoneTitle": "Reliability and release",
+      "title": "Real-money launch authorization",
+      "owner": "Compliance",
+      "priority": "P0",
+      "deadline": "Before M09 execution/closure as applicable",
+      "dependencies": [
+        "R0.10-07"
+      ],
+      "requiredSpecification": "Legal/tax/ops sign-off",
+      "validationObligation": "Signed approval",
+      "planningStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
+      "implementationIssue": null
+    }
+  ]
+}
