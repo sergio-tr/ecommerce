@@ -1,7 +1,7 @@
 # M01 — Accepted Kubernetes-First Architecture and G3 Design Specifications
 
 **Date:** 2026-10-30 · **Owner:** @sergio-tr · **Architecture choices:** K2, NET-A, DATA-A, STRIPE-A **ACCEPTED**.
-**G3:** documentary design specified; published version support independently checked; local install/host/cluster validation NOT_RUN.
+**G3:** M01-D01–D08 documentary specifications prepared; real package/host/storage/CI checks NOT_RUN; no claim of complete physical readiness.
 **G4:** NOT AUTHORIZED. **Code:** NOT WRITTEN. **Deployment:** NOT CREATED.
 
 ## Canonical reading order
@@ -16,6 +16,17 @@
 
 The original [Kubernetes alternatives](KUBERNETES_FIRST_LOCAL_PROPOSAL.md) remain as pre-ratification comparison evidence; K2/NET-A/DATA-A/STRIPE-A are now approved. See [roadmap](../../06-planning/ROADMAP.md): M01 introductory Kubernetes, M07 microservice extraction, M08 advanced HA/GitOps/Gateway/chaos, M00.5 NOT APPROVED.
 
+## M01-D05–D08 and first task DoR (2026-10-30)
+
+- [M01-D05 — MongoDB local replica-set, separate Core/Cloud owners, PVC and restore](M01_D05_MONGODB_PERSISTENCE_AND_RECOVERY.md)
+- [M01-D06 — Config schema, least-privilege Secrets/RBAC and no live Stripe](M01_D06_CONFIGURATION_SECRETS_AND_TRUST.md)
+- [M01-D07 — Structured logs, liveness/readiness and optional OpenTelemetry](M01_D07_DEVELOPER_EXPERIENCE_AND_OBSERVABILITY.md)
+- [M01-D08 — CI stages, Nx architecture tests, pinned Actions and evidence](M01_D08_CI_TEST_AND_CHANGE_GATES.md)
+- [M01-BOOTSTRAP-01 Definition of Ready](M01_BOOTSTRAP_01_DEFINITION_OF_READY.md) and [machine-readable readiness](m01-bootstrap-01-readiness.json)
+- [Whole project implementation dependency and missing-work map](M01_REMAINING_GAPS_AND_DEPENDENCIES.md)
+
+**DoR document finalized, not fully satisfied:** DR01–DR06 documentary/policy checks are met; DR07 (peer versions), DR08 (host check), DR09 (implementation issue/current base) and DR10 (explicit G4 authorization) remain PENDING. First bootstrap is Nx/Nest/domain/test/CI only; no Kubernetes, Mongo, Stripe or commerce logic. See the exact AC01–AC14 in the DoR.
+
 ## Technical cohort decision (source-backed; not installed)
 
 Node.js **24.22.2 LTS**, pnpm **11.10.0** initial candidate, Nx **23.3.1** and `@nx/*` lockstep, Angular **21.2.x**, TypeScript **5.9.3**, NestJS **11.2.8**, k3d **5.9.0**, K3s **v1.37.1+k3s1**, Helm **4.3.1**. Exact Angular CLI/RxJS and driver patches, host Docker/WSL support, image digest, Nx generator peer resolution and k3d/K3s cluster boots remain pending the first separately authorized compatibility run.
@@ -24,7 +35,7 @@ Why not automatically choose latest major: Angular 22 requires TS 6 and Nest 12 
 
 ## Clear handoff: next user action
 
-No further **architecture-choice** approval is needed for the four selected defaults. Review proposed G3 details, especially exact package versions/host constraints and the subordinate Helm-vs-Kustomize choice. Next, **explicitly authorize the first M01-BOOTSTRAP-01 task** only after peer resolution and its input/output/acceptance are accepted. This chat request expressly forbids implementation; no app, chart, cluster or Stripe operation will be created as part of these docs.
+No further architecture-choice approval is needed for K2/NET-A/DATA-A/STRIPE-A. Next: close DR07–DR09 with registry/host/current-issue evidence; then separately authorize first implementation (DR10) using the [finalized DoR](M01_BOOTSTRAP_01_DEFINITION_OF_READY.md). Helm remains a subordinate D04 recommendation to approve before M01-K8S-01, not before a Nest-only bootstrap. This chat request expressly forbids implementation; no app, chart, cluster or Stripe operation will be created as part of these docs.
 
 ## Merge safety
 
