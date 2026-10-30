@@ -1,3 +1,5 @@
+> **2026-10-30 addendum (not original snapshot):** All 110 audit source test **IDs and complete Spanish scenario/oracle rows** were located in the eight indexed original Library texts and matched exactly to TEST_CATALOG.json. Initial English scenario/oracle translations were drafted for all 110, replacing previous placeholder oracles in JSON and Markdown; see [side-by-side crosswalk](../../05-tests/M00_G3_ORIGINAL_SOURCE_ORACLE_CROSSWALK.md) and [draft translations](../../05-tests/M00_G3_110_SOURCE_TABLE_TRANSLATIONS_DRAFT.md). Original raw bytes could not be materialized now, so SHA-256 checks were not independently rerun. **Owner-certified semantic equivalence remains PENDING.** All 148 experiments are still TEST_PLANNED / NOT_RUN; historical source and decision statuses unchanged.
+
 # Wave 1 — Source Reconciliation Status
 
 **Date:** 2026-10-21. **Status:** PARTIAL SOURCE FIDELITY; NO EXPERIMENT EXECUTED.

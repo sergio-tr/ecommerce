@@ -1,10 +1,14 @@
 # M01-BOOTSTRAP-01 — Final Definition of Ready and Atomic Implementation Contract
 
-**Status:** `DOR_SPECIFICATION_FINALIZED / READY_FOR_G4_REVIEW` **(not** `G4_AUTHORIZED`, `IMPLEMENTED` or `G5_PASSED`).
+**Status:** `DOR_SPECIFICATION_FINALIZED / DESIGN_FIRST_HOLD / NOT_READY_FOR_IMPLEMENTATION` (not `G4_AUTHORIZED`, `IMPLEMENTED` or `G5_PASSED`).
 **Accountable owner:** @sergio-tr. **Scope:** independent, local, non-financial engineering foundation.
 **Date:** 2026-10-30. **Source:** accepted ADR-M01-001 K2/NET-A/DATA-A/STRIPE-A; M01-D01–D08 design specs.
-**Work-item identity:** **PROVISIONAL PLANNING KEY** `M01-BOOTSTRAP-01`, NOT an approved new GitHub/Linear issue. Reuse SER-131/#14 governance link and reconcile future implementation issue identity before creation.
+**Work-item identity:** `M01-BOOTSTRAP-01` is now tracked by [CommerceCore GitHub #25](https://github.com/sergio-tr/ecommerce/issues/25) and [Linear SER-134](https://linear.app/sergiotr/issue/SER-134). Historical documentary baseline SER-131/#14 is not the implementation identity.
 **Implementation authorization:** NO. **Actual execution:** NOT_RUN.
+
+## 2026-10-30 design-first sequencing hold (supersedes immediate bootstrap recommendation)
+
+The owner has clarified that the 13 original design issues must not be skipped to begin code. [M00-G3 design gate](../../00-governance/DESIGN_FIRST_G3_GATE.md), [GitHub #27](https://github.com/sergio-tr/ecommerce/issues/27) and [Linear SER-135](https://linear.app/sergiotr/issue/SER-135) are a **separate required pre-G4 governance review**, even though a pure Nx/Nest bootstrap has no financial runtime dependency. The architecture gate requires reviewed/ratified or explicitly scoped/deferred contracts; do **not** fabricate Stripe/Mongo/worker G5 proof before implementation. No feature implementation branch, generated workspace or application code is authorized. DR07 PARTIAL, DR08 PASS, DR09 issue identity confirmed/base recheck at future launch, DR10 NOT_AUTHORIZED; AC01–AC14 NOT_RUN. The preflight owner reported Ubuntu 22.04.5 WSL2, isolated mise Node24.22.2/pnpm11.10.0 peer/frozen lock smoke PASS, pnpm allowBuilds required, actual Nx app generator NOT_RUN. The current DR07–DR10 checklist below incorporates this preflight; the dated gate and review distinction remain authoritative.
 
 ## Exact goal (one observable outcome)
 
@@ -46,12 +50,12 @@ It tests the highest-leverage integration assumptions (Node/Nx/Nest/pnpm, import
 | DR04 | Desired packages, artifacts and quality checks enumerated — **MET DOCUMENTARILY** |
 | DR05 | Positive and adversarial Given/When/Then acceptance below — **MET DOCUMENTARILY** |
 | DR06 | Approved feature branch and git/workflow policy — **MET AS POLICY**; branch for future code NOT CREATED |
-| DR07 | Final exact version metadata and peer dependencies validated, especially Node24/pnpm/Nx23/Nest11/TS5.9 — **PENDING ACTUAL REGISTRY/LOCAL SMOKE** |
-| DR08 | User's actual OS/WSL, Node availability and available disk verified for scaffold — **PENDING HOST OBSERVATION**; k3d hardware budget not required for this first task |
-| DR09 | Current reviewed base commit selected and exact implementation issue crosswalk established — **PENDING AT AUTHORIZATION**; reuse SER-131/#14, avoid duplicate |
-| DR10 | Explicit user instruction authorizing M01-BOOTSTRAP-01 code — **PENDING G4**, absent in this request |
+| DR07 | **PARTIAL:** isolated mise Node 24.22.2/pnpm 11.10.0 and Nx/Nest/TS exact peer + frozen-lock smoke passed; pnpm allowBuilds needed; actual project scaffold NOT_RUN |
+| DR08 | **PASS (user-reported):** Ubuntu 22.04.5 WSL2, native ext4, 16 threads, RAM/disk sufficient, Docker installed; kubectl/Helm/k3d deferred |
+| DR09 | **IDENTITY CONFIRMED:** ecommerce GitHub #25 / Linear SER-134; main observed at 8140b11 in user preflight; recheck SHA when implementation is separately authorized. SER-131/#14 are historical documentary tasks |
+| DR10 | **NOT_AUTHORIZED:** owner has required M00-G3 design-first review (#27/SER-135) before considering separately scoped bootstrap G4 |
 
-**DoR policy:** DR01–DR06 are defined and met at the specification level. DR07–DR10 are *named admission conditions*. Therefore the **Definition of Ready document is finalized**, but the **task must NOT be marked fully READY_TO_IMPLEMENT or G4_APPROVED yet**. Do not conflate a complete checklist with evidence that the checklist passed.
+**DoR policy:** DR01–DR06 are met documentarily; DR07 PARTIAL, DR08 PASS, DR09 identity confirmed / future-base recheck, DR10 NOT_AUTHORIZED. **M00-G3 design-first review is an additional gate**. The task remains **NOT_READY_TO_IMPLEMENT** despite the finished specification. Never convert planned AC tests to VERIFIED.
 
 ## Acceptance criteria for the future implementation (Given/When/Then)
 
@@ -84,12 +88,13 @@ It tests the highest-leverage integration assumptions (Node/Nx/Nest/pnpm, import
 6. Configure minimal restricted GitHub Actions checks with reviewed action commit SHAs.
 7. Run and capture evidence; open a PR linking this specification and original governance IDs. **Do not merge without independent authorization.**
 
-## Current precise next user action
+## Current precise next user action (design-first hold)
 
-1. Review this final DoR and M01-D01–D08 document set; accept any preferred changes.
-2. **Provide or inspect actual local version/host prerequisites**. A short command report (`node -v`, `pnpm -v`, `docker version`, `wsl --status`, CPU/RAM/disk) is useful; only Node/pnpm and disk/OS environment are hard prerequisites to the first bootstrap, Docker/Kubernetes can be checked before M01-K8S-01.
-3. Authorize the exact first code task in a subsequent turn, and permit linking/reusing the correct Linear/GitHub issue identity.
-4. Implement and verify the defined AC01–AC14 locally; only then mark implemented/tested.
+1. Work through [M00-G3 design-first gate](../../00-governance/DESIGN_FIRST_G3_GATE.md): review all 13 pre-existing open audit issues, M00.2–M00.4, and reconcile deferred/specification/verification obligations.
+2. Do not generate product code or an M01 implementation branch. No G4 permission has been granted by the preflight.
+3. Preserve the local toolchain smoke evidence (DR07 PARTIAL), host evidence (DR08 PASS), and GitHub ecommerce #25 / Linear SER-134 issue identity (DR09); recheck main SHA before any future execution.
+4. Only after explicit owner acceptance of the architecture-first review request a **separate, task-specific G4** decision for M01-BOOTSTRAP-01.
+5. After future G4, implement and verify AC01–AC14; do not merge without separate authorization.
 
 ## Non-goals
 

@@ -4,12 +4,12 @@
   "owner": "sergio-tr",
   "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
   "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
-  "status": "DOR_SPECIFICATION_FINALIZED_READY_FOR_G4_REVIEW",
-  "g3State": "DOCUMENTED_WITH_EXPLICIT_UNMET_ADMISSION_CONDITIONS",
+  "status": "DOR_DOCUMENTED_DESIGN_FIRST_HOLD_NOT_READY_TO_IMPLEMENT",
+  "g3State": "M01_DOCUMENTED; CROSS_PROJECT_DESIGN_FIRST_GATE_PENDING",
   "g4Authorization": "NOT_GRANTED",
   "implementation": "NOT_STARTED",
   "g5Evidence": "NOT_RUN",
-  "canonicalIssueId": "PENDING_EXISTING_ISSUE_CROSSWALK",
+  "canonicalIssueId": "SER-134",
   "branch": "NOT_CREATED",
   "dependencies": [
     "ADR-M01-001",
@@ -18,8 +18,8 @@
     "M01-D06",
     "M01-D07",
     "M01-D08",
-    "SER-131",
-    "#14"
+    "SER-135",
+    "GitHub #27"
   ],
   "checks": [
     {
@@ -54,23 +54,23 @@
     },
     {
       "id": "DR07",
-      "state": "PENDING",
-      "subject": "Node24 Nx23 Nest11 TypeScript5.9 pnpm exact package peer and engine smoke"
+      "state": "PARTIAL",
+      "subject": "Isolated mise Node24.22.2/pnpm11.10.0; Nest11 Nx23 TS5.9 peer and frozen install passed, pnpm allowBuilds required, actual Nx workspace generator NOT_RUN"
     },
     {
       "id": "DR08",
-      "state": "PENDING",
-      "subject": "local OS/WSL/Node/disk host environment inspection; no Docker required for this task"
+      "state": "PASS_USER_REPORTED",
+      "subject": "Ubuntu 22.04.5 WSL2 x86_64 16 threads 15GiB RAM 860GiB free, Docker 29.1.3; K8s tools not required for bootstrap"
     },
     {
       "id": "DR09",
-      "state": "PENDING",
-      "subject": "base main SHA and correct Linear/GitHub implementation issue traceability"
+      "state": "IDENTITY_CONFIRMED_BASE_RECHECK_ON_EXECUTION",
+      "subject": "GitHub ecommerce #25, Linear SER-134, origin/main SHA 8140b1101d50757438b37973476dad4e14c43762 as observed at 2026-10-30 preflight; no implementation branch yet"
     },
     {
       "id": "DR10",
-      "state": "PENDING",
-      "subject": "explicit authorization to implement this atomic first task"
+      "state": "NOT_AUTHORIZED_DESIGN_FIRST_HOLD",
+      "subject": "No G4; user's design-first gate SER-135/GitHub ecommerce #27 must be reviewed before any request for task-specific code permission"
     }
   ],
   "acceptanceCriteria": [
@@ -102,5 +102,36 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "User reviews documentation; DR07–DR09 environment/issue compatibility preflight, then separately authorizes G4. No implementation in this turn."
+  "nextAction": "Do not code. Review all thirteen design audit issues using SER-135/GitHub #27; ratify or explicitly defer applicable contracts and track later empirical P0 G5 proof, then separately authorize M01 G4.",
+  "executionStatus": "BLOCKED_BY_M00_G3_DESIGN_REVIEW",
+  "githubIssueNumber": 25,
+  "designGate": {
+    "linearIssue": "SER-135",
+    "githubIssue": 27,
+    "status": "NOT_PASSED",
+    "requiredBeforeG4": true,
+    "scope": "Review all 13 original open audits, M00.2-M00.4 design contracts, and 103 planning-question traceability; do not infer G5 proof"
+  },
+  "documentaryHistory": [
+    "SER-131",
+    "GitHub #14",
+    "SER-133",
+    "GitHub #24",
+    "merged PR #26"
+  ],
+  "preflightEvidence": {
+    "date": "2026-10-30",
+    "type": "USER_SUPPLIED_LOCAL_CURSOR_REPORT",
+    "nodeSystem": "22.23.1",
+    "pnpmSystem": "12.16.1",
+    "miseNodeCandidate": "24.22.2",
+    "misePnpmCandidate": "11.10.0",
+    "nx": "23.3.1",
+    "nestCore": "11.2.8",
+    "nestCli": "11.0.24",
+    "typescript": "5.9.3",
+    "isolatedFrozenLockInstall": "PASS",
+    "nxActualScaffold": "NOT_RUN",
+    "productAcceptance": "NOT_RUN"
+  }
 }
