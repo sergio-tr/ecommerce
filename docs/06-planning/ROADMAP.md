@@ -1,6 +1,6 @@
 # CommerceCore — Source-Derived Milestone Roadmap (M00–M09)
 
-**Status:** planning baseline, not permission to implement. Exact milestone dates, sequence details, cost ceilings and physical implementations are subject to separate explicit approval. The history in R0.10 and the independent discovery consolidation remain the reference sources.
+**Status:** planning baseline with ratified M01 Kubernetes-first scope (2026-10-30), not permission to implement. Exact milestone dates, sequence details, cost ceilings and physical implementations are subject to separate explicit approval. The history in R0.10 and the independent discovery consolidation remain the reference sources.
 
 ## M00 — Architecture, Decision Governance and Design Gates
 
@@ -12,9 +12,15 @@
 
 ## M01 — Reproducible engineering foundations
 
-**Historical proposal:** Nx/pnpm monorepo, NestJS modular commerce-api, Angular reference shell, lint/format, dependency-boundary enforcement via Nx tags/ESLint, GitHub Actions with non-skippable gates, public/private package boundaries, Compose baseline, conventional versioned contracts and docs-as-code. Lock precise runtime/tool versions when implementation is actually authorized; Node 24 was a historical selected candidate, not an experimentally tested build.
+**Accepted M01 direction (2026-10-30):** Nx/pnpm monorepo, NestJS modular CommerceCore API, separate CommerceCloud Control Plane, Angular eGame web, hexagonal Domain/Application/Ports/Adapters, enforceable Nx/ESLint boundaries, GitHub Actions and docs-as-code. The user explicitly approved **K2**: run a local **k3d/K3s Kubernetes foundation from M01**, not Docker Compose as the mandatory primary deployment path. Deploy the CommerceCore modular monolith, CommerceCloud and eGame as separate workloads; do **not** extract the CommerceCore bounded contexts into microservices before M07.
 
-**Exit gate (future):** clean reproducible build, independent domain unit tests, enforceable no-cross-context imports, basic secure config, reproducible local development and no provisioned external account surprises.
+**Accepted physical options:** **NET-A** (k3d serverlb → Traefik Ingress → ClusterIP Service → Pods); **DATA-A** (one local MongoDB replica-set infrastructure, dedicated Core/Cloud DB owners and credentials, PVC; not HA); **STRIPE-A** (one Stripe merchant in test mode, an eGame buyer with optional Stripe Customer, no buyer merchant account, Connect later). No real-money use is authorized.
+
+**Verified upstream compatibility cohort, pending actual install:** Node 24.22.2, Nx 23.3.1, Angular 21.2.x, NestJS 11.2.8, TypeScript 5.9.3, pnpm 11.10.0; k3d v5.9.0 and K3s v1.37.1+k3s1 are separately published but their *combined execution is not verified*; Helm 4.3.1 officially supports Kubernetes 1.37. Full version, boundary, network and deployment G3 specifications: [ADR-M01-001](../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) and [M01-D01–D04](../architecture/m01/README.md). No lockfile, app, chart, cluster or provider operation has been created.
+
+**M01 deliverable sequence (future, separately G4-authorized):** (1) reproducible toolchain/workspace and architecture tests; (2) independent image builds/Helm definitions; (3) local Kubernetes ingress/ClusterIP and two-replica stateless health test; (4) MongoDB PVC/owner separation and restart test; (5) Stripe sandbox setup only once its adapter is approved.
+
+**Exit gate (future):** actual pinned clean install/build/typecheck/lint/architecture tests, reproducible cluster/bootstrap, independently reachable apps, health/rollout and Service balancing logs, container secret isolation, database restart/volume evidence and safe teardown. **No G3/G4/G5 pass is claimed from these documentary specifications.**
 
 ## M02 — Multi-tenant foundation and identity
 
@@ -48,7 +54,7 @@ Catalog, Payments, Inventory and Ordering each receive independent runtimes, own
 
 ## M08 — Kubernetes and operational verification
 
-**Historical proposals (not globally ratified):** local k3d, low-cost k3s VPS labs, Gateway API/Envoy Gateway, TLS/Cloudflare hardening, Helm, Terraform, Argo CD, External Secrets, tested NetworkPolicies, CSI storage, operator-managed Mongo/Kafka labs as justified. Simulate pod/node/network failures, backup restore, secrets rotation and rollback. No high-availability assertion without real multi-node proof.
+**Re-scoped after accepted K2/NET-A (2026-10-30):** introductory local k3d/K3s, Traefik Ingress, ClusterIP Services, app Deployments and introductory Helm rollout are **M01** foundations. **M08 remains the advanced Kubernetes and operational verification milestone**: production-like Gateway API/Envoy Gateway evaluation, TLS/Cloudflare hardening, multi-node/low-cost VPS labs when separately approved, Terraform, Argo CD/GitOps, External Secrets, enforceable NetworkPolicies, CSI storage, Mongo/Kafka operators and tested security/chaos/backup-recovery/secret rotation/rollbacks. No production, external spending or HA claim is implied by M01 local Kubernetes.
 
 ## M09 — End-to-end validation and distribution
 

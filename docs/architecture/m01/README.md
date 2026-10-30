@@ -1,26 +1,31 @@
-# M01 — Kubernetes-First Foundation Planning (2026-10-30)
+# M01 — Accepted Kubernetes-First Architecture and G3 Design Specifications
 
-**State:** USER REVIEW REQUESTED — NEW PHYSICAL M01 TOPOLOGY PROPOSED, NOT YET RATIFIED. **Owner:** @sergio-tr. **No application code or cluster created.**
+**Date:** 2026-10-30 · **Owner:** @sergio-tr · **Architecture choices:** K2, NET-A, DATA-A, STRIPE-A **ACCEPTED**.
+**G3:** documentary design specified; published version support independently checked; local install/host/cluster validation NOT_RUN.
+**G4:** NOT AUTHORIZED. **Code:** NOT WRITTEN. **Deployment:** NOT CREATED.
 
-This proposal extends the accepted TypeScript/NestJS + Nx/pnpm + Angular **M01-A** engineering direction with **local Kubernetes deployment foundations** while leaving M07 bounded-context microservice extraction and M08 advanced Kubernetes/HA/GitOps experiments intact.
+## Canonical reading order
 
-## Review documents
+1. [Accepted ADR-M01-001](../../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) and [structured decision register](../../02-decisions/m01-kubernetes-first-decision-register.json).
+2. [M01-D01 — Compatible toolchain and verifiable version matrix](M01_D01_TOOLCHAIN_COMPATIBILITY.md).
+3. [M01-D02 — Nx workspace, bounded contexts and import controls](M01_D02_WORKSPACE_AND_DEPENDENCIES.md).
+4. [M01-D03 — Local k3d/K3s, Traefik/ClusterIP routes, Mongo authority](M01_D03_K8S_TOPOLOGY_AND_NETWORK.md).
+5. [M01-D04 — OCI builds, Helm/Deployment/Service/rollout acceptance](M01_D04_BUILD_DEPLOY_AND_ROLLBACK.md).
+6. [Stripe test merchant/buyer manual setup](STRIPE_TEST_ROLES_AND_MANUAL_SETUP.md).
+7. [Current local implementation handoff](DEFINITION_OF_READY_AND_LOCAL_TASK_SEQUENCE.md).
 
-1. [Kubernetes-first proposed architecture and comparison](KUBERNETES_FIRST_LOCAL_PROPOSAL.md): deployments, diagram, ingress, load balancing, storage, milestone changes and measurable local tests.
-2. [Stripe company versus buyer and manual test-mode setup](STRIPE_TEST_ROLES_AND_MANUAL_SETUP.md): one Stripe merchant sandbox, eGame user/optional Customer and later Connect alternatives.
-3. [M01 actual design-versus-implementation breakdown and next actions](DEFINITION_OF_READY_AND_LOCAL_TASK_SEQUENCE.md): ten G3 design work packages, proposed implementation slices and four explicit architectural selections.
+The original [Kubernetes alternatives](KUBERNETES_FIRST_LOCAL_PROPOSAL.md) remain as pre-ratification comparison evidence; K2/NET-A/DATA-A/STRIPE-A are now approved. See [roadmap](../../06-planning/ROADMAP.md): M01 introductory Kubernetes, M07 microservice extraction, M08 advanced HA/GitOps/Gateway/chaos, M00.5 NOT APPROVED.
 
-## Recommended review defaults
+## Technical cohort decision (source-backed; not installed)
 
-- **K2:** begin with k3d Kubernetes from M01, not Docker Compose as sole primary runtime; advanced operations stay M08.
-- **NET-A:** k3d local serverlb + Traefik Ingress + ClusterIP Services; optional Gateway API lab M08.
-- **DATA-A:** one local developer Mongo replica-set infrastructure with separate Core/Cloud owned databases/credentials, PVC and no HA claim.
-- **STRIPE-A:** one merchant Stripe test/sandbox account, simulated buyer in eGame/optional test Customer; Connect test connected accounts later.
+Node.js **24.22.2 LTS**, pnpm **11.10.0** initial candidate, Nx **23.3.1** and `@nx/*` lockstep, Angular **21.2.x**, TypeScript **5.9.3**, NestJS **11.2.8**, k3d **5.9.0**, K3s **v1.37.1+k3s1**, Helm **4.3.1**. Exact Angular CLI/RxJS and driver patches, host Docker/WSL support, image digest, Nx generator peer resolution and k3d/K3s cluster boots remain pending the first separately authorized compatibility run.
 
-A Kubernetes Deployment is not automatically a microservice: `commercecore-api` remains a modular monolith until M07 extraction. No financial P0 audit is closed by running two API replicas.
+Why not automatically choose latest major: Angular 22 requires TS 6 and Nest 12 also uses TS 6, while published `@nx/nest` plugin compatibility still lists Nest 10/11. The conservative cohort is a reproducible bootstrap candidate with published mutual version support; evaluate the newer cohort later without claiming current local proof.
 
-## State and next action
+## Clear handoff: next user action
 
-The original M01-A architecture direction is ACCEPTED. The new physical topology and milestone reallocation are **PROPOSED**. The user should approve/amend K2/NET-A/DATA-A/STRIPE-A, then review exact compatible toolchain/runtime versions and a first M01 bootstrap task (G3). Implementation (G4) needs separate explicit authorization; G5 requires real local executions, not design prose.
+No further **architecture-choice** approval is needed for the four selected defaults. Review proposed G3 details, especially exact package versions/host constraints and the subordinate Helm-vs-Kustomize choice. Next, **explicitly authorize the first M01-BOOTSTRAP-01 task** only after peer resolution and its input/output/acceptance are accepted. This chat request expressly forbids implementation; no app, chart, cluster or Stripe operation will be created as part of these docs.
 
-All project documents are in English, traceable to original decisions and maintained via independent feature branch/PR. No implementation tickets, credentials, billing account or K8s resources are created in this review.
+## Merge safety
+
+PR #22 documents these M01 decisions on an independent feature branch. PR #21 independently contains updated historical/current financial baseline and is not merged as of this authoring. Review the **merge order** to avoid overwriting the newer 91-record scoped decision register; this PR uses a standalone M01 decision record rather than rewriting PR #21's canonical financial statuses. Reconcile both branch trees before merging into main. No automatic merge is authorized.

@@ -1,14 +1,16 @@
 # M01 — Kubernetes-First Local Architecture Proposal
 
-**State:** PROPOSED — USER RATIFICATION REQUIRED. **Owner:** @sergio-tr. **Date:** 2026-10-30. **Purpose:** bring local Kubernetes delivery foundations into M01 without silently changing M08 or the accepted modular-monolith/domain decisions. **Code implementation:** NOT STARTED.
+**State:** HISTORICAL OPTIONS REVIEW — K2/NET-A/DATA-A/STRIPE-A ACCEPTED ON 2026-10-30; original alternative comparison preserved. **Owner:** @sergio-tr. **Date:** 2026-10-30. **Purpose:** bring local Kubernetes delivery foundations into M01 without silently changing M08 or the accepted modular-monolith/domain decisions. **Code implementation:** NOT STARTED.
 
 ## Existing authoritative baseline versus new proposal
 
 Historical baseline: M01 = Nx/pnpm + NestJS modular CommerceCore + Angular reference shell, CI, ports/adapters, docs-as-code, reproducible local tooling; M07 = mandatory bounded-context microservice extraction; M08 = advanced Kubernetes/operations verification. CommerceCore is headless and reusable, CommerceCloud independent SaaS/control plane, eGame first consumer. No application code exists in the current project root (documentation and .github only, checked 2026-10-30). These facts are source-backed.
 
-**New proposed scope change:** include a real but simple **local k3d/K3s Kubernetes cluster, independent Deployments, ClusterIP Services, an entry load balancer and ingress routing, container builds and health/rollout tests in M01**. Keep advanced Gateway API migration, GitOps, Terraform, secret controllers, Kafka operators, cluster HA, chaos/network failure, HPA and full telemetry pipelines in M08 or later, unless individually authorized.
+**Accepted scope change (2026-10-30):** include a real but simple **local k3d/K3s Kubernetes cluster, independent Deployments, ClusterIP Services, an entry load balancer and ingress routing, container builds and health/rollout tests in M01**. Keep advanced Gateway API migration, GitOps, Terraform, secret controllers, Kafka operators, cluster HA, chaos/network failure, HPA and full telemetry pipelines in M08 or later, unless individually authorized.
 
 ## Options
+
+**Post-review decision:** K2 is ACCEPTED; NET-A/DATA-A/STRIPE-A were also explicitly approved. K1/K3 and NET-B/DATA-B/STRIPE-B remain historical alternatives, not pending selections. See [ADR-M01-001](../../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) and [D01–D04 specifications](README.md).
 
 | Option | Meaning | Benefits | Costs / risk | Recommendation |
 |---|---|---|---|---|
@@ -83,6 +85,6 @@ For an actual `type: LoadBalancer` Service outside a cloud, a local implementati
 - CI checks lint/typecheck/unit/module-import constraints; manifests/Helm templates render correctly and are reviewed; real test results with logs and version digests are attached.
 - A bounded resource usage / cleanup test proves no paid cloud service was deployed.
 
-## Changes NOT approved by this proposal
+## Changes still NOT approved beyond architectural option selection
 
-No microservice extraction before M07; no new Kafka financial guarantee; no Stripe account/keys created; no code, cluster or package installation; no passing readiness gate asserted. A user review must accept K2 and the routing, persistence and resource defaults. Once ratified, write individually testable M01 G3 issues and explicitly authorize G4 implementation.
+No microservice extraction before M07; no new Kafka financial guarantee; no Stripe account/keys created; no code, cluster or package installation; no passing readiness gate asserted. The user accepted K2/NET-A/DATA-A/STRIPE-A; exact versions, node resource defaults and running Kubernetes evidence still require technical G3/G4 review. Once ratified, write individually testable M01 G3 issues and explicitly authorize G4 implementation.

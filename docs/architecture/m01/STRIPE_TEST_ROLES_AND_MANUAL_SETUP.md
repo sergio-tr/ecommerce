@@ -1,6 +1,6 @@
 # Stripe Sandbox: Merchant, Buyer and Optional Connect Accounts
 
-**Status:** RECOMMENDED TEST ENVIRONMENT DESIGN / ACCOUNT SETUP NOT EXECUTED. **Owner:** @sergio-tr. **Date:** 2026-10-30. **Project scope:** learning, one eGame Store, no real charges.
+**Status:** STRIPE-A ARCHITECTURAL MODEL ACCEPTED 2026-10-30 / ACCOUNT SETUP NOT EXECUTED. **Owner:** @sergio-tr. **Date:** 2026-10-30. **Project scope:** learning, one eGame Store, no real charges.
 
 ## Correct conceptual identities
 
@@ -48,4 +48,4 @@ Stripe test/sandbox objects use test payment rails and **do not move real money*
 - Realistic performance/rate limit thresholds and automatic end-to-end failure simulation via Stripe alone. Use a local provider simulator for deterministic rare races.
 - Exact Stripe test account credentials or specific dashboard selections (must come from user's own account).
 
-**Recommended immediate decision:** approve one test-mode merchant and buyer-as-eGame-user/optional Stripe Customer, keeping Connect as a separate later milestone. This requires NO second Stripe business account for a customer.
+**Accepted 2026-10-30:** STRIPE-A — one test merchant, buyer-as-eGame-user/optional Stripe Customer, Connect later. This requires NO second Stripe business account for a customer. Manual account credentials are still not provisioned, and payment adapter/test evidence remains pending.

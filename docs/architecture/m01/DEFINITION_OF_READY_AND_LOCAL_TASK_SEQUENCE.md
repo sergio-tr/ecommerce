@@ -1,6 +1,6 @@
 # M01 — Concrete Design, Definition of Ready and First Local Implementation Handoff
 
-**Scope:** first independent engineering milestone, with **K2 Kubernetes-first** recommended as a change to the historical M01/M08 allocation. **Status:** PLANNING / G3 SPECIFICATION PROPOSED / G4 NOT AUTHORIZED. **Owner:** @sergio-tr. **No code or Kubernetes resources created.**
+**Scope:** first independent engineering milestone; **K2/NET-A/DATA-A/STRIPE-A ACCEPTED 2026-10-30** as M01/M08 allocation change. **Status:** G3 D01–D04 documentary specifications available, physical tests pending / G4 NOT AUTHORIZED. **Owner:** @sergio-tr. **No code or Kubernetes resources created.**
 
 ## Answer: what is design and what is implementation?
 
@@ -8,7 +8,7 @@
 |---|---|---|---|
 | M00 architecture policy | what CommerceCore/Cloud/eGame own, invariants, risks, milestone governance | Major principles accepted, four P0 proof findings OPEN | None for prior accepted direction; review outstanding exact M00 contracts |
 | M01 architecture direction | Nx/pnpm, TypeScript/NestJS modular, Angular reference, DDD/ports | **ACCEPTED M01-A**, documented | No decision unless altering it |
-| M01 Kubernetes-first scope | bring first local cluster/Ingress/Deployments into M01, leave HA/chaos/GitOps in M08 | **NEW PROPOSAL K2, not ratified** | Select K2 or an alternative |
+| M01 Kubernetes-first scope | bring first local cluster/Ingress/Deployments into M01, leave HA/chaos/GitOps in M08 | **ACCEPTED K2/NET-A/DATA-A/STRIPE-A on 2026-10-30** | No further option ratification needed |
 | M01 technical specification (G3) | pinned runtime versions, Nx graph, exact manifests/chart inputs, storage, networking, health/CI and failure oracles | **NOT COMPLETE** | Approve exact defaults when documented and verified for compatibility |
 | M01 implementation task (G4) | atomic branch/issue with step-by-step acceptance criteria, code/config output and dependency IDs | **NOT AUTHORIZED / NOT CREATED** | Explicitly authorize first local work package |
 | M01 testing (G5) | actual `kubectl` cluster and deployment outputs, CI and failover logs | **NOT EXECUTED** | Execute after code/cluster exists |
@@ -92,9 +92,9 @@ C. **DATA-A** (recommended): one local Mongo replica-set with separately owned C
 
 D. **STRIPE-A** (recommended): one Stripe test merchant plus eGame buyer/optional Stripe Customer; Connect test connected accounts deferred. **STRIPE-B:** add Connect test accounts immediately if multi-merchant fund-flow behavior is an explicit early learning target.
 
-Default choices **K2 + NET-A + DATA-A + STRIPE-A** best meet current project goals. These choices don't settle precise package versions and workload resource sizes; those require a verifiable specification pass, not guesses.
+Default choices **K2 + NET-A + DATA-A + STRIPE-A** best meet current project goals. The four option choices are accepted. Exact version cohort, technical interfaces, actual host resource budget and workload parameters are documented or flagged for verification in M01-D01–D04.
 
-### After user approves defaults
+### Following the already recorded user approval
 
 1. Ratify M01 Kubernetes-first scope addendum in planning governance (not G5).
 2. Complete exact compatible versions and M01-D01..D04 technical acceptance, verify OS resources.
@@ -102,4 +102,4 @@ Default choices **K2 + NET-A + DATA-A + STRIPE-A** best meet current project goa
 4. Obtain explicit G4 authorization for M01-BOOTSTRAP-01.
 5. Write, run and test that task **locally**. Then independently authorize M01-K8S-01, etc.
 
-**Current immediate user action:** accept/amend the four option defaults; do not create Stripe business accounts on the buyer side or deploy production Kubernetes just to begin.
+**Current immediate user action:** review M01-D01–D04, verify host and peer compatibility in a separately authorized local reproducibility task, then explicitly authorize M01-BOOTSTRAP-01 under G4. Do not create buyer merchant accounts, app code or production Kubernetes merely from this design approval.

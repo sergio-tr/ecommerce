@@ -1,0 +1,94 @@
+{
+  "id": "ADR-M01-001",
+  "date": "2026-10-30",
+  "approver": "sergio-tr",
+  "state": "ACCEPTED_ARCHITECTURE_OPTIONS",
+  "source": "User explicit approval: k8s=K2, net=NET-A, data=DATA-A, stripe=STRIPE-A",
+  "supersedes": {
+    "scope": "M01 introductory local runtime only",
+    "originalHistoricalDecisionStatus": "UNCHANGED",
+    "M07": "microservice extraction preserved",
+    "M08": "advanced K8s/GitOps/HA preserved",
+    "M005": "NOT_APPROVED"
+  },
+  "implementationAuthorized": false,
+  "verifiedExecution": false,
+  "decisions": [
+    {
+      "key": "k8s",
+      "value": "K2",
+      "status": "ACCEPTED",
+      "result": "Local k3d/K3s Kubernetes from M01 with distinct CommerceCore modular API/CommerceCloud/eGame deployables",
+      "implementation": "NOT_STARTED"
+    },
+    {
+      "key": "network",
+      "value": "NET-A",
+      "status": "ACCEPTED",
+      "result": "k3d serverlb + Traefik Ingress + ClusterIP; Gateway API advanced in M08",
+      "implementation": "NOT_STARTED"
+    },
+    {
+      "key": "persistence",
+      "value": "DATA-A",
+      "status": "ACCEPTED",
+      "result": "one local MongoDB replica-set infrastructure, separately owned Core/Cloud databases/users and PVC; HA not claimed",
+      "implementation": "NOT_STARTED"
+    },
+    {
+      "key": "stripe",
+      "value": "STRIPE-A",
+      "status": "ACCEPTED",
+      "result": "one test merchant account + buyer belonging to eGame; optional Stripe test Customer; Connect deferred; no real-money",
+      "implementation": "NOT_STARTED"
+    }
+  ],
+  "specifications": [
+    {
+      "id": "M01-D01",
+      "path": "docs/architecture/m01/M01_D01_TOOLCHAIN_COMPATIBILITY.md",
+      "state": "OFFICIAL_COMPATIBILITY_REVIEWED_INSTALL_NOT_RUN",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D02",
+      "path": "docs/architecture/m01/M01_D02_WORKSPACE_AND_DEPENDENCIES.md",
+      "state": "OWNERSHIP_AND_IMPORT_RULES_SPECIFIED_NOT_ENFORCED",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D03",
+      "path": "docs/architecture/m01/M01_D03_K8S_TOPOLOGY_AND_NETWORK.md",
+      "state": "PHYSICAL_TOPOLOGY_SPECIFIED_HOST_NOT_INSPECTED",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D04",
+      "path": "docs/architecture/m01/M01_D04_BUILD_DEPLOY_AND_ROLLBACK.md",
+      "state": "RELEASE_CONTRACT_SPECIFIED_IMAGE_DIGEST_AND_LOCAL_TESTS_PENDING",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    }
+  ],
+  "initialVersionCandidates": {
+    "node": "24.22.2",
+    "pnpm": "11.10.0",
+    "nx": "23.3.1",
+    "angular": "21.2.x",
+    "nest": "11.2.8",
+    "typescript": "5.9.3",
+    "k3d": "5.9.0",
+    "k3s": "v1.37.1+k3s1",
+    "kubectl": "1.37.x",
+    "helm": "4.3.1"
+  },
+  "gateStates": {
+    "G0": "HISTORICAL_SOURCE_RECONCILIATION_PARTIAL",
+    "G1": "M01_SCOPE_ACCEPTED",
+    "G2": "K2_NET_A_DATA_A_STRIPE_A_ACCEPTED",
+    "G3": "D01_D04_DOCUMENTED_OWNED_PEER_AND_ENV_VERIFICATION_PENDING",
+    "G4": "NO_IMPLEMENTATION_AUTHORIZATION",
+    "G5": "NOT_RUN",
+    "G6": "NO_REAL_MONEY"
+  },
+  "nextAction": "Complete registry/host peer resolution and issue-level G3, then separately authorize M01-BOOTSTRAP-01; do not implement now."
+}
