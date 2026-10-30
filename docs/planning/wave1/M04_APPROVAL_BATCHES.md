@@ -1,8 +1,10 @@
 # Wave 1 — M04 Scope Approval Batches
 
-**Status: ALL BATCHES PENDING INDIVIDUAL USER DECISIONS.** These alternatives are planning-level choices only. No CAP currently marked UNRESOLVED is auto-upgraded in the master inventory, and no implementation/architecture protocol is approved by selecting a batch.
+**Status: B01 Option A accepted for six exact M04 scope dispositions; tax T1/T2 remains pending. B02–B06 pending.** These alternatives are planning-level choices only. No CAP currently marked UNRESOLVED is auto-upgraded in the master inventory, and no implementation/architecture protocol is approved by selecting a batch.
 
 ## W1-SCOPE-B01 — Catalog and accepted price baseline
+
+**Decision (2026-10-30): ACCEPTED — OPTION A FUNCTIONAL SCOPE, TAX SUBDECISION PENDING.** `CAP-CAT-004` INCLUDED; `CAP-CAT-003`, `CAP-CAT-005`, `CAP-CAT-006`, `CAP-CAT-008` and `CAP-MER-003` EXCLUDED from initial M04 only. `CAP-PRC-004` remains UNRESOLVED. See [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md).
 
 - **Sequence/priority:** 1 / P0 / M04 contract boundary.
 - **Capabilities:** CAP-CAT-003, CAP-CAT-004, CAP-CAT-005, CAP-CAT-006, CAP-CAT-008, CAP-MER-003, CAP-PRC-004.
@@ -13,7 +15,7 @@
 - **Genuine first-sale blockers:** Tax treatment and truthful total is a G3 input, but media/master overrides are not first-sale blockers.
 - **Ratification exit:** Approve each of seven dispositions, select valid demo tax/quote contract with no live-tax claim; direct R0.2-07/R0.3-03/R0.3-08 references noted.
 - **Original references:** R0.2-03, R0.2-07, R0.3-03, R0.3-04/05/06/08
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state:** ACCEPTED for six scope dispositions; CAP-PRC-004 tax T1/T2 pending; no technical contracts approved.
 
 ## W1-SCOPE-B02 — Actor security and CommerceCloud boundary
 

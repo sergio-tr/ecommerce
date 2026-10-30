@@ -1,5 +1,5 @@
 {
-  "state": "PENDING",
+  "state": "PARTIAL_B01_SCOPE_ACCEPTED_OTHER_BATCHES_PENDING",
   "originalUnresolvedGroupedExactlyOnce": 29,
   "independentCompositeCAPPAY012": true,
   "batches": [
@@ -16,7 +16,17 @@
       "blockers": "Tax treatment and truthful total is a G3 input, but media/master overrides are not first-sale blockers.",
       "exit": "Approve each of seven dispositions, select valid demo tax/quote contract with no live-tax claim; direct R0.2-07/R0.3-03/R0.3-08 references noted.",
       "source": "R0.2-03, R0.2-07, R0.3-03, R0.3-04/05/06/08",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_OPTION_A_SCOPE_TAX_PENDING",
+      "approvalDate": "2026-10-30",
+      "acceptedIds": [
+        "CAP-CAT-003",
+        "CAP-CAT-004",
+        "CAP-CAT-005",
+        "CAP-CAT-006",
+        "CAP-CAT-008",
+        "CAP-MER-003"
+      ],
+      "taxState": "CAP-PRC-004_UNRESOLVED_T1_OR_T2"
     },
     {
       "id": "W1-SCOPE-B02",

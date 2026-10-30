@@ -2,7 +2,7 @@
 
 **Status: INVENTORY REVIEWED; M04 functional direction accepted, row-level inclusion still provisional. Owner: @sergio-tr.** **Capabilities cataloged:** 140. **Proposed scope groups:** PRE_M04 34, M04_CANDIDATE 20, POST_M04 25, DEFERRED 8, M04_REQUIRED_DIRECTION 53.
 
-W1-AP-01 ratified the bounded recoverable first digital-license purchase, **not** all 140 individual capabilities. The authoritative capability-level draft M04 disposition is [M04_SCOPE_MATRIX.md](M04_SCOPE_MATRIX.md): INCLUDED 73, EXCLUDED 30, DEFERRED 8, UNRESOLVED 29. Original broad planningScope values below are retained for history; technical and provenance attributes are detailed in the updated JSON. No implementation authorization exists.
+[W1-SCOPE-B01 Option A](B01_RATIFICATION_RECORD.md) subsequently ratified six of the original 29 scope dispositions while CAP-PRC-004 remains open. W1-AP-01 ratified the bounded recoverable first digital-license purchase, **not** all 140 individual capabilities. The authoritative capability-level draft M04 disposition is [M04_SCOPE_MATRIX.md](M04_SCOPE_MATRIX.md): INCLUDED 74, EXCLUDED 35, DEFERRED 8, UNRESOLVED 23. Original broad planningScope values below are retained for history; technical and provenance attributes are detailed in the updated JSON. No implementation authorization exists.
 
 This is a requirement discovery and scope classification, not blanket approval. `M04_REQUIRED_DIRECTION` means necessary for a coherent first checkout according to existing constraints, not a completed specification. `PRE_M04` reflects dependency sequencing, while `M04_CANDIDATE`, `POST_M04` and `DEFERRED` require explicit scope decisions before becoming executable work. `PROPOSED_SCOPE` marks newly identified planning inferences.
 

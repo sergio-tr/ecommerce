@@ -71,16 +71,23 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Share policy and ownership",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "Master catalog is product foundation, but full multi-store capabilities not implied in first slice"
+      "scopeCaveat": "Master catalog is product foundation, but full multi-store capabilities not implied in first slice",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-CAT-004",
@@ -94,16 +101,23 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Copy/import and override rules",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "Store-local catalog model required for framework, first-slice full override scope unratified"
+      "scopeCaveat": "Store-local catalog model required for framework, first-slice full override scope unratified",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-CAT-005",
@@ -117,15 +131,22 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Version/migration and validation",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-CAT-006",
@@ -139,15 +160,22 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Update conflict resolution",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-CAT-007",
@@ -183,15 +211,22 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Media, locale and licensing",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-CAT-009",
@@ -268,15 +303,22 @@
       ],
       "designMilestone": "M03",
       "missingDefinition": "Storefront/channel projection",
-      "approval": "PLANNING_DRAFT_NOT_RATIFIED",
+      "approval": "SCOPE_ACCEPTED_B01_OPTION_A_NOT_IMPLEMENTATION",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_W1_SCOPE_B01_OPTION_A_USER_RATIFICATION_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01",
+        "date": "2026-10-30",
+        "level": "FUNCTIONAL_SCOPE_ONLY",
+        "architectureStatus": "UNMODIFIED",
+        "techContract": "INCOMPLETE"
+      }
     },
     {
       "id": "CAP-MER-004",
@@ -3250,11 +3292,29 @@
     "implementation": "NOT_AUTHORIZED",
     "technicalCompleteness": "NOT_ACCEPTED",
     "counts": {
-      "INCLUDED": 73,
-      "UNRESOLVED": 29,
-      "EXCLUDED": 30,
-      "DEFERRED": 8
+      "INCLUDED": 74,
+      "EXCLUDED": 35,
+      "DEFERRED": 8,
+      "UNRESOLVED": 23
     },
-    "scopeCaveat": "All per-capability inclusion decisions derived from bounded one-store direction require human review; original decision statuses unchanged"
+    "scopeCaveat": "All per-capability inclusion decisions derived from bounded one-store direction require human review; original decision statuses unchanged",
+    "b01Ratification": {
+      "id": "W1-SCOPE-B01",
+      "date": "2026-10-30",
+      "approvedSubset": [
+        "CAP-CAT-003",
+        "CAP-CAT-004",
+        "CAP-CAT-005",
+        "CAP-CAT-006",
+        "CAP-CAT-008",
+        "CAP-MER-003"
+      ],
+      "taxSubdecision": {
+        "capabilityId": "CAP-PRC-004",
+        "state": "PENDING",
+        "optionNotChosen": "T1_or_T2"
+      },
+      "originalUnresolvedAfter": 23
+    }
   }
 }

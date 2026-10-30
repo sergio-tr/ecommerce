@@ -36,6 +36,27 @@
       "state": "ACCEPTED",
       "ratified": "R1, ratifications, 110 reconstructed tests, provenance and contradictions reconciliation priorities",
       "pending": "Actual source validation"
+    },
+    {
+      "id": "W1-SCOPE-B01",
+      "state": "ACCEPTED_OPTION_A_SCOPE_TAX_PENDING",
+      "scope": "Six Catalog/Merchandising M04 inclusion/exclusion choices",
+      "included": [
+        "CAP-CAT-004"
+      ],
+      "excluded": [
+        "CAP-CAT-003",
+        "CAP-CAT-005",
+        "CAP-CAT-006",
+        "CAP-CAT-008",
+        "CAP-MER-003"
+      ],
+      "pending": [
+        "CAP-PRC-004 T1/T2",
+        "all technical protocols and implementation authorization"
+      ],
+      "date": "2026-10-30"
     }
-  ]
+  ],
+  "updated": "2026-10-30"
 }

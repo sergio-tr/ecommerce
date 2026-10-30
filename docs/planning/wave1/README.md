@@ -39,7 +39,7 @@ Financial correctness, Inventory capacity conservation, unique DigitalLicense ow
 - Historical [181 R0.x selections](../../01-historical-baseline/R0.10_181_decisions.md) and [83 scoped records](../../02-decisions/decision-register.json) are unchanged.
 - Original [19-source manifest](../../00-governance/SOURCE_MANIFEST.md) records hashes but a SHA is not clause-level proof.
 - Existing AUD finding mappings [GitHub #1..#13 / Linear SER-118..SER-130](../../06-planning/LINKED_ISSUES.md) remain used. English recovery [GitHub #14](https://github.com/sergio-tr/ecommerce/issues/14)/[SER-131](https://linear.app/sergiotr/issue/SER-131) is reused; no new implementation issues, Slack messages or Linear tasks are created.
-- Current review: draft [PR #17](https://github.com/sergio-tr/ecommerce/pull/17), independent feature/ser-131-wave1-planning-foundation branch stacked on the English-baseline branch, **not merged**.
+- Previous [PR #17](https://github.com/sergio-tr/ecommerce/pull/17) was merged into the English baseline branch on 2026-10-30. Current 2026-10-30 scope/readiness changes are on independent `feature/m04-b01-approval-preimplementation-readiness` and are awaiting review in their own PR; not merged.
 
 ## Next controlled decision
 

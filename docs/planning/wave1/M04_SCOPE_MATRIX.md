@@ -2,15 +2,17 @@
 
 Decision W1-AP-01: ACCEPTED as a bounded recoverable eGame digital-license purchase **planning direction only**. Technical contracts, exact user interface scope, Stripe/Inventory safety evidence and implementation authorization remain unapproved. All original CAP IDs retained. Per-capability interpretations are a reviewable derivation, not 140 separate user ratifications.
 
-**Dispositions:** INCLUDED 73; UNRESOLVED 29; EXCLUDED 30; DEFERRED 8. INCLUDED means planned functional behavior, not an implementation-ready specification. EXCLUDED is outside M04 but may be planned later. DEFERRED preserves explicit historical deferral. UNRESOLVED needs separate scope approval. PRE_M04 entries count prerequisite design, not all M04 deliverables.
+**Dispositions (after W1-SCOPE-B01 Option A approval):** INCLUDED 74; UNRESOLVED 23; EXCLUDED 35; DEFERRED 8. INCLUDED means planned functional behavior, not an implementation-ready specification. EXCLUDED is outside M04 but may be planned later. DEFERRED preserves explicit historical deferral. UNRESOLVED needs separate scope approval. PRE_M04 entries count prerequisite design, not all M04 deliverables.
 
 | Original planning category | Included | Excluded | Deferred | Unresolved |
 |---|---:|---:|---:|---:|
-| PRE_M04 | 18 | 0 | 0 | 16 |
-| M04_CANDIDATE | 2 | 5 | 0 | 13 |
+| PRE_M04 | 19 | 3 | 0 | 12 |
+| M04_CANDIDATE | 2 | 7 | 0 | 11 |
 | POST_M04 | 0 | 25 | 0 | 0 |
 | DEFERRED | 0 | 0 | 8 | 0 |
 | M04_REQUIRED_DIRECTION | 53 | 0 | 0 | 0 |
+
+**New exact scope ratification:** [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md). Six originally unresolved capabilities approved for M04 inclusion/exclusion, and `CAP-PRC-004` tax option remains UNRESOLVED. The original 29-case review is a prior proposal snapshot, not the current ratification ledger.
 
 ## All 140 capability-level dispositions
 
@@ -18,16 +20,16 @@ Decision W1-AP-01: ACCEPTED as a bounded recoverable eGame digital-license purch
 |---|---|---|---|---|
 | CAP-CAT-001 | Product and Variant identity | INCLUDED | PREREQUISITE_NOT_M04_UI | Aggregate boundaries and lifecycle |
 | CAP-CAT-002 | SKU uniqueness by namespace | INCLUDED | PREREQUISITE_NOT_M04_UI | Unique indexes and tenancy |
-| CAP-CAT-003 | Shared master catalog | UNRESOLVED | PREREQUISITE_NOT_M04_UI | Master catalog is product foundation, but full multi-store capabilities not implied in first slice |
-| CAP-CAT-004 | Store-local catalog | UNRESOLVED | PREREQUISITE_NOT_M04_UI | Store-local catalog model required for framework, first-slice full override scope unratified |
-| CAP-CAT-005 | Typed attribute schema | UNRESOLVED | PREREQUISITE_NOT_M04_UI | Version/migration and validation |
-| CAP-CAT-006 | Field inheritance and overrides | UNRESOLVED | PREREQUISITE_NOT_M04_UI | Update conflict resolution |
+| CAP-CAT-003 | Shared master catalog | EXCLUDED | PREREQUISITE_NOT_M04_UI | Master catalog is product foundation, but full multi-store capabilities not implied in first slice — W1-SCOPE-B01 approved scope only |
+| CAP-CAT-004 | Store-local catalog | INCLUDED | PREREQUISITE_NOT_M04_UI | Store-local catalog model required for framework, first-slice full override scope unratified — W1-SCOPE-B01 approved scope only |
+| CAP-CAT-005 | Typed attribute schema | EXCLUDED | PREREQUISITE_NOT_M04_UI | Version/migration and validation — W1-SCOPE-B01 approved scope only |
+| CAP-CAT-006 | Field inheritance and overrides | EXCLUDED | PREREQUISITE_NOT_M04_UI | Update conflict resolution — W1-SCOPE-B01 approved scope only |
 | CAP-CAT-007 | Categories, search and filtering | EXCLUDED | M04_BEHAVIOR_OR_CANDIDATE | Discovery/query contracts |
-| CAP-CAT-008 | Localization and product assets | UNRESOLVED | M04_BEHAVIOR_OR_CANDIDATE | Media, locale and licensing |
+| CAP-CAT-008 | Localization and product assets | EXCLUDED | M04_BEHAVIOR_OR_CANDIDATE | Media, locale and licensing — W1-SCOPE-B01 approved scope only |
 | CAP-CAT-009 | Bulk product import | EXCLUDED | LATER_SCOPE | Batch errors, idempotency and permissions |
 | CAP-MER-001 | Listing visibility and publication | INCLUDED | PREREQUISITE_NOT_M04_UI | State and channel rules |
 | CAP-MER-002 | Offer and sale conditions | INCLUDED | PREREQUISITE_NOT_M04_UI | Currency/date/version constraints |
-| CAP-MER-003 | Channel-based publication | UNRESOLVED | M04_BEHAVIOR_OR_CANDIDATE | Storefront/channel projection |
+| CAP-MER-003 | Channel-based publication | EXCLUDED | M04_BEHAVIOR_OR_CANDIDATE | Storefront/channel projection — W1-SCOPE-B01 approved scope only |
 | CAP-MER-004 | Advanced discounts and promotions | DEFERRED | LATER_SCOPE | Outside initial MVP |
 | CAP-PRC-001 | Exact money arithmetic | INCLUDED | PREREQUISITE_NOT_M04_UI | Currency rounding and minor units |
 | CAP-PRC-002 | Quote evaluation | INCLUDED | PREREQUISITE_NOT_M04_UI | Effective Offer/tax policy |
