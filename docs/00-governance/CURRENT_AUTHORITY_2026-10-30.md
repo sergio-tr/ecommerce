@@ -1,6 +1,8 @@
+> **CURRENT 2026-10-30 ADDENDUM — DESIGN FIRST / NO CODE:** [PR #26](https://github.com/sergio-tr/ecommerce/pull/26) is now MERGED, main was observed at `8140b1101d50757438b37973476dad4e14c43762`. This document's earlier `17c0d05` base and unmerged review wording are historical. User has required design-review completion before any M01 product coding. [M00-G3 design-first gate](DESIGN_FIRST_G3_GATE.md) / [GitHub #27](https://github.com/sergio-tr/ecommerce/issues/27) / Linear SER-135 addresses all 13 open audit issues (4 P0, 6 P1, 3 P2), M00.2–M00.4 and 103-question crosswalk. [Bootstrap issue #25](https://github.com/sergio-tr/ecommerce/issues/25) / SER-134 stays BACKLOG/NO-GO, G4 NOT_GRANTED. Local preflight user reported DR07 PARTIAL (isolated cohort + frozen lock PASS, actual Nx generator NOT_RUN), DR08 PASS, DR09 identity/base observed (recheck on branch creation), DR10 NOT_AUTHORIZED. All AUD-P0 remain OPEN/BLOCKING and all 148 original experiments NOT_RUN. This header adds operational precedence without mutating original architecture decisions or inventing external test evidence.
+
 # CommerceCore — Current authority and reconciliation (2026-10-30)
 
-**Status:** DOCUMENTARY RECONCILIATION / REVIEW REQUIRED. **Owner:** @sergio-tr. **Base commit observed:** `17c0d0531cee8b5b5d3392c1dba7dc35f6234ad2`. This snapshot is not a substitute for runtime evidence, the canonical ADRs, or the decision/audit registers.
+**Historical snapshot status (at original authorship):** DOCUMENTARY RECONCILIATION / REVIEW REQUIRED. **Owner:** @sergio-tr. **Base commit observed:** `17c0d0531cee8b5b5d3392c1dba7dc35f6234ad2`. This snapshot is not a substitute for runtime evidence, the canonical ADRs, or the decision/audit registers.
 
 ## Source-of-truth precedence
 
