@@ -4,6 +4,7 @@
 
 | Decision ID | Outcome | Precisely approved | Explicit limits |
 |---|---|---|---|
+| W1-SCOPE-B01 | ACCEPTED — OPTION A SCOPE; TAX PENDING | Six M04 catalog dispositions: one Store-local Product/Variant, Listing/Offer/Quote and postponed master sync, dynamic attributes, inheritance, multi-channel and rich media | CAP-PRC-004 tax choice T1/T2 remains PENDING; all physical contracts and implementation not approved |
 | W1-AP-01 | ACCEPTED — FUNCTIONAL SCOPE DIRECTION | First M04 target is a bounded but complete recoverable eGame digital-license purchase: catalog, quote, cart, Order, Inventory protection, Stripe test-mode payment, financial proof, unique license, authorized disclosure, cancellation, refund and exception recovery | Does not ratify every CAP row, technical contracts, Stripe capture mode or implementation; P0 blockers intact |
 | W1-AP-02 | ACCEPTED — M00–M09 TAXONOMY; M00.5 NOT APPROVED | Retain historical M00–M09 hierarchy | M00.5 requires proven necessity beyond existing M00 structures and G0–G6; no separate milestone created |
 | W1-AP-03 | ACCEPTED — HISTORICAL ID PRESERVATION | Canonical historical and scoped IDs remain stable; CAP/PLAN IDs provisional | No duplicate work items or automatic promotion to accepted requirements/ADRs |
@@ -31,3 +32,11 @@ The original W1-AP-02 proposal added M00.5 as a readiness checkpoint. The user d
 ## Traceability
 
 Existing issue source: GitHub #14 / Linear SER-131 for source recovery. PR #17 is a draft documentation review; no new tracker issue is needed for these decisions. Scope/gates are recorded here and will be reconciled to the canonical decision ledger only through an explicit approved documentation change; these entries do not mutate the existing 83 scoped records.
+
+## Subsequent approval — 2026-10-30
+
+W1-SCOPE-B01 Option A was accepted in the user's response. Its precise six CAP scope changes are recorded in [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md). Because the last question separately offered T1 versus T2 tax treatment and the answer did not distinguish them, CAP-PRC-004 is still UNRESOLVED. Current catalogue counts: 74 INCLUDED, 35 EXCLUDED, 8 DEFERRED, 23 UNRESOLVED. All historical decision and audit statuses remain unchanged.
+
+## Recommended options accepted — 2026-10-30
+
+The user explicitly approved the most recommended options across the outstanding scope batches and the individual AUD-P1-03 review. [Consolidated ratification](RECOMMENDED_DECISIONS_APPROVAL.md) and [canonical 91-row current decision ledger](../../02-decisions/decision-register.json) record scope-limited acceptance. B01 tax T1, B02–B06 functional scope, M01-A foundation direction and AUD-P1-03-D policy accepted. **The 181 R0.x historical decisions remain unchanged.** The prior 83-row scoped ledger is a historical snapshot; eight new approval records have been appended and five existing AUD-P1-03 subdecision statuses amended with explicit user ratification. Four P0 audit findings remain OPEN/BLOCKING. Current M04 scope: 85 INCLUDED, 43 EXCLUDED, 12 DEFERRED, 0 UNRESOLVED. Provider/physical contracts are NOT verified or implementation ready.

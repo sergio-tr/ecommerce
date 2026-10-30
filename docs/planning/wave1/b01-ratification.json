@@ -1,0 +1,76 @@
+{
+  "id": "W1-SCOPE-B01",
+  "decisionDate": "2026-10-30",
+  "approval": "ACCEPTED_OPTION_A_SCOPE_ONLY_TAX_SUBDECISION_PENDING",
+  "owner": "sergio-tr",
+  "source": "User message: 'I approve it. Continue defining the system and tell me what is left and what we need to do before I start implementing the system by myself locally.' referring to the immediately preceding W1-SCOPE-B01 Option A request.",
+  "scope": "Single Store-local Product/Variant, Listing, eligible Offer, exact accepted immutable Quote; advanced master, schema, inheritance, multiple channels, managed media/i18n excluded from initial M04 only.",
+  "technicalSpecification": "PENDING",
+  "implementationAuthorization": "NOT_AUTHORIZED",
+  "taxDecision": {
+    "id": "W1-SCOPE-B01-TAX",
+    "state": "PENDING",
+    "options": [
+      "T1 — explicit R0.3-08 demonstration tax port/adapter (recommended)",
+      "T2 — user-approved disclosed synthetic tax fixture"
+    ],
+    "reason": "The user approved Option A, but did not select T1 or T2, which the last review explicitly separated."
+  },
+  "capabilityDecisions": [
+    {
+      "capabilityId": "CAP-CAT-003",
+      "disposition": "EXCLUDED",
+      "limit": "Postpone shared tenant-master propagation and multiple-store reuse only; keep tenant/store identity and future master-reference compatibility.",
+      "reason": "Not needed for one Store's initial digital purchase.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    },
+    {
+      "capabilityId": "CAP-CAT-004",
+      "disposition": "INCLUDED",
+      "limit": "Store-owned Product/Variant identity, validated sellable reference and link to one Listing/Offer; no general master import/override engine.",
+      "reason": "Required for a genuine quoted Store product.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    },
+    {
+      "capabilityId": "CAP-CAT-005",
+      "disposition": "EXCLUDED",
+      "limit": "Runtime-extensible typed tenant attribute schemas postponed; fixed validated mandatory Product/Variant fields retained.",
+      "reason": "Attribute framework not essential to first verified license sale.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    },
+    {
+      "capabilityId": "CAP-CAT-006",
+      "disposition": "EXCLUDED",
+      "limit": "Master-to-local inheritance, propagation and versioned field overrides postponed; preserve explicit Store-owned values.",
+      "reason": "No multi-store/master-sync behavior required in bounded vertical.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    },
+    {
+      "capabilityId": "CAP-CAT-008",
+      "disposition": "EXCLUDED",
+      "limit": "Product translation and managed media pipeline postponed; accurate product name and terms remain essential.",
+      "reason": "Rich image/i18n infrastructure is not necessary to the first sale.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    },
+    {
+      "capabilityId": "CAP-MER-003",
+      "disposition": "EXCLUDED",
+      "limit": "Only multi-channel publication policies and projections postponed; one explicit storefront Listing/Offer publication gate is mandatory.",
+      "reason": "First eGame vertical uses one Store and one named channel.",
+      "status": "SCOPE_ACCEPTED_ONLY",
+      "originalHistoricalDecisionStatus": "UNCHANGED"
+    }
+  ],
+  "exceptions": [
+    "CAP-PRC-004 remains UNRESOLVED; tax treatment must be decided before M03 Quote G3 and M04 checkout.",
+    "Excluded capabilities remain part of the historical and future roadmap when applicable.",
+    "No Stripe, Inventory, Fulfillment, MongoDB, security or financial protocol ratification is implied.",
+    "AUD-P0-01 through AUD-P0-04 remain OPEN / BLOCKING.",
+    "AUD-P1-03 remains OPEN / NOT RATIFIED."
+  ]
+}

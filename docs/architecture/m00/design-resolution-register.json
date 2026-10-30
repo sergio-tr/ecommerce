@@ -1,0 +1,160 @@
+{
+  "artifact": "M00_BLOCKER_DESIGN_RESOLUTION",
+  "date": "2026-10-30",
+  "repository": "sergio-tr/ecommerce",
+  "owner": "sergio-tr",
+  "artifactState": "RECOMMENDED_CONTRACT_DESIGN_FOR_REVIEW",
+  "implementationAuthorized": false,
+  "evidenceExecution": "NONE",
+  "historicalRatificationsNotMutated": true,
+  "blocks": [
+    {
+      "id": "AUD-P0-01",
+      "name": "Late collectible dispatch and unsafe release",
+      "recommended": "Persistent generation-bound financial admission; release conditioned on all old potential sends reconciled and externally quiescent; otherwise indefinite protected incident",
+      "policy": "PREVIOUSLY_ACCEPTED",
+      "technical": "DESIGN_SELECTED_FOR_REVIEW",
+      "proof": "BLOCKED_NO_VERIFIED_EXTERNAL_QUIESCENCE",
+      "owner": "Payments/Ordering/Inventory",
+      "doc": "P0_FINANCIAL_ADMISSION_AND_RECOVERY.md",
+      "tests": "AUD01-T01..12;AUD01-DT01..10"
+    },
+    {
+      "id": "AUD-P0-02",
+      "name": "Unknown Stripe Session ID",
+      "recommended": "Durable operation id/correlation, immutable params, account+mode, positive provider reconciliation; never blind retry after key retention/unknown result; preserve hold",
+      "policy": "PREVIOUSLY_ACCEPTED",
+      "technical": "DESIGN_SELECTED_FOR_REVIEW",
+      "proof": "BLOCKED_NO_PROVIDER_NEGATIVE_PROOF",
+      "owner": "Payments",
+      "doc": "P0_FINANCIAL_ADMISSION_AND_RECOVERY.md",
+      "tests": "AUD02-T01..16"
+    },
+    {
+      "id": "AUD-P0-03",
+      "name": "Paid obligation propagation",
+      "recommended": "Pre-existing Order and CheckoutProcess, owner-local Mongo transactions with semantic idempotent Inbox/Outbox, captured evidence attributed per Stripe account",
+      "policy": "PREVIOUSLY_ACCEPTED",
+      "technical": "DESIGN_SELECTED_FOR_REVIEW",
+      "proof": "BLOCKED_CAPTURE_AND_MONGO_FAULT_EVIDENCE",
+      "owner": "Payments/Ordering",
+      "doc": "P0_ORDER_CAPTURE_REFUND_AND_QUIESCENCE.md",
+      "tests": "AUD03-T01..16"
+    },
+    {
+      "id": "AUD-P0-04",
+      "name": "Irreversible license reveal vs refund",
+      "recommended": "Prepare all licenses before exposure, persist potential disclosure before release of key, mutually exclusive commercial branch permissions, fail closed on old reveal/refund effects",
+      "policy": "PREVIOUSLY_ACCEPTED",
+      "technical": "DESIGN_SELECTED_FOR_REVIEW",
+      "proof": "BLOCKED_EXTERNAL_EFFECT_QUIESCENCE",
+      "owner": "Ordering/Fulfillment/Payments",
+      "doc": "P0_ORDER_CAPTURE_REFUND_AND_QUIESCENCE.md",
+      "tests": "AUD04-T01..16"
+    },
+    {
+      "id": "D-05-MONGO",
+      "name": "Local Mongo atomicity",
+      "recommended": "Scoped replica-set owner-local multi-document transactions, majority-durable commit, ambiguous result readback and operation-based idempotence, no network I/O within transaction",
+      "policy": "PENDING_PHYSICAL",
+      "technical": "CANDIDATE_SELECTED_FOR_REVIEW",
+      "proof": "MONGO_DRIVER_FAILOVER_TESTS_PENDING",
+      "owner": "Persistence/Payments/Ordering/Inventory",
+      "doc": "MONGO_INVENTORY_LOCAL_ATOMICITY.md",
+      "tests": "D05-T01..10"
+    },
+    {
+      "id": "AUD-P1-01",
+      "name": "StockPool/Reservation atomic conservation",
+      "recommended": "D-01 four-state candidate; StockPool capacity + Reservation conditional update in Inventory-owned Mongo local transaction, version/counter conservation",
+      "policy": "FSM_POLICY_ACCEPTED",
+      "technical": "CANDIDATE_SELECTED_FOR_REVIEW",
+      "proof": "CONCURRENT_LAST_UNIT_AND_UNKNOWN_COMMIT_TESTS_PENDING",
+      "owner": "Inventory",
+      "doc": "MONGO_INVENTORY_LOCAL_ATOMICITY.md",
+      "tests": "AUD11-T01..12"
+    },
+    {
+      "id": "AUD-P1-06",
+      "name": "Multi-line all-or-nothing",
+      "recommended": "Prepare all digital licenses before disclosure; unique indexes; no ordinary partial commitment and automatic full refund of already exposed keys",
+      "policy": "PREVIOUS_POLICY_CONSTRAINTS",
+      "technical": "CANDIDATE_SELECTED_FOR_REVIEW",
+      "proof": "UNIQUE_ASSIGNMENT_AND_PARTIAL_EXPOSURE_TESTS_PENDING",
+      "owner": "Fulfillment/Ordering",
+      "doc": "MONGO_INVENTORY_LOCAL_ATOMICITY.md",
+      "tests": "AUD04 and M00.2 cases"
+    },
+    {
+      "id": "AUD-P1-02",
+      "name": "Ordering/Payments authority and CheckoutProcess",
+      "recommended": "Owner Order financial obligation, Payments captured fact, CheckoutProcess durable saga; owner-local Inbox/Outbox, concrete FSM still PENDING",
+      "policy": "OWNERSHIP_ACCEPTED",
+      "technical": "PROTOCOL_PROPOSED",
+      "proof": "CROSS_CONTEXT_INTERLEAVINGS_PENDING",
+      "owner": "Ordering/Payments",
+      "doc": "CROSS_CONTEXT_CONTRACTS_AND_EXIT_GATES.md",
+      "tests": "AUD12-T01..12"
+    },
+    {
+      "id": "AUD-P1-03",
+      "name": "Commercial double admission window",
+      "recommended": "Approved option D policy; exact durations/time anchor and admission/close guards still pending",
+      "policy": "WINDOW_POLICY_ACCEPTED",
+      "technical": "PROTOCOL_PROPOSED",
+      "proof": "DURATIONS_AND_PROVIDER_TESTS_PENDING",
+      "owner": "Ordering/Payments",
+      "doc": "P0_FINANCIAL_ADMISSION_AND_RECOVERY.md",
+      "tests": "AUD13-T01..16"
+    },
+    {
+      "id": "AUD-P1-04",
+      "name": "Stripe Connect capture, methods",
+      "recommended": "For first one-store M04 test mode use explicitly configured single Stripe test merchant account with automatic capture/card/3DS; defer Connect multi-merchant and verify effective Link suppression",
+      "policy": "PROVIDER_SCOPE_DIRECTION_ACCEPTED",
+      "technical": "PROVIDER_ACCOUNT_MODEL_CANDIDATE",
+      "proof": "TEST_MODE_ACCOUNT_AND_METHOD_EVIDENCE_PENDING",
+      "owner": "Payments/CommerceCloud",
+      "doc": "SECURITY_PROVIDER_AND_READINESS.md",
+      "tests": "Stripe method and capture cases"
+    },
+    {
+      "id": "M00.3",
+      "name": "Guest claims/tenant authorization",
+      "recommended": "Strong opaque guest claim hashed, scoped to Order/Store, secured sessions, operator MFA, trusted TenantContext, action-level authorization",
+      "policy": "SECURITY_SCOPE_ACCEPTED",
+      "technical": "CANDIDATE_SELECTED_FOR_REVIEW",
+      "proof": "CROSS_TENANT_AND_CSRF_TESTS_PENDING",
+      "owner": "Identity/Ordering/Fulfillment",
+      "doc": "SECURITY_PROVIDER_AND_READINESS.md",
+      "tests": "Actor/claim negative cases"
+    },
+    {
+      "id": "M00.4",
+      "name": "Versioned context commands/FSMs",
+      "recommended": "Owner-specific authority, versioned commands, durable semantic idempotency, explicit UNKNOWN semantics, no global FSM",
+      "policy": "ARCHITECTURE_DIRECTION_ACCEPTED",
+      "technical": "CONTRACT_CATALOG_PROPOSED",
+      "proof": "PER_COMMAND_SCHEMA_AND_INTERLEAVING_TESTS_PENDING",
+      "owner": "All bounded contexts",
+      "doc": "CROSS_CONTEXT_CONTRACTS_AND_EXIT_GATES.md",
+      "tests": "State-contract negative cases"
+    }
+  ],
+  "gateStates": {
+    "G0": "PARTIAL_SOURCE_FIDELITY",
+    "G1": "SCOPE_SELECTED_CONTRACT_DETAIL_PENDING",
+    "G2": "POLICY_SELECTED_DESIGN_REVIEW_OPEN",
+    "G3": "BLOCKED_EFFECT_CONTRACT_AND_EVIDENCE",
+    "G4": "NOT_AUTHORIZED",
+    "G5": "NOT_VERIFIED",
+    "G6": "NOT_AUTHORIZED"
+  },
+  "requiredForInitialLocalWork": [
+    "M01 exact runtime dependency versions",
+    "M01 module graph and repository boundaries",
+    "M01 quality and CI acceptance",
+    "User-approved atomic foundation tasks and G4"
+  ],
+  "criticalAssumption": "No negative proof that Stripe POST was never sent or is no longer executable may be inferred from local timeout; retain Inventory and escalate."
+}
