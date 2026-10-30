@@ -2,6 +2,16 @@
 
 **As of 2026-10-30 | Owner @sergio-tr | Status: RECOMMENDED PROTOCOLS — EVIDENCE BLOCKERS OPEN**
 
+## Four P0 design decisions and review handoff
+
+1. [All four final recommended P0 protocols and next expected user steps](P0_4_DECISIONS_AND_NEXT_STEPS.md)
+2. [AUD-P0-01: financial dispatch and release](P0_01_FINAL_DESIGN_DECISION.md)
+3. [AUD-P0-02: unknown Stripe Session ID](P0_02_FINAL_DESIGN_DECISION.md)
+4. [AUD-P0-03: captured Order obligation](P0_03_FINAL_DESIGN_DECISION.md)
+5. [AUD-P0-04: key disclosure vs refund](P0_04_FINAL_DESIGN_DECISION.md)
+
+The decisions above select **conservative initial educational-scope protocols** but leave all P0 evidence gates open until observed fault-injection results. A successful documentation merge may approve design direction; it is not test-mode verification or authorization to operate with live money.
+
 ## Read order
 
 1. [Structured blocker register](design-resolution-register.json) — twelve audit/contract groups, owners, chosen conservative design and actual remaining proof.

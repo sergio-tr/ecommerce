@@ -71,3 +71,9 @@ Keep original GitHub #1–#13 and Linear SER-118–130 for original audit risk; 
 - **G6:** No real-money/production authorization.
 
 **The scope-decision backlog is finished; the full system is not designed, implemented or verified.** Closing G3–G6 requires actual contracts, experiments and separately authorized local work, not a blanket assertion of completion.
+
+## 2026-10-30 — Four P0 protocol options specified for user review
+
+See the [P0 decision and next-step handoff](../../architecture/m00/P0_4_DECISIONS_AND_NEXT_STEPS.md), [P0-01](../../architecture/m00/P0_01_FINAL_DESIGN_DECISION.md), [P0-02](../../architecture/m00/P0_02_FINAL_DESIGN_DECISION.md), [P0-03](../../architecture/m00/P0_03_FINAL_DESIGN_DECISION.md), [P0-04](../../architecture/m00/P0_04_FINAL_DESIGN_DECISION.md). All **four design alternatives have concrete recommended conservative protocols**, but actual Stripe, MongoDB and HTTP key-exposure tests remain NOT_RUN. The M04 first-slice recommendation is one possible collectible Session per Order and no automatic compensation after possible key reveal. This is a design/scope decision, not a claim that remote external effects are atomically fenced.
+
+**Documentation PR can be reviewed and merged separately from code verification**; do not close or mark AUD-P0-01..04 VERIFIED as a side effect of merging. The next actionable user choices and implementation phases are explicitly enumerated in the P0 handoff document.

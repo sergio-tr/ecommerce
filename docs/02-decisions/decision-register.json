@@ -257,7 +257,9 @@
       "sourceLinks": [
         "docs/02-decisions/D-05-full-adr.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "D-05-OPS",
@@ -446,7 +448,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-01-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_01_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-02-RECOVERY-POLICY",
@@ -468,7 +472,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-02-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_02_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-02-PROVIDER-PROOF",
@@ -523,7 +529,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-03-SM",
@@ -556,7 +564,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-04-EXCLUSION-POLICY",
@@ -578,7 +588,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-04-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_04_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-04-QUIESCENCE",
@@ -730,7 +742,16 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-01-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_01_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Durable possible-send ledger + exclusive financial admission and conservative release under unknown external request",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED"
+      }
     },
     {
       "id": "AUD-P0-02",
@@ -741,7 +762,16 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-02-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_02_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Never blind re-POST Session when response lost; positive provider reconciliation or protected incident",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED"
+      }
     },
     {
       "id": "AUD-P0-03",
@@ -752,7 +782,16 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Captured funds evidence via Payments owner-local Inbox/Outbox and Ordering-local transaction with obligation continuation",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED"
+      }
     },
     {
       "id": "AUD-P0-04",
@@ -763,7 +802,16 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-04-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_04_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "All-line license preparation, possible disclosure recorded before HTTP, no incompatible automatic non-delivery refund",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED"
+      }
     },
     {
       "id": "AUD-P1-01",
@@ -984,5 +1032,18 @@
       "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
       "implementationAuthorization": "NOT_GRANTED"
     }
-  ]
+  ],
+  "latestP0DesignRecommendation": {
+    "asOf": "2026-10-30",
+    "source": "User requested most recommended solutions for four P0 blockers",
+    "kind": "DESIGN_ONLY_NO_VERIFICATION",
+    "auditStatusChange": "NONE",
+    "proposedInitialScope": [
+      "one Stripe testmode commercial attempt per Order",
+      "no automatic release or retry of unknown external effect",
+      "no auto full refund after potentially exposed license",
+      "local owner-only Mongo transactions"
+    ],
+    "userReview": "docs/architecture/m00/P0_4_DECISIONS_AND_NEXT_STEPS.md"
+  }
 }
