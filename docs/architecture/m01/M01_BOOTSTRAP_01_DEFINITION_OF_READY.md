@@ -1,10 +1,14 @@
 # M01-BOOTSTRAP-01 — Final Definition of Ready and Atomic Implementation Contract
 
-**Status:** `DOR_SPECIFICATION_FINALIZED / READY_FOR_G4_REVIEW` **(not** `G4_AUTHORIZED`, `IMPLEMENTED` or `G5_PASSED`).
+**Status:** `DOR_SPECIFICATION_FINALIZED / DESIGN_FIRST_HOLD / NOT_READY_FOR_IMPLEMENTATION` (not `G4_AUTHORIZED`, `IMPLEMENTED` or `G5_PASSED`).
 **Accountable owner:** @sergio-tr. **Scope:** independent, local, non-financial engineering foundation.
 **Date:** 2026-10-30. **Source:** accepted ADR-M01-001 K2/NET-A/DATA-A/STRIPE-A; M01-D01–D08 design specs.
-**Work-item identity:** **PROVISIONAL PLANNING KEY** `M01-BOOTSTRAP-01`, NOT an approved new GitHub/Linear issue. Reuse SER-131/#14 governance link and reconcile future implementation issue identity before creation.
+**Work-item identity:** `M01-BOOTSTRAP-01` is now tracked by [CommerceCore GitHub #25](https://github.com/sergio-tr/ecommerce/issues/25) and [Linear SER-134](https://linear.app/sergiotr/issue/SER-134). Historical documentary baseline SER-131/#14 is not the implementation identity.
 **Implementation authorization:** NO. **Actual execution:** NOT_RUN.
+
+## 2026-10-30 design-first sequencing hold (supersedes immediate bootstrap recommendation)
+
+The owner has clarified that the 13 original design issues must not be skipped to begin code. [M00-G3 design gate](../../00-governance/DESIGN_FIRST_G3_GATE.md), [GitHub #27](https://github.com/sergio-tr/ecommerce/issues/27) and [Linear SER-135](https://linear.app/sergiotr/issue/SER-135) are a **separate required pre-G4 governance review**, even though a pure Nx/Nest bootstrap has no financial runtime dependency. The architecture gate requires reviewed/ratified or explicitly scoped/deferred contracts; do **not** fabricate Stripe/Mongo/worker G5 proof before implementation. No feature implementation branch, generated workspace or application code is authorized. DR07 PARTIAL, DR08 PASS, DR09 issue identity confirmed/base recheck at future launch, DR10 NOT_AUTHORIZED; AC01–AC14 NOT_RUN. The preflight owner reported Ubuntu 22.04.5 WSL2, isolated mise Node24.22.2/pnpm11.10.0 peer/frozen lock smoke PASS, pnpm allowBuilds required, actual Nx app generator NOT_RUN. The earlier DR07–DR09 checklist values below are historical as-written, superseded for current execution by this dated addendum.
 
 ## Exact goal (one observable outcome)
 
