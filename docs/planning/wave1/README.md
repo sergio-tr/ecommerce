@@ -1,3 +1,5 @@
+> **Oracle reconciliation progress:** [110 original audit source rows matched and draft English oracles authored](../../05-tests/M00_G3_ORIGINAL_SOURCE_ORACLE_CROSSWALK.md). All initial 148 experiment results remain NOT_RUN; bilingual exact-owner review and independent original-byte rehash remain outstanding.
+
 > **2026-10-30 G3 proposal coverage:** [M00_G3_PLANNING_RECOMMENDATIONS.md](M00_G3_PLANNING_RECOMMENDATIONS.md) now provides an individually tailored recommendation for **all 103 existing planning IDs** (13 audits, 17 other canonical topics, 73 PLAN-DEC). This is a **reviewable, changeable initial design**, not 103 ratifications or 103 newly created issues. See the [13 audit contracts](../../architecture/m00/M00_G3_ALL_13_AUDITS_RECOMMENDED_CONTRACTS.md), [reference architecture](../../architecture/m00/M00_G3_EVOLVABLE_REFERENCE_ARCHITECTURE.md) and [design gate](../../00-governance/DESIGN_FIRST_G3_GATE.md). All proof and owner-signoff states remain honest.
 
 # CommerceCore — Current Planning Decisions (2026-10-30)
