@@ -1,3 +1,5 @@
+> **Current priority (2026-10-30): ARCHITECTURE DESIGN FIRST.** This file preserves historical stages below for provenance, not as the current authorization. [Design gate](DESIGN_FIRST_G3_GATE.md) tracks all 13 still-open AUD design issues (P0 #1–4, P1 #5–10, P2 #11–13), M00.2–M00.4 and the 103 planning questions. [M01-BOOTSTRAP-01](../architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md) remains NO-GO/G4 NOT_AUTHORIZED; issue identity GitHub ecommerce #25 / Linear SER-134. User's local DR07 PARTIAL, DR08 PASS, DR09 IDENTITY_CONFIRMED, DR10 NOT_AUTHORIZED. Financial P0 remain OPEN/BLOCKING; 148 tests NOT_RUN. PR #26 MERGED at 8140b11. Follow later reviewed commits for further state changes.
+
 # Current CommerceCore definition state — 2026-10-13
 
 **Accountable owner:** @sergio-tr. **Project:** CommerceCore headless engine, CommerceCloud SaaS Control Plane and eGame license-based first consumer. **Current authorization:** architecture documentation/planning only; no implementation, prototype, infrastructure, live payments or deployment.
