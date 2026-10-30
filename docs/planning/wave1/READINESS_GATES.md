@@ -1,3 +1,5 @@
+> **Current decision addendum (2026-10-30):** M04 functional-scope dispositions now total 85 INCLUDED, 43 EXCLUDED, 12 DEFERRED and zero unclassified CAP rows. The earlier G1 numeric observations below are the pre-approval 2026-10-21 snapshot. G1 documentary provenance/actor acceptance still PARTIAL; G2 recommendations accepted at policy level; G3/G4/G5 not passed. See [current approval](RECOMMENDED_DECISIONS_APPROVAL.md) and [missing evidence](REMAINING_WORK_REGISTER.md).
+
 # Wave 1 — Objective Readiness and Evidence Gates
 
 **Artifact:** W1-GATE-001. **Status:** G0–G6 GOVERNANCE ACCEPTED WITH EVIDENCE CONDITIONS (W1-AP-04); individual GATE PASS status NOT IMPLIED. **Accountable owner:** @sergio-tr. **Scope:** M00–M09.

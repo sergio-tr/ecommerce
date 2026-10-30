@@ -1,5 +1,5 @@
 {
-  "state": "PENDING",
+  "state": "ALL_SIX_RECOMMENDED_SCOPE_DIRECTIONS_ACCEPTED_TECHNICAL_CONTRACTS_PENDING",
   "originalUnresolvedGroupedExactlyOnce": 29,
   "independentCompositeCAPPAY012": true,
   "batches": [
@@ -16,7 +16,19 @@
       "blockers": "Tax treatment and truthful total is a G3 input, but media/master overrides are not first-sale blockers.",
       "exit": "Approve each of seven dispositions, select valid demo tax/quote contract with no live-tax claim; direct R0.2-07/R0.3-03/R0.3-08 references noted.",
       "source": "R0.2-03, R0.2-07, R0.3-03, R0.3-04/05/06/08",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "approvalDate": "2026-10-30",
+      "acceptedIds": [
+        "CAP-CAT-003",
+        "CAP-CAT-004",
+        "CAP-CAT-005",
+        "CAP-CAT-006",
+        "CAP-CAT-008",
+        "CAP-MER-003"
+      ],
+      "taxState": "CAP-PRC-004_UNRESOLVED_T1_OR_T2",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     },
     {
       "id": "W1-SCOPE-B02",
@@ -31,7 +43,9 @@
       "blockers": "Guest claim/cancellation/key access authorization and privileged operator session MUST be decided before M04; provisioning UI need not.",
       "exit": "Ratify role-action matrix, operator MFA/session approach and CommerceCloud-to-Core authority boundary without forcing Cloud private DB writes.",
       "source": "R0.7-01/03/06/09/10, R0.1-01, R0.2-01, R0.4-02",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     },
     {
       "id": "W1-SCOPE-B03",
@@ -46,7 +60,9 @@
       "blockers": "Authoritative history, guest-buyer status, safe incident controls and accessible core actions block completion; UI breadth does not.",
       "exit": "Ratify the eight CAP dispositions and composite separation; link authority, audit integrity, accessibility and security test oracles.",
       "source": "D-04, D-05, AUD-P0-03/04, R0.7-08/19, R0.2-09",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     },
     {
       "id": "W1-SCOPE-B04",
@@ -61,7 +77,9 @@
       "blockers": "No optional email feature blocks the first testmode sale, but secure on-site access must exist.",
       "exit": "User decides notifications' release timing without altering D-05 mandatory financial Outbox.",
       "source": "R0.3-23, R0.4-03",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     },
     {
       "id": "W1-SCOPE-B05",
@@ -76,7 +94,9 @@
       "blockers": "Basic safe operational observability and contract versions block M04 acceptance; exact public license blocks distribution rather than the test purchase.",
       "exit": "Approve four dispositions, choose public license before publication and explicit initial recovery objective or retain a named blocker.",
       "source": "R0.1-08, R0.8-19, R0.10-13, R0.4-15, R0.9-10",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     },
     {
       "id": "W1-SCOPE-B06",
@@ -91,7 +111,10 @@
       "blockers": "Actual method enforcement D-03-CONFIG is a M04 design requirement even if Link excluded.",
       "exit": "Do not alter D-03-WALLET DEFERRED or D-03-LINK PENDING without explicit provider-side evidence and user decision.",
       "source": "D-03-WALLET, D-03-LINK, D-03-CONFIG",
-      "approval": "PENDING"
+      "approval": "ACCEPTED_RECOMMENDED_DIRECTION_2026_10_30",
+      "technicalProofStatus": "PENDING_G3_OR_EXTERNAL_EVIDENCE",
+      "implementationAuthorized": false
     }
-  ]
+  ],
+  "taxOption": "T1_DEMONSTRATION_ADAPTER_ACCEPTED_DIRECTION"
 }

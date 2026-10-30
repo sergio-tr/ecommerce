@@ -1,3 +1,5 @@
+> **2026-10-30 policy addendum:** Scope batches B01–B06 and AUD-P1-03 option D direction now accepted, M01-A direction accepted, but this does not satisfy P0 proof, physical contracts or G4 implementation authorization. Original W2 entry assessment below is a previous snapshot. See [REMAINING_WORK_REGISTER.md](REMAINING_WORK_REGISTER.md).
+
 # Wave 2 Entry Readiness
 
 **Status: DOCUMENTARY PLANNING ONLY.** Wave 1 scope recommendations remain unratified. The four original financial P0 findings remain open and blocking.

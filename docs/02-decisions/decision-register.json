@@ -257,7 +257,9 @@
       "sourceLinks": [
         "docs/02-decisions/D-05-full-adr.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "D-05-OPS",
@@ -316,14 +318,16 @@
     },
     {
       "id": "D-06-RETRY-WINDOW",
-      "status": "PENDING",
-      "summary": "Post-negative commercial retry request window pending",
-      "evidenceStatus": "NOT_EVALUATED",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Commercial retry-window arrangement preferred; exact parameters and effective version/admission guards remain pending.",
+      "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "sourceLinks": [
         "docs/02-decisions/D-06-full-adr.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "ratificationDate": "2026-10-30",
+      "ratificationScope": "POLICY_ONLY_USER_APPROVED_RECOMMENDED_OPTION_D"
     },
     {
       "id": "D-06-INTENT",
@@ -444,7 +448,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-01-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_01_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-02-RECOVERY-POLICY",
@@ -466,7 +472,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-02-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_02_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-02-PROVIDER-PROOF",
@@ -521,7 +529,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-03-SM",
@@ -554,7 +564,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-04-EXCLUSION-POLICY",
@@ -576,7 +588,9 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-04-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "currentRecommendedDesignReference": "docs/architecture/m00/P0_04_FINAL_DESIGN_DECISION.md",
+      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
       "id": "AUD-P0-04-QUIESCENCE",
@@ -667,23 +681,27 @@
     },
     {
       "id": "AUD-P1-03-WINDOW-POLICY",
-      "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Relative and absolute retry admission windows only proposed, NOT ratified",
+      "status": "ACCEPTED",
+      "summary": "User selected recommended alternative D as commercial new-attempt admission policy only: a relative post-proven-negative request window plus an absolute global admission cutoff; both subject to safe financial guards.",
       "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
       "sourceLinks": [],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "ratificationDate": "2026-10-30",
+      "ratificationScope": "POLICY_ONLY_USER_APPROVED_RECOMMENDED_OPTION_D"
     },
     {
       "id": "AUD-P1-03-SAFE-RETENTION",
-      "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Safe protected-capacity condition inside unratified retry proposal",
+      "status": "ACCEPTED",
+      "summary": "Window expiry cannot release protected capacity, neutralize existing potentially collectible Stripe operations, erase a captured payment or bypass D-01/D-07 barriers.",
       "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
       "sourceLinks": [],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "ratificationDate": "2026-10-30",
+      "ratificationScope": "POLICY_ONLY_USER_APPROVED_RECOMMENDED_OPTION_D"
     },
     {
       "id": "AUD-P1-03-WINDOW-VALUES",
@@ -696,13 +714,15 @@
     },
     {
       "id": "AUD-P1-03-PROTOCOL",
-      "status": "PROPOSED — NOT RATIFIED",
-      "summary": "Candidate commercial admission deadlines, NOT ratified",
+      "status": "PROPOSED — SELECTED",
+      "summary": "Preferred protocol direction D, but exact time anchor, numerical windows, authenticated admission and durable fencing/cross-context behavior are not yet specified or verified.",
       "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "decisionStatusNote": "Historic display of an unapproved proposal; never treat as ACCEPTED.",
       "sourceLinks": [],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "ratificationDate": "2026-10-30",
+      "ratificationScope": "POLICY_ONLY_USER_APPROVED_RECOMMENDED_OPTION_D"
     },
     {
       "id": "AUD-P1-03-OPS",
@@ -722,7 +742,18 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-01-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_01_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Durable possible-send ledger + exclusive financial admission and conservative release under unknown external request",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
+      }
     },
     {
       "id": "AUD-P0-02",
@@ -733,7 +764,18 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-02-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_02_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Never blind re-POST Session when response lost; positive provider reconciliation or protected incident",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
+      }
     },
     {
       "id": "AUD-P0-03",
@@ -744,7 +786,18 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-03-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "Captured funds evidence via Payments owner-local Inbox/Outbox and Ordering-local transaction with obligation continuation",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
+      }
     },
     {
       "id": "AUD-P0-04",
@@ -755,7 +808,18 @@
       "sourceLinks": [
         "docs/04-audit/AUD-P0-04-deep-dive.md"
       ],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "designResolution": {
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
+        "reviewDate": "2026-10-30",
+        "document": "docs/architecture/m00/P0_04_FINAL_DESIGN_DECISION.md",
+        "recommendedApproach": "All-line license preparation, possible disclosure recorded before HTTP, no incompatible automatic non-delivery refund",
+        "evidenceState": "TEST_PLANNED_NOT_RUN",
+        "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
+      }
     },
     {
       "id": "AUD-P1-01",
@@ -777,12 +841,14 @@
     },
     {
       "id": "AUD-P1-03",
-      "status": "OPEN / NOT RATIFIED",
-      "summary": "P1 open: commercial retry windows not ratified",
+      "status": "OPEN",
+      "summary": "Alternative D direction accepted; outstanding protocol, time values, provider dispatch/evidence, safe release and test verification remain open.",
       "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "sourceLinks": [],
-      "date": "2026-10-13"
+      "date": "2026-10-13",
+      "ratificationDate": "2026-10-30",
+      "ratificationScope": "POLICY_ONLY_USER_APPROVED_RECOMMENDED_OPTION_D"
     },
     {
       "id": "AUD-P1-04",
@@ -869,6 +935,123 @@
       "evidenceStatus": "NOT_APPLICABLE",
       "sourceCategory": "LATEST_EXPLICIT_USER_POLICY",
       "date": "2026-10-13"
+    },
+    {
+      "id": "W1-SCOPE-B01-TAX",
+      "status": "ACCEPTED",
+      "summary": "T1 demonstration tax port/adapter chosen; production tax correctness not implied; exact adapter input/output and Quote rounding pending.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B02",
+      "status": "ACCEPTED",
+      "summary": "Option A: trusted tenant and Store scope; guest/operator auth; deferred full realm/provisioning UI; exact session, MFA and Control Plane physical contracts pending.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B03",
+      "status": "ACCEPTED",
+      "summary": "Option A: durable economic evidence, current-order status, accessible core flows and constrained authorized audit/repair; rich admin and full buyer history excluded.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B04",
+      "status": "ACCEPTED",
+      "summary": "Option A: optional email/notification provider deferred; authorized current-order status and non-email key access retained.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B05",
+      "status": "ACCEPTED",
+      "summary": "Option A: internal contract versions, cost governance, minimum operational incident/alert monitoring; public distribution licensing and exact SLO thresholds remain pending.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B06",
+      "status": "ACCEPTED",
+      "summary": "Option A: hosted card/3DS initial direction; wallets remain DEFERRED, Stripe Link remains PENDING and must be excluded through confirmed provider configuration before M04 provider implementation.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "M01-FOUNDATION-DIRECTION",
+      "status": "ACCEPTED",
+      "summary": "Option A: Nx/pnpm TypeScript modular/hexagonal NestJS backend with independent domain/context contracts and Angular reference shell candidate; exact compatible runtime/tool versions and physical task specs pending.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
+    },
+    {
+      "id": "W1-SCOPE-B01",
+      "status": "ACCEPTED",
+      "summary": "Option A previously approved: Store-local Product/Variant, Listing/Offer and accepted Quote; rich master/catalog capabilities not M04.",
+      "evidenceStatus": "NOT_VERIFIED",
+      "sourceCategory": "POST_W1_USER_RATIFICATION_2026_10_30",
+      "sourceLinks": [
+        "docs/planning/wave1/RECOMMENDED_DECISIONS_APPROVAL.md"
+      ],
+      "date": "2026-10-30",
+      "decisionScope": "FUNCTIONAL_OR_ARCHITECTURE_DIRECTION_ONLY",
+      "implementationAuthorization": "NOT_GRANTED"
     }
-  ]
+  ],
+  "latestP0DesignRecommendation": {
+    "asOf": "2026-10-30",
+    "source": "User requested most recommended solutions for four P0 blockers",
+    "kind": "USER_DELEGATED_DESIGN_SELECTION_NO_EXECUTION_VERIFICATION",
+    "auditStatusChange": "NONE; original audit findings remain OPEN / BLOCKING as evidence gates",
+    "proposedInitialScope": [
+      "one Stripe testmode commercial attempt per Order",
+      "no automatic release or retry of unknown external effect",
+      "no auto full refund after potentially exposed license",
+      "local owner-only Mongo transactions"
+    ],
+    "userReview": "docs/architecture/m00/P0_4_DECISIONS_AND_NEXT_STEPS.md"
+  }
 }
