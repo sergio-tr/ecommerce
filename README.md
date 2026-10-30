@@ -8,11 +8,11 @@ CommerceCore is a reusable, headless, frontend-agnostic commerce engine. Commerc
 
 Read [ADR-M01-001](docs/02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md), [M01 G3 D01–D04](docs/architecture/m01/README.md), and the [updated M00–M09 roadmap](docs/06-planning/ROADMAP.md). Proposed verified-upstream cohort: Node 24.22.2, Nx 23.3.1, Angular 21.2, NestJS 11.2.8, TypeScript 5.9.3, pnpm 11.10.0; Helm 4.3.1/K8s 1.37; actual dependency install, Docker host and K3s startup **NOT RUN**.
 
-PR #21 is the separate financial/documentary baseline reconciliation against main, while PR #22 is the independent M01 Kubernetes-first technical-design review. Reconcile branch ordering before any merge; no financial P0 proof is discharged by accepting M01.
+PR #21 was merged into main on 2026-10-30 at 16:45 UTC, preserving the latest financial/planning baseline. PR #22 remains the independent unmerged M01 Kubernetes-first review; the PR was checked as mergeable against the updated main but still requires user review and explicit merge approval. No financial P0 proof is discharged by accepting M01.
 
 ## Historical Wave 1 planning snapshot (2026-10-21)
 
-[Wave 1 validation report and approved planning directions](docs/planning/wave1/README.md) — historical Wave 1 review (PR #17 subsequently merged into its baseline branch). W1-AP-01 accepted the bounded recoverable M04 scope **direction**; W1-AP-02 retained M00–M09 but did not approve M00.5; W1-AP-03/04/05 accepted canonical ID preservation, evidence-based G0–G6 and source reconciliation priorities. The 140 capabilities and 103 work questions remain a validated **inventory with gaps**, not fully ratified implementation scope. Four M00.1 financial P0s remain OPEN / BLOCKING, 148 experiments planned and none VERIFIED.
+[Wave 1 validation report and approved planning directions](docs/planning/wave1/README.md) — historical Wave 1 review (PR #17 subsequently merged into its baseline branch). W1-AP-01 accepted the bounded recoverable M04 scope **direction**; W1-AP-02 retained M00–M09 but did not approve M00.5; W1-AP-03/04/05 accepted canonical ID preservation, evidence-based G0–G6 and source reconciliation priorities. That sentence describes the original 2026-10-21 baseline only. Later user ratifications classified all 140 M04 capabilities as 85 INCLUDED, 43 EXCLUDED and 12 DEFERRED; source fidelity and implementation-level contracts remain incomplete. Four M00.1 financial P0s remain OPEN / BLOCKING, 148 experiments planned and none VERIFIED.
 
 ## Reading order
 

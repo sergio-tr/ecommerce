@@ -28,4 +28,4 @@ No further **architecture-choice** approval is needed for the four selected defa
 
 ## Merge safety
 
-PR #22 documents these M01 decisions on an independent feature branch. PR #21 independently contains updated historical/current financial baseline and is not merged as of this authoring. Review the **merge order** to avoid overwriting the newer 91-record scoped decision register; this PR uses a standalone M01 decision record rather than rewriting PR #21's canonical financial statuses. Reconcile both branch trees before merging into main. No automatic merge is authorized.
+PR #22 documents these M01 decisions on an independent feature branch. PR #21 was merged into main on 2026-10-30 at 16:45 UTC. PR #22 is a separate independent documentation-only branch; GitHub reported it mergeable after the main update. It uses a standalone M01 decision record and does **not** overwrite the 91-record canonical scoped decision register. Review the current PR diff and updated base before merging. No automatic merge is authorized.
