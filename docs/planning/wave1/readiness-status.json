@@ -1,0 +1,57 @@
+{
+  "artifact": "W1-GATE-STATUS",
+  "approval": "W1-AP-04_ACCEPTED_WITH_CONDITIONS",
+  "records": [
+    {
+      "id": "G0",
+      "passCriteria": "181/181 historical IDs with preserved status; 83/83 scoped IDs; 19/19 source identities; 100% R1/user ratification clauses either source-located or explicitly SOURCE_GAP with reviewer approval; 148/148 tests have verified source locator or classified known uncertainty",
+      "actualObservation": "181,83,19 indexed; only 38/148 tests source-table translated; 110 reconstructed; literal R1 and full approval transcript comparison pending",
+      "state": "PARTIAL",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G1",
+      "passCriteria": "140/140 capabilities in one user-reviewed M04 disposition, with zero undefined or improperly mixed inclusion for first slice; buyer/operator journeys have explicit minimum access and exclusions",
+      "actualObservation": "73 INCLUDED,30 EXCLUDED,8 DEFERRED,29 UNRESOLVED; three composite entries; only overall W1-AP-01 approved",
+      "state": "PARTIAL",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G2",
+      "passCriteria": "Each ratified ID has linked explicit user statement, exact conditions, alternatives/dependencies and unchanged child statuses",
+      "actualObservation": "D-01..07 accepted; W1-AP-01/03/04/05 accepted within scope; technical children pending",
+      "state": "PER_DECISION_PARTIAL",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G3",
+      "passCriteria": "100% applicable commands/events/FSM guards with owner, scope, version, local atomicity, external-effect evidence, crash/retry/unknown handling and predeclared test oracles; zero unresolved BLOCKING dependency for behavior",
+      "actualObservation": "AUD-P0-01..04 OPEN/BLOCKING; M00.2/M00.3/M00.4 incomplete",
+      "state": "BLOCKED",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G4",
+      "passCriteria": "G1/G2/G3 for targeted behavior, specific atomic issue, accepted Given/When/Then tests and explicit implementation authorization",
+      "actualObservation": "Zero implementation tickets created; none authorized",
+      "state": "NOT_AUTHORIZED",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G5",
+      "passCriteria": "Actual execution artifact with run time, commit, provider/environment, observed authoritative state, pass/fail and reviewer acceptance for every required test",
+      "actualObservation": "148 TEST_PLANNED, 0 VERIFIED in financial catalog",
+      "state": "NOT_VERIFIED",
+      "verifiedExecutionEvidence": []
+    },
+    {
+      "id": "G6",
+      "passCriteria": "Separate merchant/Connect, tax/legal, security, recovery, refund/dispute, live-money monitoring and signed financial/production approval",
+      "actualObservation": "No production authorization or live-payment validation recorded",
+      "state": "NOT_AUTHORIZED",
+      "verifiedExecutionEvidence": []
+    }
+  ],
+  "statusEffect": "NO_ACCEPTED_ARCHITECTURE_PROTOCOLS_CHANGED",
+  "implementationAuthorized": false
+}

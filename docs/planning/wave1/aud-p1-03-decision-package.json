@@ -1,0 +1,203 @@
+{
+  "artifact": "AUD-P1-03-W2-REVIEW",
+  "ratification": "NOT_RATIFIED",
+  "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
+  "preferred": "D",
+  "choices": [
+    "A no window",
+    "B absolute",
+    "C relative",
+    "D relative+absolute"
+  ],
+  "invariants": [
+    {
+      "id": "AUD13-I01",
+      "text": "Commercial expiration never proves no payment"
+    },
+    {
+      "id": "AUD13-I02",
+      "text": "A collectible known Session retains D-01 protection even after admissions cease"
+    },
+    {
+      "id": "AUD13-I03",
+      "text": "New commercial Attempts require all valid financial, commercial and deadline guards"
+    },
+    {
+      "id": "AUD13-I04",
+      "text": "Window expiration does not revoke previously enabled HTTP dispatch"
+    },
+    {
+      "id": "AUD13-I05",
+      "text": "Release requires conclusive financial closure and authorized Inventory transition"
+    },
+    {
+      "id": "AUD13-I06",
+      "text": "Subsequent attempts do not restart Inventory's initial 15-minute TTL"
+    },
+    {
+      "id": "AUD13-I07",
+      "text": "Confirmed paid fact remains valid after admission deadline expires"
+    },
+    {
+      "id": "AUD13-I08",
+      "text": "Admission deadline is not a maximum physical protected-stock hold"
+    },
+    {
+      "id": "AUD13-I09",
+      "text": "Effective policy/version cannot be retroactively reinterpreted"
+    },
+    {
+      "id": "AUD13-I10",
+      "text": "Stuck protected cases are observable, recoverable and assigned to escalation"
+    },
+    {
+      "id": "AUD13-I11",
+      "text": "A separate legitimate purchase is not automatically an old attempt"
+    },
+    {
+      "id": "AUD13-I12",
+      "text": "Operational timings cannot bypass exclusivity, reconciliation or idempotency"
+    }
+  ],
+  "tests": [
+    {
+      "id": "AUD13-T01",
+      "scenario": "Previous Session negatively closed; buyer requests inside eligibility window",
+      "oracle": "Admit only with every other financial and commercial guard valid",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T02",
+      "scenario": "Request after relative deadline",
+      "oracle": "Reject new Session before enabling any collectible operation",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T03",
+      "scenario": "Relative open but global deadline expired",
+      "oracle": "Reject admission; do not treat this as provider negative evidence",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T04",
+      "scenario": "Global deadline expires while original Session still open",
+      "oracle": "Protect Inventory while old opportunity remains collectible",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T05",
+      "scenario": "New Attempt admission races commercial-close operation",
+      "oracle": "Single valid admission or sealed close; no orphan collectible Session",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T06",
+      "scenario": "Window expires when Payments is unavailable",
+      "oracle": "Persist close request, retain protected stock, escalate",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T07",
+      "scenario": "Provider proves a charge after admission deadline",
+      "oracle": "Preserve charge and Ordering obligation",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T08",
+      "scenario": "UNKNOWN operation exceeds every commercial deadline",
+      "oracle": "Never release by time alone; reconcile and escalate",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T09",
+      "scenario": "Second attempt admitted on same Reservation",
+      "oracle": "No renewed initial TTL or unauthorized second reservation",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T10",
+      "scenario": "Old browser requests retry after Inventory legitimate release",
+      "oracle": "Reject stale checkout/generation/Reservation access",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T11",
+      "scenario": "Store retry-window configuration changes during active checkout",
+      "oracle": "Effective version and previously enabled operations remain stable",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T12",
+      "scenario": "Several checkouts appear linked to one buying intention",
+      "oracle": "Do not create duplicate holds for idempotent retries; do not merge arbitrary purchases",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T13",
+      "scenario": "Buyer legitimately makes another independent purchase",
+      "oracle": "Do not deny it solely because another checkout existed",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T14",
+      "scenario": "Deadline passes while Ordering→Payments message is pending",
+      "oracle": "No contradictory close or capacity release",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T15",
+      "scenario": "Worker restarts after marking deadline expired but before durable admission closure",
+      "oracle": "Resume close and reconcile prior enabled operations",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    },
+    {
+      "id": "AUD13-T16",
+      "scenario": "Reservation stays protected anomalously long",
+      "oracle": "Detect accountable incident and operational escalation",
+      "status": "TEST_PLANNED",
+      "execution": "NOT_RUN",
+      "englishOracleNeedsOwnerReview": true
+    }
+  ],
+  "pending": [
+    "AUD-P0-01",
+    "AUD-P0-02",
+    "D-06-RETRY-WINDOW",
+    "D-06-P01",
+    "D-02-P01",
+    "D-06-INTENT",
+    "D-05-MONGO",
+    "AUD-P1-03-OPS"
+  ],
+  "noNewDecisionAccepted": true
+}

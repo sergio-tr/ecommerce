@@ -34,3 +34,11 @@ D-01 financial reservation protection; D-02 versioned Stripe Session expiration;
 ## Next controlled decision
 
 AUD-P1-03 is the immediate unratified review; after explicit acceptance or alteration, continue with the next **real** audit ID. The documentation recovery project is SER-131 and GitHub Issue #14, on feature/ser-131-architecture-knowledge-baseline-en. None of this closes M00.1 or approves M00.1-R2.
+
+## Addendum — Wave 1 approval and validation (2026-10-21)
+
+The above 2026-10-13 snapshot is historically retained; the following later planning ratifications **do not change original financial decision status**. W1-AP-01 accepted a bounded complete recoverable eGame digital-license purchase target for M04, not implementation authorization. W1-AP-02 retained M00–M09 and expressly withheld approval of M00.5. W1-AP-03 approved stable historical IDs and provisional-only CAP/PLAN identifiers; W1-AP-04 accepted G0–G6 with objective evidence criteria; W1-AP-05 approved R1, ratification and test-fidelity reconciliation priorities.
+
+[Wave 1 validation report](../planning/wave1/VALIDATION_REPORT.md) found 140 unique capabilities with broad source provenance, 103 work questions with 14 candidate overlaps, and five hard-dependency cycles since corrected into co-design links. [M04 scope matrix](../planning/wave1/M04_SCOPE_MATRIX.md) currently classifies 73 INCLUDED (including prerequisites), 30 EXCLUDED, 8 DEFERRED and 29 UNRESOLVED; these per-row interpretations are not 140 separately ratified product requirements. Of 148 TEST_PLANNED, 110 require source-table fidelity review. G0/G1 PARTIAL, G3 BLOCKED, G4/G6 NOT AUTHORIZED, G5 NOT VERIFIED. Original AUD-P0-01..04 remain OPEN / BLOCKING. Draft PR #17 is not merged.
+
+Next original architecture decision awaiting separate approval remains AUD-P1-03; Wave 2 documentation also includes financial/inventory/identity/provider contracts and source-fidelity work. Source-recovery parent remains GitHub #14 / Linear SER-131, with no new implementation tickets.
