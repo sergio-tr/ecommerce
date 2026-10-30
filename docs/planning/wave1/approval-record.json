@@ -1,0 +1,41 @@
+{
+  "source": "2026-10-21 user ratification in current conversation",
+  "milestone": "Wave 1",
+  "implementationAuthorized": false,
+  "mergeAuthorized": false,
+  "canonicalDecisionRegisterChanged": false,
+  "records": [
+    {
+      "id": "W1-AP-01",
+      "state": "ACCEPTED_FUNCTIONAL_DIRECTION",
+      "domain": "M04",
+      "ratified": "Bounded complete recoverable Stripe-test-mode digital-license purchase",
+      "pending": "All technical contract completeness and specific per-CAP scope decisions"
+    },
+    {
+      "id": "W1-AP-02",
+      "state": "PARTIALLY_ACCEPTED_M00_M09_ONLY",
+      "ratified": "M00–M09 primary taxonomy",
+      "notRatified": "M00.5 as an independent milestone",
+      "evidence": "No unique checkpoint requirement beyond current M00 and G0–G6 demonstrated"
+    },
+    {
+      "id": "W1-AP-03",
+      "state": "ACCEPTED",
+      "ratified": "Historical ID preservation and provisional CAP/PLAN identifiers",
+      "pending": "Crosswalk and duplicate elimination"
+    },
+    {
+      "id": "W1-AP-04",
+      "state": "ACCEPTED_WITH_CONDITIONS",
+      "ratified": "G0–G6 gate framework",
+      "pending": "Evidence criteria and actual execution for every applicable gate"
+    },
+    {
+      "id": "W1-AP-05",
+      "state": "ACCEPTED",
+      "ratified": "R1, ratifications, 110 reconstructed tests, provenance and contradictions reconciliation priorities",
+      "pending": "Actual source validation"
+    }
+  ]
+}
