@@ -67,6 +67,30 @@
       "path": "docs/architecture/m01/M01_D04_BUILD_DEPLOY_AND_ROLLBACK.md",
       "state": "RELEASE_CONTRACT_SPECIFIED_IMAGE_DIGEST_AND_LOCAL_TESTS_PENDING",
       "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D05",
+      "path": "docs/architecture/m01/M01_D05_MONGODB_PERSISTENCE_AND_RECOVERY.md",
+      "state": "OWNED_DB_AND_RESTORE_CONTRACT_DOCUMENTED_NO_MONGO_CLUSTER",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D06",
+      "path": "docs/architecture/m01/M01_D06_CONFIGURATION_SECRETS_AND_TRUST.md",
+      "state": "SECRETS_AND_CONFIG_POLICY_DOCUMENTED_NO_RBAC_TEST",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D07",
+      "path": "docs/architecture/m01/M01_D07_DEVELOPER_EXPERIENCE_AND_OBSERVABILITY.md",
+      "state": "LOG_HEALTH_AND_OTEL_PHASES_DOCUMENTED_NOT_INSTRUMENTED",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
+    },
+    {
+      "id": "M01-D08",
+      "path": "docs/architecture/m01/M01_D08_CI_TEST_AND_CHANGE_GATES.md",
+      "state": "CI_AND_TEST_POLICY_DOCUMENTED_NO_WORKFLOW_RUN",
+      "g3": "DOCUMENTARY_SPEC_PROPOSED"
     }
   ],
   "initialVersionCandidates": {
@@ -85,10 +109,25 @@
     "G0": "HISTORICAL_SOURCE_RECONCILIATION_PARTIAL",
     "G1": "M01_SCOPE_ACCEPTED",
     "G2": "K2_NET_A_DATA_A_STRIPE_A_ACCEPTED",
-    "G3": "D01_D04_DOCUMENTED_OWNED_PEER_AND_ENV_VERIFICATION_PENDING",
-    "G4": "NO_IMPLEMENTATION_AUTHORIZATION",
+    "G3": "D01_D08_DOCUMENTED_PHYSICAL_PEER_HOST_AND_EVIDENCE_PENDING",
+    "G4": "M01_BOOTSTRAP_DOR_FINALIZED_NOT_AUTHORIZED",
     "G5": "NOT_RUN",
     "G6": "NO_REAL_MONEY"
   },
-  "nextAction": "Complete registry/host peer resolution and issue-level G3, then separately authorize M01-BOOTSTRAP-01; do not implement now."
+  "nextAction": "Review and merge documentation PR after approval; verify DR07–DR09, then explicitly authorize M01-BOOTSTRAP-01 (DR10).",
+  "firstTask": {
+    "id": "M01-BOOTSTRAP-01",
+    "definition": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
+    "structured": "docs/architecture/m01/m01-bootstrap-01-readiness.json",
+    "state": "DOR_SPECIFICATION_FINALIZED_READY_FOR_G4_REVIEW",
+    "documentationChecks": "DR01–DR06 documentary/policy met",
+    "blockingChecks": [
+      "DR07 runtime/peer resolution",
+      "DR08 local host inspection",
+      "DR09 canonical issue/main SHA",
+      "DR10 explicit G4 implementation authorization"
+    ],
+    "implementationIssueCreated": false,
+    "codeCreated": false
+  }
 }

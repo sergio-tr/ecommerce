@@ -1,0 +1,106 @@
+{
+  "id": "M01-BOOTSTRAP-01",
+  "asOf": "2026-10-30",
+  "owner": "sergio-tr",
+  "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
+  "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
+  "status": "DOR_SPECIFICATION_FINALIZED_READY_FOR_G4_REVIEW",
+  "g3State": "DOCUMENTED_WITH_EXPLICIT_UNMET_ADMISSION_CONDITIONS",
+  "g4Authorization": "NOT_GRANTED",
+  "implementation": "NOT_STARTED",
+  "g5Evidence": "NOT_RUN",
+  "canonicalIssueId": "PENDING_EXISTING_ISSUE_CROSSWALK",
+  "branch": "NOT_CREATED",
+  "dependencies": [
+    "ADR-M01-001",
+    "M01-D01",
+    "M01-D02",
+    "M01-D06",
+    "M01-D07",
+    "M01-D08",
+    "SER-131",
+    "#14"
+  ],
+  "checks": [
+    {
+      "id": "DR01",
+      "state": "DOCUMENTARY_MET",
+      "subject": "exact scope and explicit exclusions"
+    },
+    {
+      "id": "DR02",
+      "state": "DOCUMENTARY_MET",
+      "subject": "owner and source decision trace"
+    },
+    {
+      "id": "DR03",
+      "state": "DOCUMENTARY_MET",
+      "subject": "no financial P0 dependencies"
+    },
+    {
+      "id": "DR04",
+      "state": "DOCUMENTARY_MET",
+      "subject": "named outputs, build, tests and English documentation"
+    },
+    {
+      "id": "DR05",
+      "state": "DOCUMENTARY_MET",
+      "subject": "14 positive and adversarial acceptance criteria"
+    },
+    {
+      "id": "DR06",
+      "state": "POLICY_MET_EXECUTION_NOT_STARTED",
+      "subject": "feature branch, conventional commits and author governance"
+    },
+    {
+      "id": "DR07",
+      "state": "PENDING",
+      "subject": "Node24 Nx23 Nest11 TypeScript5.9 pnpm exact package peer and engine smoke"
+    },
+    {
+      "id": "DR08",
+      "state": "PENDING",
+      "subject": "local OS/WSL/Node/disk host environment inspection; no Docker required for this task"
+    },
+    {
+      "id": "DR09",
+      "state": "PENDING",
+      "subject": "base main SHA and correct Linear/GitHub implementation issue traceability"
+    },
+    {
+      "id": "DR10",
+      "state": "PENDING",
+      "subject": "explicit authorization to implement this atomic first task"
+    }
+  ],
+  "acceptanceCriteria": [
+    "AC01",
+    "AC02",
+    "AC03",
+    "AC04",
+    "AC05",
+    "AC06",
+    "AC07",
+    "AC08",
+    "AC09",
+    "AC10",
+    "AC11",
+    "AC12",
+    "AC13",
+    "AC14"
+  ],
+  "evidenceType": "USER_LOCAL_EXECUTION_REQUIRED",
+  "priorMilestonesPreserved": [
+    "M00–M09",
+    "M00.5_NOT_APPROVED",
+    "M07_MICROSERVICE_EXTRACTION",
+    "M08_ADVANCED_K8S"
+  ],
+  "financialAudits": [
+    "AUD-P0-01_OPEN_BLOCKING",
+    "AUD-P0-02_OPEN_BLOCKING",
+    "AUD-P0-03_OPEN_BLOCKING",
+    "AUD-P0-04_OPEN_BLOCKING"
+  ],
+  "nextAction": "User reviews documentation; DR07–DR09 environment/issue compatibility preflight, then separately authorizes G4. No implementation in this turn."
+}

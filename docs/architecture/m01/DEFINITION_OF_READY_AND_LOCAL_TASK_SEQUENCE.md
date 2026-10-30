@@ -1,6 +1,6 @@
 # M01 — Concrete Design, Definition of Ready and First Local Implementation Handoff
 
-**Scope:** first independent engineering milestone; **K2/NET-A/DATA-A/STRIPE-A ACCEPTED 2026-10-30** as M01/M08 allocation change. **Status:** G3 D01–D04 documentary specifications available, physical tests pending / G4 NOT AUTHORIZED. **Owner:** @sergio-tr. **No code or Kubernetes resources created.**
+**Scope:** first independent engineering milestone; **K2/NET-A/DATA-A/STRIPE-A ACCEPTED 2026-10-30** as M01/M08 allocation change. **Status:** G3 D01–D08 documentary specifications available; M01-BOOTSTRAP-01 DoR definition FINALIZED with DR07–DR10 remaining pending; G4 NOT AUTHORIZED. **Owner:** @sergio-tr. **No code or Kubernetes resources created.**
 
 ## Answer: what is design and what is implementation?
 
@@ -49,6 +49,12 @@ Repository (Nx/pnpm)
 ```
 
 The tree is a **design example**. None of these app directories has been created. The exact name/tag scheme and deployment build boundaries need G3 review.
+
+## 2026-10-30 update — canonical bootstrap DoR and D05–D08
+
+**The exact authoritative first implementation contract** is now [M01_BOOTSTRAP_01_DEFINITION_OF_READY.md](M01_BOOTSTRAP_01_DEFINITION_OF_READY.md); it supersedes the earlier short sketch below without deleting its historical rationale. The planning key is provisional, no GitHub/Linear implementation issue has been created. Its scope is **one Nx/Nest Core API, one pure Domain library, architecture negative tests, unit/build/typecheck/lint and secure minimal PR CI**. Kubernetes, Mongo and Stripe implementations belong to later independent tasks. See [M01-D05–D08](README.md) and [remaining system work](M01_REMAINING_GAPS_AND_DEPENDENCIES.md). 
+
+**DoR definition closed as documentation, readiness gates not falsely passed:** DR01–DR06 documented/policy satisfied; DR07–DR09 require observed version/host/issue identity, DR10 requires new explicit G4 code permission.
 
 ## Minimal first implementation work (once separately authorized)
 

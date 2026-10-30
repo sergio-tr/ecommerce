@@ -2,6 +2,10 @@
 
 CommerceCore is a reusable, headless, frontend-agnostic commerce engine. CommerceCloud is an independent multi-tenant SaaS and Control Plane. eGame is the first consumer: controlled sales and delivery of individual digital activation licenses. Standalone distribution and a second independent consumer are future validation gates.
 
+## Current M01 detailed design and bootstrap readiness (2026-10-30)
+
+The [M01-D05–D08 technical specifications](docs/architecture/m01/README.md) now cover local Mongo/PVC/restore, secure configuration and Secrets, health/observability and GitHub Actions CI. The [M01-BOOTSTRAP-01 Definition of Ready](docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md) and [project remaining work register](docs/architecture/m01/M01_REMAINING_GAPS_AND_DEPENDENCIES.md) give the exact first local task and gates. The DoR **definition** is complete, but runtime/host/issue/authorization checks DR07–DR10 are still open. No implementation has started.
+
 ## Current M01 decision addendum (2026-10-30)
 
 **The user accepted K2 / NET-A / DATA-A / STRIPE-A:** local Kubernetes from M01 via k3d/K3s, Traefik/ClusterIP routing, one developer Mongo replica-set infrastructure with independent CommerceCore/Cloud DB authorities, and one Stripe test merchant plus eGame buyer (Connect later). **No application code or cluster exists and M01 implementation is not authorized.**
