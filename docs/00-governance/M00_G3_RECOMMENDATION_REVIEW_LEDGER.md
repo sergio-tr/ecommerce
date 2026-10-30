@@ -1,3 +1,5 @@
+> **2026-10-30 oracle development:** Original 110 indexed Spanish source-table scenarios and oracles were matched by exact IDs; all 110 English placeholder expected outcomes have been replaced by **draft observable acceptance oracles** in both TEST_CATALOG.json and TEST_CATALOG.md. See [110-row bilingual crosswalk](../../05-tests/M00_G3_ORIGINAL_SOURCE_ORACLE_CROSSWALK.md). This is meaningful specification progress, **not** an owner-certified translation or executed G5. Remaining semantic final review and original-byte hash revalidation are explicitly unresolved.
+
 # M00-G3 — Architecture recommendation review and verification ledger
 
 **Review date:** 2026-10-30. **Reviewed baseline:** `main` `8140b1101d50757438b37973476dad4e14c43762`; changes in `feature/ser-135-design-first-g3-gate` / draft PR #28. **Reviewer:** design-analysis proposal under owner @sergio-tr; **not owner sign-off**. **Design review status:** PROPOSAL COVERAGE COMPLETE, **OWNER ACCEPTANCE AND EVIDENCE GATES PENDING**.
