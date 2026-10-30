@@ -10,7 +10,8 @@
 4. [Remaining work and proof obligations](REMAINING_WORK_REGISTER.md) — contracts, authentic source evidence and tests still required before G3/G4/G5.
 5. [Local pre-implementation readiness](PREIMPLEMENTATION_READINESS.md) and [M01 technical foundation direction](M01_LOCAL_FOUNDATION_PROPOSAL.md).
 6. [AUD-P1-03 approved policy with pending execution protocols](AUD-P1-03_DECISION_PACKAGE.md).
-7. [Original Wave 1 validation](VALIDATION_REPORT.md), [reconciliation plan](RECONCILIATION_PLAN.md), [Wave 2 work packages](WAVE2_WORK_PACKAGES.md) and [composite capabilities](COMPOSITE_CAPABILITIES.md).
+7. [Triage of 14 overlapping planning work items](PLANNING_DEDUPLICATION_REVIEW.md) — seven refinements and seven distinct specification deliverables, no new issues.
+8. [Original Wave 1 validation](VALIDATION_REPORT.md), [reconciliation plan](RECONCILIATION_PLAN.md), [Wave 2 work packages](WAVE2_WORK_PACKAGES.md) and [composite capabilities](COMPOSITE_CAPABILITIES.md).
 
 ## Historical, not current decisions
 

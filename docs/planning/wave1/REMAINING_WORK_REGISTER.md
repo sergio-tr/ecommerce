@@ -39,7 +39,7 @@
 1. Complete clause-by-clause original M00.1-R1 versus explicit later user ratifications, preserving original statuses and reservations.
 2. Reconcile all 140 CAP entries to exact original source clauses; source metadata reused at subsystem level is not proof of individual requirement.
 3. Reconcile the English scenario/expected-result *semantics* of the 110 audit experiments found by ID in hash-matched original source files. Keep all 148 TEST_PLANNED / NOT_RUN until actual execution.
-4. Review 14 provisional PLAN-DEC candidates marked as refinements of existing decisions; never open duplicate issues.
+4. The 14 provisional PLAN-DEC overlaps have been triaged into seven refinements of existing work and seven distinct subordinate specification deliverables. Source-clause mapping and actual G3 contracts still require review; do not create duplicate implementation issues.
 5. Cross-check accepted decision ledger, context map, contracts, scopes and issue ownership. Contradictions are explicit review findings, never silently overwritten.
 
 ## Independent work usable before financial protocol closure

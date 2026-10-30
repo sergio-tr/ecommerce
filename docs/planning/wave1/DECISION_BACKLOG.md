@@ -2,7 +2,7 @@
 
 **103 planning questions:** 30 existing canonical risk/decision IDs and 73 provisional PLAN-DEC entries. Canonical current [decision register](../../02-decisions/decision-register.json) contains 91 scoped records, including eight newly ratified directions; its original 83 prior records have retained historical identity. Four AUD-P0 findings remain OPEN/BLOCKING. The overall AUD-P1-03 status is OPEN; alternative D scope policy ACCEPTED but protocol/values pending.
 
-**Priority caveat:** a planning P0 in a later milestone is not a fifth immediate M00.1 P0 audit. Fourteen provisional PLAN-DEC entries overlap/refine existing issues and must not be duplicated. Hard-prerequisite DAG has no cyclic edge; co-design links remain explicit. No implementation issues are created by this register.
+**Priority caveat:** a planning P0 in a later milestone is not a fifth immediate M00.1 P0 audit. Fourteen provisional PLAN-DEC overlaps have been triaged: seven refinements and seven distinct subordinate specification deliverables. No new issue identity is authorized. Hard-prerequisite DAG has no cyclic edge; co-design links remain explicit. No implementation issues are created by this register.
 
 | ID | Priority | Meaning | Owner | Status | Hard prerequisites | Related source / co-design | Required specification | Evidence obligation |
 |---|---|---|---|---|---|---|---|---|
