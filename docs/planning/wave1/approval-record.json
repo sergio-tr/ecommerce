@@ -3,7 +3,7 @@
   "milestone": "Wave 1",
   "implementationAuthorized": false,
   "mergeAuthorized": false,
-  "canonicalDecisionRegisterChanged": false,
+  "canonicalDecisionRegisterChanged": true,
   "records": [
     {
       "id": "W1-AP-01",
@@ -36,6 +36,94 @@
       "state": "ACCEPTED",
       "ratified": "R1, ratifications, 110 reconstructed tests, provenance and contradictions reconciliation priorities",
       "pending": "Actual source validation"
+    },
+    {
+      "id": "W1-SCOPE-B01",
+      "state": "ACCEPTED_OPTION_A_SCOPE_TAX_PENDING",
+      "scope": "Six Catalog/Merchandising M04 inclusion/exclusion choices",
+      "included": [
+        "CAP-CAT-004"
+      ],
+      "excluded": [
+        "CAP-CAT-003",
+        "CAP-CAT-005",
+        "CAP-CAT-006",
+        "CAP-CAT-008",
+        "CAP-MER-003"
+      ],
+      "pending": [
+        "CAP-PRC-004 T1/T2",
+        "all technical protocols and implementation authorization"
+      ],
+      "date": "2026-10-30"
+    },
+    {
+      "id": "W1-SCOPE-B01-TAX",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option T1 demonstration tax adapter, implementation contract pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "W1-SCOPE-B02",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A security/CommerceCloud scope, physical protocols pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "W1-SCOPE-B03",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A minimum buyer status/evidence/admin scope, accessibility oracle pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "W1-SCOPE-B04",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A optional email/notification deferral",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "W1-SCOPE-B05",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A internal versioning, cost/incident governance, public licensing and numerical SLO pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "W1-SCOPE-B06",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A cards/3DS scope, wallets deferred, Link not initially authorized; actual method enforcement pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "M01-FOUNDATION-DIRECTION",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option A Nx/pnpm/NestJS modular architecture and Angular shell candidate, technical version/G4 pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
+    },
+    {
+      "id": "AUD-P1-03-WINDOW-POLICY",
+      "state": "ACCEPTED_DIRECTION_ONLY",
+      "description": "Option D accepted relative post-negative plus absolute global new-admission horizon, durations pending",
+      "date": "2026-10-30",
+      "evidenceStatus": "NOT_VERIFIED"
     }
-  ]
+  ],
+  "updated": "2026-10-30",
+  "allM04ScopeRatified": {
+    "date": "2026-10-30",
+    "counts": {
+      "INCLUDED": 85,
+      "EXCLUDED": 43,
+      "DEFERRED": 12
+    },
+    "technicalContractsRemaining": true,
+    "implementationAuthorized": false
+  },
+  "latestSource": "2026-10-30 user blanket approval of most recommended scope and policy options"
 }

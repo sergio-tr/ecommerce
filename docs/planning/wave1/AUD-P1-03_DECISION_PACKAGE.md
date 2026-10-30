@@ -1,6 +1,6 @@
 # AUD-P1-03 — Decision-Ready Review of Commercial Retry Windows
 
-**Original finding:** AUD-P1-03 `OPEN / NOT RATIFIED`. **Policy:** `AUD-P1-03-WINDOW-POLICY` `PROPOSED — NOT RATIFIED`; `AUD-P1-03-SAFE-RETENTION` `PROPOSED — NOT RATIFIED`; `AUD-P1-03-PROTOCOL` `PROPOSED — NOT RATIFIED`; `AUD-P1-03-WINDOW-VALUES` and `AUD-P1-03-OPS` `PENDING`. **No status change is implied by this document.**
+**Current finding:** AUD-P1-03 `OPEN` (policy direction ACCEPTED 2026-10-30, protocols and validation pending). **Policy:** `AUD-P1-03-WINDOW-POLICY` `ACCEPTED`; `AUD-P1-03-SAFE-RETENTION` `ACCEPTED`; `AUD-P1-03-PROTOCOL` `PROPOSED — SELECTED`; `AUD-P1-03-WINDOW-VALUES` and `AUD-P1-03-OPS` `PENDING`. **Exact acceptance applies to the safe new-admission policy only; operational protocol, time values and provider guarantees still require proof.**
 
 **Primary source:** original `Texto pegado (18).txt` SHA-256 `40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad`, inspected locally and matched to the source manifest; sections 3–13 contain the original review, 12 invariants, five interleavings and `AUD13-T01..T16` test table. English content below is a paraphrased review, not an assertion of prior approval. Existing GitHub #7 ↔ Linear SER-124 reused; no new issue.
 
@@ -92,8 +92,8 @@ These are translated from an independently inspected original audit table and st
 
 ## G. Decision requested; unapproved details
 
-**Proposed `AUD-P1-03-WINDOW-POLICY`:** choose between A, B, C or D. **Recommendation D** with commercial new-admission limits independent from D-01 financial safe release; preserve all 12 original AUD13-I invariants. A less complex B remains viable for deliberate comparison if user wants a single limit.
+**Accepted `AUD-P1-03-WINDOW-POLICY`:** user selected D from A/B/C/D. **Accepted D** with commercial new-admission limits independent from D-01 financial safe release; preserve all 12 original AUD13-I invariants. A less complex B remains viable for deliberate comparison if user wants a single limit.
 
 Even if D is accepted, keep numeric relative/global durations, chosen anchor, actual clock/skew handling, D-06 two-session candidate, D-02 35-minute candidate, D-06-INTENT, effective Mongo concurrency algorithm, Stripe dispatch neutralization, provider evidence and operational monitoring **PENDING/OPEN as before**. Do not close AUD-P1-03 until contracts, guards, values and evidence obligations are subsequently specified and approved. All four AUD-P0 original findings remain OPEN/BLOCKING.
 
-**Request:** Ratify alternative D as *commercial-window policy direction with these reservations*, choose alternative B/C, or require a further counterexample review. Nothing has been changed in the canonical decision-register.json.
+**Current decision:** alternative D chosen for admission policy only on 2026-10-30. Next ratification required: numerical windows, time anchor, admission/closure fencing and provider proofs. The canonical scoped register now reflects this policy selection; AUD-P1-03 remains OPEN and all AUD13 cases remain TEST_PLANNED.

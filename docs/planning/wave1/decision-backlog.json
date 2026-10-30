@@ -192,7 +192,7 @@
         "D-06-RETRY-WINDOW"
       ],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
-      "currentCanonicalStatus": "OPEN / NOT RATIFIED"
+      "currentCanonicalStatus": "OPEN"
     },
     {
       "id": "AUD-P1-04",
@@ -626,7 +626,7 @@
       "relatedContextAndSourceIds": [],
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
-      "currentCanonicalStatus": "PENDING"
+      "currentCanonicalStatus": "PROPOSED — SELECTED"
     },
     {
       "id": "D-06-INTENT",
@@ -775,12 +775,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "AUD-P1-01"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P1-01",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-002",
@@ -837,12 +839,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "AUD-P1-06"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P1-06",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-004",
@@ -870,12 +874,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "AUD-P0-04"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P0-04",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-005",
@@ -930,12 +936,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "AUD-P0-04"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P0-04",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-007",
@@ -963,12 +971,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "AUD-P1-06"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P1-06",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-008",
@@ -1262,13 +1272,15 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "AUD-P1-01",
         "AUD-P1-02"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P1-01",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-018",
@@ -1296,12 +1308,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "AUD-P2-01"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P2-01",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-019",
@@ -1416,12 +1430,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "D-05-MONGO"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "D-05-MONGO",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-023",
@@ -1449,12 +1465,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "AUD-P1-02"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P1-02",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-024",
@@ -1480,12 +1498,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "D-03-CONFIG"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "D-03-CONFIG",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-025",
@@ -1540,12 +1560,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "W1-GAP-01"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "W1-GAP-01",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-027",
@@ -2093,12 +2115,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "W1-AP-01"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "W1-AP-01",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-046",
@@ -2155,12 +2179,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_TRACKED_DECISION",
       "relatedExistingWork": [
         "D-05-OPS"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "D-05-OPS",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-048",
@@ -2219,12 +2245,14 @@
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
       "currentCanonicalStatus": "PROPOSED_PLANNING_ONLY_NOT_RATIFIED",
-      "deduplicationDisposition": "REFINEMENT_OF_EXISTING_WORK_NOT_NEW_ISSUE",
+      "deduplicationDisposition": "DISTINCT_SPECIFICATION_DELIVERABLE_WITH_CANONICAL_PARENT",
       "relatedExistingWork": [
         "AUD-P0-04"
       ],
       "provenanceQuality": "PLANNING_INFERENCE_REQUIRES_SOURCE_VERIFICATION",
-      "issueCreation": "NOT_AUTHORIZED"
+      "issueCreation": "NOT_AUTHORIZED",
+      "canonicalTrackingParent": "AUD-P0-04",
+      "sourceReviewStatus": "DOCUMENTARY_SCOPE_TRIAGE_COMPLETED_SOURCE_CLAUSE_FIDELITY_PENDING"
     },
     {
       "id": "PLAN-DEC-050",
@@ -2956,5 +2984,16 @@
     "refinementOverlapCount": 14,
     "unverifiedProposedCount": 73,
     "completeSourceLineage": false
+  },
+  "liveDecisionRegisterRecordCount": 91,
+  "liveStatusReconciledDate": "2026-10-30",
+  "sourceHistoricalRecordCount": 181,
+  "deduplicationReview": {
+    "date": "2026-10-30",
+    "total": 14,
+    "refinementsOfExisting": 7,
+    "distinctSpecificationDeliverables": 7,
+    "newGitHubIssuesCreated": 0,
+    "sourceClauseVerificationStillPending": true
   }
 }
