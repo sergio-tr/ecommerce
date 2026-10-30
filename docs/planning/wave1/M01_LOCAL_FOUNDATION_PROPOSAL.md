@@ -1,12 +1,12 @@
 # M01 — Independent Local Engineering Foundation Specification Proposal
 
-**Decision state:** PROPOSED FOR SEPARATE USER RATIFICATION. **Owner:** @sergio-tr. **Implementation:** NOT AUTHORIZED. **Applicable milestone:** M01, independent of M00.1 financial P0 proof where no financial effects are introduced.
+**Decision state:** OPTION M01-A ACCEPTED AS ARCHITECTURAL DIRECTION 2026-10-30; technical contracts and implementation authorization still PENDING. **Owner:** @sergio-tr. **Implementation:** NOT AUTHORIZED. **Applicable milestone:** M01, independent of M00.1 financial P0 proof where no financial effects are introduced.
 
 ## Target and exclusions
 
 The milestone should produce a reproducible engineering platform for a modular, headless and independently installable CommerceCore, separated from CommerceCloud and eGame. Build no Checkout Session, PaymentAttempt, stock mutation, key reveal, refund, order commercial FSM or cross-context write merely to demonstrate the platform.
 
-## Proposed choice: M01-A (recommended), not yet accepted
+## Accepted direction: M01-A (2026-10-30), detailed toolchain and tasks not yet specified
 
 Keep the historical selected **TypeScript / NestJS modular monolith with Nx and pnpm** for initial CommerceCore application composition and **Angular** as reference storefront shell technology, with pure domain/application libraries and ports under DDD/hexagonal boundaries. Initial local development uses independently configured, nonproduction tooling. Do not invent exact current package/runtime versions from the historic candidate.
 

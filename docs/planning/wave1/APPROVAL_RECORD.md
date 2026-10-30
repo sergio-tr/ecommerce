@@ -36,3 +36,7 @@ Existing issue source: GitHub #14 / Linear SER-131 for source recovery. PR #17 i
 ## Subsequent approval — 2026-10-30
 
 W1-SCOPE-B01 Option A was accepted in the user's response. Its precise six CAP scope changes are recorded in [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md). Because the last question separately offered T1 versus T2 tax treatment and the answer did not distinguish them, CAP-PRC-004 is still UNRESOLVED. Current catalogue counts: 74 INCLUDED, 35 EXCLUDED, 8 DEFERRED, 23 UNRESOLVED. All historical decision and audit statuses remain unchanged.
+
+## Recommended options accepted — 2026-10-30
+
+The user explicitly approved the most recommended options across the outstanding scope batches and the individual AUD-P1-03 review. [Consolidated ratification](RECOMMENDED_DECISIONS_APPROVAL.md) and [canonical 91-row current decision ledger](../../02-decisions/decision-register.json) record scope-limited acceptance. B01 tax T1, B02–B06 functional scope, M01-A foundation direction and AUD-P1-03-D policy accepted. **The 181 R0.x historical decisions remain unchanged.** The prior 83-row scoped ledger is a historical snapshot; eight new approval records have been appended and five existing AUD-P1-03 subdecision statuses amended with explicit user ratification. Four P0 audit findings remain OPEN/BLOCKING. Current M04 scope: 85 INCLUDED, 43 EXCLUDED, 12 DEFERRED, 0 UNRESOLVED. Provider/physical contracts are NOT verified or implementation ready.

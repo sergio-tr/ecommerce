@@ -1,10 +1,10 @@
 # Wave 1 — M04 Scope Approval Batches
 
-**Status: B01 Option A accepted for six exact M04 scope dispositions; tax T1/T2 remains pending. B02–B06 pending.** These alternatives are planning-level choices only. No CAP currently marked UNRESOLVED is auto-upgraded in the master inventory, and no implementation/architecture protocol is approved by selecting a batch.
+**Current status (2026-10-30): all six recommended scope directions accepted. T1 demonstration tax option selected. Individual implementation, Stripe effective-method, identity, accessibility and operational contracts remain pending.** These alternatives are planning-level choices only. No CAP currently marked UNRESOLVED is auto-upgraded in the master inventory, and no implementation/architecture protocol is approved by selecting a batch.
 
 ## W1-SCOPE-B01 — Catalog and accepted price baseline
 
-**Decision (2026-10-30): ACCEPTED — OPTION A FUNCTIONAL SCOPE, TAX SUBDECISION PENDING.** `CAP-CAT-004` INCLUDED; `CAP-CAT-003`, `CAP-CAT-005`, `CAP-CAT-006`, `CAP-CAT-008` and `CAP-MER-003` EXCLUDED from initial M04 only. `CAP-PRC-004` remains UNRESOLVED. See [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md).
+**Decision updated (2026-10-30): ACCEPTED — OPTION A FUNCTIONAL SCOPE, T1 DEMONSTRATION TAX DIRECTION SELECTED.** `CAP-CAT-004` INCLUDED; `CAP-CAT-003`, `CAP-CAT-005`, `CAP-CAT-006`, `CAP-CAT-008` and `CAP-MER-003` EXCLUDED from initial M04 only. `CAP-PRC-004` remains UNRESOLVED. See [B01_RATIFICATION_RECORD.md](B01_RATIFICATION_RECORD.md).
 
 - **Sequence/priority:** 1 / P0 / M04 contract boundary.
 - **Capabilities:** CAP-CAT-003, CAP-CAT-004, CAP-CAT-005, CAP-CAT-006, CAP-CAT-008, CAP-MER-003, CAP-PRC-004.
@@ -15,7 +15,7 @@
 - **Genuine first-sale blockers:** Tax treatment and truthful total is a G3 input, but media/master overrides are not first-sale blockers.
 - **Ratification exit:** Approve each of seven dispositions, select valid demo tax/quote contract with no live-tax claim; direct R0.2-07/R0.3-03/R0.3-08 references noted.
 - **Original references:** R0.2-03, R0.2-07, R0.3-03, R0.3-04/05/06/08
-- **Approval state:** ACCEPTED for six scope dispositions; CAP-PRC-004 tax T1/T2 pending; no technical contracts approved.
+- **Approval state:** ACCEPTED for all seven B01 functional dispositions including T1; technical contracts pending.
 
 ## W1-SCOPE-B02 — Actor security and CommerceCloud boundary
 
@@ -28,7 +28,7 @@
 - **Genuine first-sale blockers:** Guest claim/cancellation/key access authorization and privileged operator session MUST be decided before M04; provisioning UI need not.
 - **Ratification exit:** Ratify role-action matrix, operator MFA/session approach and CommerceCloud-to-Core authority boundary without forcing Cloud private DB writes.
 - **Original references:** R0.7-01/03/06/09/10, R0.1-01, R0.2-01, R0.4-02
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state (2026-10-30):** recommended scope direction ACCEPTED; implementation-specific child contracts/evidence remain PENDING.
 
 ## W1-SCOPE-B03 — Buyer status, operational evidence and administration
 
@@ -41,7 +41,7 @@
 - **Genuine first-sale blockers:** Authoritative history, guest-buyer status, safe incident controls and accessible core actions block completion; UI breadth does not.
 - **Ratification exit:** Ratify the eight CAP dispositions and composite separation; link authority, audit integrity, accessibility and security test oracles.
 - **Original references:** D-04, D-05, AUD-P0-03/04, R0.7-08/19, R0.2-09
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state (2026-10-30):** recommended scope direction ACCEPTED; implementation-specific child contracts/evidence remain PENDING.
 
 ## W1-SCOPE-B04 — Optional purchase notifications
 
@@ -54,7 +54,7 @@
 - **Genuine first-sale blockers:** No optional email feature blocks the first testmode sale, but secure on-site access must exist.
 - **Ratification exit:** User decides notifications' release timing without altering D-05 mandatory financial Outbox.
 - **Original references:** R0.3-23, R0.4-03
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state (2026-10-30):** recommended scope direction ACCEPTED; implementation-specific child contracts/evidence remain PENDING.
 
 ## W1-SCOPE-B05 — Engineering governance and release constraints
 
@@ -67,7 +67,7 @@
 - **Genuine first-sale blockers:** Basic safe operational observability and contract versions block M04 acceptance; exact public license blocks distribution rather than the test purchase.
 - **Ratification exit:** Approve four dispositions, choose public license before publication and explicit initial recovery objective or retain a named blocker.
 - **Original references:** R0.1-08, R0.8-19, R0.10-13, R0.4-15, R0.9-10
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state (2026-10-30):** recommended scope direction ACCEPTED; implementation-specific child contracts/evidence remain PENDING.
 
 ## W1-SCOPE-B06 — Stripe wallet/Link composite (outside the 29)
 
@@ -80,9 +80,11 @@
 - **Genuine first-sale blockers:** Actual method enforcement D-03-CONFIG is a M04 design requirement even if Link excluded.
 - **Ratification exit:** Do not alter D-03-WALLET DEFERRED or D-03-LINK PENDING without explicit provider-side evidence and user decision.
 - **Original references:** D-03-WALLET, D-03-LINK, D-03-CONFIG
-- **Approval state:** PENDING, including every child scope question.
+- **Approval state (2026-10-30):** recommended scope direction ACCEPTED; implementation-specific child contracts/evidence remain PENDING.
 
 ## Approval mechanism
+
+All six previously recommended batches have been accepted at the functional-scope/direction level. The alternative descriptions above are retained as historical design rationale. The live approved effects are enumerated in [RECOMMENDED_DECISIONS_APPROVAL.md](RECOMMENDED_DECISIONS_APPROVAL.md).
 
 A batch-level YES accepts only its expressly itemized functional dispositions and caveats; any standalone technical subdecision (tax evidence, guest session, admin MFA, effective Stripe methods, SLO value) remains PENDING unless explicitly selected in the same ratification. When a composite item is involved, quote the individual component, not a blanket parent approval.
 

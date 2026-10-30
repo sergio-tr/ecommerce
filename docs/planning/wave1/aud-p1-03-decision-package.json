@@ -1,6 +1,6 @@
 {
   "artifact": "AUD-P1-03-W2-REVIEW",
-  "ratification": "NOT_RATIFIED",
+  "ratification": "ALTERNATIVE_D_POLICY_ACCEPTED_2026_10_30",
   "originalSourceSha256": "40e4d7c954dd3a6b9b3e31cc67f99cc17623affff4bd182b4a362befc92a18ad",
   "preferred": "D",
   "choices": [
@@ -199,5 +199,8 @@
     "D-05-MONGO",
     "AUD-P1-03-OPS"
   ],
-  "noNewDecisionAccepted": true
+  "noNewDecisionAccepted": false,
+  "acceptedScope": "Admission cutoff policy for new commercial attempts only; safe stock retention remains mandatory",
+  "protocolStatus": "PROPOSED — SELECTED",
+  "originalAuditStatus": "OPEN"
 }

@@ -1,3 +1,5 @@
+> **Approval update (2026-10-30):** B02 Option A functional scope accepted by the user's blanket selection of recommended options. Its original comparison and negative test cases below remain design rationale, not proof of concrete secure guest session, MFA or CommerceCloud persistence implementation. Source-of-truth: [consolidated ratification](RECOMMENDED_DECISIONS_APPROVAL.md).
+
 # W1-SCOPE-B02 — Next Scope Ratification Package: Security and CommerceCloud
 
 **Status:** PROPOSED / NOT RATIFIED. **Date:** 2026-10-30. **Owner:** @sergio-tr. **Original W1-AP-01 scope:** one secure, recoverable Stripe test-mode eGame license purchase. All actual guest/operator permissions and tenant isolation are mandatory even if comprehensive identity/administration workflows are deferred.

@@ -192,7 +192,7 @@
         "D-06-RETRY-WINDOW"
       ],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
-      "currentCanonicalStatus": "OPEN / NOT RATIFIED"
+      "currentCanonicalStatus": "OPEN"
     },
     {
       "id": "AUD-P1-04",
@@ -626,7 +626,7 @@
       "relatedContextAndSourceIds": [],
       "coDesignLinks": [],
       "dependencySemantics": "dependencies/hardPrerequisites are only directed prerequisites. coDesignLinks are bidirectional review associations, NOT blockers that must complete first.",
-      "currentCanonicalStatus": "PENDING"
+      "currentCanonicalStatus": "PROPOSED — SELECTED"
     },
     {
       "id": "D-06-INTENT",
@@ -2956,5 +2956,8 @@
     "refinementOverlapCount": 14,
     "unverifiedProposedCount": 73,
     "completeSourceLineage": false
-  }
+  },
+  "liveDecisionRegisterRecordCount": 91,
+  "liveStatusReconciledDate": "2026-10-30",
+  "sourceHistoricalRecordCount": 181
 }

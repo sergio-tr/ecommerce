@@ -425,13 +425,21 @@
       "missingDefinition": "No real-tax claim",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B01-TAX",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "T1 selected: demonstration-only tax port/adapter with explicit quote tax fields and no real-tax-compliance claim"
     },
     {
       "id": "CAP-PRC-005",
@@ -785,13 +793,21 @@
       "missingDefinition": "Financial fact history preservation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Preserve durable Order financial history and reconciliation evidence; broad buyer history UI excluded"
     },
     {
       "id": "CAP-INV-001",
@@ -940,13 +956,21 @@
       "missingDefinition": "Audit invalid/revoked stock",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude general-purpose stock adjustment UI; safe quarantine and authorized capacity repair still required"
     },
     {
       "id": "CAP-INV-008",
@@ -1543,14 +1567,21 @@
       "missingDefinition": "Keycloak strategy",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "Trusted actor/store model mandatory, exact B2B/B2C realm deployment not decided"
+      "scopeCaveat": "Trusted actor/store model mandatory, exact B2B/B2C realm deployment not decided; Exclude physical full dual-realm rollout only; actor/security separation mandatory",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      }
     },
     {
       "id": "CAP-SEC-002",
@@ -1567,14 +1598,21 @@
       "missingDefinition": "PKCE cookies CSRF",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "Guest session is required, physical Keycloak/BFF plan remains unratified"
+      "scopeCaveat": "Guest session is required, physical Keycloak/BFF plan remains unratified; Include secure guest sessions and privileged operator authentication; precise OIDC/BFF implementation remains pending M00.3",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      }
     },
     {
       "id": "CAP-SEC-003",
@@ -1591,13 +1629,21 @@
       "missingDefinition": "Membership and revocation",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude self-service multiuser tenant membership lifecycle; trusted scoped roles mandatory"
     },
     {
       "id": "CAP-SEC-004",
@@ -1775,13 +1821,21 @@
       "missingDefinition": "Admin and buyer recovery",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require strong operator authentication and MFA as security direction; exact identity provider and recovery tests pending"
     },
     {
       "id": "CAP-SEC-012",
@@ -1821,14 +1875,21 @@
       "missingDefinition": "Create/suspend/teardown rollback",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "Single-store tenant isolation accepted; full self-service provisioning not required automatically"
+      "scopeCaveat": "Single-store tenant isolation accepted; full self-service provisioning not required automatically; Exclude full self-service tenant provisioning; durable scoped Store identity required",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      }
     },
     {
       "id": "CAP-CLOUD-002",
@@ -1891,13 +1952,21 @@
       "missingDefinition": "Access control and syncing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude invitations/membership administration UI; operator authorization mandatory"
     },
     {
       "id": "CAP-CLOUD-005",
@@ -1983,13 +2052,21 @@
       "missingDefinition": "No cross-context authoritative writes",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B02",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require CommerceCloud/CommerceCore public configuration boundary and independent data authority; initial physical deployment still pending"
     },
     {
       "id": "CAP-CLOUD-009",
@@ -2190,14 +2267,21 @@
       "missingDefinition": "Authorized read and staleness",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "COMPOSITE minimum order-status presentation included through CAP-EGAME-005; full history scope unresolved"
+      "scopeCaveat": "COMPOSITE minimum order-status presentation included through CAP-EGAME-005; full history scope unresolved; Require authorized current-order status and claim; cross-order history screen excluded",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      }
     },
     {
       "id": "CAP-EGAME-008",
@@ -2237,14 +2321,21 @@
       "missingDefinition": "Acceptance criteria missing",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
       "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
-      "scopeCaveat": "COMPOSITE accessibility requirements and optional localization/theming require distinct review"
+      "scopeCaveat": "COMPOSITE accessibility requirements and optional localization/theming require distinct review; Require accessible core purchase, cancel, claim and key reveal; optional i18n and theming excluded; acceptance standard candidate needs verification",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      }
     },
     {
       "id": "CAP-EGAME-010",
@@ -2284,13 +2375,21 @@
       "missingDefinition": "Provisioning and memberships",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude complete platform admin UI; minimum privileged investigation commands retained"
     },
     {
       "id": "CAP-ADMIN-002",
@@ -2307,13 +2406,21 @@
       "missingDefinition": "Actor rights",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude general catalog editor; controlled, auditable test Store product setup retained"
     },
     {
       "id": "CAP-ADMIN-003",
@@ -2423,13 +2530,21 @@
       "missingDefinition": "Safe adjustments",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "EXCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Exclude general stock correction dashboard; protected-capacity evidence and incident quarantine retained"
     },
     {
       "id": "CAP-ADMIN-008",
@@ -2446,13 +2561,21 @@
       "missingDefinition": "Retention and access",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B03",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require durable attributable privileged activity trail and restricted incident read; rich audit dashboard excluded"
     },
     {
       "id": "CAP-ADMIN-009",
@@ -2491,13 +2614,21 @@
       "missingDefinition": "No license secret in messages",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B04",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Purchase confirmation email optional; authorized buyer status is mandatory"
     },
     {
       "id": "CAP-NOTIF-002",
@@ -2513,13 +2644,21 @@
       "missingDefinition": "Secure link only",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B04",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "License-ready email optional; license keys must not be sent in email"
     },
     {
       "id": "CAP-NOTIF-003",
@@ -2535,13 +2674,21 @@
       "missingDefinition": "Provider and SLA unselected",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "M04_BEHAVIOR_OR_CANDIDATE",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B04",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Notification provider/templates/retry optional; financial D-05 Outbox remains mandatory"
     },
     {
       "id": "CAP-ENG-001",
@@ -2895,13 +3042,21 @@
       "missingDefinition": "No unapproved spending",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B05",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require local cost governance and explicit resource spending/teardown authorization; no infra deployed"
     },
     {
       "id": "CAP-DIST-001",
@@ -3049,13 +3204,21 @@
       "missingDefinition": "Policy not finalized",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B05",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require internal contract versioning and compatibility; public SDK release governance later"
     },
     {
       "id": "CAP-DIST-008",
@@ -3071,13 +3234,21 @@
       "missingDefinition": "Apache-2.0 only candidate",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "DEFERRED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B05",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Public distribution/licensing activity excluded from M04; Apache-2.0 remains candidate pending explicit license/legal audit"
     },
     {
       "id": "CAP-DIST-009",
@@ -3185,13 +3356,21 @@
       "missingDefinition": "Targets and measurement unknown",
       "approval": "PLANNING_DRAFT_NOT_RATIFIED",
       "implementationIssue": null,
-      "m04Disposition": "UNRESOLVED",
-      "m04DispositionBasis": "SCOPE_SUBDECISION_PENDING",
+      "m04Disposition": "INCLUDED",
+      "m04DispositionBasis": "EXPLICIT_USER_APPROVAL_ALL_RECOMMENDED_SCOPE_OPTIONS_2026_10_30",
       "m04DeliveryRole": "PREREQUISITE_NOT_M04_UI",
       "sourceTraceQuality": "GROUP_LEVEL_NOT_CLAUSE_VERIFIED",
       "sourceEvidenceStatus": "RECONCILIATION_PENDING",
       "implementationAuthorization": "NOT_AUTHORIZED",
-      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED"
+      "technicalSpecificationState": "INCOMPLETE_OR_UNVERIFIED",
+      "m04Approval": {
+        "decisionId": "W1-SCOPE-B05",
+        "date": "2026-10-30",
+        "level": "SCOPE_DIRECTION_ONLY",
+        "source": "User approved all most recommended options",
+        "technicalContracts": "PENDING_WHERE_NOT_SPECIFIED"
+      },
+      "scopeCaveat": "Require minimum event/unknown-state observability, escalation and evidence; numerical SLOs must be derived/tested"
     },
     {
       "id": "CAP-OPS-004",
@@ -3292,10 +3471,9 @@
     "implementation": "NOT_AUTHORIZED",
     "technicalCompleteness": "NOT_ACCEPTED",
     "counts": {
-      "INCLUDED": 74,
-      "EXCLUDED": 35,
-      "DEFERRED": 8,
-      "UNRESOLVED": 23
+      "INCLUDED": 85,
+      "EXCLUDED": 43,
+      "DEFERRED": 12
     },
     "scopeCaveat": "All per-capability inclusion decisions derived from bounded one-store direction require human review; original decision statuses unchanged",
     "b01Ratification": {
@@ -3315,6 +3493,12 @@
         "optionNotChosen": "T1_or_T2"
       },
       "originalUnresolvedAfter": 23
+    },
+    "allRecommendedApproval": {
+      "date": "2026-10-30",
+      "state": "USER_ACCEPTED_RECOMMENDED_SCOPE_AND_DIRECTION_ONLY",
+      "newDecisions": 23,
+      "pendingProof": "G0 fidelity, G2 technical detail, G3 provider and effect contracts, G4 authorization, G5 execution"
     }
   }
 }

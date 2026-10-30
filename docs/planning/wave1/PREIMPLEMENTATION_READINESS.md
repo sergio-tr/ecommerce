@@ -1,6 +1,6 @@
 # CommerceCore — Pre-Implementation Readiness and Decision Gates
 
-**State:** DESIGN / PLANNING ONLY, 2026-10-30. **Owner:** @sergio-tr. **Implementation authorization:** NOT GRANTED. **Milestones:** M00–M09; no M00.5.
+**State:** ACCEPTED SCOPE AND M01 DIRECTION; TECHNICAL CONTRACTS / IMPLEMENTATION GATES PENDING, 2026-10-30. **Owner:** @sergio-tr. **Implementation authorization:** NOT GRANTED. **Milestones:** M00–M09; no M00.5.
 
 ## Correct interpretation of "ready to develop locally"
 
@@ -49,7 +49,7 @@ G5 actual experiments normally occur AFTER code/test-mode behavior exists. It is
 
 ## 23 remaining scope decisions
 
-After W1-SCOPE-B01 Option A, six original UNRESOLVED CAP entries became scoped, leaving **23**. CAP-PRC-004 remains part of those 23. Five later batch groups remain to be ratified: B02 security/Cloud, B03 buyer status/admin, B04 notifications, B05 engineering governance, B06 Stripe wallet/Link composite (outside the original 29). No recommended choice automatically updates an approval state.
+Following explicit approval of all recommended scope options, **0 M04 CAP records remain without an inclusion/exclusion/defer disposition**: 85 INCLUDED, 43 EXCLUDED, 12 DEFERRED. B01 tax T1 and B02–B06 scope options are accepted. This is scope resolution, not final implementation contracts; the remaining detail is listed in [REMAINING_WORK_REGISTER.md](REMAINING_WORK_REGISTER.md).
 
 ## Source and evidence that still require reconciliation
 
@@ -69,10 +69,14 @@ After W1-SCOPE-B01 Option A, six original UNRESOLVED CAP entries became scoped, 
 
 ## Completion criteria before claiming M04 can start
 
-- Scope explicitly ratified for every relevant M04 capability and exclusions documented (G1).
+- Scope options are ratified for all 140 M04 capability rows; complete source fidelity and actor/technical acceptance remain to be reviewed (G1 evidence remains partial).
 - All connected D/AUD decisions and bounded-context contracts ratified with testable failure/unknown semantics (G2/G3).
 - A complete dependency/ownership/actor-permission matrix exists, including old enabled operations and negative tenant cases.
 - Atomic, independently reviewable implementation tasks with Given/When/Then oracles and existing Linear/GitHub crosswalk (G4), and user separately authorizes them.
 - Experiments have reproducible test plans; future actual execution determines G5, not this document.
 
 No actual payment or release proof, implementation, new ticket or infrastructure is claimed in this checklist.
+
+## Latest decision addendum — 2026-10-30
+
+M01-A is accepted as the candidate *architectural direction* for a local Nx/pnpm/NestJS modular foundation with Angular reference shell, not as specific package versions or permission to code. AUD-P1-03 alternative D policy accepted; exact relative/absolute windows and old dispatch fencing remain pending. The first actionable next work is individual G3 foundation-contract sign-off and explicit G4 authorization, while financial/Inventory and digital-license effect contracts must still resolve their P0 blockers. See [consolidated approval](RECOMMENDED_DECISIONS_APPROVAL.md) and [remaining contracts](REMAINING_WORK_REGISTER.md).
