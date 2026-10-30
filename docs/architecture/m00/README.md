@@ -1,3 +1,5 @@
+> **Interface proposal:** [M00.4 public ports and evolution contracts](M00_G3_PUBLIC_PORTS_AND_EVOLUTION_CONTRACTS.md) defines 18 conceptual owner-scoped ports, command/event envelopes, version/unknown semantics and M01–M09 expansion seams. **Design proposal, not executable implementation or approved final API.**
+
 > **2026-10-30 design-review update:** The complete [13-audit initial executable-contract recommendations](M00_G3_ALL_13_AUDITS_RECOMMENDED_CONTRACTS.md) and [evolvable M00.2–M00.4/M02–M03 reference architecture](M00_G3_EVOLVABLE_REFERENCE_ARCHITECTURE.md) are now proposed in [draft PR #28](https://github.com/sergio-tr/ecommerce/pull/28). Their recommendations do **not** supersede accepted ADRs or constitute executed G5 evidence. [All 103 planning entries](../../planning/wave1/M00_G3_PLANNING_RECOMMENDATIONS.md) have individually proposed initial dispositions; exact-ID ratification and source-oracle comparisons remain pending.
 
 # CommerceCore — M00 Design Resolution Dossier
