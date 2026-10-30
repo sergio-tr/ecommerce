@@ -744,13 +744,15 @@
       ],
       "date": "2026-10-13",
       "designResolution": {
-        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
         "reviewDate": "2026-10-30",
         "document": "docs/architecture/m00/P0_01_FINAL_DESIGN_DECISION.md",
         "recommendedApproach": "Durable possible-send ledger + exclusive financial admission and conservative release under unknown external request",
         "evidenceState": "TEST_PLANNED_NOT_RUN",
         "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
-        "implementationApproval": "NOT_GRANTED"
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
       }
     },
     {
@@ -764,13 +766,15 @@
       ],
       "date": "2026-10-13",
       "designResolution": {
-        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
         "reviewDate": "2026-10-30",
         "document": "docs/architecture/m00/P0_02_FINAL_DESIGN_DECISION.md",
         "recommendedApproach": "Never blind re-POST Session when response lost; positive provider reconciliation or protected incident",
         "evidenceState": "TEST_PLANNED_NOT_RUN",
         "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
-        "implementationApproval": "NOT_GRANTED"
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
       }
     },
     {
@@ -784,13 +788,15 @@
       ],
       "date": "2026-10-13",
       "designResolution": {
-        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
         "reviewDate": "2026-10-30",
         "document": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
         "recommendedApproach": "Captured funds evidence via Payments owner-local Inbox/Outbox and Ordering-local transaction with obligation continuation",
         "evidenceState": "TEST_PLANNED_NOT_RUN",
         "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
-        "implementationApproval": "NOT_GRANTED"
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
       }
     },
     {
@@ -804,13 +810,15 @@
       ],
       "date": "2026-10-13",
       "designResolution": {
-        "status": "RECOMMENDED_PROTOCOL_SELECTED_FOR_REVIEW",
+        "status": "DESIGN_SELECTED_BY_USER_DELEGATION_VALIDATION_PENDING",
         "reviewDate": "2026-10-30",
         "document": "docs/architecture/m00/P0_04_FINAL_DESIGN_DECISION.md",
         "recommendedApproach": "All-line license preparation, possible disclosure recorded before HTTP, no incompatible automatic non-delivery refund",
         "evidenceState": "TEST_PLANNED_NOT_RUN",
         "closureBlockedBy": "PROVIDER_OR_EXTERNAL_EFFECT_FAULT_EVIDENCE",
-        "implementationApproval": "NOT_GRANTED"
+        "implementationApproval": "NOT_GRANTED",
+        "selectionBasis": "User explicitly instructed use of best recommended solution for all four P0 design blockers; selection is scoped to the initial educational test-mode M04",
+        "mergeReadiness": "DOCUMENTARY_REVIEW_READY_NOT_IMPLEMENTATION_VERIFIED"
       }
     },
     {
@@ -1036,8 +1044,8 @@
   "latestP0DesignRecommendation": {
     "asOf": "2026-10-30",
     "source": "User requested most recommended solutions for four P0 blockers",
-    "kind": "DESIGN_ONLY_NO_VERIFICATION",
-    "auditStatusChange": "NONE",
+    "kind": "USER_DELEGATED_DESIGN_SELECTION_NO_EXECUTION_VERIFICATION",
+    "auditStatusChange": "NONE; original audit findings remain OPEN / BLOCKING as evidence gates",
     "proposedInitialScope": [
       "one Stripe testmode commercial attempt per Order",
       "no automatic release or retry of unknown external effect",
