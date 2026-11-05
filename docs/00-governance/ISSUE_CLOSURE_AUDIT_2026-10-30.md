@@ -24,7 +24,7 @@
 | AUD-P1-01 | [#5](https://github.com/sergio-tr/ecommerce/issues/5) | SER-122 | P1 | Ratify Reservation transition guards and StockPool conservation accounting; verify owner-local atomicity. | AUD11-T01..T12 | **KEEP_OPEN**: Exact design + Mongo proof |
 | AUD-P1-02 | [#6](https://github.com/sergio-tr/ecommerce/issues/6) | SER-123 | P1 | Approve Order/CheckoutProcess local state command matrix with true source ownership; prevent duplicate authority. | AUD12-T01..T12 | **KEEP_OPEN**: Exact design + concurrency proof |
 | AUD-P1-03 | [#7](https://github.com/sergio-tr/ecommerce/issues/7) | SER-124 | P1 | Option D policy accepted; choose exact anchors and clock/dispatch fencing, defer numerical windows under one-attempt exposure. | AUD13-T01..T16 | **KEEP_OPEN**: Protocol/values + proof |
-| AUD-P1-04 | [#8](https://github.com/sergio-tr/ecommerce/issues/8) | SER-125 | P1 | Bind test account/API version and confirm effective card/3DS methods, capture mode and Link suppression; future Connect deferred. | Stripe test provider experiment to define | **KEEP_OPEN**: Exact provider contract + proof |
+| AUD-P1-04 | [#8](https://github.com/sergio-tr/ecommerce/issues/8) | SER-125 | P1 | Pin an owner-selected API version and confirm effective card/3DS methods, capture mode and Link suppression in test mode. `CAP-PAY-010` stays INCLUDED; its account model is PENDING_DETAIL, not deleted by the first increment. | Stripe test provider experiment to define | **KEEP_OPEN**: Exact provider contract + proof |
 | AUD-P1-05 | [#9](https://github.com/sergio-tr/ecommerce/issues/9) | SER-126 | P1 | Specify Mongo txn read/write/journal/index/unknown commit and run actual crash/readback evidence. | Mongo failure experiment to define | **KEEP_OPEN**: Exact physical contract + driver proof |
 | AUD-P1-06 | [#10](https://github.com/sergio-tr/ecommerce/issues/10) | SER-127 | P1 | Atomic multi-line hold and all-license preparation; no partial disclosure/automatic full refund without separate policy. | AUD04-T10..11, AUD11-T11..12 | **KEEP_OPEN**: Exact contract + physical proof |
 | AUD-P2-01 | [#11](https://github.com/sergio-tr/ecommerce/issues/11) | SER-128 | P2 | Finalize glossary with one owner per term, provider vs incorporated fact examples and typed contract references; explicit owner approval. | Static contract glossary checks | **KEEP_OPEN**: Ratification/documentary checks |
@@ -56,3 +56,7 @@
 6. Reconcile all status/evidence axes in #27/SER-135, human-review scope, then decide only the **specific** M01 G4.
 
 **No release of existing P0 holds, no bulk checkbox changes, and no unsupervised merge to main.**
+
+## 2026-11-05 independent review addendum
+
+The [PR #29 review record](PR29_INDEPENDENT_ARCHITECTURE_REVIEW_2026-11-05.md) classifies each of #1–#13 as documentary criteria not satisfied, owner approval missing, runtime evidence required, or a combination. It does not close #27, grant G4, or change any audit or test status. GitHub issue comments that still say "one-line checkout only" or that label a P1 finding `P0: OPEN/BLOCKING` are stale commentary; the decision register remains authoritative.

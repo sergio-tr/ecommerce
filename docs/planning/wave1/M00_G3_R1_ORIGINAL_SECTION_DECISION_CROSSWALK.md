@@ -4,6 +4,8 @@
 
 **Authority rule:** R1 is explicitly PROPOSED (2026-10-12). Later owner-ratified D-01..D-07 and accepted AUD policy portions take precedence at the specific ID level. An exact unratified R1 FSM/status/clock cannot be promoted because it appeared in a document. This is traceability of *historical design source*, not a new owner acceptance, runnable test or automatic G3 pass.
 
+**Re-check limit (2026-11-05 review):** the original Spanish file is not in this Git repository. The line numbers below cannot be confirmed from `main` or from this branch. Identical rationales copied across child sections are section-level labels, not sentence-level approvals. R1 §0.4 and any heading that says Stripe behavior was "verified" do **not** record an executed provider test. R1 §3 and §9.4 citations of `allowed_payment_method_types` are documentary and unverified.
+
 ## Exact enumeration crosswalk
 
 | Original section | R1 heading | Later controlling IDs | Provisional disposition | Rationale and current actionable status | Source locator |
@@ -103,7 +105,7 @@
 
 1. **Risk numbering collision:** historical R1 `P0-01..05` are not the later `AUD-P0-01..04`. Never map the same numeric suffix as if it meant the same risk. Preserve alias lineage explicitly.
 2. **FSM migration:** R1 contains distinct `INITIAL_HELD`, `PAYMENT_HELD`, `SETTLEMENT_HELD`, `RELEASE_REVIEW`, `COMMITTED`, `RELEASED`. Latest proposed four-phase Inventory Reservation vocabulary excludes Stripe-specific settling/review steps; their correctness guards must remain in Payments/CheckoutProcess, and no final Reservation FSM is owner-ratified.
-3. **Provider method API changed:** current Stripe Checkout uses `allowed_payment_method_types` as eligible-method filter; Stripe reports older `payment_method_types` may fail for API >= `2026-09-30.endive`. See [2026-11-05 Stripe contract](../architecture/m00/AUD_P1_04_P2_02_STRIPE_API_COMPATIBILITY_AND_TIME_POLICY.md). API version must be pinned and tested.
+3. **Provider method API, cited and not re-executed:** the 2026-11-05 Stripe contract cites `allowed_payment_method_types` and a support article about `payment_method_types` on API versions at or after `2026-09-30.endive`. No Stripe call was made. The project API version remains UNSELECTED. See [Stripe contract](../../architecture/m00/AUD_P1_04_P2_02_STRIPE_API_COMPATIBILITY_AND_TIME_POLICY.md).
 4. **Unknown provider sends:** R1 worker leasing and Session expiration alone cannot prove an old worker cannot later send a collectible POST. Preserve evidence-protected Inventory and incident until every possible send has conclusive closure. P0-01/02 remain blocking.
 5. **Mongo/Stripe transaction boundary:** R1 owner-local transaction + Inbox/Outbox direction is accepted; exact Mongo transactional driver behavior, commit ambiguity and Stripe side effect remain independent and require G5 proof.
 6. **Captured obligation:** an already-captured charge is a permanent Payments fact even if Order projection is pending or cancellation asked for; exact owner incorporation and delivery/refund branch require evidence.

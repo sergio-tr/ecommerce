@@ -73,4 +73,4 @@ Preserve owner-specific operation identities, immutable event schema versions, e
 - Explicitly decide whether Order/CheckoutProcess are physically one bounded aggregate or separate Ordering documents with a transaction; both must preserve atomic owner decision/incorporation/Outbox.
 - Formal ratification of `AUD-P1-02-FSM-MIN` and specific Order command transitions remains **PENDING**; this document is detailed starting material, not an automatic user approval.
 - Run AUD12-T01..T12 plus capture/out-of-order/unknown-commit/refund tests in controlled environments later. A documentation merge does not mean these tests passed.
-- **Issue #6/SER-123 remains OPEN/In Review** until user exact-scope acceptance and relevant recovery proof. No G4 and no implementation code here.
+- GitHub #6 remains **OPEN**. `AUD-P1-02-FSM-MIN` remains **PENDING**. Linear SER-123 was not re-read in the 2026-11-05 review and its workflow state is not normative. No G4 and no implementation code here.

@@ -13,7 +13,7 @@ Within one `(tenantId, stockPoolId, capacityUnit)` and its accounting generation
 
 **Candidate invariant:** `S = A + H + C + D`; require each term an integer >= 0 and all transitions preserve the equality. Exact physical query projection must be validated against real imported DigitalLicense supply records and authoritative movement events; **do not add an extra "licensed" count** that represents the same units. A new source/import creates a versioned audited +S/+A adjustment; an invalidated available key moves A→D; consumed licensed key is C, not A again. For physical products use another capacity source implementation through a port, not the digital-key assignment table as the inventory ledger.
 
-For each Store with a granted quota, `quotaUsed = activeHeldByStore + committedByStore` under the configured quota horizon; `quotaUsed <= quotaLimit`. Quota is a **rights cap** over S, not additional StockPool supply. Same-tenant Stores can share one Pool only via an authorized allocation plan; cross-tenant links are denied.
+`CAP-INV-005` (shared pools and store quotas) remains **EXCLUDED** from the recorded M04 disposition. A future quota, `quotaUsed = activeHeldByStore + committedByStore` and `quotaUsed <= quotaLimit`, would be a rights cap over S, not extra supply, and would require a new explicit scope decision. It is not an included M04 acceptance rule and must not be implemented as if the exclusion had been reversed. Cross-tenant pool links stay denied. Same-tenant sharing stays outside this included contract.
 
 ## 2. Aggregate authority and physical boundary
 
@@ -26,15 +26,15 @@ For each Store with a granted quota, `quotaUsed = activeHeldByStore + committedB
 | From | Command/cause | To | Owner-local precondition and evidence | Counter movement |
 |---|---|---|---|---|
 | none | `Reserve(orderRef,lines,commandId)` | `RESERVED` | actor/store authorized; nonnegative available + quota; same Order generation; unique command hash; CAS success | A -= q, H += q |
-| `RESERVED` | `ProtectForPayment(paymentAdmissionRef)` | `PAYMENT_PROTECTED` | owner verifies durable financial possible-send admission/handshake, exact Order/generation/version | A/H unchanged |
+| `RESERVED` | `ProtectForPayment(orderGenerationRef)` | `PAYMENT_PROTECTED` | Accepted D-01 requires durable Inventory protection **before** Payments may enable a collectible operation. Inventory applies its own versioned capacity guard for the exact Order/generation. It does not inspect Stripe, and it does not decide financial admission. The state name remains part of unratified `D-01-SM` | A/H unchanged |
 | `RESERVED` | `Release(reviewPermit)` | `RELEASED` | expiry only makes eligible for review; positive financial absence proof under release permit, or no possible send was ever admitted with durable evidence; no concurrent protected transition | H -= q, A += q |
 | `PAYMENT_PROTECTED` | `Release(financialReleasePermit)` | `RELEASED` | permit covers exact Reservation/generation and **all** possible provider sends, including old delayed dispatch; cannot prove? HOLD/INCIDENT | H -= q, A += q |
-| `RESERVED` or `PAYMENT_PROTECTED` | `Commit(commercialEvidence)` | `COMMITTED` | approved Ordering commercial decision and authoritative Payments capture evidence incorporated; command idempotency/version guarded | H -= q, C += q |
+| `RESERVED` or `PAYMENT_PROTECTED` | `Commit(orderingCommitPermit)` | `COMMITTED` | Ordering issues one permit after it has incorporated Payments' captured-funds evidence. Inventory checks the permit's tenant, Order, generation and version. Inventory does not call Stripe or reinterpret capture | H -= q, C += q |
 | any terminal | retry exact same command | same terminal result | operation receipt proves original result; no extra stock movement | 0 |
 
 **Forbidden:** `RELEASED → RESERVED`, `COMMITTED → RELEASED`, `COMMITTED → RESERVED`; automatically returning a license to saleable stock after Refund or delivery; using Stripe Session expiry, worker lease expiry or a delayed UI read as release evidence. A committed sale that is legitimately reversed in a later commercial process uses **new audited supply/compensation operations**, not retroactive rewriting of a Reservation's committed history.
 
-**Ambiguities to ratify:** whether `RESERVED→COMMITTED` direct path should be exposed in future providerless/zero-price flows (the candidate allows it only with a domain-specific commercial evidence contract); whether `PAYMENT_PROTECTED` must be entered before any Stripe send; and how commercial cancellation is fenced against a commit already in flight. The transition table alone is **not** P0 proof; cross-context permission contracts and tests are required.
+**Ambiguities to ratify:** whether a future providerless or zero-price flow may use `RESERVED→COMMITTED`, and how a cancellation already in flight is fenced against commit. Accepted D-01 already requires protection before a collectible operation is enabled; that policy does not ratify the `PAYMENT_PROTECTED` name in `D-01-SM`. The transition table is not P0 proof.
 
 ## 4. Batch reservation, deduplication and concurrency
 
@@ -50,7 +50,7 @@ AUD11-T01..T12 and AUD01-T01..T12, especially last unit, initial review timer vs
 
 ## 6. Evolvability and alternatives
 
-- **Selected starting option:** separate StockPool and Reservation identities with one Inventory-owner Mongo transaction and explicit capacity rights. This supports shared same-tenant quotas and realistic later process extraction.
+- **Selected starting option:** separate StockPool and Reservation identities with one Inventory-owner Mongo transaction and the included conservation equation. `CAP-INV-005` shared pools and store quotas stay EXCLUDED. The separate identities can later host a quota seam only after a new scope decision.
 - **Alternative for one-SKU narrow case:** single-document StockPool+reservations can use Mongo's inherent atomic writes; do not select by default if a Pool may have large unbounded reservations. A migration must preserve operation receipt, capacity balance and record history.
 - **Future warehouses/physical inventory:** CapacityPort can later support lot/location/shipping constraints without contaminating the initial digital Order with shipping status; a new specialized Domain adapter must satisfy conservation/last-unit oracle suite.
 - **Cost tradeoff:** Conservative indefinite protected reservations may reduce apparent stock availability under unknown Stripe outcomes. This is intentional until positive evidence closes all potential sends; operations must surface an attributable incident rather than silently release.

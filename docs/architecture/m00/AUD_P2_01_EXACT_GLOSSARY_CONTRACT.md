@@ -33,7 +33,7 @@ Only named owner commands can transform owner facts. Cross-context propagation i
 ## Examples of forbidden equivalence
 
 - `Order.PENDING_PAYMENT` != provider has not charged.
-- `CheckoutProcess.PAYMENT_CONFIRMED` != CheckoutProcess captured/settled money; it incorporated Payments' captured fact.
+- `CheckoutProcess.PAYMENT_CONFIRMED` is not an approved state name. Incorporating Payments' captured fact is not itself a captured-funds fact. The coordination candidate uses separate illustrative names and does not authorize this alias.
 - `StripeCheckoutSession.complete` != automatically confirmed captured funds (the actual payment and capture contract must be checked).
 - `Order.PAID_AWAITING_ALLOCATION` != allocation complete or refund granted.
 - `Refund.PENDING` != buyer compensated.
@@ -70,4 +70,4 @@ All cases are **SPECIFIED / NOT_RUN**. They are suggested **static contract revi
 
 Do not invent a global CheckoutStatus aggregate, synchronous two-phase commit across owner contexts, or Stripe enum as the Order FSM. Additional payment methods, partial captures, Connect accounts, shipping and multi-currency conversions may introduce **new** provider observations and capability types without changing authoritative existing historical facts.
 
-**Closure rule for issue #11:** after owner accepts this exact vocabulary and representative typed usage, review naming against current domain/API schema, record accepted exact scoped decision (not a blanket audit promotion), update the original source/audit record with approved scope and attach static conformance results. Until that owner decision, **AUD-P2-01 remains OPEN** and Linear SER-128 In Review. This is documentary G3 work; future runtime evidence follows G5.
+**Closure rule for issue #11:** after the owner accepts this exact vocabulary and representative typed usage, review naming against the domain contract, record one scoped decision, and attach static conformance results. Until that owner decision, **AUD-P2-01 remains OPEN**. Linear SER-128 was not re-read on 2026-11-05 and is not the normative status. Existence of this glossary does not satisfy the issue checklist or close #11. Static checks VOC-01..VOC-08 remain SPECIFIED / NOT_RUN.
