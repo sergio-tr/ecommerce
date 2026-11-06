@@ -10,6 +10,7 @@
 - The column `Planning horizon` indicates the **first dependent milestone**, not an authorization to implement there. Hard dependencies are retained from source inventory and must be checked when completing a particular contract.
 - All recommendations are changeable through a new reviewed ADR + versioned migration, not by retroactively rewriting their provenance.
 - A row with provider/driver semantics is **DESIGN_RECOMMENDED / G5 NOT_RUN**, irrespective of its priority.
+- **2026-11-05 amendment, still not a ratification:** `AUD-P1-06` must not treat one-line checkout as final M04 acceptance. `CAP-INV-006` and `CAP-FUL-004` stay INCLUDED. One line is only an earlier development increment. `AUD-P1-04` must not reclassify included `CAP-PAY-010`; a single test merchant may omit Connect fund routing, while the account model stays `PENDING_DETAIL`. `CAP-INV-005` stays EXCLUDED.
 
 ## Exhaustive recommendation matrix
 
@@ -22,9 +23,9 @@
 | AUD-P1-01 | P1 | M00.1 / M04 | OPEN | Four candidate capacity phases; StockPool+Reservation atomic owner-local balance and CAS; TTL triggers review only. | AUD-P0-01 |
 | AUD-P1-02 | P1 | M00.1 / M04 | OPEN | Order commercial obligation, CheckoutProcess durable coordinator, Payments money truth; no universal FSM. | AUD-P0-03, D-05-MONGO |
 | AUD-P1-03 | P1 | M00.1 / M04 | OPEN | Accepted option D policy; relative proven-closure and absolute admission cutoff; first slice forbids successor. | AUD-P0-01 |
-| AUD-P1-04 | P1 | M00.1 / M04 | OPEN | One test-mode merchant; cards/3DS and automatic capture with method enforcement; Connect deferred. | AUD-P0-03 |
+| AUD-P1-04 | P1 | M00.1 / M04 | OPEN | First increment: one test merchant, card/3DS, automatic capture, method enforcement still unverified. `CAP-PAY-010` stays INCLUDED; Connect account model PENDING_DETAIL. | AUD-P0-03 |
 | AUD-P1-05 | P1 | M00.1 / M00.2 | OPEN | Owner-local Mongo transactions and indexes; majority commit, uncertain commit readback; single node not HA. | D-05-MONGO |
-| AUD-P1-06 | P1 | M00.1 / M04 | OPEN | All-line reserve and prepare before reveal; first exposed MVP one line; no routine partial refund. | AUD-P0-04, AUD-P1-01 |
+| AUD-P1-06 | P1 | M00.1 / M04 | OPEN | All-line reserve and prepare before reveal are included M04 scope (`CAP-INV-006`, `CAP-FUL-004`). One line is only a pre-M04 development increment. No routine partial refund. | AUD-P0-04, AUD-P1-01 |
 | AUD-P2-01 | P2 | M00.4 / M01 | OPEN | Typed glossary differentiates domain, provider, owner-local fact and read projection. | AUD-P1-02 |
 | AUD-P2-02 | P2 | M00.4 / M01 | OPEN | Persist actual Stripe expires_at; no universal 35m/two sessions; measure supported bounds. | D-06-P01 |
 | AUD-P2-03 | P2 | M00.4 / M01 | OPEN | ID trace source-hash→ADR→contract→task→oracle→executed evidence; preserve NOT_RUN. | None |

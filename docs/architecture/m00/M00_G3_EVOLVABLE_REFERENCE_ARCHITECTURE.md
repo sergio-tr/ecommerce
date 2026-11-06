@@ -93,7 +93,7 @@ ContractEnvelope {
 - Quote is immutable when accepted: line identities, effective Offer revision, currency, tax-adapter version, discounts and totals, StorePolicy version, buyer eligibility and expiry. Repricing creates a new Quote revision; accepted Order references the accepted exact Quote, not live catalog prices.
 - T1 tax adapter is explicitly a local education/demo calculation, **not** production tax compliance. Optional notifications never contain activation secrets.
 - Buyer journey: catalog → cart → immutable quote → order → stock protection → hosted payment test → confirmed capture → fulfillment claim. Pending/unknown renders "being verified", never "failed/no charge" without authoritative proof.
-- First line checkout can be restricted in exposed MVP **without** making multiline impossible in the domain model; similarly one merchant is scope limitation, not an eternal engine constraint.
+- A *pre-M04 implementation iteration* may focus on a single line for test simplicity, but the already-approved M04 scope **INCLUDES** `CAP-INV-006` (atomic multi-line reservation) and `CAP-FUL-004` (complete all-line preparation before exposure). Do **not** ship M04 as a one-line-only contract without a new explicit scope decision. One initial Stripe merchant is a separate payment-provider exposure limitation, not a permanent framework restriction.
 
 ## 6. Change control, deferred interfaces and decision triggers
 
