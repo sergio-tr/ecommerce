@@ -46,7 +46,7 @@ Explicitly EXCLUDED from this packet (require separate tasks and approvals): Kub
 
 ## 3) P0/provider evidence and approvals NOT satisfied here
 
-- Four P0 audits remain OPEN/BLOCKING; G5 evidence TEST_PLANNED / NOT_RUN. This packet does not alter their status or claim provider proof
+- Four P0 audits remain OPEN/BLOCKING; G5 evidence TEST_PLANNED / NOT_RUN. This packet does not alter their status or claim provider proof. These provider experiments are **not** preconditions to the M01 foundation task; they belong to later M04 increments (see `docs/architecture/m01/M01_REMAINING_GAPS_AND_DEPENDENCIES.md` — “There is no requirement to finish M04 provider tests before starting that independent foundation” and `docs/architecture/m01/M01_D08_CI_TEST_AND_CHANGE_GATES.md` — C7 “never made precondition for basic M01 bootstrap”).
 - DR07 PARTIAL; DR08 PASS (user‑reported); DR09 identity confirmed but base must be rechecked when branching; DR10 NOT_GRANTED
 - Exact “owner ratification” for M01 foundation is pending; no G4 is requested here
 
@@ -54,7 +54,8 @@ Explicitly EXCLUDED from this packet (require separate tasks and approvals): Kub
 
 - M04 CAP scope remains unchanged:
   - INCLUDED: CAP‑INV‑006 (multi‑line all‑or‑nothing), CAP‑FUL‑004 (all‑line prepare‑before‑reveal), CAP‑PAY‑010 (Stripe Connect architecture, account model PENDING_DETAIL)
-  - EXCLUDED/DEFERRED: CAP‑INV‑005 (shared pool/store quotas), CAP‑PAY‑012 (wallets/Link)
+  - EXCLUDED: CAP‑INV‑005 (shared pool/store quotas)
+  - COMPOSITE CAP‑PAY‑012: wallets **DEFERRED**, Stripe Link **PENDING** (cannot share one exact status); ambos fuera de alcance sin nueva decisión explícita
 - ADR precedence and decision‑register states are normative; this packet cannot supersede them
 - No live Stripe, no Mongo schema/trust claims, no Kubernetes install implied
 
@@ -62,7 +63,7 @@ Explicitly EXCLUDED from this packet (require separate tasks and approvals): Kub
 
 Decidable now (requires owner ratification):
 - Ratify that ADR‑M01‑001 + M01‑D01…D08 constitute the M01 foundation‑only G3 “documentary specification,” independent from M04 provider evidence
-- Acknowledge DoR/acceptance AC01–AC14 as the exact future execution gates for M01 (all NOT_RUN today)
+- Acknowledge DoR/acceptance AC01–AC14 as the exact acceptance gates for the future M01‑BOOTSTRAP‑01 implementation PR (all NOT_RUN today)
 - Confirm exclusions above and that this G3 packet does not reclassify any M04 capability
 
 Deferred by design:
@@ -78,8 +79,8 @@ Deferred by design:
 ## 7) Exact owner approval questions (answer Yes/No on the PR)
 
 1. Ratify: “For M01‑BOOTSTRAP‑01, ADR‑M01‑001 and M01‑D01…D08 together are ACCEPTED as the documentary G3 foundation‑only specification. This does not alter any ADR/test/audit statuses.”
-2. Confirm: “This scoped G3 acceptance does not change M04 scope: CAP‑INV‑006, CAP‑FUL‑004 and CAP‑PAY‑010 remain INCLUDED; CAP‑INV‑005 and CAP‑PAY‑012 remain EXCLUDED/DEFERRED.”
-3. Confirm: “P0/P1 provider evidence and all AC01–AC14 remain NOT_RUN; they are not prerequisites for this documentary G3 packet, but they will be required before merging any future implementation PR.”
+2. Confirm: “This scoped G3 acceptance does not change M04 scope: CAP‑INV‑006, CAP‑FUL‑004 and CAP‑PAY‑010 remain INCLUDED; CAP‑INV‑005 remains EXCLUDED; CAP‑PAY‑012 es compuesta: wallets DEFERRED, Link PENDING.”
+3. Confirm: “AC01–AC14 serán requeridos para fusionar la futura PR de implementación de M01‑BOOTSTRAP‑01. La evidencia P0/P1 de proveedor permanece NOT_RUN y NO es requisito para esa PR de fundación; sí lo será para las PRs financieras de M04.”
 4. Confirm: “G4 is NOT being granted by this packet. DR07/DR08/DR09 must be satisfied and an explicit DR10 authorization recorded before creating an implementation branch.”
 5. Administrative: “A future branch, if authorized, will be based on current origin/main commit 346319f216f58506e4719c7b0ce65d488333bad3 (to be rechecked at branch creation) and will link #25/SER‑134.”
 
