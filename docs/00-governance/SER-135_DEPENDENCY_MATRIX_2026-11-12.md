@@ -4,6 +4,12 @@ As-of (Europe/Amsterdam): 2026-11-12 20:00 CET
 Main (observed): origin/main @ 5be6c448291f74e76291d64adf8d0a4356bc2377  
 Scope: Documentary, source-backed analysis; no status promotion; no code changes beyond this file.
 
+Provenance and scope notes
+- “Acceptance clause (delta)” below is a concise summary of the minimum remaining closure stated in `docs/00-governance/ISSUE_CLOSURE_AUDIT_2026-10-30.md`. It is NOT the verbatim acceptance text from each GitHub issue; for exact wording and checklists, see the linked issues (#1–#13).
+- Decision IDs and their statuses (ACCEPTED / PROPOSED — SELECTED / PENDING / DEFERRED) are taken from `docs/02-decisions/decision-register.json` without alteration.
+- Test IDs and oracle semantics reference `docs/05-tests/TEST_CATALOG.md/.json` and `docs/00-governance/SER-135_ORIGINAL_110_SEMANTIC_REVIEW_VERDICTS_2026-11-06.md` (PR #32), which compared indexed bilingual rows; no original-byte verification is claimed.
+- Capability provenance references `docs/00-governance/SER-130_CAP140_CLAUSE_PROVENANCE_2026-11-07.md` (PR #33); clause-level original-source verification remains 0/140 in this repository.
+
 Sources reviewed
 - docs/00-governance/DESIGN_FIRST_G3_GATE.md
 - docs/00-governance/ISSUE_CLOSURE_AUDIT_2026-10-30.md
@@ -20,6 +26,13 @@ Legend
 - G5 external experiment needed: Stripe/Mongo/worker/fulfillment runtime proof.
 - “Accepted vs Proposed”: key decision IDs with current status from decision-register.json (ACCEPTED / PROPOSED — SELECTED / PENDING / DEFERRED).
 - “Acceptance clause (delta)”: the minimum remaining closure stated in ISSUE_CLOSURE_AUDIT_2026-10-30.md.
+
+Global invariants (documentary)
+- Historical/scoped decisions preserved: 181 historical (see `docs/01-historical-baseline/R0.10_181_decisions.md`) and 91 scoped in `docs/02-decisions/decision-register.json`.
+- Capability scope (M04 planning): 85 INCLUDED / 43 EXCLUDED / 12 DEFERRED (see `docs/planning/wave1/functional-inventory.json` and `docs/planning/wave1/M04_SCOPE_MATRIX.md`).
+- Oracle semantics: 110/110 CONSISTENT_WITH_INDEXED_ROW (PR #32); execution evidence: 148/148 TEST_PLANNED/NOT_RUN (`docs/05-tests/TEST_CATALOG.json`).
+- CAP clause provenance: ORIGINAL_SOURCE_CLAUSE_VERIFIED 0, DOWNSTREAM_POLICY_MENTION 2, INDEX_ONLY 137, AMBIGUOUS 1 (PR #33).
+- P0 audits #1–#4: remain OPEN/BLOCKING; M01 (#25 / SER‑134): G4 NOT_GRANTED under design-first gate (#27).
 
 Matrix (13 rows)
 

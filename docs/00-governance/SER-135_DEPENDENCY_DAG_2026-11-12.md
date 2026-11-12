@@ -4,6 +4,10 @@ As-of (Europe/Amsterdam): 2026-11-12 20:00 CET
 Main (observed): origin/main @ 5be6c448291f74e76291d64adf8d0a4356bc2377  
 Scope: Documentary DAG from decision-backlog.json and governance docs; no status change.
 
+Provenance and scope notes
+- Edges reflect only directed `dependencies`/`hardPrerequisites` from `docs/planning/wave1/decision-backlog.json`. Co-design associations are omitted. This DAG is explanatory, not a normative ADR graph.
+- Decision IDs (e.g., D‑05‑MONGO, D‑06‑RETRY‑WINDOW/D‑06‑P01, D‑02‑P01) and their statuses come from `docs/02-decisions/decision-register.json`; no promotion is implied.
+
 ```mermaid
 flowchart TD
   subgraph P0 [P0 financial blockers]
@@ -49,7 +53,8 @@ flowchart TD
   end
 
   B2 --> C1
-  C2deps[D-06-P01 & D-02-P01] --> C2
+  D06P01[D-06-P01] --> C2
+  D02P01[D-02-P01] --> C2
 
   %% Independent foundation gate (design-first)
   M01[M01-BOOTSTRAP-01 (DESIGN_FIRST_HOLD, G4 NOT_GRANTED)]
