@@ -1,12 +1,12 @@
 {
   "id": "M01-BOOTSTRAP-01",
-  "asOf": "2026-10-30",
+  "asOf": "2026-11-16",
   "owner": "sergio-tr",
   "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
   "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
-  "status": "DOR_DOCUMENTED_DESIGN_FIRST_HOLD_NOT_READY_TO_IMPLEMENT",
-  "g3State": "M01_DOCUMENTED; CROSS_PROJECT_DESIGN_FIRST_GATE_PENDING",
-  "g4Authorization": "NOT_GRANTED",
+  "status": "G4_AUTHORIZED_M01_FOUNDATION_IMPLEMENTATION_NOT_STARTED",
+  "g3State": "PASSED_SCOPE_M01_BOOTSTRAP_01_ONLY; FINANCIAL_AND_FUTURE_CONTEXT_G3_DEFERRED",
+  "g4Authorization": "GRANTED_BY_OWNER_2026-11-16_M01_BOOTSTRAP_01_ONLY",
   "implementation": "NOT_STARTED",
   "g5Evidence": "NOT_RUN",
   "canonicalIssueId": "SER-134",
@@ -18,8 +18,9 @@
     "M01-D06",
     "M01-D07",
     "M01-D08",
-    "SER-135",
-    "GitHub #27"
+    "Owner AUTH-2026-11-16-M01-BOOTSTRAP-01",
+    "GitHub ecommerce #25",
+    "Linear SER-134"
   ],
   "checks": [
     {
@@ -64,13 +65,13 @@
     },
     {
       "id": "DR09",
-      "state": "IDENTITY_CONFIRMED_BASE_RECHECK_ON_EXECUTION",
-      "subject": "GitHub ecommerce #25, Linear SER-134, origin/main SHA 8140b1101d50757438b37973476dad4e14c43762 as observed at 2026-10-30 preflight; no implementation branch yet"
+      "state": "IDENTITY_CONFIRMED_BASE_RECHECK_AFTER_AUTHORIZATION_MERGE",
+      "subject": "GitHub ecommerce #25 / Linear SER-134, origin/main observed 78f06e5... before owner authorization; implementation branch must fork current main after approval PR merges"
     },
     {
       "id": "DR10",
-      "state": "NOT_AUTHORIZED_DESIGN_FIRST_HOLD",
-      "subject": "No G4; user's design-first gate SER-135/GitHub ecommerce #27 must be reviewed before any request for task-specific code permission"
+      "state": "AUTHORIZED_BY_OWNER_2026_11_16_M01_FOUNDATION",
+      "subject": "Explicit owner G3 scoped review and G4 for M01-BOOTSTRAP-01 only; effective after authorization record merged to main; no runtime effects/auto merge"
     }
   ],
   "acceptanceCriteria": [
@@ -102,22 +103,26 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "Do not code. Review all thirteen design audit issues using SER-135/GitHub #27; ratify or explicitly defer applicable contracts and track later empirical P0 G5 proof, then separately authorize M01 G4.",
-  "executionStatus": "BLOCKED_BY_M00_G3_DESIGN_REVIEW",
+  "nextAction": "Integrate owner authorization PR, recheck current main as DR09, then dispatch Cursor Cloud Agent for GitHub #25/SER-134 to implement only authorized Nx/NestJS foundation on independent feature branch and run AC01–AC14; do not merge code PR without review.",
+  "executionStatus": "AUTHORIZED_PENDING_AUTHORIZATION_PR_MERGE_AND_DR09_BASE_RECHECK",
   "githubIssueNumber": 25,
   "designGate": {
     "linearIssue": "SER-135",
     "githubIssue": 27,
-    "status": "NOT_PASSED",
-    "requiredBeforeG4": true,
-    "scope": "Review all 13 original open audits, M00.2-M00.4 design contracts, and 103 planning-question traceability; do not infer G5 proof"
+    "status": "PASSED_FOR_M01_BOOTSTRAP_01_ONLY",
+    "requiredBeforeG4": false,
+    "scope": "Review all 13 original open audits, M00.2-M00.4 design contracts, and 103 planning-question traceability; do not infer G5 proof",
+    "financialAndOtherMilestones": "OPEN_WITH_EXPLICIT_DEFERRALS",
+    "ownerDecision": "docs/00-governance/OWNER_G3_G4_AUTHORIZATION_2026-11-16.md",
+    "preserveExistingFindings": true
   },
   "documentaryHistory": [
     "SER-131",
     "GitHub #14",
     "SER-133",
     "GitHub #24",
-    "merged PR #26"
+    "merged PR #26",
+    "OWNER_G3_G4_AUTHORIZATION_2026-11-16"
   ],
   "preflightEvidence": {
     "date": "2026-10-30",
@@ -133,5 +138,20 @@
     "isolatedFrozenLockInstall": "PASS",
     "nxActualScaffold": "NOT_RUN",
     "productAcceptance": "NOT_RUN"
+  },
+  "ownerAuthorization": {
+    "id": "AUTH-2026-11-16-M01-BOOTSTRAP-01",
+    "date": "2026-11-16",
+    "owner": "sergio-tr",
+    "userInstruction": "Aprueba los gates y termina de manera conjunta con toda la base documental para poder comenzar a implementar el proyecto.",
+    "scope": "M01_BOOTSTRAP_01_NONFINANCIAL_FOUNDATION_ONLY",
+    "g3": "PASSED_FOR_M01_FOUNDATION",
+    "g4": "GRANTED_FOR_GITHUB_25_LINEAR_SER_134",
+    "effectiveWhen": "AUTHORIZATION_DOCUMENTATION_MERGED_TO_MAIN_AND_DR09_RECHECKED",
+    "mainShaAtApproval": "78f06e5fc848e11794a0c5a18908a5a86a2eba3c",
+    "mergeAuthorizationForImplementationPR": false,
+    "g5": "NOT_RUN",
+    "externalSideEffects": "NOT_AUTHORIZED",
+    "futureScopesRequireSeparateDecision": true
   }
 }

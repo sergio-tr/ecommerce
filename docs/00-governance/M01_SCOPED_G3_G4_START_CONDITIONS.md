@@ -1,3 +1,5 @@
+> **2026-11-16 OWNER DECISION — THIS PROPOSAL IS NOW ACCEPTED FOR M01 FOUNDATION ONLY:** The owner has expressly approved [G3/G4 M01 bootstrap authorization](OWNER_G3_G4_AUTHORIZATION_2026-11-16.md) with exact scope #25/SER-134 and no automated code merge. Section tables and date-specific statements below describe the earlier **unapproved** state and are retained for history; [the owner record](OWNER_G3_G4_AUTHORIZATION_2026-11-16.md), [readiness JSON](../architecture/m01/m01-bootstrap-01-readiness.json) and [execution handoff](../architecture/m01/M01_BOOTSTRAP_01_CURSOR_HANDOFF.md) are authoritative for M01. All later financial/provider/physical design and G5 remain separate blockers when those features become active.
+
 # CommerceCore — Scope-specific G3-to-G4 handoff and remaining closure thresholds
 
 **Date:** 2026-11-05. **Status:** TECHNICAL REVIEW RECOMMENDATION / OWNER G3 SIGNOFF PENDING. **Owner:** @sergio-tr. **Tracking:** GitHub #27 / Linear SER-135. **No automatic G4 or merge authorization.**
