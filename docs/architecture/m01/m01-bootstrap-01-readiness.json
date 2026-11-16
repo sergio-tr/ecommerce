@@ -4,7 +4,7 @@
   "owner": "sergio-tr",
   "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
   "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
-  "status": "G4_AUTHORIZED_M01_FOUNDATION_IMPLEMENTATION_NOT_STARTED",
+  "status": "READY_TO_START_AUTHORIZED_M01_FOUNDATION",
   "g3State": "PASSED_SCOPE_M01_BOOTSTRAP_01_ONLY; FINANCIAL_AND_FUTURE_CONTEXT_G3_DEFERRED",
   "g4Authorization": "GRANTED_BY_OWNER_2026-11-16_M01_BOOTSTRAP_01_ONLY",
   "implementation": "NOT_STARTED",
@@ -103,8 +103,8 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "Integrate owner authorization PR, recheck current main as DR09, then dispatch Cursor Cloud Agent for GitHub #25/SER-134 to implement only authorized Nx/NestJS foundation on independent feature branch and run AC01–AC14; do not merge code PR without review.",
-  "executionStatus": "AUTHORIZED_PENDING_AUTHORIZATION_PR_MERGE_AND_DR09_BASE_RECHECK",
+  "nextAction": "Owner authorization merged in PR #37 (25ef84e8...). Recheck current main SHA as DR09 and dispatch Cursor Cloud Agent for GitHub #25/Linear SER-134 to implement only Nx/NestJS engineering foundation on one feature branch. AC01–AC14 must execute and owner must review code PR; no auto merge or future scope.",
+  "executionStatus": "AUTHORIZED_PENDING_DR09_MAIN_RECHECK",
   "githubIssueNumber": 25,
   "designGate": {
     "linearIssue": "SER-135",
@@ -122,7 +122,8 @@
     "SER-133",
     "GitHub #24",
     "merged PR #26",
-    "OWNER_G3_G4_AUTHORIZATION_2026-11-16"
+    "OWNER_G3_G4_AUTHORIZATION_2026-11-16",
+    "PR_37_OWNER_GATES_MERGED"
   ],
   "preflightEvidence": {
     "date": "2026-10-30",
@@ -152,6 +153,11 @@
     "mergeAuthorizationForImplementationPR": false,
     "g5": "NOT_RUN",
     "externalSideEffects": "NOT_AUTHORIZED",
-    "futureScopesRequireSeparateDecision": true
+    "futureScopesRequireSeparateDecision": true,
+    "authorizationPr": 37,
+    "authorizationMergeSha": "25ef84e8645ded2bfdee2c4447e8f593fb53744f",
+    "effective": true,
+    "effectiveAt": "2026-11-16",
+    "implementationPrMergePermission": false
   }
 }
