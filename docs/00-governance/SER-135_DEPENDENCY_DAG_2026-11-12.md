@@ -1,7 +1,8 @@
 # SER-135 — Explicit dependency DAG (post-PR32/PR33)
 
-As-of (Europe/Amsterdam): 2026-11-12 20:00 CET  
-Main (observed): origin/main @ 5be6c448291f74e76291d64adf8d0a4356bc2377  
+As-of (Europe/Amsterdam): 2026-11-12 22:01 CET  
+Main (observed): origin/main @ 9333abf98fb89ccced2e017d77d2fdd8c7bb6d94  
+Source JSON (blob): dd3508e1c8ba99cbde822171a6097e1ca040bef9 (`docs/planning/wave1/decision-backlog.json`)  
 Scope: Documentary DAG from decision-backlog.json and governance docs; no status change.
 
 Provenance and scope notes
@@ -40,7 +41,8 @@ flowchart TD
   A3 --> B2
   D05 --> B2
   A1 --> B3
-  D06W --> B3
+  B3 --> D06W
+  B3 --> D06P01
   A3 --> B4
   D05 --> B5
   A4 --> B6
@@ -54,7 +56,7 @@ flowchart TD
 
   B2 --> C1
   D06P01[D-06-P01] --> C2
-  D02P01[D-02-P01] --> C2
+  C2 --> D02P01[D-02-P01]
 
   %% Independent foundation gate (design-first)
   M01[M01-BOOTSTRAP-01 (DESIGN_FIRST_HOLD, G4 NOT_GRANTED)]
