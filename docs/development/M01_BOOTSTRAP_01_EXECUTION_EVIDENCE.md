@@ -24,7 +24,7 @@
 | AC06 | PASS locally | On-disk NestJS fixture lint exit 1 (`no-restricted-imports` and `commercecore/domain-import-boundary` on `@nestjs/common`). Fixture removed. Restored domain lint exit 0. |
 | AC07 | PASS locally, limited scope | CommerceCloud was not generated. Fixture imports `tools/architecture-fixtures/commercecloud-private-adapter.ts`. Lint exit 1 from `@nx/enforce-module-boundaries` and `commercecore/domain-import-boundary`. This does not prove a future CommerceCloud project graph. |
 | AC08 | PASS locally | `lint`, `typecheck`, `test`, `build`, `secret-scan`, and `nx format:check` exit 0. API tests 8 passed. Domain tests 4 passed. |
-| AC09 | NOT_RUN | Requires the GitHub Actions run on the pushed pull request head. |
+| AC09 | NOT_RUN | Pull request #39 run `44036261321` (`validate`) failed on head `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1`. Install, lint, typecheck, tests, build, and secret scan passed. `nx format:check` failed because the shallow checkout had no `main` ref and Nx then checked historical files. The workflow now fetches `origin/main` into `main` before that check. A later green run is still required. |
 | AC10 | PASS locally | Missing `COMMERCECORE_ENV` exits 1 with `field=COMMERCECORE_ENV`, `reason=missing`. A secret-shaped port exits 1 with `reason=forbidden` and the value is absent from stderr. |
 | AC11 | PASS locally | `node tools/security/scan-secrets.mjs` printed `secret-scan: no secrets found` and exit 0. No container image exists to scan. |
 | AC12 | PASS locally | Diff adds the workspace, liveness API, pedagogical `ProductId`, tests, docs, and the pull request workflow. No Helm, Kubernetes, MongoDB, Stripe, CommerceCloud, or eGame implementation. |
