@@ -1,7 +1,7 @@
 # Decision — M01-K8S-01 listen address
 
 **Decision ID:** `AUTH-2026-11-17-M01-K8S-01-LISTEN`  
-**Status:** `G3_ACCEPTED_2026-11-17` / scoped G4 already granted / `G5_WAIT_MERGE`  
+**Status:** `G3_ACCEPTED_2026-11-17` / scoped G4 already granted / `G5_PASSED_LOCAL`  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-137](https://linear.app/sergiotr/issue/SER-137/m01-k8s-01-local-api-image-helm-and-k3d-smoke)  
 **GitHub:** #45  
@@ -23,8 +23,8 @@ Both probes call the existing `GET /health/live`. `/health/ready` stays absent. 
 
 ## What this grant still excludes
 
-No production cluster, cloud account, credential, Stripe, MongoDB, CommerceCloud, eGame, catalog route, or business endpoint. Catalog G3 stays accepted and catalog G4 stays not granted. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. M01-BOOTSTRAP-01 nonfinancial G5 stays the passed result already recorded for that foundation. M01-K8S-01 G5 is not passed by this decision. The next roadmap slice is MongoDB, and only after this slice is closed under its own gates.
+No production cluster, cloud account, credential, Stripe, MongoDB, CommerceCloud, eGame, catalog route, or business endpoint. Catalog G3 stays accepted and catalog G4 stays not granted. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. M01-BOOTSTRAP-01 nonfinancial G5 stays the passed result already recorded for that foundation. This listen-address decision does not execute the smoke. The scoped local K8S G5 result is the owner-reported record in the evidence document. The next roadmap slice is MongoDB, and only after this slice is closed under its own gates.
 
 ## Evidence
 
-Image build, chart render, and the owner-reported k3d smoke are recorded in [M01_K8S_01_LOCAL.md](../development/M01_K8S_01_LOCAL.md). A green chart render is not a cluster pass. The owner report is not `G5_PASSED` until that record is reviewed and merged.
+Image build, chart render, and the owner-reported k3d smoke are recorded in [M01_K8S_01_LOCAL.md](../development/M01_K8S_01_LOCAL.md). A green chart render is not a cluster pass. [PR #48](https://github.com/sergio-tr/ecommerce/pull/48) merged that record at `09964e53bad53899856415eeae886663d096061f`. `G5_PASSED_LOCAL` means one k3d server and `GET /health/live` on `affde2ce87e7569595598f7bc116819e65a67785`, from the owner report. It is not a production cluster and not high availability.
