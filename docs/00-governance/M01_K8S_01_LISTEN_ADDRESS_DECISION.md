@@ -4,6 +4,7 @@
 **Status:** `G3_ACCEPTED_2026-11-17` / scoped G4 already granted / `G5_NOT_PASSED`  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-137](https://linear.app/sergiotr/issue/SER-137/m01-k8s-01-local-api-image-helm-and-k3d-smoke)  
+**GitHub:** #45  
 **Base reviewed:** `origin/main` `61997bc58fe78925a11515877bcdb95d16c1ae00`
 
 ## Owner decision
