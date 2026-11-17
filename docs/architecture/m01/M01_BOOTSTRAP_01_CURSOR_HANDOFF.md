@@ -21,7 +21,7 @@ Produce a reproducible, minimal Nx/pnpm + NestJS engineering foundation from cur
 
 - `GET /health/live`: HTTP 200, clearly stable response and version, no DB/provider checks and no secrets. Do not pretend it is an end-to-end business readiness signal. `/health/ready` is optional only if it remains truthful.
 - Pure Domain cannot import `@nestjs/*`, persistence adapters, network clients, UI or other bounded contexts' private code. Use explicit architecture rules and **negative fixture** that intentionally introduces forbidden dependencies and makes the check fail. Restore fixture and re-run green.
-- `ProductId` is **pedagogical only** and must not imply approved Product aggregate/Offer/Quote model.
+- `ProductId` is **pedagogical only** and must not imply approved Product aggregate/Offer/Quote model. A create/list/get/update HTTP slice is not part of this handoff; see the unratified [synthetic catalog proposal](../../00-governance/M01_CATALOG_SYNTHETIC_SLICE_G3_G4_PROPOSAL.md).
 - PR workflow uses minimal `permissions: contents: read`, pinned exact immutable SHA for third-party actions, least privilege and no secrets; CI must run install/build/lint/test/architecture/format targets. Avoid privileged triggers and auto-publishing packages.
 - All source, code and docs English, Conventional Commits; real author must be accurately reported, no impersonation of @sergio-tr by agent identity; no fabricated coauthors.
 - Explicitly exclude CommerceCloud/eGame generators, K8s/k3d/Helm, MongoDB, Stripe, license keys, authentication production integration, Kafka, money flow and deployment.
