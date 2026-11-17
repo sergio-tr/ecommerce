@@ -19,6 +19,7 @@ spec:
       labels:
         {{- include "commercecore-api.selectorLabels" . | nindent 8 }}
     spec:
+      enableServiceLinks: false
       serviceAccountName: {{ include "commercecore-api.fullname" . }}
       automountServiceAccountToken: false
       hostNetwork: false

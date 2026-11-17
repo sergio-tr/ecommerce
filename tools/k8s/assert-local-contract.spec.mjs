@@ -23,4 +23,12 @@ test('the chart rejects public exposure and a second replica', () => {
   assert.doesNotThrow(() => assertRejectedOverride(['--set', 'image.pullPolicy=Always']));
   assert.doesNotThrow(() => assertRejectedOverride(['--set', 'replicaCount=2']));
   assert.doesNotThrow(() => assertRejectedOverride(['--set', 'ingress.enabled=true']));
+  assert.doesNotThrow(() => assertRejectedOverride(['--set', 'enableServiceLinks=true']));
+});
+
+test('the deployment renders service links disabled exactly once', () => {
+  const result = renderChart();
+  assert.equal(result.status, 0, result.stderr);
+  const matches = result.stdout.match(/^ {6}enableServiceLinks: false$/gm) ?? [];
+  assert.equal(matches.length, 1);
 });

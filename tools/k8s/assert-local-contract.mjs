@@ -65,6 +65,7 @@ export function assertDefaultRender(rendered) {
     'readOnlyRootFilesystem: true',
     'allowPrivilegeEscalation: false',
     'automountServiceAccountToken: false',
+    'enableServiceLinks: false',
     'imagePullPolicy: Never',
     'image: "commercecore-api:local"',
   ];
@@ -81,6 +82,7 @@ export function assertDefaultRender(rendered) {
     'NodePort',
     'LoadBalancer',
     'hostNetwork: true',
+    'enableServiceLinks: true',
     'sk_live_',
     'sk_test_',
   ]) {
