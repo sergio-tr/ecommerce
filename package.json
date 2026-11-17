@@ -54,6 +54,13 @@
         "options": {
           "command": "node tools/security/scan-secrets.mjs"
         }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "options": {
+          "command": "node --test --test-reporter spec tools/ci/resolve-nx-format-range.spec.mjs"
+        }
       }
     }
   }
