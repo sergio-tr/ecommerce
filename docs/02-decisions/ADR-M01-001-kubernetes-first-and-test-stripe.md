@@ -56,6 +56,10 @@ The four are documentary **technical specifications**, not actual scaffolded app
 3. The first dev cluster may run without Keycloak, Kafka and payment adapters; their security/owner contracts remain on M00.3 and M05.
 4. No automatic main merge, no application code and no live-money deployment is authorized here.
 
+## Later scoped record, 2026-11-17
+
+`PROP-2026-11-17-M01-MONGO-INFRA-01` accepts `MONGO-RUNTIME-COMPOSE` for task `M01-MONGO-01` only. D-1 K2 remains the application runtime. D-3 DATA-A is not amended: the M01-D05 StatefulSet and PVC stay specified and unbuilt, and the Compose named volume is not that PVC. The record is [M01_MONGO_INFRA_G3_PROPOSAL.md](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md). G4 request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is conditional and not effective. No image digest is selected in this ADR. `D-05-MONGO` stays PENDING.
+
 ## Official verification sources consulted 2026-10-30
 
 - Kubernetes workloads/Service/Ingress and version skew: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ ; https://kubernetes.io/docs/concepts/services-networking/service/ ; https://kubernetes.io/docs/concepts/services-networking/ingress/ ; https://kubernetes.io/releases/version-skew-policy/

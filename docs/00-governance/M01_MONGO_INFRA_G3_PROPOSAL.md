@@ -2,19 +2,52 @@
 
 **Decision ID:** `PROP-2026-11-17-M01-MONGO-INFRA-01`  
 **Task:** `M01-MONGO-01`  
-**Status:** `G3_PROPOSED` / `G4_NOT_GRANTED`  
+**Status:** `G3_ACCEPTED_2026-11-17` for `M01-MONGO-01` local Compose infrastructure only / `G4_CONDITIONAL_NOT_EFFECTIVE`  
 **Date:** 2026-11-17  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-138](https://linear.app/sergiotr/issue/SER-138/m01-mongo-01-local-compose-mongodb-infrastructure-g3)  
 **GitHub issue:** not opened. Creating an issue in `sergio-tr/ecommerce` returned HTTP 403. This file does not invent an issue number.  
-**Base reviewed:** `origin/main` `ae4ccc5f3221c631230deff6cf1992c9943b71be`  
+**Proposal base:** `origin/main` `ae4ccc5f3221c631230deff6cf1992c9943b71be`  
+**Ratification base:** `origin/main` `d6e24c35f41c67e7d55bab10ba72e13ef5a667a1`, merge of [PR #50](https://github.com/sergio-tr/ecommerce/pull/50)  
 **Not this task:** [SER-126](https://linear.app/sergiotr/issue/SER-126) / GitHub #9 / `D-05-MONGO` / `AUD-P1-05`
 
-## Verdict
+## Owner ratification
 
-This is a documentation proposal for one local MongoDB process. It does not pass G3. It does not grant G4. It does not start Compose, a container, NestJS, or a database.
+On 2026-11-17 at 23:23 Europe/Amsterdam, after [PR #50](https://github.com/sergio-tr/ecommerce/pull/50) had merged, @sergio-tr posted `[CC_OWNER_RATIFICATION_M01_MONGO_INFRA_2026_11_17]` in the canonical Slack thread. That message accepts R1–R4 for this proposal and no other ADR. This section records those sentences. It does not run a registry inspect, start Compose, or make G4 effective.
 
-Three owner sentences are still required before anyone can treat the placement, the image line, or the narrowed slice as accepted. Merging this pull request records the proposal. [Change control](CHANGE_CONTROL.md) says a merge does not, by itself, ratify an undecided technical policy.
+| Check | Observed for this ratification |
+|---|---|
+| Open pull requests | none |
+| Running Cursor agent on this repo | this documentation task only |
+| `main` | `d6e24c35f41c67e7d55bab10ba72e13ef5a667a1`, merge of PR #50 by @sergio-tr at 2026-11-17 23:03 Europe/Amsterdam |
+| Push CI of that SHA | [Actions run 44186124886](https://github.com/sergio-tr/ecommerce/actions/runs/44186124886) `success`; jobs `validate`, `chart`, and `image` each `success` |
+| SER-138 | Linear status `Backlog` when this section was written. This file does not close it. GitHub issue still not opened; the earlier create returned HTTP 403 |
+
+**G3** is `G3_ACCEPTED_2026-11-17` only for `M01-MONGO-01` local Docker Compose infrastructure. [ADR-M01-001](../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) D-1 K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. DATA-A, NET-A, and STRIPE-A are not amended.
+
+**G4** request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is `G4_CONDITIONAL_NOT_EFFECTIVE`. The same owner message grants it only after all three of these are true:
+
+1. This ratification is in a reviewed and merged pull request. The merge of PR #50 does not count. That merge recorded the proposal and left R1–R4 unanswered.
+2. A real OCI digest for `docker.io/library/mongo:8.0.38-noble` is copied from `docker buildx imagetools inspect` for the host platform and pinned. This file has no digest. A digest written without that command does not count.
+3. No normative conflict remains inside this slice. R1–R4 close the conflicts named below. `D-05-MONGO` stays PENDING and outside this slice. It is not accepted here, and it is not a reason to widen the slice.
+
+While any of the three is false, Compose, a container, and the implementation unit stay forbidden. At the time this section was written, item 1 is false until this pull request merges, and item 2 is false because the digest is unknown. Merging this pull request satisfies item 1 only. It does not satisfy item 2.
+
+### Accepted sentences
+
+**R1 — placement. ACCEPT.** "I accept MONGO-RUNTIME-COMPOSE for M01-MONGO-01 only. K2 remains the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt." Compose is an auxiliary local MongoDB path. It does not replace K2.
+
+**R2 — volume and exposure. ACCEPT.** "I accept a Compose named volume and a 127.0.0.1 publish for M01-MONGO-01. That volume is not the DATA-A PVC, and the publish is not a ClusterIP." Loopback only. No public bind.
+
+**R3 — slice width. ACCEPT NARROW.** "I accept that M01-MONGO-01 does not create commercecore_dev, commercecloud_dev, their users, or the backup drill." No business collection and no NestJS driver. A synthetic `infra_probe` database is the only probe this slice may use, and only in a later implementation.
+
+**R4 — image line. ACCEPT CANDIDATE.** "I accept docker.io/library/mongo:8.0.38-noble as the candidate. The digest stays unresolved until real registry inspection." The tag is `docker.io/library/mongo:8.0.38-noble`. The manifest digest and the platform digest are not known. This task did not invent one and did not run Docker.
+
+## Proposal-time verdict
+
+This file began as a documentation proposal for one local MongoDB process. The paragraphs under "Preconditions" and "What the accepted records already say" are that proposal. The owner ratification section above is the later record. Where they disagree on R1–R4, the ratification wins, and only for `M01-MONGO-01`.
+
+[Change control](CHANGE_CONTROL.md) says a merge does not, by itself, ratify an undecided technical policy. PR #50 merged the proposal without accepting R1–R4. The sentences above are the separate owner message. This later pull request records them. It still does not start Compose.
 
 ## Preconditions checked for this proposal
 
@@ -42,7 +75,7 @@ Three owner sentences are still required before anyone can treat the placement, 
 | [D-05](../02-decisions/D-05-full-adr.md) | ACCEPTED policy only | durable local record before an external effect; Inbox/Outbox direction | `D-05-MONGO` PENDING. No schema and no physical write concern |
 | [Roadmap](../06-planning/ROADMAP.md) | accepted direction | K2, DATA-A, Mongo as a later M01 deliverable after the local Kubernetes health slice | the 2026-10-30 paragraph that says no chart exists is historical. It is not updated here |
 
-The owner queue of 2026-11-17 selects M1–M10 as technical direction for this unit, subject to this reconciliation. That queue is the source of the candidate below. It is not a new ADR.
+The owner queue of 2026-11-17 selects M1–M10 as technical direction for this unit, subject to this reconciliation. That queue is the source of the candidate below. It is not a new ADR. The Fit column is the reading at proposal time. The owner answers are in the ratification section.
 
 ## M1–M10 against the decision IDs
 
@@ -59,19 +92,17 @@ The owner queue of 2026-11-17 selects M1–M10 as technical direction for this u
 | M9 version and digest pin | M01-D05 patch and digest PENDING | R4. Method aligned. The digest is unresolved. No digest is written in this file |
 | M10 manual pull-request merge | ADR-M01-001 follow-up 4; change control | Aligned. This proposal does not authorize an automatic merge |
 
-## Unresolved ratification
+## Ratification prompts, now answered
 
-Reply with the sentence. A merge without the sentence leaves the row unresolved.
+The prompts below are the text PR #50 asked the owner to answer. The answers are the sentences in the owner ratification section. They are not repeated here as a second decision. The reject and widen options were not chosen.
 
-**R1 — placement.** Accept: "I accept MONGO-RUNTIME-COMPOSE for M01-MONGO-01 only. K2 remains the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt." Reject: "I reject Compose. The next Mongo unit stays the M01-D05 StatefulSet and PVC."
+**R1 — placement.** Accept: "I accept MONGO-RUNTIME-COMPOSE for M01-MONGO-01 only. K2 remains the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt." Reject: "I reject Compose. The next Mongo unit stays the M01-D05 StatefulSet and PVC." Answer: accept.
 
-**R2 — volume and exposure, only if R1 is accepted.** Accept: "I accept a Compose named volume and a `127.0.0.1` publish for M01-MONGO-01. That volume is not the DATA-A PVC, and the publish is not a ClusterIP." Rejecting R1 drops R2.
+**R2 — volume and exposure, only if R1 is accepted.** Accept: "I accept a Compose named volume and a `127.0.0.1` publish for M01-MONGO-01. That volume is not the DATA-A PVC, and the publish is not a ClusterIP." Rejecting R1 drops R2. Answer: accept.
 
-**R3 — slice width.** Accept the narrow slice: "I accept that M01-MONGO-01 does not create `commercecore_dev`, `commercecloud_dev`, their users, or the backup drill." Or widen it: "Add the two empty databases and least-privilege users from M01-D05 to this unit, still with no domain collection."
+**R3 — slice width.** Accept the narrow slice: "I accept that M01-MONGO-01 does not create `commercecore_dev`, `commercecloud_dev`, their users, or the backup drill." Or widen it: "Add the two empty databases and least-privilege users from M01-D05 to this unit, still with no domain collection." Answer: accept narrow.
 
-**R4 — image line.** Accept: "I accept `docker.io/library/mongo:8.0.38-noble` as the candidate. The digest stays unresolved until the registry inspect below." Or name another linux simple tag from the same library file, for example `8.3.17-noble`. Do not answer with `latest`, `8`, or `8.0`.
-
-Until R1, R3, and R4 have an explicit answer, and R2 as well when R1 is accepted, G3 stays `G3_PROPOSED`.
+**R4 — image line.** Accept: "I accept `docker.io/library/mongo:8.0.38-noble` as the candidate. The digest stays unresolved until the registry inspect below." Or name another linux simple tag from the same library file, for example `8.3.17-noble`. Do not answer with `latest`, `8`, or `8.0`. Answer: accept the candidate. The owner wrote "until real registry inspection." The digest is still unresolved.
 
 ## Image candidate and digest method
 
@@ -86,17 +117,21 @@ Observed on 2026-11-17 from the Docker Official Images library file `https://raw
 
 That GitCommit is the library commit that published the tag. It is not an OCI image digest. This task did not run a registry inspect and does not print a `sha256` digest.
 
-The same file, on the same read, points floating tag `8` at `8.3.17` and floating tag `latest` at `9.0.8`. Both are rejected for this slice. M01-D05 says an officially maintained MongoDB 8.x server and leaves the patch pending. `8.0.38-noble` stays on that 8.0 line and is a linux tag, so it does not select the Windows manifests that share `8.0.38`. `8.3.17-noble` is a newer minor. It is a different choice and needs R4 if the owner wants it.
+The same file, on the same read, points floating tag `8` at `8.3.17` and floating tag `latest` at `9.0.8`. Both are rejected for this slice. M01-D05 says an officially maintained MongoDB 8.x server and leaves the patch pending. `8.0.38-noble` stays on that 8.0 line and is a linux tag, so it does not select the Windows manifests that share `8.0.38`. `8.3.17-noble` is a newer minor. R4 did not choose it.
 
-At G4, and only after R4 names the tag, the implementer re-reads the library file. If the named simple tag is gone, stop. Do not substitute `mongo:8` or `mongo:latest`. Then run:
+The verification method, still not run by this task:
 
 ```text
 docker buildx imagetools inspect docker.io/library/mongo:8.0.38-noble
 ```
 
-Record the manifest-list digest and the platform digest for the host (`linux/amd64` on the usual WSL2 machine, `linux/arm64` if that is the host). Pin the Compose image as `docker.io/library/mongo:<tag>@sha256:<digest>` using the digest that command printed. Inside the container, `mongod --version` must report the same patch as the tag. This G3 did not run that command.
+Re-read the library file first. If the simple tag `8.0.38-noble` is gone, stop. Do not substitute `mongo:8`, `mongo:8.0`, or `mongo:latest`. Record the manifest-list digest and the platform digest for the host (`linux/amd64` on the usual WSL2 machine, `linux/arm64` if that is the host). Pin a later Compose image as `docker.io/library/mongo:8.0.38-noble@sha256:<digest>` using the digest that command printed. Inside the container, `mongod --version` must report the same patch as the tag. This ratification did not run that command and does not print a `sha256` value.
 
-## Proposed local shape, if R1–R4 are accepted
+### Do not start without the digest
+
+A missing digest is a hard stop. Do not add a Compose file, do not run `docker compose up`, and do not pull the image from this document. G4 stays ineffective until the ratification pull request is merged, the command above has been run, and its printed digest is pinned in a later reviewed change. Typing a digest from memory, from a floating tag, or from the library GitCommit does not pin the image. The library GitCommit `5fd7eb19024b73c9ec84644f1b23acbb33bee8b0` is still not an OCI digest.
+
+## Accepted local shape, not built
 
 One Compose project, one `mongod`, replica set name `rs0`, one member. Auth is required. The root username and password come from `.env.local`, which `.gitignore` already ignores through `.env.*`. The keys are `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD`. This document sets no value. No compose file may contain a password literal. No tracked example may contain a password.
 
@@ -126,14 +161,14 @@ Every row is TEST_PLANNED / NOT_RUN. Nothing below was executed.
 
 M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. This matrix does not retire them.
 
-## G4 request, not a grant
+## G4 request, conditional and not effective
 
 **Request ID:** `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01`  
-**Status:** `NOT_GRANTED`
+**Status:** `G4_CONDITIONAL_NOT_EFFECTIVE`
 
-A later grant has to name this request ID in its own owner message. Merge of this proposal is not that message. Dispatch of the implementation unit also waits for explicit answers to R1 and R4.
+The owner named this request ID on 2026-11-17 at 23:23 Europe/Amsterdam and granted it only after the three conditions in the owner ratification section. Merge of PR #50 is not that grant. Merge of the ratification pull request is condition 1 only. The implementation unit still waits for a real pinned digest and for a later handoff that checks all three conditions against merged `main`. This file does not dispatch that unit.
 
-If that grant is given, it covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push.
+When the three conditions are true, the grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA.
 
 ## Out of scope
 
