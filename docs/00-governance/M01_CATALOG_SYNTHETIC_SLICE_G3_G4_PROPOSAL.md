@@ -1,16 +1,21 @@
 # Proposal — local synthetic catalog slice G3/G4
 
 **Decision ID:** `PROP-2026-11-17-M01-CATALOG-SYNTHETIC-01`  
-**Status:** `PROPOSED_NOT_RATIFIED`  
+**Status:** `G3_ACCEPTED_2026-11-17` / `G4_NOT_GRANTED`  
 **Date:** 2026-11-17  
 **Accountable owner:** @sergio-tr  
 **Base reviewed:** `origin/main` `e67480c6372af4b106f06f7c8a91be70885f8eb2`  
 **Open pull requests at review:** none. **Running agent:** this documentation task only.  
-**This file grants nothing.** Merging it does not pass G3, grant G4, or authorize HTTP implementation.
+
+## Owner decision, 2026-11-17
+
+@sergio-tr accepted this contract as written: the four routes, `syntheticLabel`, `revision`, the 8-entry cap, and `409` on a duplicate create. Product, Variant, SKU, Offer, Listing, Quote, Money, tax, tenant, stock, and license stay unratified. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN.
+
+Code was offered only if it stayed inside the existing sequence. It does not. After M01-BOOTSTRAP-01, the ratified next implementation slice is **M01-K8S-01** (image build, Helm, local k3d/Traefik, stateless health). Mongo persistence is the slice after that. Catalog HTTP belongs with the later M03 gate, which is still outstanding for Product/Variant/Offer/Quote. **G4 for these routes is not granted.** This acceptance does not authorize an endpoint, a Kubernetes change, or a merge.
 
 ## Verdict
 
-The suggested create/list/get/update catalog HTTP slice is **not ratified**. A separate G3 and a separate G4 are required before any business or synthetic catalog endpoint is written. No exact proposal for these routes already exists on `main`.
+The assessment below is the evidence reviewed before the owner decision. The contract is now accepted. G4 remains withheld, so no endpoint is written from this file. No earlier document on `main` had already ratified these routes.
 
 `AUTH-2026-11-16-M01-BOOTSTRAP-01` passes G3 and grants G4 only for the nonfinancial Nx/NestJS foundation: `GET /health/live` and a pedagogical `ProductId`. It says later slices need their own G3/G4. The domain type states it is not a Product, Offer, Quote, or catalog model. [M01 admission matrix](M01_SCOPED_G3_G4_START_CONDITIONS.md) still lists M03 Catalog/Listing/Offer/Quote as **exact G3 outstanding**.
 
@@ -199,12 +204,4 @@ All of the following stay `TEST_PLANNED / NOT_RUN` until a scoped G4 exists and 
 
 ## Authorization still required
 
-Do not implement these routes until @sergio-tr records a new decision that:
-
-1. Passes G3 only for `PROP-2026-11-17-M01-CATALOG-SYNTHETIC-01`, or records a revised contract.
-2. Grants G4 for one new issue and one base SHA, with no automatic merge.
-3. Accepts `syntheticLabel`, `revision`, the four routes, the 8-entry cap, and the duplicate-create `409`, or substitutes different noncommercial fields.
-4. States that Product, Variant, SKU, Offer, Listing, Quote, Money, tax, tenant, stock, and license remain unratified.
-5. Leaves AUD-P0-01..04 OPEN/BLOCKING and the 148 experiments TEST_PLANNED/NOT_RUN.
-
-No Linear or GitHub issue currently covers this slice. SER-134 is the completed bootstrap and does not authorize it.
+G3 for this exact contract is accepted. G4 is not. The next planned implementation slice is M01-K8S-01, and it needs its own G4 before any cluster, image, or Helm work. These catalog routes stay unbuilt until that sequence reaches them and a later G4 names one issue and one base SHA. No Linear or GitHub issue currently covers this slice. SER-134 is the completed bootstrap and does not authorize it.
