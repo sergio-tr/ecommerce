@@ -4,7 +4,7 @@ CommerceCore is a reusable, headless, frontend-agnostic commerce engine. Commerc
 
 ## M01-BOOTSTRAP-01 workspace (2026-11-17)
 
-Owner authorization [AUTH-2026-11-16-M01-BOOTSTRAP-01](docs/00-governance/OWNER_G3_G4_AUTHORIZATION_2026-11-16.md) covers only the nonfinancial engineering foundation. Commands and limits are in [LOCAL_BOOTSTRAP.md](docs/development/LOCAL_BOOTSTRAP.md). The 2026-10-30 paragraphs below stay as the historical baseline, including their original "not authorized" wording. This note does not close financial audits, mark G5, or authorize Kubernetes, MongoDB, Stripe, or a merge.
+Owner authorization [AUTH-2026-11-16-M01-BOOTSTRAP-01](docs/00-governance/OWNER_G3_G4_AUTHORIZATION_2026-11-16.md) covers only the nonfinancial engineering foundation. Commands and limits are in [LOCAL_BOOTSTRAP.md](docs/development/LOCAL_BOOTSTRAP.md). A credential-free sandbox over the existing liveness route and pedagogical `ProductId` is in [LOCAL_REPRESENTATIVE_DEMO.md](docs/development/LOCAL_REPRESENTATIVE_DEMO.md). The 2026-10-30 paragraphs below stay as the historical baseline, including their original "not authorized" wording. This note does not close financial audits, mark G5, or authorize Kubernetes, MongoDB, Stripe, or a merge.
 
 ## Current M01 detailed design and bootstrap readiness (2026-10-30)
 

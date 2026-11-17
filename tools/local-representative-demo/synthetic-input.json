@@ -1,0 +1,17 @@
+{
+  "boundary": "sandbox",
+  "financial": false,
+  "note": "Deterministic synthetic input for the local representative demo. Not a product catalog, order, or payment.",
+  "cases": [
+    {
+      "name": "accepted",
+      "expect": "accepted",
+      "input": "prd_01ARZ3NDEKTSV4RRFFQ69G5FAV"
+    },
+    {
+      "name": "rejected",
+      "expect": "rejected",
+      "input": "prd_not-valid"
+    }
+  ]
+}

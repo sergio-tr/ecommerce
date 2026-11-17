@@ -53,3 +53,9 @@ jobs:
           mkdir -p tmp
           pnpm exec nx graph --file=tmp/nx-graph.json
           node tools/architecture/assert-project-graph.mjs tmp/nx-graph.json
+
+      - name: Local representative demo
+        env:
+          NX_DAEMON: 'false'
+          NX_NO_CLOUD: 'true'
+        run: pnpm run local-representative-demo
