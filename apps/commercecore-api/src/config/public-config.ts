@@ -4,9 +4,11 @@ export type CommerceCoreEnvironment = 'local' | 'test' | 'ci';
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 export type PublicConfigReason = 'missing' | 'invalid' | 'forbidden' | 'unsupported';
 
+export type ListenHost = '127.0.0.1' | '0.0.0.0';
+
 export interface PublicConfig {
   readonly environment: CommerceCoreEnvironment;
-  readonly host: '127.0.0.1';
+  readonly host: ListenHost;
   readonly port: number;
   readonly logLevel: LogLevel;
   readonly serviceVersion: string;
@@ -27,6 +29,7 @@ export class PublicConfigError extends Error {
 
 const ENVIRONMENTS: ReadonlySet<string> = new Set(['local', 'test', 'ci']);
 const LOG_LEVELS: ReadonlySet<string> = new Set(['debug', 'info', 'warn', 'error']);
+const LISTEN_HOSTS: ReadonlySet<string> = new Set(['127.0.0.1', '0.0.0.0']);
 const KNOWN_FIELDS: ReadonlySet<string> = new Set([
   'COMMERCECORE_ENV',
   'COMMERCECORE_HTTP_HOST',
@@ -68,10 +71,7 @@ export function loadPublicConfig(env: NodeJS.ProcessEnv): PublicConfig {
     throw new PublicConfigError('COMMERCECORE_ENV', 'invalid');
   }
 
-  const host = env.COMMERCECORE_HTTP_HOST ?? '127.0.0.1';
-  if (host !== '127.0.0.1') {
-    throw new PublicConfigError('COMMERCECORE_HTTP_HOST', 'invalid');
-  }
+  const host = listenHost(env);
 
   const port = parsePort(required(env, 'COMMERCECORE_HTTP_PORT'));
   const logLevel = env.COMMERCECORE_LOG_LEVEL ?? 'info';
@@ -86,11 +86,19 @@ export function loadPublicConfig(env: NodeJS.ProcessEnv): PublicConfig {
 
   return Object.freeze({
     environment: environment as CommerceCoreEnvironment,
-    host: '127.0.0.1',
+    host,
     port,
     logLevel: logLevel as LogLevel,
     serviceVersion,
   });
+}
+
+function listenHost(env: NodeJS.ProcessEnv): ListenHost {
+  const host = env.COMMERCECORE_HTTP_HOST ?? '127.0.0.1';
+  if (!LISTEN_HOSTS.has(host)) {
+    throw new PublicConfigError('COMMERCECORE_HTTP_HOST', 'invalid');
+  }
+  return host as ListenHost;
 }
 
 function required(env: NodeJS.ProcessEnv, field: string): string {

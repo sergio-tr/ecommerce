@@ -32,6 +32,20 @@ test('rejects missing public configuration without a credential', () => {
   );
 });
 
+test('accepts the loopback default and the explicit pod-network host', () => {
+  const loopback = loadPublicConfig({
+    ...validEnv,
+    COMMERCECORE_HTTP_HOST: '127.0.0.1',
+  });
+  assert.equal(loopback.host, '127.0.0.1');
+
+  const podNetwork = loadPublicConfig({
+    ...validEnv,
+    COMMERCECORE_HTTP_HOST: '0.0.0.0',
+  });
+  assert.equal(podNetwork.host, '0.0.0.0');
+});
+
 test('rejects invalid port and host without echoing the value', () => {
   assert.throws(
     () =>
@@ -48,16 +62,37 @@ test('rejects invalid port and host without echoing the value', () => {
     },
   );
 
+  for (const host of ['10.1.2.3', 'localhost', '::1']) {
+    assert.throws(
+      () =>
+        loadPublicConfig({
+          ...validEnv,
+          COMMERCECORE_HTTP_HOST: host,
+        }),
+      (error: unknown) => {
+        assert.ok(error instanceof PublicConfigError);
+        assert.equal(error.field, 'COMMERCECORE_HTTP_HOST');
+        assert.equal(error.reason, 'invalid');
+        assert.equal(error.message.includes(host), false);
+        return true;
+      },
+    );
+  }
+
   assert.throws(
     () =>
       loadPublicConfig({
         ...validEnv,
-        COMMERCECORE_HTTP_HOST: '0.0.0.0',
+        COMMERCECORE_HTTP_HOST: '',
       }),
     (error: unknown) => {
       assert.ok(error instanceof PublicConfigError);
+      assert.equal(error.field, 'COMMERCECORE_HTTP_HOST');
       assert.equal(error.reason, 'invalid');
-      assert.equal(error.message.includes('0.0.0.0'), false);
+      assert.equal(
+        error.message,
+        'Invalid public configuration for COMMERCECORE_HTTP_HOST: invalid',
+      );
       return true;
     },
   );

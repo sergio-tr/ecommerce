@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: commercecore-api
+  tag: local
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 3000
+
+env:
+  commerceCoreEnv: local
+  port: 3000
+  logLevel: info
+  serviceVersion: '0.0.0'
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
