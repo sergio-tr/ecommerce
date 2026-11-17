@@ -1,6 +1,6 @@
 # M01-K8S-01 — local image, Helm, and k3d smoke
 
-**G5:** `NOT_PASSED`. Chart lint, the chart contract, and an image build do not pass this gate. An owner WSL2 run that printed `k3d-smoke: PASS` used an uncommitted local edit. That log is not bound to a git commit, so it is not G5. The smoke stays `PENDING_OWNER_LOCAL` until `bash tools/k8s/k3d-smoke.sh` exits 0 and prints `k3d-smoke: PASS` on the exact commit that sets `enableServiceLinks: false`.
+**G5:** `WAIT_MERGE` (ready for owner review). Not `PASSED`. Chart lint, the chart contract, and an image build do not pass this gate. On 2026-11-17 at 21:37 Europe/Amsterdam the owner reported a WSL2 run of `bash tools/k8s/k3d-smoke.sh` on `affde2ce87e7569595598f7bc116819e65a67785`, the merge commit of [PR #47](https://github.com/sergio-tr/ecommerce/pull/47). The reported markers are `sha=` that commit, `exit=0`, and `k3d-smoke: PASS`. This repository does not contain `/tmp/k3d-smoke.log`. The report is owner-supplied, not an agent run and not an external attestation. An earlier `k3d-smoke: PASS` used an uncommitted local edit and is not this evidence. GitHub [#45](https://github.com/sergio-tr/ecommerce/issues/45) and Linear [SER-137](https://linear.app/sergiotr/issue/SER-137/m01-k8s-01-local-api-image-helm-and-k3d-smoke) stay open until this record is reviewed and merged and that merge is checked independently.
 
 This slice packages the existing `commercecore-api` process. It does not add a business route, MongoDB, Stripe, a public Ingress, or a registry push.
 
@@ -120,7 +120,7 @@ This is one server node, not the two-agent learning topology. It does not prove 
 
 ## Limitations
 
-- Remote CI builds the image and renders the chart. It does not run k3d. K8S G5 stays not passed until the owner runs the smoke and keeps the PASS output.
+- Remote CI builds the image and renders the chart. It does not run k3d. The image job's loopback `GET /health/live` is not the k3d smoke. K8S G5 stays `WAIT_MERGE` until this owner-reported record is reviewed and merged.
 - Docker Hub anonymous pulls can be rate-limited. The build does not log in with an owner account.
 - The image is not scanned by a registry and is not signed.
 - Resource numbers are the D04 placeholders, not a measured profile.
@@ -135,23 +135,35 @@ k3d-smoke: PENDING_OWNER_LOCAL
 reason: docker is not installed
 ```
 
-The owner later applied `enableServiceLinks: false` on a WSL2 working tree that was not committed, saw `GET /health/live` return `{"status":"live","service":"commercecore-api","version":"0.0.0","probe":"liveness","dependenciesChecked":false}`, and saw the script end with `k3d-smoke: PASS`. That log is owner-local evidence of the mitigation shape. It is not G5, because it is not bound to the corrected commit.
+The owner later applied `enableServiceLinks: false` on a WSL2 working tree that was not committed, saw `GET /health/live` return `{"status":"live","service":"commercecore-api","version":"0.0.0","probe":"liveness","dependenciesChecked":false}`, and saw the script end with `k3d-smoke: PASS`. That log is owner-local evidence of the mitigation shape. It is not the SHA-bound smoke below, because it is not bound to the corrected commit.
 
-K8S G5 stays `NOT_PASSED` / `PENDING_OWNER_LOCAL` until all of the following are true for one SHA:
+## SHA-bound owner smoke
 
-- that SHA is the commit that contains `enableServiceLinks: false` in `deploy/helm/commercecore-api/templates/deployment.yaml`
-- CI validation, chart, and image jobs are green on that same SHA
-- `bash tools/k8s/k3d-smoke.sh` on that same SHA prints `k3d-smoke: PASS` and exits 0
+Provenance: owner report in the queue thread on 2026-11-17 at 21:37 Europe/Amsterdam. The recording agent did not run the smoke, did not read `/tmp/k3d-smoke.log`, and does not attest the log bytes.
 
-Repeatable WSL2 capture, from an Ubuntu ext4 checkout:
+Command the owner reported, from a WSL2 checkout:
 
 ```bash
 git fetch origin
-git checkout <corrected-commit-sha>
-test "$(git rev-parse HEAD)" = "<corrected-commit-sha>"
+git checkout affde2ce87e7569595598f7bc116819e65a67785
 bash tools/k8s/k3d-smoke.sh > /tmp/k3d-smoke.log 2>&1
 status=$?
 printf 'sha=%s\nexit=%s\n' "$(git rev-parse HEAD)" "$status" | tee -a /tmp/k3d-smoke.log
+grep -E '^(sha=|exit=|k3d-smoke:)' /tmp/k3d-smoke.log
 ```
 
-Keep `/tmp/k3d-smoke.log`. Exit 2, or `k3d-smoke: PASS` on any other SHA, is not a pass. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. Catalog G4 stays not granted.
+Owner-reported markers:
+
+```text
+sha=affde2ce87e7569595598f7bc116819e65a67785
+exit=0
+k3d-smoke: PASS
+```
+
+Owner-reported summary, not a stored log: Docker built `commercecore-api:local`, k3d created cluster `commercecore-local`, the image was imported, namespace `commerce-apps` was created, Helm release `commercecore-api` was `STATUS: deployed`, the deployment rolled out, and `GET /health/live` returned `{"status":"live","service":"commercecore-api","version":"0.0.0","probe":"liveness","dependenciesChecked":false}`. The owner reported a legacy Docker builder deprecation warning and marked it non-blocking. This document does not reproduce that warning text.
+
+Cause, already fixed on that SHA: Kubernetes service links default to true. The Service name `commercecore-api` injects `COMMERCECORE_API_PORT`. `loadPublicConfig` rejects that key, `main.ts` emits `config.invalid`, and the pod CrashLoopBackOffs. The fix is `enableServiceLinks: false` on `spec.template.spec` in `deploy/helm/commercecore-api/templates/deployment.yaml`. `tools/k8s/assert-local-contract.spec.mjs` requires that rendered line once and rejects `--set enableServiceLinks=true`.
+
+Checks read from GitHub for that same SHA, not a new cluster run: [Actions run 44150937887](https://github.com/sergio-tr/ecommerce/actions/runs/44150937887) is a `push` to `main`, conclusion `success`, completed 2026-11-17 19:44 Europe/Amsterdam. Jobs `validate`, `chart`, and `image` each concluded `success`. The `image` job's loopback probe is not k3d.
+
+K8S G5 stays `WAIT_MERGE`. A pass still requires this documentary record to be reviewed and merged, and that merge SHA to be checked independently. Exit 2, or `k3d-smoke: PASS` on any other SHA, is not this evidence. The log file is not stored in the repository. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. Catalog G4 stays not granted. MongoDB is out of scope.
