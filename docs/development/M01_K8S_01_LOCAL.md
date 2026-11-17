@@ -1,6 +1,6 @@
 # M01-K8S-01 — local image, Helm, and k3d smoke
 
-**G5:** `NOT_PASSED`. A chart render and a unit test do not pass this gate. The k3d smoke below is `PENDING_OWNER_LOCAL` until it is run on a machine with Docker and the printed result is `k3d-smoke: PASS`.
+**G5:** `NOT_PASSED`. Chart lint, the chart contract, and an image build do not pass this gate. An owner WSL2 run that printed `k3d-smoke: PASS` used an uncommitted local edit. That log is not bound to a git commit, so it is not G5. The smoke stays `PENDING_OWNER_LOCAL` until `bash tools/k8s/k3d-smoke.sh` exits 0 and prints `k3d-smoke: PASS` on the exact commit that sets `enableServiceLinks: false`.
 
 This slice packages the existing `commercecore-api` process. It does not add a business route, MongoDB, Stripe, a public Ingress, or a registry push.
 
@@ -12,11 +12,20 @@ This slice packages the existing `commercecore-api` process. It does not add a b
 | Allowed hosts | `127.0.0.1` and `0.0.0.0` only |
 | Local Deployment | Sets `COMMERCECORE_HTTP_HOST=0.0.0.0` so probes can use the pod IP |
 | Service | `ClusterIP` port 3000. No NodePort, LoadBalancer, hostPort, or hostNetwork |
+| Service links | `enableServiceLinks: false` on the pod. The Service must not inject `COMMERCECORE_API_*` |
 | Reach from the workstation | `kubectl port-forward` on `127.0.0.1` only |
 | Image | Non-root `node` user, uid 1000, read-only root filesystem, `/tmp` emptyDir |
 | Registry | Build locally. `imagePullPolicy: Never`. Do not `docker push` |
 
 `0.0.0.0` is every interface in the pod network namespace. Do not set it in `.env.local`, and do not publish port 3000 on a host address other than loopback.
+
+## Service links
+
+Kubernetes defaults `enableServiceLinks` to true. The Service is named `commercecore-api`, so the kubelet injects Docker-link variables into the container. The first key the process sees is `COMMERCECORE_API_PORT` (`tcp://<cluster-ip>:3000`), together with the other `COMMERCECORE_API_*` siblings.
+
+`loadPublicConfig` accepts only `COMMERCECORE_ENV`, `COMMERCECORE_HTTP_HOST`, `COMMERCECORE_HTTP_PORT`, `COMMERCECORE_LOG_LEVEL`, and `COMMERCECORE_SERVICE_VERSION`. Any other `COMMERCECORE_*` key throws `PublicConfigError` with reason `unsupported`. `main.ts` writes stderr event `config.invalid` and exits 1. The pod enters CrashLoopBackOff. `helm upgrade --install --wait --timeout 180s` then fails.
+
+The mitigation is `enableServiceLinks: false` on `spec.template.spec` of the Deployment. The values schema has `additionalProperties: false`, so `--set enableServiceLinks=true` is rejected and the flag cannot be turned back on through values. The strict env validator is unchanged. Host-local processes still default to `127.0.0.1`. Only the chart sets `COMMERCECORE_HTTP_HOST=0.0.0.0`. The Service stays `ClusterIP`.
 
 ## Prerequisites (WSL2)
 
@@ -63,7 +72,7 @@ helm lint deploy/helm/commercecore-api
 pnpm run k8s:check
 ```
 
-`pnpm run k8s:check` renders the chart and rejects `NodePort`, `LoadBalancer`, `imagePullPolicy=Always`, `replicaCount=2`, and an ingress value. Expected result: the Node test reporter shows three passing tests.
+`pnpm run k8s:check` renders the chart and rejects `NodePort`, `LoadBalancer`, `imagePullPolicy=Always`, `replicaCount=2`, an ingress value, and `enableServiceLinks=true`. Expected result: the Node test reporter shows four passing tests. The default render includes `enableServiceLinks: false` once.
 
 ## Image build
 
@@ -117,13 +126,32 @@ This is one server node, not the two-agent learning topology. It does not prove 
 - Resource numbers are the D04 placeholders, not a measured profile.
 - `/health/live` does not mean the process can serve a future business route.
 
-## Evidence from the implementation agent
+## Evidence
 
-Recorded on the agent that opened the draft pull request. Docker and k3d were not installed, so the smoke was not executed.
+The first implementation agent had no Docker daemon. Its smoke was:
 
 ```text
 k3d-smoke: PENDING_OWNER_LOCAL
 reason: docker is not installed
 ```
 
-Helm 4.3.1 `helm lint` and `pnpm run k8s:check` were run on that agent. Their results belong in the pull request test notes. They are not K8S G5.
+The owner later applied `enableServiceLinks: false` on a WSL2 working tree that was not committed, saw `GET /health/live` return `{"status":"live","service":"commercecore-api","version":"0.0.0","probe":"liveness","dependenciesChecked":false}`, and saw the script end with `k3d-smoke: PASS`. That log is owner-local evidence of the mitigation shape. It is not G5, because it is not bound to the corrected commit.
+
+K8S G5 stays `NOT_PASSED` / `PENDING_OWNER_LOCAL` until all of the following are true for one SHA:
+
+- that SHA is the commit that contains `enableServiceLinks: false` in `deploy/helm/commercecore-api/templates/deployment.yaml`
+- CI validation, chart, and image jobs are green on that same SHA
+- `bash tools/k8s/k3d-smoke.sh` on that same SHA prints `k3d-smoke: PASS` and exits 0
+
+Repeatable WSL2 capture, from an Ubuntu ext4 checkout:
+
+```bash
+git fetch origin
+git checkout <corrected-commit-sha>
+test "$(git rev-parse HEAD)" = "<corrected-commit-sha>"
+bash tools/k8s/k3d-smoke.sh > /tmp/k3d-smoke.log 2>&1
+status=$?
+printf 'sha=%s\nexit=%s\n' "$(git rev-parse HEAD)" "$status" | tee -a /tmp/k3d-smoke.log
+```
+
+Keep `/tmp/k3d-smoke.log`. Exit 2, or `k3d-smoke: PASS` on any other SHA, is not a pass. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. Catalog G4 stays not granted.
