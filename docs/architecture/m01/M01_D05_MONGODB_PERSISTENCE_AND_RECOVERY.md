@@ -5,7 +5,7 @@
 **Owner:** @sergio-tr. **Milestone:** M01, with D-05-MONGO/M00.1 and M00.2 still independently blocking financial/stock effects.
 **Implementation:** NOT AUTHORIZED / NOT PERFORMED.
 
-> **2026-11-17 scoped proposal, not a replacement:** [M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) (`PROP-2026-11-17-M01-MONGO-INFRA-01`, Linear SER-138) asks the owner to ratify a Compose placement for one local replica-set member. The StatefulSet, PVC, and two database users in this file stay as written. No digest is selected here. G4 is not granted. `D-05-MONGO` stays PENDING.
+> **2026-11-17 scoped ratification, not a replacement:** [M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) (`PROP-2026-11-17-M01-MONGO-INFRA-01`, Linear SER-138) accepts Compose for one local replica-set member only. The StatefulSet, PVC, `commercecore_dev`, `commercecloud_dev`, and their users in this file stay specified and unbuilt. No digest is selected here. G4 is conditional and not effective. `D-05-MONGO` stays PENDING.
 
 ## Objective and hard exclusions
 

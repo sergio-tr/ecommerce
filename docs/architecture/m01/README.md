@@ -39,7 +39,7 @@ No further architecture-choice approval is needed for K2/NET-A/DATA-A/STRIPE-A. 
 
 ## Later scoped proposal
 
-[M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) is `G3_PROPOSED` and `G4_NOT_GRANTED`. It does not replace M01-D05.
+[M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) is `G3_ACCEPTED_2026-11-17` for local Compose infrastructure only. G4 is conditional and not effective. It does not replace M01-D05. The StatefulSet and PVC stay specified and unbuilt.
 
 ## Merge safety
 
