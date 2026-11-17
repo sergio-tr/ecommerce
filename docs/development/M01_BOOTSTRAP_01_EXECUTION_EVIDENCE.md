@@ -1,6 +1,6 @@
 # M01-BOOTSTRAP-01 local execution evidence
 
-**Post-merge recheck:** the section headed "Post-merge recheck on merged main" was executed on merged `main` `8ea4fda52cb4596393a7352e7c4ec23517acc22a`. It does not mark G5 passed. AC07 and AC13 were pending owner review in that section. The 2026-11-17 reconciliation at the end records the owner's bounded acceptance of those two criteria. AC09 merge-SHA CI stays absent, so M01 G5 stays not passed.
+**Current result:** M01-BOOTSTRAP-01 nonfinancial G5 is **PASSED** for `main` `88b9951dbdbbbf09ddf341ad80eeb359a35133cc`. The evidence is push run [44058469285](https://github.com/sergio-tr/ecommerce/actions/runs/44058469285), recorded in the last section. AC07 stays the owner-accepted mocked CommerceCloud fixture. AC13 stays the owner-accepted `Cursor Agent` authorship. Financial G5 is separate and is not passed. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 catalog experiments stay TEST_PLANNED/NOT_RUN. Earlier sections keep their original observations, including the time when a main push run was absent.
 
 **Historical pre-merge record:** the status line and acceptance table below were written before merge. They are not the post-merge execution. That record did not itself change audit or historical test states.
 
@@ -175,3 +175,65 @@ Task `SER-M01-AC09-MAIN-CI-G5-CLOSURE-27`. This section does not pass M01 G5. It
 **AC09 result for this change:** not met. A green `pull_request` run of the draft is evidence for the draft head only. AC09 for main becomes checkable only after the owner merges and the `push` run on that new merge commit succeeds.
 
 **M01 G5 result:** `NOT_PASSED`. The blocker is the absent successful `push` run on a main SHA that contains this trigger. Financial G5 stays separate.
+
+## Main push verification 2026-11-17
+
+Task `SER-M01-VERIFY-MAIN-PUSH-AC09-G5-28`. This section records the push run that the previous section said was still required. It passes M01-BOOTSTRAP-01 nonfinancial G5 only. It does not edit the four AUD-P0 rows, the 148-test catalog, or the decision and capability registers. AC07 and AC13 stay the owner-accepted bounded exceptions recorded above.
+
+**Agents.** One cloud agent was `RUNNING` when this check started: this verification, `bc-9967fe75-9171-57f2-bd45-c954b1d3a8fb`. The other listed agents on this repository were `IDLE`. No second agent was started.
+
+**Run.** [44058469285](https://github.com/sergio-tr/ecommerce/actions/runs/44058469285)
+
+| Field | Value |
+|---|---|
+| Workflow | `.github/workflows/pr-validation.yml` (`pr-validation`) |
+| Event | `push` |
+| Branch | `main` |
+| `head_sha` | `88b9951dbdbbbf09ddf341ad80eeb359a35133cc` |
+| Status | `completed` |
+| Conclusion | `success` |
+| Run number | 7 |
+| Attempt | 1 |
+| Created | 2026-11-17T09:45:21Z (10:45 Europe/Amsterdam) |
+| Updated | 2026-11-17T09:46:00Z (10:46 Europe/Amsterdam) |
+| Display title | `fix(ci): validate pushes to main` |
+| Merge | PR #42, merged at 2026-11-17T09:45:18Z by `sergio-tr` |
+| Job | `validate` [133953807663](https://github.com/sergio-tr/ecommerce/actions/runs/44058469285/job/133953807663) |
+| Job conclusion | `success` |
+| Runner | `ubuntu-24.04` |
+| Token | `Contents: read`, `Metadata: read` |
+
+`GET /repos/sergio-tr/ecommerce/actions/workflows/pr-validation.yml/runs?event=push&head_sha=88b9951dbdbbbf09ddf341ad80eeb359a35133cc` returned `total_count: 1`. The legacy combined commit status for that SHA is `state: pending` with `statuses: []` and `total_count: 0`. That empty status list does not describe this run. `GET /repos/sergio-tr/ecommerce/commits/88b9951dbdbbbf09ddf341ad80eeb359a35133cc/check-runs` returned one check run, `validate`, `completed` / `success`, with the same `head_sha`.
+
+Checkout fetched `88b9951dbdbbbf09ddf341ad80eeb359a35133cc` and `git log -1` printed the same SHA. The format step printed `nx-format-range event=push base=67e035e207fb472ef68af00bcb70bb798e748319 head=88b9951dbdbbbf09ddf341ad80eeb359a35133cc files=7`. The toolchain step printed `commit=88b9951dbdbbbf09ddf341ad80eeb359a35133cc`, Node `v24.22.2`, and pnpm `11.10.0`. Nx printed `Local: v23.3.1`.
+
+Job steps, all `completed` / `success`: Set up job, Checkout, Resolve Nx format range, Setup pnpm, Setup Node.js, Show toolchain, Frozen install, Quality targets, Local representative demo, Post Setup Node.js, Post Setup pnpm, Post Checkout, Complete job.
+
+Quality targets ran with `NX_DAEMON=false` and `NX_NO_CLOUD=true`. The log shows lint, typecheck, test, build, and secret-scan for `commercecore-catalog-domain`, `commercecore-api`, and `ecommerce`, plus the two compile-test dependencies. Domain tests: 4 passed, 0 failed. API tests: 8 passed, 0 failed, including `GET /health/live returns HTTP 200 with a nonsecret liveness payload` and the missing-configuration and secret-like rejection tests. Format-range script tests: 6 passed, 0 failed. `secret-scan: no secrets found`. `nx format:check` was invoked with the two 40-character SHAs above and printed no file list; the shell is `set -euo pipefail`, and the architecture step started after it. Architecture printed `NestJS fixture exit=1`, `CommerceCloud fixture exit=1`, and `restored domain lint passed`. The graph step printed `project-graph: acyclic projects=commercecore-api,commercecore-catalog-domain,ecommerce`, both product projects present, and no catalog-domain project dependencies. The local representative demo printed 1 passed, 0 failed. Frozen install printed `Lockfile is up to date` and finished on pnpm `11.10.0`. Cache hits for the Nx targets were 0.
+
+`libs/` and `apps/` are unchanged from implementation merge `8ea4fda52cb4596393a7352e7c4ec23517acc22a` to this SHA. The earlier domain-dist search for Nest, Stripe, MongoDB, Mongoose, and Kubernetes strings therefore still describes these sources. This log does not repeat that search and does not byte-compare `dist`.
+
+No `Co-authored-by` trailer is present from `5aba94f18fa130530042b7e48f0b335a88f52bd2` through this SHA. Implementation commits `a8f17f1d45f40ec23786fa04160915299fd02fca`, `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1`, `54324a77ee6a29e161bcb2ef8f196e7d2d010016`, and `083e5a3c0722256472fe307a5c230be22b2b3fa0` remain authored by `Cursor Agent <cursoragent@cursor.com>`.
+
+### Acceptance on this SHA
+
+| ID | Result | Bound |
+|---|---|---|
+| AC01 | Passed in the push job | Frozen install succeeded and reported the lockfile up to date. The earlier SHA-256 measurement was not reprinted. |
+| AC02 | Passed in the push job | Acyclic graph, both product projects present, catalog domain dependencies empty. |
+| AC03 | Passed for build and typecheck | Domain and API build and typecheck succeeded. Domain sources are the `8ea4fda` sources. |
+| AC04 | Passed in the API tests | `GET /health/live` HTTP 200. |
+| AC05 | Passed in the domain tests | 4 passed, including invalid ids rejected without echoing the input. |
+| AC06 | Passed in the architecture step | NestJS fixture exit 1, then restored domain lint. |
+| AC07 | Owner-accepted bounded exception, reobserved | Mocked CommerceCloud fixture exit 1. No generated CommerceCloud project. |
+| AC08 | Passed in the push job | Lint, typecheck, test, build, secret-scan, and `format:check` on the explicit range. |
+| AC09 | Passed for this SHA only | Push event, exact `head_sha`, printed commit and versions, checks executed. `8ea4fda`, `7592399`, and `67e035e` still have no push run. |
+| AC10 | Passed in the API tests | Missing configuration and secret-like values rejected. |
+| AC11 | Passed in secret-scan | `secret-scan: no secrets found`. No image is in scope. |
+| AC12 | Passed for the diff after `8ea4fda` | Changes are the workflow, format-range tool, local demo, package script, and these docs. No Helm, Kubernetes, MongoDB, Stripe, or eGame product code. |
+| AC13 | Owner-accepted genuine authorship | `Cursor Agent` remains the implementation author. Impersonation of `@sergio-tr` was not done. |
+| AC14 | Passed on the clean Actions runner | Frozen lockfile and the same checks. `dist` was not byte-compared. |
+
+**M01 G5 result:** `PASSED` for M01-BOOTSTRAP-01 nonfinancial foundation only. Financial G5 stays `NOT_RUN`. AUD-P0-01 through AUD-P0-04 stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. GitHub #25 and Linear SER-134 were already closed and Done; this section does not move them.
+
+**Owner action:** review the documentary draft that contains this section. Merge it only to accept the record. Do not treat the merge as financial G5, and do not start provider, Stripe, MongoDB, or production work from it.

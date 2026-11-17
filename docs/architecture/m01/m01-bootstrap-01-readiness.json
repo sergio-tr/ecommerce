@@ -4,11 +4,11 @@
   "owner": "sergio-tr",
   "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
   "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
-  "status": "MERGED_G5_NOT_PASSED",
+  "status": "MERGED_M01_BOOTSTRAP_G5_PASSED",
   "g3State": "PASSED_SCOPE_M01_BOOTSTRAP_01_ONLY; FINANCIAL_AND_FUTURE_CONTEXT_G3_DEFERRED",
   "g4Authorization": "GRANTED_BY_OWNER_2026-11-16_M01_BOOTSTRAP_01_ONLY",
   "implementation": "MERGED_PR_39",
-  "g5Evidence": "NOT_PASSED_AC09_MAIN_PUSH_RUN_ABSENT",
+  "g5Evidence": "PASSED_NONFINANCIAL_PUSH_RUN_44058469285",
   "canonicalIssueId": "SER-134",
   "branch": "feature/m01-bootstrap-workspace",
   "dependencies": [
@@ -103,8 +103,8 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "M01 G5 stays NOT_PASSED. AC07 and AC13 remain owner-accepted bounded exceptions from 2026-11-17. AC09 is not met: main 67e035e207fb472ef68af00bcb70bb798e748319 has no Actions run, and adding a push trigger does not create a run for that SHA. After the owner merges the draft CI correction, AC09 needs a successful push run on that new merge commit. Financial P0 #1-#4 stay OPEN/BLOCKING.",
-  "executionStatus": "AC09_PUSH_FIX_PROPOSED_G5_NOT_PASSED",
+  "nextAction": "Review the documentary draft that records this result. M01-BOOTSTRAP-01 nonfinancial G5 is PASSED on push run 44058469285 for 88b9951dbdbbbf09ddf341ad80eeb359a35133cc. Merge that draft only to accept the record. Financial P0 #1-#4 stay OPEN/BLOCKING. Do not start a provider, Stripe, MongoDB, or financial action from this result.",
+  "executionStatus": "M01_BOOTSTRAP_G5_PASSED_FINANCIAL_G5_NOT_RUN",
   "postMergeVerification": {
     "task": "SER-134-M01-POSTMERGE-G5-EVIDENCE-25",
     "observedAt": "2026-11-17T08:46:45Z",
@@ -156,6 +156,55 @@
     "evidence": "docs/development/M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md",
     "ciCorrection": "push to main added beside pull_request; format range is event-specific; G5 remains pending until a later main push run succeeds"
   },
+  "mainPushVerification": {
+    "task": "SER-M01-VERIFY-MAIN-PUSH-AC09-G5-28",
+    "observedAt": "2026-11-17T09:57:00Z",
+    "mainSha": "88b9951dbdbbbf09ddf341ad80eeb359a35133cc",
+    "mergePullRequest": 42,
+    "g5": "PASSED_M01_BOOTSTRAP_01_NONFINANCIAL_ONLY",
+    "financialG5": "SEPARATE_NOT_RUN",
+    "ac07": "OWNER_ACCEPTED_BOUNDED_EXCEPTION",
+    "ac09": "PASSED_FOR_THIS_SHA_ONLY",
+    "ac13": "OWNER_ACCEPTED_GENUINE_CURSOR_AGENT_AUTHORSHIP",
+    "workflowRun": {
+      "id": 44058469285,
+      "url": "https://github.com/sergio-tr/ecommerce/actions/runs/44058469285",
+      "workflow": ".github/workflows/pr-validation.yml",
+      "event": "push",
+      "headBranch": "main",
+      "headSha": "88b9951dbdbbbf09ddf341ad80eeb359a35133cc",
+      "status": "completed",
+      "conclusion": "success",
+      "jobId": 133953807663,
+      "jobName": "validate",
+      "jobUrl": "https://github.com/sergio-tr/ecommerce/actions/runs/44058469285/job/133953807663",
+      "formatBase": "67e035e207fb472ef68af00bcb70bb798e748319",
+      "formatHead": "88b9951dbdbbbf09ddf341ad80eeb359a35133cc",
+      "formatFiles": 7,
+      "node": "v24.22.2",
+      "pnpm": "11.10.0",
+      "nx": "v23.3.1"
+    },
+    "combinedCommitStatus": {
+      "state": "pending",
+      "totalCount": 0,
+      "note": "The legacy combined status has no statuses. It does not describe the Actions run."
+    },
+    "checkRuns": [
+      {
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "headSha": "88b9951dbdbbbf09ddf341ad80eeb359a35133cc"
+      }
+    ],
+    "olderMainShasWithoutThisPushRun": [
+      "8ea4fda52cb4596393a7352e7c4ec23517acc22a",
+      "7592399b940deaa5d50e6f1f69cd07b245961013",
+      "67e035e207fb472ef68af00bcb70bb798e748319"
+    ],
+    "evidence": "docs/development/M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md"
+  },
   "githubIssueNumber": 25,
   "designGate": {
     "linearIssue": "SER-135",
@@ -176,7 +225,8 @@
     "OWNER_G3_G4_AUTHORIZATION_2026-11-16",
     "PR_37_OWNER_GATES_MERGED",
     "PR_39_MERGED_POSTMERGE_RECHECK_G5_NOT_PASSED",
-    "PR_41_MERGED_67e035e_NO_PUSH_RUN"
+    "PR_41_MERGED_67e035e_NO_PUSH_RUN",
+    "PR_42_MERGED_88b9951_PUSH_RUN_44058469285_SUCCESS"
   ],
   "preflightEvidence": {
     "date": "2026-10-30",

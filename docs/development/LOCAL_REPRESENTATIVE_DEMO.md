@@ -2,7 +2,7 @@
 
 Sandbox command for the behaviors already accepted in M01-BOOTSTRAP-01: pedagogical `ProductId` validation and `GET /health/live`. It uses deterministic synthetic input. It does not call Stripe or any other provider, does not open MongoDB, does not reserve inventory, and does not accept a product, offer, quote, order, or payment model.
 
-M01 G5 stays **not passed**. AC09 still has no GitHub Actions run on the merge SHA. AC07 and AC13 are owner-accepted bounded exceptions recorded in [M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md](M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md). Financial G5 is a separate gate. The four AUD-P0 findings stay OPEN/BLOCKING, and the 148 original experiments stay TEST_PLANNED/NOT_RUN.
+M01-BOOTSTRAP-01 nonfinancial G5 is passed for `main` `88b9951dbdbbbf09ddf341ad80eeb359a35133cc` by push run [44058469285](https://github.com/sergio-tr/ecommerce/actions/runs/44058469285). AC07 and AC13 remain the owner-accepted bounded exceptions in [M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md](M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md). Financial G5 stays a separate gate. The four AUD-P0 findings stay OPEN/BLOCKING, and the 148 original experiments stay TEST_PLANNED/NOT_RUN.
 
 No credentials, `.env` file, or external account is required. The process binds `127.0.0.1` only.
 
@@ -68,4 +68,4 @@ pnpm run local-representative-demo
 
 That runs `node --test tools/local-representative-demo/run.spec.mjs`, which executes `run.mjs` and compares the output above. Node's test reporter adds its own summary lines. The assertions inside the test are the exact demo lines, empty stderr, exit 0, and the absence of the rejected input.
 
-The pull-request workflow runs this command only after the existing quality step, still with `permissions: contents: read` and only on `pull_request`. That future pull-request run is not AC09 for an already merged SHA.
+`pr-validation` runs this command after the quality step on `pull_request` and on `push` to `main`, with `permissions: contents: read`. The AC09 record for `88b9951dbdbbbf09ddf341ad80eeb359a35133cc` is the push run linked above. A later pull-request run does not replace that record.
