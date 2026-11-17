@@ -1,5 +1,9 @@
 # M01-BOOTSTRAP-01 local execution evidence
 
+**Post-merge recheck:** the section at the end was executed on merged `main` `8ea4fda52cb4596393a7352e7c4ec23517acc22a`. It does not mark G5 passed. AC07 and AC13 stay pending owner review.
+
+**Historical pre-merge record:** the status line and acceptance table below were written before merge. They are not the post-merge execution. That record did not itself change audit or historical test states.
+
 **Status:** local commands and the pull request workflow below were executed. This file does not mark G5, does not change `m01-bootstrap-01-readiness.json`, and does not change audit or historical test states.
 
 **Base:** `origin/main` `5aba94f18fa130530042b7e48f0b335a88f52bd2` after `git fetch origin main`.
@@ -50,3 +54,80 @@ error  Pure catalog domain cannot import "../../../../../../tools/architecture-f
 ```
 
 Both fixtures were deleted. `git status` for `libs/commercecore/catalog/domain/src/__negative__` was empty afterwards.
+
+## Post-merge recheck on merged main
+
+This section is a separate execution from the historical table above. Merge of PR #39 and the older green Actions runs are not treated as this run. G5 is **not** passed. GitHub #25 was left open. Linear SER-134 was already Done and was not moved. AUD-P0-01 through AUD-P0-04 stay open. The 148-test catalog and CAP dispositions were not edited. `ownerAuthorization`, DR01–DR10, `designGate`, and `preflightEvidence` in the readiness JSON were left as previously written. Current traceability fields (`status`, `implementation`, `g5Evidence`, `branch`, `executionStatus`, `nextAction`) were updated because they still said the work had not started.
+
+**Main SHA:** `8ea4fda52cb4596393a7352e7c4ec23517acc22a` (`git rev-parse origin/main` after `git fetch origin main`).
+
+**Parents:** `5aba94f18fa130530042b7e48f0b335a88f52bd2` and `083e5a3c0722256472fe307a5c230be22b2b3fa0`.
+
+**Tree:** `efcbf913230964c221385fa2f44c57ba20db75c3`, equal to the tree of PR head `083e5a3c0722256472fe307a5c230be22b2b3fa0`.
+
+**Checkout:** clean detached worktree at that SHA. Commands used Node `v24.22.2` at `/home/ubuntu/.nvm/versions/node/v24.22.2/bin/node` and pnpm `11.10.0`. An earlier install in the same directory had used Node `v22.23.4`; `node_modules` was deleted and the install below was repeated. Only the Node 24.22.2 install is evidence.
+
+**Live probe time:** HTTP `Date: Tue, 17 Nov 2026 08:46:45 GMT` (09:46 Europe/Amsterdam).
+
+**Actions on this SHA:** `gh run list --repo sergio-tr/ecommerce --commit 8ea4fda52cb4596393a7352e7c4ec23517acc22a` returned no runs. `.github/workflows/pr-validation.yml` triggers on `pull_request` only. There is no post-merge workflow run to cite.
+
+### Commands and exit codes
+
+| Command | Exit |
+|---|---|
+| `pnpm install --frozen-lockfile` after removing `node_modules` | 0 |
+| `pnpm exec nx run-many -t lint typecheck test build secret-scan --parallel=3 --output-style=static` with `NX_DAEMON=false` and `NX_NO_CLOUD=true` | 0 |
+| `pnpm exec nx format:check --base=5aba94f18fa130530042b7e48f0b335a88f52bd2` | 0, no stdout |
+| `pnpm exec nx run commercecore-catalog-domain:architecture --output-style=static` | 0 |
+| `pnpm exec nx graph --file=tmp/nx-graph.json` | 0 |
+| `node tools/architecture/assert-project-graph.mjs tmp/nx-graph.json` | 0 |
+| `pnpm exec nx run ecommerce:secret-scan --skip-nx-cache --output-style=static` | 0 |
+| `node dist/apps/commercecore-api/main.js` with no `COMMERCECORE_*` variables | 1 |
+| same binary with `COMMERCECORE_ENV=test` and a secret-shaped `COMMERCECORE_HTTP_PORT` | 1 |
+| `curl` `GET /health/live` on `127.0.0.1:39741` | 0, HTTP 200 |
+
+Lockfile SHA-256 before and after the frozen install: `8f7bd28b55d174c1f67df5d99d47b36eb87ca063c6ccf8b1509edac75beb2ffa`. TypeScript `5.9.3`. Local Nx `v23.3.1`.
+
+Quality run: domain tests 4 passed, API tests 8 passed, 0 failed. Architecture stdout: `NestJS fixture exit=1`, `CommerceCloud fixture exit=1`, then restored domain lint passed. `git status --porcelain` for `libs/commercecore/catalog/domain/src/__negative__` was empty. This run did not copy a fresh ESLint excerpt; the script exits non-zero unless the NestJS output contains `@nestjs/common` and the CommerceCloud output contains `commercecloud`.
+
+Graph stdout: `project-graph: acyclic projects=commercecore-api,commercecore-catalog-domain,ecommerce`; catalog domain has no project dependencies. `libs/commercecore/catalog/domain/package.json` is absent. A search of `dist/libs/commercecore/catalog/domain` for `@nestjs`, Stripe, MongoDB, Mongoose, and Kubernetes strings found none.
+
+`GET /health/live` body: `{"status":"live","service":"commercecore-api","version":"0.0.0","probe":"liveness","dependenciesChecked":false}`. No `/health/ready` route is defined. Missing configuration stderr was `field=COMMERCECORE_ENV`, `reason=missing`, and stdout was empty. The forbidden-port process exited 1 with `field=COMMERCECORE_HTTP_PORT` and `reason=forbidden`; the rejected value was not in stderr. Uncached secret scan printed `secret-scan: no secrets found`. No container image was built. The parallel quality log did not show that print because Nx grouped the cached-capable target; the uncached rerun is the captured line. Both exits were 0.
+
+Diff `5aba94f18fa130530042b7e48f0b335a88f52bd2..8ea4fda52cb4596393a7352e7c4ec23517acc22a` is 43 paths. Name search hits only `tools/architecture-fixtures/commercecloud-private-adapter.ts` and `tools/security/scan-secrets.mjs`. The adapter file states it is a mocked fixture and not an application. Content hits in apps, libs, tools, and package manifests are the NestJS API, a MongoDB URL rejection check, and tests that forbid those imports in the domain. Direct dependencies are NestJS core 11.2.8, `reflect-metadata` 0.2.2, and `rxjs` 7.8.2. No Helm chart, Kubernetes manifest, Stripe SDK, MongoDB driver, or eGame app was added.
+
+### Acceptance map
+
+| ID | Post-merge result | Evidence | Limitation |
+|---|---|---|---|
+| AC01 | Observed pass | Frozen install exit 0 on `8ea4fda`; lock hash unchanged; Node `v24.22.2`, pnpm `11.10.0` | No Actions run on this SHA |
+| AC02 | Observed pass | Graph and `assert-project-graph.mjs` exit 0; one app, domain lib, acyclic, domain dependencies empty | Root `ecommerce` project is tooling, not a second app |
+| AC03 | Observed pass | Build and typecheck inside the quality exit 0; domain has no manifest; compiled domain has no NestJS, Stripe, or MongoDB string | Search was a string scan of `dist`, not a dependency graph of unused packages beyond the manifest |
+| AC04 | Observed pass | API test plus direct `curl` HTTP 200 and the liveness JSON above | Port 39741 was local only |
+| AC05 | Observed pass | 4 domain tests passed, including invalid ids rejected without echoing the input | Pedagogical `ProductId` only |
+| AC06 | Observed pass | Architecture script: NestJS fixture exit 1, then restored lint, negative directory clean | ESLint text was not re-copied in this run |
+| AC07 | Pending owner review | Same script: CommerceCloud fixture exit 1, then removed | Fixture imports the mocked adapter. The project graph has no CommerceCloud project. This does not prove a future CommerceCloud boundary |
+| AC08 | Observed pass | Lint, typecheck, test, build, secret-scan exit 0; `format:check` against `5aba94f` exit 0 | `format:check` printed nothing |
+| AC09 | Not re-executed on the merge SHA | No workflow run for `8ea4fda` | Older PR runs are listed below and are not a post-merge pass. The green job checked out `d1063269`, not `8ea4fda` |
+| AC10 | Observed pass | Missing config exit 1; secret-shaped port exit 1; value absent from stderr | Direct process plus the API tests |
+| AC11 | Observed pass | Uncached secret scan exit 0, `secret-scan: no secrets found` | No image exists to scan |
+| AC12 | Observed pass for the merged diff | 43 paths; no Helm, Kubernetes, Stripe SDK, MongoDB driver, or eGame implementation | The mocked CommerceCloud adapter file is present on purpose |
+| AC13 | Pending owner review | Code commits authored by `Cursor Agent <cursoragent@cursor.com>`; merge commit author `Sergio Truébano Robles <truebanosergio@gmail.com>`; no `Co-authored-by` in `5aba94f..8ea4fda`; PR #39 GitHub user `sergio-tr` | Criterion asks for author `@sergio-tr` on commit metadata. The implementation commits do not meet that |
+| AC14 | Observed pass on one clean worktree | Same SHA, frozen install, and quality, format, architecture, and graph exits 0; lock hash unchanged | Not a second machine, and `dist` was not byte-compared with Actions artifacts |
+
+### Older pull-request Actions, re-read and not reused as post-merge proof
+
+| Run | Conclusion | API `headSha` | `commit=` printed in the job | Job |
+|---|---|---|---|---|
+| [44036261321](https://github.com/sergio-tr/ecommerce/actions/runs/44036261321) | failure | `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1` | `6f679ab8a6da4845c5ba949c3b922b17822ac67f` | `133879739051` |
+| [44036563176](https://github.com/sergio-tr/ecommerce/actions/runs/44036563176) | success | `54324a77ee6a29e161bcb2ef8f196e7d2d010016` | `20c63bbe052455eba11aa1e8f0284f93a021b5f5` | `133880742874` |
+| [44036932054](https://github.com/sergio-tr/ecommerce/actions/runs/44036932054) | success | `083e5a3c0722256472fe307a5c230be22b2b3fa0` | `d1063269e08966472c5b5f8ed18ceffe435582c1` | `133881953692` |
+
+The failed run stopped in `nx format:check` with `fatal: ambiguous argument 'main'`. Run `44036932054` printed Node `v24.22.2`, pnpm `11.10.0`, Nx local `v23.3.1`, `secret-scan: no secrets found`, 4 domain tests, 8 API tests, both fixture exits `1`, and the acyclic project graph. Token permissions in that log were `Contents: read` and `Metadata: read`. `format:check` was invoked and the quality step succeeded; the log has no format stdout. Those runs remain pre-merge pull-request evidence.
+
+### Owner decisions still open
+
+- AC07: accept or reject the mocked private-adapter fixture as the CommerceCloud architecture check.
+- AC13: accept or reject `Cursor Agent` as the git author of `a8f17f1d45f40ec23786fa04160915299fd02fca`, `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1`, `54324a77ee6a29e161bcb2ef8f196e7d2d010016`, and `083e5a3c0722256472fe307a5c230be22b2b3fa0`.
+- GitHub #25: leave **OPEN**. Close it only after those two judgments are recorded and the owner states that this foundation evidence is not financial or catalog G5.
+- Linear SER-134: observed **Done** at 09:32 Europe/Amsterdam on 17 Nov 2026, the same moment as the merge, before this recheck. Proposed transition: move it back to In Progress until the same owner judgments are recorded, then return it to Done. This record does not apply that transition.
