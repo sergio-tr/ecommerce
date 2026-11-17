@@ -103,7 +103,7 @@ Missing or invalid `COMMERCECORE_*` values exit 1 with a JSON line naming the fi
 |---|---|
 | `engines` mismatch | The shell is not on Node 24.22.2 or pnpm 11.10.0. Activate mise in this repository. |
 | Frozen install wants to change `pnpm-lock.yaml` | The tree does not match the lock. Do not refresh it to hide drift. |
-| `nx format:check` says `main` is unknown | A shallow pull-request checkout has no `main` ref, so Nx falls back to every file. Fetch `origin/main` into `main` before the check. Do not reformat historical documents to hide that missing ref. |
+| `nx format:check` says `main` is unknown, or a push to `main` checks no files | Nx uses `defaultBase` `main`. If that revision cannot be resolved, Nx formats every file. On a pull request, compare the fetched base ref with the checkout SHA. On a push to `main`, compare `github.event.before` with `github.sha`. Do not point a local `main` ref at the push commit: that range is empty, so the check passes without reading the pushed files. Do not reformat historical documents to hide either failure. |
 | Ignored build scripts warning for a package outside `allowBuilds` | Expected for packages that were not reviewed. Add one only after reading its script and only if the build cannot run without it. |
 | Architecture target leaves `__negative__` | The script removes that directory in a `finally`/`exit` path. Delete `libs/commercecore/catalog/domain/src/__negative__` and re-run. |
 | `config.invalid` on stderr | A public variable is missing, invalid, forbidden, or unsupported. Fix the named field. Do not put credentials in `COMMERCECORE_*`. |

@@ -161,3 +161,17 @@ The job logs for the successful runs checked out merge commits of the pull reque
 **Issue state observed, not changed by this section.** GitHub #25 was already `closed` / `completed` at `2026-11-17T08:54:48Z` (09:54 Europe/Amsterdam) by `sergio-tr`. Linear SER-134 was already Done. This reconciliation does not reopen either one and does not apply a Linear transition.
 
 **M01 G5 result:** `NOT_PASSED`. Local observations for the other bootstrap checks remain the observations recorded above. They are not relabeled as merge-SHA CI. The remaining bootstrap evidence gap is AC09 on the merge SHA.
+
+## AC09 main-push correction 2026-11-17
+
+Task `SER-M01-AC09-MAIN-CI-G5-CLOSURE-27`. This section does not pass M01 G5. It does not edit the four AUD-P0 rows, the 148-test catalog, or the decision and capability registers. AC07 and AC13 stay the owner-accepted bounded exceptions recorded above.
+
+**Main observed before this change:** `67e035e207fb472ef68af00bcb70bb798e748319`, the merge of PR #41. `gh run list --commit 67e035e207fb472ef68af00bcb70bb798e748319` returned no runs. `GET /repos/sergio-tr/ecommerce/commits/67e035e207fb472ef68af00bcb70bb798e748319/check-runs` returned `total_count: 0`.
+
+**Why that SHA has no run.** `.github/workflows/pr-validation.yml` on that commit triggers on `pull_request` only. A merge push to `main` does not start it. Run [44052514363](https://github.com/sergio-tr/ecommerce/actions/runs/44052514363) completed with `conclusion: success` and `event: pull_request` for head `3484faf39ed3d5883ed48da484a6b851b32af24c`. That head is not `67e035e`. This correction does not retroactively create a run for `67e035e`, `7592399`, or `8ea4fda`.
+
+**What the draft changes.** The same workflow also triggers on `push` to `main`, still with `permissions: contents: read`, the same pinned action SHAs, Node `24.22.2`, and pnpm `11.10.0`. Concurrency includes the event name, so a main push does not use `github.event.pull_request.number`. `nx format:check` receives an explicit base and head. A pull request compares the fetched base ref with the checkout SHA. A push compares `github.event.before` with `github.sha`, and fails if that before SHA is zero, equal to HEAD, or has an empty diff. It does not fetch `origin/main` into a local `main` ref during the push, because that ref would be the commit under test. Lint, typecheck, test, build, secret scan, architecture, project graph, and the local representative demo stay in the job. There is no `pull_request_target`, no secret, and no privileged permission.
+
+**AC09 result for this change:** not met. A green `pull_request` run of the draft is evidence for the draft head only. AC09 for main becomes checkable only after the owner merges and the `push` run on that new merge commit succeeds.
+
+**M01 G5 result:** `NOT_PASSED`. The blocker is the absent successful `push` run on a main SHA that contains this trigger. Financial G5 stays separate.

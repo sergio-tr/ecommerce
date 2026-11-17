@@ -8,7 +8,7 @@
   "g3State": "PASSED_SCOPE_M01_BOOTSTRAP_01_ONLY; FINANCIAL_AND_FUTURE_CONTEXT_G3_DEFERRED",
   "g4Authorization": "GRANTED_BY_OWNER_2026-11-16_M01_BOOTSTRAP_01_ONLY",
   "implementation": "MERGED_PR_39",
-  "g5Evidence": "NOT_PASSED_AC09_MERGE_SHA_CI_ABSENT",
+  "g5Evidence": "NOT_PASSED_AC09_MAIN_PUSH_RUN_ABSENT",
   "canonicalIssueId": "SER-134",
   "branch": "feature/m01-bootstrap-workspace",
   "dependencies": [
@@ -103,8 +103,8 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "M01 G5 stays NOT_PASSED because AC09 has no Actions run on the merge SHA. AC07 and AC13 are owner-accepted bounded exceptions from 2026-11-17. Financial P0 #1-#4 stay OPEN/BLOCKING. The local representative demo exercises only the existing liveness route and pedagogical ProductId.",
-  "executionStatus": "OWNER_RECONCILED_2026_11_17_G5_NOT_PASSED",
+  "nextAction": "M01 G5 stays NOT_PASSED. AC07 and AC13 remain owner-accepted bounded exceptions from 2026-11-17. AC09 is not met: main 67e035e207fb472ef68af00bcb70bb798e748319 has no Actions run, and adding a push trigger does not create a run for that SHA. After the owner merges the draft CI correction, AC09 needs a successful push run on that new merge commit. Financial P0 #1-#4 stay OPEN/BLOCKING.",
+  "executionStatus": "AC09_PUSH_FIX_PROPOSED_G5_NOT_PASSED",
   "postMergeVerification": {
     "task": "SER-134-M01-POSTMERGE-G5-EVIDENCE-25",
     "observedAt": "2026-11-17T08:46:45Z",
@@ -134,18 +134,18 @@
     ]
   },
   "g5Reconciliation": {
-    "task": "SER-M01-LOCAL-REPRESENTATIVE-SMOKE-26",
+    "task": "SER-M01-AC09-MAIN-CI-G5-CLOSURE-27",
     "direction": "OWNER_DIRECTION_2026-11-17",
-    "mainSha": "7592399b940deaa5d50e6f1f69cd07b245961013",
+    "mainSha": "67e035e207fb472ef68af00bcb70bb798e748319",
+    "previousMainSha": "7592399b940deaa5d50e6f1f69cd07b245961013",
     "implementationMergeSha": "8ea4fda52cb4596393a7352e7c4ec23517acc22a",
     "g5": "NOT_PASSED",
-    "reason": "AC09 has no GitHub Actions run on the merge SHA. Earlier green runs are pull-request CI and are not reused as merge evidence.",
+    "reason": "AC09 has no GitHub Actions push run on main. Run 44052514363 is pull_request CI for 3484faf39ed3d5883ed48da484a6b851b32af24c, not for merge SHA 67e035e207fb472ef68af00bcb70bb798e748319. The workflow correction cannot create that missing run.",
     "ac07": "OWNER_ACCEPTED_BOUNDED_EXCEPTION",
     "ac07Scope": "Mocked CommerceCloud negative fixture only. No generated CommerceCloud project.",
-    "ac09": "MERGE_SHA_CI_ABSENT",
-    "workflowRunsForMergeSha": [],
+    "ac09": "MAIN_PUSH_RUN_ABSENT",
     "workflowRunsForMainSha": [],
-    "distinguishedPullRequestRuns": [44036261321, 44036563176, 44036932054],
+    "distinguishedPullRequestRuns": [44036261321, 44036563176, 44036932054, 44052514363],
     "ac13": "OWNER_ACCEPTED_GENUINE_CURSOR_AGENT_AUTHORSHIP",
     "ac13Scope": "Implementation commits stay authored by Cursor Agent. Impersonation of @sergio-tr is rejected.",
     "financialG5": "SEPARATE_NOT_RUN",
@@ -153,7 +153,8 @@
     "linearSer134Observed": "Done",
     "linearTransitionApplied": false,
     "localRepresentativeDemo": "docs/development/LOCAL_REPRESENTATIVE_DEMO.md",
-    "evidence": "docs/development/M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md"
+    "evidence": "docs/development/M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md",
+    "ciCorrection": "push to main added beside pull_request; format range is event-specific; G5 remains pending until a later main push run succeeds"
   },
   "githubIssueNumber": 25,
   "designGate": {
@@ -174,7 +175,8 @@
     "merged PR #26",
     "OWNER_G3_G4_AUTHORIZATION_2026-11-16",
     "PR_37_OWNER_GATES_MERGED",
-    "PR_39_MERGED_POSTMERGE_RECHECK_G5_NOT_PASSED"
+    "PR_39_MERGED_POSTMERGE_RECHECK_G5_NOT_PASSED",
+    "PR_41_MERGED_67e035e_NO_PUSH_RUN"
   ],
   "preflightEvidence": {
     "date": "2026-10-30",
