@@ -1,6 +1,6 @@
 # M01-BOOTSTRAP-01 local execution evidence
 
-**Post-merge recheck:** the section at the end was executed on merged `main` `8ea4fda52cb4596393a7352e7c4ec23517acc22a`. It does not mark G5 passed. AC07 and AC13 stay pending owner review.
+**Post-merge recheck:** the section headed "Post-merge recheck on merged main" was executed on merged `main` `8ea4fda52cb4596393a7352e7c4ec23517acc22a`. It does not mark G5 passed. AC07 and AC13 were pending owner review in that section. The 2026-11-17 reconciliation at the end records the owner's bounded acceptance of those two criteria. AC09 merge-SHA CI stays absent, so M01 G5 stays not passed.
 
 **Historical pre-merge record:** the status line and acceptance table below were written before merge. They are not the post-merge execution. That record did not itself change audit or historical test states.
 
@@ -125,9 +125,39 @@ Diff `5aba94f18fa130530042b7e48f0b335a88f52bd2..8ea4fda52cb4596393a7352e7c4ec235
 
 The failed run stopped in `nx format:check` with `fatal: ambiguous argument 'main'`. Run `44036932054` printed Node `v24.22.2`, pnpm `11.10.0`, Nx local `v23.3.1`, `secret-scan: no secrets found`, 4 domain tests, 8 API tests, both fixture exits `1`, and the acyclic project graph. Token permissions in that log were `Contents: read` and `Metadata: read`. `format:check` was invoked and the quality step succeeded; the log has no format stdout. Those runs remain pre-merge pull-request evidence.
 
-### Owner decisions still open
+### Owner decisions open at the 8ea4fda recheck
+
+These were the open questions when that recheck was written. AC07 and AC13 are answered in the reconciliation below. AC09 is not.
 
 - AC07: accept or reject the mocked private-adapter fixture as the CommerceCloud architecture check.
 - AC13: accept or reject `Cursor Agent` as the git author of `a8f17f1d45f40ec23786fa04160915299fd02fca`, `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1`, `54324a77ee6a29e161bcb2ef8f196e7d2d010016`, and `083e5a3c0722256472fe307a5c230be22b2b3fa0`.
 - GitHub #25: leave **OPEN**. Close it only after those two judgments are recorded and the owner states that this foundation evidence is not financial or catalog G5.
 - Linear SER-134: observed **Done** at 09:32 Europe/Amsterdam on 17 Nov 2026, the same moment as the merge, before this recheck. Proposed transition: move it back to In Progress until the same owner judgments are recorded, then return it to Done. This record does not apply that transition.
+
+## Owner reconciliation 2026-11-17
+
+Task `SER-M01-LOCAL-REPRESENTATIVE-SMOKE-26`. This section does not pass M01 G5, does not pass financial G5, and does not edit the four AUD-P0 rows, the 148-test catalog, or the decision and capability registers.
+
+**Current main observed:** `7592399b940deaa5d50e6f1f69cd07b245961013`. That commit is documentation on top of `0fc8fb8` and the implementation merge `8ea4fda52cb4596393a7352e7c4ec23517acc22a`. The code tree of the merge remains `efcbf913230964c221385fa2f44c57ba20db75c3`. The tree of `7592399` is `d242ed95c8d0b90e199b9529cc8f1384dc723906` because of the two documentation commits only.
+
+**AC09 — merge-SHA CI absent.** GitHub Actions `list workflow runs` for head SHA `8ea4fda52cb4596393a7352e7c4ec23517acc22a` returned `total_count: 0`. The same query for current main `7592399b940deaa5d50e6f1f69cd07b245961013` returned `total_count: 0`. `.github/workflows/pr-validation.yml` triggers on `pull_request` only, with `permissions: contents: read`. A merge to `main` does not create that run.
+
+The earlier green runs stay pull-request evidence and are not AC09 for either SHA:
+
+| Run | Role | API `headSha` | Not the merge SHA |
+|---|---|---|---|
+| [44036261321](https://github.com/sergio-tr/ecommerce/actions/runs/44036261321) | failed pull-request run | `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1` | yes |
+| [44036563176](https://github.com/sergio-tr/ecommerce/actions/runs/44036563176) | successful pull-request run | `54324a77ee6a29e161bcb2ef8f196e7d2d010016` | yes |
+| [44036932054](https://github.com/sergio-tr/ecommerce/actions/runs/44036932054) | successful pull-request run | `083e5a3c0722256472fe307a5c230be22b2b3fa0` | yes |
+
+The job logs for the successful runs checked out merge commits of the pull request (`20c63bbe052455eba11aa1e8f0284f93a021b5f5` and `d1063269e08966472c5b5f8ed18ceffe435582c1`). Those checkouts are not `8ea4fda` and not `7592399`.
+
+**AC07 — owner-accepted bounded exception.** The owner direction of 2026-11-17 accepts the mocked CommerceCloud negative fixture as the architecture check that exists today. The fixture imports `tools/architecture-fixtures/commercecloud-private-adapter.ts`. CommerceCloud is not a generated project, and this acceptance does not prove a future CommerceCloud boundary. It is not provider or financial evidence.
+
+**AC13 — owner-accepted genuine authorship.** The same direction accepts `Cursor Agent <cursoragent@cursor.com>` as the real author of the implementation commits and rejects impersonation of `@sergio-tr`. No `Co-authored-by` trailer is added. The merge commit author remains `Sergio Truébano Robles <truebanosergio@gmail.com>`.
+
+**Financial G5 stays separate.** AUD-P0-01 through AUD-P0-04 remain OPEN/BLOCKING. The 148 original experiments remain TEST_PLANNED/NOT_RUN. Nothing in this reconciliation is a Stripe, MongoDB, refund, inventory, fulfillment, or license-key result.
+
+**Issue state observed, not changed by this section.** GitHub #25 was already `closed` / `completed` at `2026-11-17T08:54:48Z` (09:54 Europe/Amsterdam) by `sergio-tr`. Linear SER-134 was already Done. This reconciliation does not reopen either one and does not apply a Linear transition.
+
+**M01 G5 result:** `NOT_PASSED`. Local observations for the other bootstrap checks remain the observations recorded above. They are not relabeled as merge-SHA CI. The remaining bootstrap evidence gap is AC09 on the merge SHA.

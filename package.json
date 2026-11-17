@@ -15,7 +15,8 @@
     "format:check": "nx format:check",
     "architecture": "nx run commercecore-catalog-domain:architecture",
     "secret-scan": "nx run ecommerce:secret-scan",
-    "graph": "nx graph --file=tmp/nx-graph.json"
+    "graph": "nx graph --file=tmp/nx-graph.json",
+    "local-representative-demo": "node --test tools/local-representative-demo/run.spec.mjs"
   },
   "dependencies": {
     "@nestjs/common": "11.2.8",

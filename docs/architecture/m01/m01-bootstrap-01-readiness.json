@@ -4,11 +4,11 @@
   "owner": "sergio-tr",
   "source": "docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md",
   "scope": "One Nx/pnpm workspace, one NestJS CommerceCore API /health/live, one pure Domain library, architecture negative tests, quality scripts and minimal GitHub Actions PR CI; no K8s/Mongo/Stripe or commerce business code",
-  "status": "MERGED_PENDING_OWNER_REVIEW",
+  "status": "MERGED_G5_NOT_PASSED",
   "g3State": "PASSED_SCOPE_M01_BOOTSTRAP_01_ONLY; FINANCIAL_AND_FUTURE_CONTEXT_G3_DEFERRED",
   "g4Authorization": "GRANTED_BY_OWNER_2026-11-16_M01_BOOTSTRAP_01_ONLY",
   "implementation": "MERGED_PR_39",
-  "g5Evidence": "NOT_PASSED_PENDING_OWNER_REVIEW",
+  "g5Evidence": "NOT_PASSED_AC09_MERGE_SHA_CI_ABSENT",
   "canonicalIssueId": "SER-134",
   "branch": "feature/m01-bootstrap-workspace",
   "dependencies": [
@@ -103,8 +103,8 @@
     "AUD-P0-03_OPEN_BLOCKING",
     "AUD-P0-04_OPEN_BLOCKING"
   ],
-  "nextAction": "Owner reviews AC07 (mocked CommerceCloud fixture, not a generated project) and AC13 (implementation commits authored by Cursor Agent, not @sergio-tr). This record does not pass G5 and does not close GitHub #25. Financial P0 #1-#4 stay OPEN/BLOCKING.",
-  "executionStatus": "POST_MERGE_RECHECKED_G5_NOT_PASSED",
+  "nextAction": "M01 G5 stays NOT_PASSED because AC09 has no Actions run on the merge SHA. AC07 and AC13 are owner-accepted bounded exceptions from 2026-11-17. Financial P0 #1-#4 stay OPEN/BLOCKING. The local representative demo exercises only the existing liveness route and pedagogical ProductId.",
+  "executionStatus": "OWNER_RECONCILED_2026_11_17_G5_NOT_PASSED",
   "postMergeVerification": {
     "task": "SER-134-M01-POSTMERGE-G5-EVIDENCE-25",
     "observedAt": "2026-11-17T08:46:45Z",
@@ -132,6 +132,28 @@
       "148 TEST_PLANNED/NOT_RUN",
       "CAP dispositions"
     ]
+  },
+  "g5Reconciliation": {
+    "task": "SER-M01-LOCAL-REPRESENTATIVE-SMOKE-26",
+    "direction": "OWNER_DIRECTION_2026-11-17",
+    "mainSha": "7592399b940deaa5d50e6f1f69cd07b245961013",
+    "implementationMergeSha": "8ea4fda52cb4596393a7352e7c4ec23517acc22a",
+    "g5": "NOT_PASSED",
+    "reason": "AC09 has no GitHub Actions run on the merge SHA. Earlier green runs are pull-request CI and are not reused as merge evidence.",
+    "ac07": "OWNER_ACCEPTED_BOUNDED_EXCEPTION",
+    "ac07Scope": "Mocked CommerceCloud negative fixture only. No generated CommerceCloud project.",
+    "ac09": "MERGE_SHA_CI_ABSENT",
+    "workflowRunsForMergeSha": [],
+    "workflowRunsForMainSha": [],
+    "distinguishedPullRequestRuns": [44036261321, 44036563176, 44036932054],
+    "ac13": "OWNER_ACCEPTED_GENUINE_CURSOR_AGENT_AUTHORSHIP",
+    "ac13Scope": "Implementation commits stay authored by Cursor Agent. Impersonation of @sergio-tr is rejected.",
+    "financialG5": "SEPARATE_NOT_RUN",
+    "githubIssue25Observed": "CLOSED_COMPLETED",
+    "linearSer134Observed": "Done",
+    "linearTransitionApplied": false,
+    "localRepresentativeDemo": "docs/development/LOCAL_REPRESENTATIVE_DEMO.md",
+    "evidence": "docs/development/M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md"
   },
   "githubIssueNumber": 25,
   "designGate": {

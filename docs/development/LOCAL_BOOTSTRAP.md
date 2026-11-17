@@ -85,6 +85,10 @@ node dist/apps/commercecore-api/main.js
 
 `.env.local` is gitignored. The example file contains only public values. The process binds `127.0.0.1` only. `GET /health/live` returns HTTP 200 and a liveness payload with `dependenciesChecked: false`. It does not claim business readiness. `/health/ready` is intentionally absent.
 
+## Local representative demo
+
+[LOCAL_REPRESENTATIVE_DEMO.md](LOCAL_REPRESENTATIVE_DEMO.md) is a sandbox command over this same liveness route and the pedagogical `ProductId`. It does not add a business API, and it does not pass G5.
+
 Missing or invalid `COMMERCECORE_*` values exit 1 with a JSON line naming the field and reason. The process does not copy the rejected value into that line.
 
 ## Layout
