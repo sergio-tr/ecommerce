@@ -2,6 +2,10 @@
 
 CommerceCore is a reusable, headless, frontend-agnostic commerce engine. CommerceCloud is an independent multi-tenant SaaS and Control Plane. eGame is the first consumer: controlled sales and delivery of individual digital activation licenses. Standalone distribution and a second independent consumer are future validation gates.
 
+## M01-BOOTSTRAP-01 workspace (2026-11-17)
+
+Owner authorization [AUTH-2026-11-16-M01-BOOTSTRAP-01](docs/00-governance/OWNER_G3_G4_AUTHORIZATION_2026-11-16.md) covers only the nonfinancial engineering foundation. Commands and limits are in [LOCAL_BOOTSTRAP.md](docs/development/LOCAL_BOOTSTRAP.md). The 2026-10-30 paragraphs below stay as the historical baseline, including their original "not authorized" wording. This note does not close financial audits, mark G5, or authorize Kubernetes, MongoDB, Stripe, or a merge.
+
 ## Current M01 detailed design and bootstrap readiness (2026-10-30)
 
 The [M01-D05–D08 technical specifications](docs/architecture/m01/README.md) now cover local Mongo/PVC/restore, secure configuration and Secrets, health/observability and GitHub Actions CI. The [M01-BOOTSTRAP-01 Definition of Ready](docs/architecture/m01/M01_BOOTSTRAP_01_DEFINITION_OF_READY.md) and [project remaining work register](docs/architecture/m01/M01_REMAINING_GAPS_AND_DEPENDENCIES.md) give the exact first local task and gates. The DoR **definition** is complete, but runtime/host/issue/authorization checks DR07–DR10 are still open. No implementation has started.
