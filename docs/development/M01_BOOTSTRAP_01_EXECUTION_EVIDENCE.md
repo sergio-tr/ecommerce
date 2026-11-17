@@ -1,6 +1,6 @@
 # M01-BOOTSTRAP-01 local execution evidence
 
-**Status:** local commands below were executed. This file does not mark G5, does not change `m01-bootstrap-01-readiness.json`, and does not change audit or historical test states. AC09 stays `NOT_RUN` until the pull request workflow finishes on the pushed head.
+**Status:** local commands and the pull request workflow below were executed. This file does not mark G5, does not change `m01-bootstrap-01-readiness.json`, and does not change audit or historical test states.
 
 **Base:** `origin/main` `5aba94f18fa130530042b7e48f0b335a88f52bd2` after `git fetch origin main`.
 
@@ -24,7 +24,7 @@
 | AC06 | PASS locally | On-disk NestJS fixture lint exit 1 (`no-restricted-imports` and `commercecore/domain-import-boundary` on `@nestjs/common`). Fixture removed. Restored domain lint exit 0. |
 | AC07 | PASS locally, limited scope | CommerceCloud was not generated. Fixture imports `tools/architecture-fixtures/commercecloud-private-adapter.ts`. Lint exit 1 from `@nx/enforce-module-boundaries` and `commercecore/domain-import-boundary`. This does not prove a future CommerceCloud project graph. |
 | AC08 | PASS locally | `lint`, `typecheck`, `test`, `build`, `secret-scan`, and `nx format:check` exit 0. API tests 8 passed. Domain tests 4 passed. |
-| AC09 | NOT_RUN | Pull request #39 run `44036261321` (`validate`) failed on head `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1`. Install, lint, typecheck, tests, build, and secret scan passed. `nx format:check` failed because the shallow checkout had no `main` ref and Nx then checked historical files. The workflow now fetches `origin/main` into `main` before that check. A later green run is still required. |
+| AC09 | PASS | Pull request #39 run [44036261321](https://github.com/sergio-tr/ecommerce/actions/runs/44036261321) failed on `14f0b748bd9794f4f68b14d6cbf8a864cf2d87f1` because a shallow checkout had no `main` ref. Run [44036563176](https://github.com/sergio-tr/ecommerce/actions/runs/44036563176), job `133880742874`, conclusion `success`, on head `54324a77ee6a29e161bcb2ef8f196e7d2d010016`. The log shows Node `v24.22.2`, pnpm `11.10.0`, Nx `v23.3.1`, frozen install, lint, typecheck, 12 tests, build, secret scan, architecture, and the project graph. `nx format:check` ran after `main` was fetched and the job still exited successfully. Checkout of that run was merge commit `20c63bbe052455eba11aa1e8f0284f93a021b5f5`. Token permissions were `contents: read`. |
 | AC10 | PASS locally | Missing `COMMERCECORE_ENV` exits 1 with `field=COMMERCECORE_ENV`, `reason=missing`. A secret-shaped port exits 1 with `reason=forbidden` and the value is absent from stderr. |
 | AC11 | PASS locally | `node tools/security/scan-secrets.mjs` printed `secret-scan: no secrets found` and exit 0. No container image exists to scan. |
 | AC12 | PASS locally | Diff adds the workspace, liveness API, pedagogical `ProductId`, tests, docs, and the pull request workflow. No Helm, Kubernetes, MongoDB, Stripe, CommerceCloud, or eGame implementation. |
