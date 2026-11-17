@@ -1,7 +1,7 @@
 # Decision — M01-K8S-01 listen address
 
 **Decision ID:** `AUTH-2026-11-17-M01-K8S-01-LISTEN`  
-**Status:** `G3_ACCEPTED_2026-11-17` / scoped G4 already granted / `G5_NOT_PASSED`  
+**Status:** `G3_ACCEPTED_2026-11-17` / scoped G4 already granted / `G5_WAIT_MERGE`  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-137](https://linear.app/sergiotr/issue/SER-137/m01-k8s-01-local-api-image-helm-and-k3d-smoke)  
 **GitHub:** #45  
@@ -27,4 +27,4 @@ No production cluster, cloud account, credential, Stripe, MongoDB, CommerceCloud
 
 ## Evidence
 
-Image build and k3d execution are recorded in [M01_K8S_01_LOCAL.md](../development/M01_K8S_01_LOCAL.md). A green chart render is not a cluster pass.
+Image build, chart render, and the owner-reported k3d smoke are recorded in [M01_K8S_01_LOCAL.md](../development/M01_K8S_01_LOCAL.md). A green chart render is not a cluster pass. The owner report is not `G5_PASSED` until that record is reviewed and merged.
