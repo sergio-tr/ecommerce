@@ -37,6 +37,10 @@ Why not automatically choose latest major: Angular 22 requires TS 6 and Nest 12 
 
 No further architecture-choice approval is needed for K2/NET-A/DATA-A/STRIPE-A. Next: close DR07–DR09 with registry/host/current-issue evidence; then separately authorize first implementation (DR10) using the [finalized DoR](M01_BOOTSTRAP_01_DEFINITION_OF_READY.md). Helm remains a subordinate D04 recommendation to approve before M01-K8S-01, not before a Nest-only bootstrap. This chat request expressly forbids implementation; no app, chart, cluster or Stripe operation will be created as part of these docs.
 
+## Later scoped proposal
+
+[M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) is `G3_PROPOSED` and `G4_NOT_GRANTED`. It does not replace M01-D05.
+
 ## Merge safety
 
 PR #22 documents these M01 decisions on an independent feature branch. PR #21 was merged into main on 2026-10-30 at 16:45 UTC. PR #22 is a separate independent documentation-only branch; GitHub reported it mergeable after the main update. It uses a standalone M01 decision record and does **not** overwrite the 91-record canonical scoped decision register. Review the current PR diff and updated base before merging. No automatic merge is authorized.
