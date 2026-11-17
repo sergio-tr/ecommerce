@@ -1,0 +1,12 @@
+packages: []
+
+# Build scripts stay denied unless a package is listed here.
+# nx: postinstall asserts the platform and returns. Nx Cloud update code
+# runs only when Nx Cloud is enabled; this workspace sets neverConnectToCloud.
+# @parcel/watcher: install script compiles from source only when
+# npm_config_build_from_source=true. Otherwise the published optional
+# platform package is used. unrs-resolver@1.13.0 has no install lifecycle
+# script, so it is not allowlisted.
+allowBuilds:
+  nx: true
+  '@parcel/watcher': true

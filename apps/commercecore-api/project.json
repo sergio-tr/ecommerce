@@ -1,0 +1,41 @@
+{
+  "name": "commercecore-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/commercecore-api/src",
+  "tags": ["scope:commercecore", "context:composition", "layer:app", "runtime:node"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/commercecore-api/tsconfig.app.json"
+      }
+    },
+    "compile-tests": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "tsc -p apps/commercecore-api/tsconfig.spec.json"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/commercecore-api/tsconfig.app.json --noEmit && tsc -p apps/commercecore-api/tsconfig.spec.json --noEmit"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint apps/commercecore-api --max-warnings=0"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["compile-tests"],
+      "options": {
+        "command": "node tools/run-node-tests.mjs dist/test/apps/commercecore-api"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+name: pr-validation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Fetch main for Nx format comparison
+        run: git fetch --no-tags --depth=1 origin main:main
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        with:
+          version: 11.10.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24.22.2
+          cache: pnpm
+
+      - name: Show toolchain
+        run: |
+          echo "commit=$(git rev-parse HEAD)"
+          node --version
+          pnpm --version
+
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+
+      - name: Quality targets
+        env:
+          NX_DAEMON: 'false'
+          NX_NO_CLOUD: 'true'
+        run: |
+          pnpm exec nx --version
+          pnpm exec nx run-many -t lint typecheck test build secret-scan --parallel=3 --output-style=static
+          pnpm exec nx format:check
+          pnpm exec nx run commercecore-catalog-domain:architecture --output-style=static
+          mkdir -p tmp
+          pnpm exec nx graph --file=tmp/nx-graph.json
+          node tools/architecture/assert-project-graph.mjs tmp/nx-graph.json

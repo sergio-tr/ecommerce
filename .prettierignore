@@ -1,0 +1,8 @@
+dist
+tmp
+.nx
+coverage
+node_modules
+pnpm-lock.yaml
+docs
+CHANGELOG.md
