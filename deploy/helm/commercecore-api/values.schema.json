@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["replicaCount", "image", "service", "env", "resources"],
+  "properties": {
+    "replicaCount": { "type": "integer", "enum": [1] },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "pullPolicy"],
+      "properties": {
+        "repository": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$" },
+        "tag": { "type": "string", "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$" },
+        "pullPolicy": { "enum": ["Never", "IfNotPresent"] }
+      }
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "port"],
+      "properties": {
+        "type": { "enum": ["ClusterIP"] },
+        "port": { "type": "integer", "enum": [3000] }
+      }
+    },
+    "env": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commerceCoreEnv", "port", "logLevel", "serviceVersion"],
+      "properties": {
+        "commerceCoreEnv": { "enum": ["local", "test", "ci"] },
+        "port": { "type": "integer", "enum": [3000] },
+        "logLevel": { "enum": ["debug", "info", "warn", "error"] },
+        "serviceVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requests", "limits"],
+      "properties": {
+        "requests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cpu", "memory"],
+          "properties": {
+            "cpu": { "enum": ["100m"] },
+            "memory": { "enum": ["128Mi"] }
+          }
+        },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["cpu", "memory"],
+          "properties": {
+            "cpu": { "enum": ["500m"] },
+            "memory": { "enum": ["512Mi"] }
+          }
+        }
+      }
+    }
+  }
+}

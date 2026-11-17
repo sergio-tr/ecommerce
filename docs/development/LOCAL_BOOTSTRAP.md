@@ -83,7 +83,7 @@ pnpm exec nx build commercecore-api
 node dist/apps/commercecore-api/main.js
 ```
 
-`.env.local` is gitignored. The example file contains only public values. The process binds `127.0.0.1` only. `GET /health/live` returns HTTP 200 and a liveness payload with `dependenciesChecked: false`. It does not claim business readiness. `/health/ready` is intentionally absent.
+`.env.local` is gitignored. The example file contains only public values. The host-local process keeps the default bind `127.0.0.1`. `0.0.0.0` is accepted only when `COMMERCECORE_HTTP_HOST` is set explicitly, and the local chart is the place that sets it. `GET /health/live` returns HTTP 200 and a liveness payload with `dependenciesChecked: false`. It does not claim business readiness. `/health/ready` is intentionally absent.
 
 ## Local representative demo
 

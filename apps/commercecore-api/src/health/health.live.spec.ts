@@ -68,6 +68,68 @@ test('missing public configuration fails before listen and does not print creden
   assert.equal(result.stdout.includes('http.listening'), false);
 });
 
+test('an explicit pod-network host still serves /health/live on loopback', async () => {
+  const port = await freePort();
+  const child = spawn(process.execPath, [mainJs], {
+    env: {
+      PATH: process.env.PATH ?? '',
+      COMMERCECORE_ENV: 'test',
+      COMMERCECORE_HTTP_HOST: '0.0.0.0',
+      COMMERCECORE_HTTP_PORT: String(port),
+      COMMERCECORE_SERVICE_VERSION: '0.0.0',
+    },
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  let stdout = '';
+  let stderr = '';
+  const childStdout = child.stdout;
+  const childStderr = child.stderr;
+  if (childStdout === null || childStderr === null) {
+    throw new Error('expected piped stdout and stderr');
+  }
+  childStdout.setEncoding('utf8');
+  childStderr.setEncoding('utf8');
+  childStdout.on('data', (chunk: string) => {
+    stdout += chunk;
+  });
+  childStderr.on('data', (chunk: string) => {
+    stderr += chunk;
+  });
+
+  try {
+    await waitForLive(
+      child,
+      port,
+      () => stdout,
+      () => stderr,
+    );
+    const response = await fetch(`http://127.0.0.1:${port}/health/live`);
+    assert.equal(response.status, 200);
+    assert.equal(stdout.includes('"host":"0.0.0.0"'), true);
+    assert.equal(/sk_|mongodb:\/\//i.test(stdout + stderr), false);
+  } finally {
+    await stop(child);
+  }
+});
+
+test('a non-allowlisted listen host exits before serving probes', () => {
+  const host = '10.1.2.3';
+  const result = spawnSync(process.execPath, [mainJs], {
+    env: {
+      PATH: process.env.PATH ?? '',
+      COMMERCECORE_ENV: 'test',
+      COMMERCECORE_HTTP_HOST: host,
+      COMMERCECORE_HTTP_PORT: '3000',
+    },
+    encoding: 'utf8',
+  });
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /"field":"COMMERCECORE_HTTP_HOST"/);
+  assert.match(result.stderr, /"reason":"invalid"/);
+  assert.equal(result.stderr.includes(host), false);
+  assert.equal(result.stdout.includes('http.listening'), false);
+});
+
 test('a secret-like environment value is rejected without disclosure', () => {
   const secret = ['sk', 'live', '51HIDDEN'].join('_');
   const result = spawnSync(process.execPath, [mainJs], {

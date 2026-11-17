@@ -4,7 +4,7 @@ Sandbox command for the behaviors already accepted in M01-BOOTSTRAP-01: pedagogi
 
 M01-BOOTSTRAP-01 nonfinancial G5 is passed for `main` `88b9951dbdbbbf09ddf341ad80eeb359a35133cc` by push run [44058469285](https://github.com/sergio-tr/ecommerce/actions/runs/44058469285). AC07 and AC13 remain the owner-accepted bounded exceptions in [M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md](M01_BOOTSTRAP_01_EXECUTION_EVIDENCE.md). Financial G5 stays a separate gate. The four AUD-P0 findings stay OPEN/BLOCKING, and the 148 original experiments stay TEST_PLANNED/NOT_RUN.
 
-No credentials, `.env` file, or external account is required. The process binds `127.0.0.1` only.
+No credentials, `.env` file, or external account is required. The demo does not set `COMMERCECORE_HTTP_HOST`, so the process keeps the loopback default.
 
 ## WSL2 setup
 

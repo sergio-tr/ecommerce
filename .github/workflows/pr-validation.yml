@@ -81,3 +81,59 @@ jobs:
           NX_DAEMON: 'false'
           NX_NO_CLOUD: 'true'
         run: pnpm run local-representative-demo
+
+  chart:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Helm 4.3.1
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/helm.tgz https://get.helm.sh/helm-v4.3.1-linux-amd64.tar.gz
+          echo "0403a88ae20913d11b10a2467b50087721fea7581736da6b9d3992f5357fe54b  /tmp/helm.tgz" | sha256sum -c -
+          tar -C /tmp -xzf /tmp/helm.tgz linux-amd64/helm
+          sudo install -m 0755 /tmp/linux-amd64/helm /usr/local/bin/helm
+          helm version --short
+
+      - name: Lint and render the local chart
+        run: |
+          set -euo pipefail
+          helm lint deploy/helm/commercecore-api
+          node --test tools/k8s/assert-local-contract.spec.mjs
+
+  image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build the API image without pushing
+        run: docker build -t commercecore-api:ci .
+
+      - name: Probe /health/live on loopback
+        run: |
+          set -euo pipefail
+          docker run -d --name commercecore-api-ci \
+            --read-only \
+            --tmpfs /tmp \
+            -p 127.0.0.1:3000:3000 \
+            -e COMMERCECORE_ENV=local \
+            -e COMMERCECORE_HTTP_HOST=0.0.0.0 \
+            -e COMMERCECORE_HTTP_PORT=3000 \
+            -e COMMERCECORE_SERVICE_VERSION=0.0.0 \
+            -e COMMERCECORE_LOG_LEVEL=info \
+            commercecore-api:ci
+          trap 'docker rm -f commercecore-api-ci >/dev/null' EXIT
+          for _ in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:3000/health/live; then
+              echo
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs commercecore-api-ci >&2
+          exit 1
