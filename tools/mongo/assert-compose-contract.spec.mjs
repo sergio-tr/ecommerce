@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { readIsolatedVolume } from './assert-isolated-volume.mjs';
 
 const require = createRequire(import.meta.url);
 const { classifyAnonymousRead } = require('./probe-anonymous.js');
@@ -26,6 +27,7 @@ const implementationFiles = [
   'mongo-smoke.sh',
   'mongo-t01-isolated.sh',
   'compose.t01.yaml',
+  'assert-isolated-volume.mjs',
 ];
 
 function read(name) {
@@ -358,6 +360,12 @@ test('isolated T01 uses distinct names and does not remove the live volume', () 
   if (!compose.includes('name: commercecore-mongo-t01-data')) {
     throw new Error('isolated compose does not pin its own volume');
   }
+  if (
+    !compose.includes('t01-data:/data/db') ||
+    !compose.includes('  t01-data:\n    name: commercecore-mongo-t01-data\n')
+  ) {
+    throw new Error('isolated compose does not bind logical key t01-data to its physical name');
+  }
   if (!compose.includes('container_name: commercecore-mongo-t01')) {
     throw new Error('isolated compose does not pin its own container');
   }
@@ -394,6 +402,29 @@ test('isolated T01 uses distinct names and does not remove the live volume', () 
   }
   if (!script.includes('LIVE_VOLUME=commercecore-mongo-data')) {
     throw new Error('isolated script does not name the live volume as protected');
+  }
+  for (const required of [
+    'ISO_VOLUME_KEY=t01-data',
+    'config --format json',
+    'assert-isolated-volume.mjs',
+    'isolated compose volume key is not ${ISO_VOLUME_KEY}',
+  ]) {
+    if (!script.includes(required)) {
+      throw new Error(`isolated script is missing ${required}`);
+    }
+  }
+  if (
+    script.includes('"$volumes" != "$ISO_VOLUME"') ||
+    script.includes('${volume_key') ||
+    script.includes('${volumes/')
+  ) {
+    throw new Error('config --volumes is still compared or rewritten as the physical name');
+  }
+  const checker = read('assert-isolated-volume.mjs');
+  for (const forbidden of ['--fresh', 'down -v', 'volume rm', 'compose down']) {
+    if (checker.includes(forbidden)) {
+      throw new Error(`volume checker references ${forbidden}`);
+    }
   }
   const plan = run('mongo-t01-isolated.sh', [], { MONGO_T01_PLAN_ONLY: '1' });
   if (plan.status !== 0) {
@@ -460,12 +491,16 @@ function isolatedDocker({
   network = false,
   project = false,
   afterUp = false,
+  volumeList = 't01-data\n',
+  config = { volumes: { 't01-data': { name: 'commercecore-mongo-t01-data' } } },
 } = {}) {
   const dir = mkdtempSync(path.join(tmpdir(), 'mongo-t01-docker-'));
   const log = path.join(dir, 'log');
   const bin = path.join(dir, 'docker');
   const flag = (value) => (value ? '1' : '0');
   writeFileSync(log, '');
+  writeFileSync(path.join(dir, 'volume-list.txt'), volumeList);
+  writeFileSync(path.join(dir, 'config.json'), JSON.stringify(config));
   writeFileSync(
     bin,
     `#!/bin/sh
@@ -495,11 +530,15 @@ if [ "$cmd" = compose ]; then
       exit 0
       ;;
     *'config --volumes'*)
-      printf '%s\\n' commercecore-mongo-t01-data
+      cat '${dir}/volume-list.txt'
       exit 0
       ;;
     *'config --images'*)
       printf '%s\\n' '${pinnedImage}'
+      exit 0
+      ;;
+    *'config --format json'*)
+      cat '${dir}/config.json'
       exit 0
       ;;
     *' up -d'*)
@@ -651,9 +690,115 @@ test('isolated T01 keeps the volume when its own start fails', () => {
     if (log.includes('volume rm') || log.includes('down -v') || log.includes(' down')) {
       throw new Error(`cleanup removed a volume or stopped the project:\n${log}`);
     }
+    if (!log.includes('config --volumes') || !log.includes('config --format json')) {
+      throw new Error(`start did not read the logical key and the rendered volume name:\n${log}`);
+    }
   } finally {
     rmSync(docker.dir, { recursive: true, force: true });
     rmSync(env.dir, { recursive: true, force: true });
     rmSync(runtime, { recursive: true, force: true });
+  }
+});
+
+test('rendered isolated volume name rejects a different physical alias', () => {
+  const logical = 't01-data';
+  const physical = 'commercecore-mongo-t01-data';
+  const live = 'commercecore-mongo-data';
+  const accepted = readIsolatedVolume(
+    { volumes: { 't01-data': { name: physical } } },
+    logical,
+    physical,
+    live,
+  );
+  if (accepted !== physical) {
+    throw new Error(`accepted physical name was ${accepted}`);
+  }
+  const aliases = [
+    { volumes: { 't01-data': { name: live } } },
+    { volumes: { 't01-data': { name: 'commercecore-mongo-t01_t01-data' } } },
+    { volumes: { 't01-data': { name: logical } } },
+    { volumes: { data: { name: physical } } },
+    {
+      volumes: {
+        't01-data': { name: physical },
+        alias: { name: 'other-data' },
+      },
+    },
+    { volumes: { 't01-data': {} } },
+    { volumes: { 't01-data': { name: `${physical}-copy` } } },
+  ];
+  for (const document of aliases) {
+    let failed = false;
+    try {
+      readIsolatedVolume(document, logical, physical, live);
+    } catch {
+      failed = true;
+    }
+    if (!failed) {
+      throw new Error(`alias was accepted: ${JSON.stringify(document)}`);
+    }
+  }
+  const env = writeEnv(
+    'MONGO_INITDB_ROOT_USERNAME="local-operator"\nMONGO_INITDB_ROOT_PASSWORD="local-test-credential"\n',
+  );
+  const cases = [
+    {
+      label: 'live volume alias',
+      options: {
+        config: { volumes: { 't01-data': { name: live } } },
+      },
+      message: 'isolated compose volumes are not commercecore-mongo-t01-data',
+    },
+    {
+      label: 'project prefix alias',
+      options: {
+        config: { volumes: { 't01-data': { name: 'commercecore-mongo-t01_t01-data' } } },
+      },
+      message: 'isolated compose volumes are not commercecore-mongo-t01-data',
+    },
+    {
+      label: 'physical name printed as the volume list',
+      options: { volumeList: `${physical}\n` },
+      message: 'isolated compose volume key is not t01-data',
+    },
+    {
+      label: 'wrong logical key',
+      options: {
+        volumeList: 'data\n',
+        config: { volumes: { data: { name: physical } } },
+      },
+      message: 'isolated compose volume key is not t01-data',
+    },
+  ];
+  try {
+    for (const item of cases) {
+      const docker = isolatedDocker(item.options);
+      const runtime = mkdtempSync(path.join(tmpdir(), 'mongo-t01-alias-'));
+      try {
+        const result = run('mongo-t01-isolated.sh', [], {
+          MONGO_ENV_FILE: env.file,
+          MONGO_DOCKER_BIN: docker.bin,
+          MONGO_T01_RUNTIME_DIR: runtime,
+        });
+        if (result.status !== 1 || !result.stderr.includes(item.message)) {
+          throw new Error(
+            `${item.label} exited ${result.status}\n${result.stdout}\n${result.stderr}`,
+          );
+        }
+        if (result.stdout.includes('T01_ISOLATED_PASS')) {
+          throw new Error(`${item.label} printed T01_ISOLATED_PASS`);
+        }
+        const log = readFileSync(docker.log, 'utf8');
+        assertNoIsolatedMutation(log);
+        if (log.includes('volume rm') || log.includes('down -v') || log.includes(' up -d')) {
+          throw new Error(`${item.label} removed a volume or started Mongo:\n${log}`);
+        }
+      } finally {
+        rmSync(docker.dir, { recursive: true, force: true });
+        rmSync(runtime, { recursive: true, force: true });
+      }
+    }
+  } finally {
+    rmSync(env.dir, { recursive: true, force: true });
   }
 });

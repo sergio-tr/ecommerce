@@ -2,7 +2,8 @@
 # Clean T01 on a separate Compose project. This does not claim the live volume's T01 or G5.
 # It never removes commercecore-mongo-data, commercecore-mongo, commercecore-mongo-t01-data,
 # or the live keyfile. An existing isolated volume, container, network, or project stops
-# the command before Docker is changed.
+# the command before Docker is changed. config --volumes prints the logical key t01-data.
+# The physical name is volumes.t01-data.name in the rendered config.
 set -euo pipefail
 
 MONGO_LOG_PREFIX=mongo-t01-isolated
@@ -13,6 +14,7 @@ LIVE_VOLUME=commercecore-mongo-data
 LIVE_CONTAINER=commercecore-mongo
 LIVE_NETWORK=commercecore-mongo
 LIVE_PORT=27017
+ISO_VOLUME_KEY=t01-data
 ISO_VOLUME=commercecore-mongo-t01-data
 ISO_CONTAINER=commercecore-mongo-t01
 ISO_NETWORK=commercecore-mongo-t01
@@ -25,6 +27,9 @@ if [[ "$#" -ne 0 ]]; then
 fi
 if [[ "$ISO_VOLUME" == "$LIVE_VOLUME" || "$ISO_CONTAINER" == "$LIVE_CONTAINER" || "$ISO_NETWORK" == "$LIVE_NETWORK" || "$ISO_PORT" == "$LIVE_PORT" || "$ISO_PROJECT" == "mongo" ]]; then
   mongo_fail "isolated names collide with the live project"
+fi
+if [[ "$ISO_VOLUME_KEY" == "$ISO_VOLUME" || "$ISO_VOLUME_KEY" == "$LIVE_VOLUME" ]]; then
+  mongo_fail "isolated volume key collides with a physical name"
 fi
 if [[ "${MONGO_T01_PUBLISH_PORT:-27018}" != "$ISO_PORT" ]]; then
   mongo_fail "isolated T01 publish port is fixed at ${ISO_PORT}"
@@ -85,14 +90,33 @@ refuse() {
 }
 
 assert_isolated_config() {
-  local volumes images
-  volumes="$(trim "$(iso_compose config --volumes)")"
-  images="$(trim "$(iso_compose config --images)")"
-  if [[ "$volumes" != "$ISO_VOLUME" || "$volumes" == "$LIVE_VOLUME" ]]; then
-    refuse "isolated compose volumes are not ${ISO_VOLUME}" || return 1
+  local volume_key images rendered physical
+  if ! volume_key="$(iso_compose config --volumes)"; then
+    refuse "isolated compose config failed" || return 1
   fi
+  volume_key="$(trim "$volume_key")"
+  if [[ "$volume_key" != "$ISO_VOLUME_KEY" || "$volume_key" == "$ISO_VOLUME" || "$volume_key" == "$LIVE_VOLUME" ]]; then
+    refuse "isolated compose volume key is not ${ISO_VOLUME_KEY}" || return 1
+  fi
+  if ! images="$(iso_compose config --images)"; then
+    refuse "isolated compose config failed" || return 1
+  fi
+  images="$(trim "$images")"
   if [[ "$images" != "$PINNED_IMAGE" ]]; then
     refuse "isolated compose image is not the pinned index" || return 1
+  fi
+  if ! rendered="$(iso_compose config --format json)"; then
+    refuse "isolated compose config failed" || return 1
+  fi
+  if ! physical="$(
+    printf '%s' "$rendered" | node "${root}/tools/mongo/assert-isolated-volume.mjs" \
+      "$ISO_VOLUME_KEY" "$ISO_VOLUME" "$LIVE_VOLUME"
+  )"; then
+    refuse "isolated compose volumes are not ${ISO_VOLUME}" || return 1
+  fi
+  physical="$(trim "$physical")"
+  if [[ "$physical" != "$ISO_VOLUME" || "$physical" == "$LIVE_VOLUME" || "$physical" == "$ISO_VOLUME_KEY" ]]; then
+    refuse "isolated compose volumes are not ${ISO_VOLUME}" || return 1
   fi
 }
 
