@@ -2,7 +2,7 @@
 
 **Decision ID:** `PROP-2026-11-17-M01-MONGO-INFRA-01`  
 **Task:** `M01-MONGO-01`  
-**Status:** `G3_ACCEPTED_2026-11-17` for `M01-MONGO-01` local Compose infrastructure only / `G4_READY_PENDING_MERGE`  
+**Status:** `G3_ACCEPTED_2026-11-17` for `M01-MONGO-01` local Compose infrastructure only / `G4_EFFECTIVE_SCOPED`  
 **Date:** 2026-11-17  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-138](https://linear.app/sergiotr/issue/SER-138/m01-mongo-01-local-compose-mongodb-infrastructure-g3)  
@@ -10,6 +10,7 @@
 **Proposal base:** `origin/main` `ae4ccc5f3221c631230deff6cf1992c9943b71be`  
 **Ratification base:** `origin/main` `d6e24c35f41c67e7d55bab10ba72e13ef5a667a1`, merge of [PR #50](https://github.com/sergio-tr/ecommerce/pull/50)  
 **Image pin base:** `origin/main` `898fa77f69110ab97205245ded2716c48d35be9d`, merge of [PR #51](https://github.com/sergio-tr/ecommerce/pull/51). Push CI [Actions run 44203521366](https://github.com/sergio-tr/ecommerce/actions/runs/44203521366) `success`; jobs `validate`, `chart`, and `image` each `success`  
+**G4 evidence base:** `origin/main` `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`, merge of [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) by @sergio-tr at 2026-11-18 06:45 Europe/Amsterdam. Push CI [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) `success`; jobs `validate`, `chart`, and `image` each `success`  
 **Not this task:** [SER-126](https://linear.app/sergiotr/issue/SER-126) / GitHub #9 / `D-05-MONGO` / `AUD-P1-05`
 
 ## Owner ratification
@@ -26,15 +27,15 @@ On 2026-11-17 at 23:23 Europe/Amsterdam, after [PR #50](https://github.com/sergi
 
 **G3** is `G3_ACCEPTED_2026-11-17` only for `M01-MONGO-01` local Docker Compose infrastructure. [ADR-M01-001](../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) D-1 K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. DATA-A, NET-A, and STRIPE-A are not amended.
 
-**G4** request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` was `G4_CONDITIONAL_NOT_EFFECTIVE` when the owner ratified it. The current status is `READY_PENDING_MERGE` in the image pin section. The same owner message grants it only after all three of these are true:
+**G4** request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` was `G4_CONDITIONAL_NOT_EFFECTIVE` when the owner ratified it. The image pin section first marked it `READY_PENDING_MERGE`. The same owner message grants it only after all three of these are true:
 
 1. This ratification is in a reviewed and merged pull request. The merge of PR #50 does not count. That merge recorded the proposal and left R1–R4 unanswered.
 2. A real OCI digest for `docker.io/library/mongo:8.0.38-noble` is copied from a registry inspect for the host platform and pinned. At ratification time this file had no digest. The image pin section records the later registry read. A digest written without that read does not count.
 3. No normative conflict remains inside this slice. R1–R4 close the conflicts named below. `D-05-MONGO` stays PENDING and outside this slice. It is not accepted here, and it is not a reason to widen the slice.
 
-While any of the three is false, Compose, a container, and the implementation unit stay forbidden. At the time this section was written, item 1 was false until the ratification pull request merged, and item 2 was false because the digest was unknown. Merging that ratification pull request satisfied item 1 only.
+While any of the three is false, Compose, a container, and the implementation unit stay forbidden. At the time this section was written, item 1 was false until the ratification pull request merged, and item 2 was false because the digest was unknown. Merging that ratification pull request satisfied item 1 only. The G4 effective scoped section records the later check in which all three are true.
 
-Later state, recorded in the image pin section: item 1 is true because [PR #51](https://github.com/sergio-tr/ecommerce/pull/51) is merged. Item 2 is written there and stays short of effective until that pin change itself is merged and its CI is green. Item 3 is unchanged. This file marks G4 `READY_PENDING_MERGE`. It does not mark G4 effective.
+Later state, recorded in the image pin section: item 1 is true because [PR #51](https://github.com/sergio-tr/ecommerce/pull/51) is merged. That section marked item 2 as written and still short of effective until the pin change itself was merged and its CI was green. The G4 effective scoped section below is the check after that merge. `READY_PENDING_MERGE` is the earlier label, not the current one.
 
 ### Accepted sentences
 
@@ -92,7 +93,7 @@ The owner queue of 2026-11-17 selects M1–M10 as technical direction for this u
 | M6 idempotent replica-set bootstrap and host/container DNS | M01-D05 initialization and client hostname | Aligned as a requirement. Specified below. Not implemented |
 | M7 connectivity, restart, persistence, negative config, teardown | M01-D05 T01, T05, T06, T08, T09, T11, T12 | Partial R3. Those oracles are the matrix below. T02–T04 and T10 stay in M01-D05 |
 | M8 NestJS integration deferred | M01-D02; bootstrap handoff | Aligned. No driver and no module |
-| M9 version and digest pin | M01-D05 patch and digest PENDING for the StatefulSet | R4. The OCI index digest is recorded in the image pin section for the Compose path only. G4 is `READY_PENDING_MERGE` and not effective. The M01-D05 StatefulSet digest stays pending |
+| M9 version and digest pin | M01-D05 patch and digest PENDING for the StatefulSet | R4. The OCI index digest is recorded in the image pin section for the Compose path only. G4 for that path is `G4_EFFECTIVE_SCOPED`. The M01-D05 StatefulSet digest stays pending |
 | M10 manual pull-request merge | ADR-M01-001 follow-up 4; change control | Aligned. This proposal does not authorize an automatic merge |
 
 ## Ratification prompts, now answered
@@ -172,11 +173,25 @@ Both image-manifest annotations say `org.opencontainers.image.version=8.0.38-nob
 
 No container was started. `mongod --version` was not run. MONGO-INFRA-T01 through T09 stay TEST_PLANNED / NOT_RUN.
 
-### Do not start until this pin is merged
+### G4 effective, scoped, 2026-11-18
 
-The digest above is a registry fact. It is not G4. Do not add a Compose file, do not run `docker compose up`, and do not pull the image from this document. G4 for this change is `READY_PENDING_MERGE` and not effective. It becomes effective only when this pin change is on `main`, the push CI of that merge is green, and no normative conflict remains. Typing a digest from memory, from a floating tag, or from the library GitCommit does not pin the image. The library GitCommit `5fd7eb19024b73c9ec84644f1b23acbb33bee8b0` is still not an OCI digest. This digest is not selected for the M01-D05 StatefulSet.
+The pin paragraph above said G4 stayed `READY_PENDING_MERGE` until the pin change was on `main`, the push CI of that merge was green, and no normative conflict remained. That check was made against `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`.
 
-## Accepted local shape, not built
+| Condition | Result |
+|---|---|
+| Ratification merged | True. [PR #51](https://github.com/sergio-tr/ecommerce/pull/51) is an ancestor of `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`. R1–R4 stay the accepted sentences |
+| Digest pinned and CI green | True. [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) merged at that SHA. [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) concluded `success` for `validate`, `chart`, and `image`. The pin remains the OCI index in the image pin section |
+| Normative conflict inside this slice | None found. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. The Compose named volume is not that PVC. `D-05-MONGO` stays PENDING and outside this slice |
+
+`G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. T01–T09 stay `NOT_RUN` until `tools/mongo/mongo-smoke.sh` is actually executed.
+
+The library GitCommit `5fd7eb19024b73c9ec84644f1b23acbb33bee8b0` is still not an OCI digest. This digest is not selected for the M01-D05 StatefulSet.
+
+An authenticated replica set needs a keyfile. That file is generated under gitignored `tmp/mongo/` and is not a new decision ID, a second database user, or a tracked secret. The runbook is [M01_MONGO_01_LOCAL.md](../development/M01_MONGO_01_LOCAL.md).
+
+## Accepted local shape
+
+The files that carry this shape are under `tools/mongo/`. The operator steps are in [M01_MONGO_01_LOCAL.md](../development/M01_MONGO_01_LOCAL.md). Building those files did not execute T01–T09.
 
 One Compose project, one `mongod`, replica set name `rs0`, one member. Auth is required. The root username and password come from `.env.local`, which `.gitignore` already ignores through `.env.*`. The keys are `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD`. This document sets no value. No compose file may contain a password literal. No tracked example may contain a password.
 
@@ -190,7 +205,7 @@ The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra
 
 ## Acceptance matrix
 
-Every row is TEST_PLANNED / NOT_RUN. Nothing below was executed.
+Every row is TEST_PLANNED / NOT_RUN. The implementation machine for the Compose files had no Docker daemon on 2026-11-18, so `tools/mongo/mongo-smoke.sh` was not executed. `pnpm run mongo:check` is a static file and script check. It does not mark any row below as run. Exit 2 from the smoke, with `WAITING_OWNER_LOCAL`, is not a pass.
 
 | ID | When | Pass | Fail |
 |---|---|---|---|
@@ -206,14 +221,14 @@ Every row is TEST_PLANNED / NOT_RUN. Nothing below was executed.
 
 M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. This matrix does not retire them.
 
-## G4 request, ready pending merge
+## G4 request, effective for the local Compose path
 
 **Request ID:** `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01`  
-**Status:** `READY_PENDING_MERGE`
+**Status:** `G4_EFFECTIVE_SCOPED`
 
-The owner named this request ID on 2026-11-17 at 23:23 Europe/Amsterdam and granted it only after the three conditions in the owner ratification section. Merge of PR #50 is not that grant. Merge of PR #51 satisfied condition 1 only. The image pin section writes condition 2. This file does not mark the request effective, and it does not dispatch the implementation unit. The implementation unit still waits for this pin change to be merged, for that merge's push CI to be green, and for a later handoff that checks all three conditions against merged `main`.
+The owner named this request ID on 2026-11-17 at 23:23 Europe/Amsterdam and granted it only after the three conditions in the owner ratification section. Merge of PR #50 is not that grant. Merge of PR #51 satisfied condition 1 only. The image pin section wrote condition 2 and, before PR #52 merged, left the label `READY_PENDING_MERGE`. The G4 effective scoped section records that all three conditions are true on `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`.
 
-When the three conditions are true, the grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA.
+The grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. The smoke has not been run. G5 is not claimed.
 
 ## Out of scope
 

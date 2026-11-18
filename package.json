@@ -17,7 +17,8 @@
     "secret-scan": "nx run ecommerce:secret-scan",
     "graph": "nx graph --file=tmp/nx-graph.json",
     "local-representative-demo": "node --test tools/local-representative-demo/run.spec.mjs",
-    "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs"
+    "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs",
+    "mongo:check": "node --test tools/mongo/assert-compose-contract.spec.mjs"
   },
   "dependencies": {
     "@nestjs/common": "11.2.8",
@@ -60,7 +61,7 @@
         "executor": "nx:run-commands",
         "cache": false,
         "options": {
-          "command": "node --test --test-reporter spec tools/ci/resolve-nx-format-range.spec.mjs"
+          "command": "node --test --test-reporter spec tools/ci/resolve-nx-format-range.spec.mjs tools/mongo/assert-compose-contract.spec.mjs"
         }
       }
     }
