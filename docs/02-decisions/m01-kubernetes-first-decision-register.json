@@ -138,14 +138,15 @@
       "path": "docs/00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md",
       "linear": "SER-138",
       "g3": "ACCEPTED_LOCAL_COMPOSE_INFRASTRUCTURE_ONLY",
-      "g4": "CONDITIONAL_NOT_EFFECTIVE",
+      "g4": "READY_PENDING_MERGE",
       "g4Request": "G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01",
       "preserves": [
         "K2 application runtime",
         "M01-D05 StatefulSet and PVC specified and unbuilt"
       ],
-      "image": "docker.io/library/mongo:8.0.38-noble",
-      "digest": "UNRESOLVED",
+      "image": "docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c",
+      "digest": "sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c",
+      "digestKind": "oci-index",
       "implementationAuthorized": false
     }
   ]
