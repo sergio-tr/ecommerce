@@ -24,6 +24,8 @@ const implementationFiles = [
   'mongo-up.sh',
   'mongo-down.sh',
   'mongo-smoke.sh',
+  'mongo-t01-isolated.sh',
+  'compose.t01.yaml',
 ];
 
 function read(name) {
@@ -122,6 +124,7 @@ test('shell scripts parse', () => {
     'mongo-up.sh',
     'mongo-down.sh',
     'mongo-smoke.sh',
+    'mongo-t01-isolated.sh',
   ]) {
     const result = spawnSync('bash', ['-n', path.join(here, name)], { encoding: 'utf8' });
     if (result.status !== 0) {
@@ -340,5 +343,93 @@ test('anonymous infra_probe read is the authorization oracle', () => {
   }
   if (probe.includes('MONGO_INITDB_ROOT_PASSWORD') || probe.includes('print(result')) {
     throw new Error('anonymous probe can print a credential or the read result');
+  }
+});
+
+test('isolated T01 uses distinct names and does not remove the live volume', () => {
+  const compose = read('compose.t01.yaml');
+  const script = read('mongo-t01-isolated.sh');
+  if (
+    compose.includes('commercecore-mongo-data') ||
+    compose.includes('container_name: commercecore-mongo\n')
+  ) {
+    throw new Error('isolated compose names the live volume or container');
+  }
+  if (!compose.includes('name: commercecore-mongo-t01-data')) {
+    throw new Error('isolated compose does not pin its own volume');
+  }
+  if (!compose.includes('container_name: commercecore-mongo-t01')) {
+    throw new Error('isolated compose does not pin its own container');
+  }
+  if (!compose.includes('name: commercecore-mongo-t01\n') || compose.includes('internal: true')) {
+    throw new Error('isolated network is not the dedicated non-internal bridge');
+  }
+  if (!compose.includes('127.0.0.1:${MONGO_T01_PUBLISH_PORT:-27018}:27017')) {
+    throw new Error('isolated publish is not loopback port 27018');
+  }
+  for (const forbidden of ['--fresh', 'mongo-smoke.sh', 'mongo-up.sh', 'mongo-down.sh']) {
+    if (script.includes(forbidden)) {
+      throw new Error(`isolated script references ${forbidden}`);
+    }
+  }
+  if (!script.includes('LIVE_VOLUME=commercecore-mongo-data')) {
+    throw new Error('isolated script does not name the live volume as protected');
+  }
+  const plan = run('mongo-t01-isolated.sh', [], { MONGO_T01_PLAN_ONLY: '1' });
+  if (plan.status !== 0) {
+    throw new Error(`plan exited ${plan.status}\n${plan.stderr}`);
+  }
+  for (const line of [
+    'volume=commercecore-mongo-t01-data',
+    'container=commercecore-mongo-t01',
+    'network=commercecore-mongo-t01',
+    'port=27018',
+    'project=commercecore-mongo-t01',
+  ]) {
+    if (!plan.stdout.includes(line)) {
+      throw new Error(`plan missing ${line}\n${plan.stdout}`);
+    }
+  }
+  if (plan.stdout.includes('runtime=') && plan.stdout.includes('/tmp/mongo\n')) {
+    throw new Error(`plan uses the live runtime directory\n${plan.stdout}`);
+  }
+  const livePort = run('mongo-t01-isolated.sh', [], {
+    MONGO_T01_PLAN_ONLY: '1',
+    MONGO_T01_PUBLISH_PORT: '27017',
+  });
+  if (livePort.status !== 1) {
+    throw new Error('isolated T01 accepted the live port');
+  }
+  const liveRuntime = run('mongo-t01-isolated.sh', [], {
+    MONGO_T01_PLAN_ONLY: '1',
+    MONGO_T01_RUNTIME_DIR: path.resolve(here, '../../tmp/mongo'),
+  });
+  if (liveRuntime.status !== 1) {
+    throw new Error('isolated T01 accepted the live runtime directory');
+  }
+  const docker = fakeDocker();
+  const env = writeEnv(
+    'MONGO_INITDB_ROOT_USERNAME="local-operator"\nMONGO_INITDB_ROOT_PASSWORD="local-test-credential"\n',
+  );
+  const runtime = mkdtempSync(path.join(tmpdir(), 'mongo-t01-runtime-'));
+  try {
+    const result = run('mongo-t01-isolated.sh', [], {
+      MONGO_ENV_FILE: env.file,
+      MONGO_DOCKER_BIN: docker.bin,
+      MONGO_T01_RUNTIME_DIR: runtime,
+    });
+    if (result.status !== 2 || !result.stdout.includes('WAITING_OWNER_LOCAL')) {
+      throw new Error(
+        `isolated T01 expected exit 2, got ${result.status}\n${result.stdout}\n${result.stderr}`,
+      );
+    }
+    const log = readFileSync(docker.log, 'utf8');
+    if (log.includes('down') || log.includes('volume') || log.includes('rm')) {
+      throw new Error(`isolated T01 called docker past the daemon check:\n${log}`);
+    }
+  } finally {
+    rmSync(docker.dir, { recursive: true, force: true });
+    rmSync(env.dir, { recursive: true, force: true });
+    rmSync(runtime, { recursive: true, force: true });
   }
 });

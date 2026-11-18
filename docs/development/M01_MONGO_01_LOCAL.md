@@ -3,7 +3,7 @@
 **Status:** `G4_EFFECTIVE_SCOPED` for this local Compose path only.  
 **Decision:** [PROP-2026-11-17-M01-MONGO-INFRA-01](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md).  
 **Linear:** [SER-138](https://linear.app/sergiotr/issue/SER-138/m01-mongo-01-local-compose-mongodb-infrastructure-g3).  
-**Runtime rows:** T01 is not passed. T02 through T09 are `NOT_RUN`. This file does not claim G5.
+**Runtime rows:** Live T01 is not claimed. The owner revalidated T02–T09 on the existing volume; that is not G5. The isolated clean T01 has not been run.
 
 One `mongod`, replica set `rs0`, one member. The image is the OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. The named volume is `commercecore-mongo-data`. The Compose network `commercecore-mongo` is a dedicated bridge and is not internal. Docker 29 does not install a host publish on an internal-only network. The only host publish is `127.0.0.1`.
 
@@ -23,6 +23,7 @@ The official image starts as root so `docker-entrypoint.sh` can drop to uid 999.
 bash tools/mongo/mongo-up.sh
 bash tools/mongo/mongo-smoke.sh
 bash tools/mongo/mongo-smoke.sh --resume
+bash tools/mongo/mongo-t01-isolated.sh
 bash tools/mongo/mongo-down.sh
 bash tools/mongo/mongo-down.sh --destroy-volume
 ```
@@ -32,6 +33,8 @@ bash tools/mongo/mongo-down.sh --destroy-volume
 `mongo-smoke.sh` without arguments runs T01 through T09 and can print `mongo-infra-smoke: PASS` only when the named volume starts absent. That line is still not G5. If `commercecore-mongo-data` already exists, the script exits 1, does not delete the volume, and does not claim T01. `--resume` revalidates the unauthenticated `infra_probe` read and T02 through T09 on that volume. T04 in that revalidation recreates the container and keeps the volume. It prints `t01=NOT_CLAIMED` and `mongo-infra-smoke: REVALIDATION_ONLY`. It does not print `PASS`. `--fresh` deletes the volume. It is not the recovery for the volume left by the 2026-11-18 owner run. The T09 step inside the smoke uses the default down, which keeps the volume. `--destroy-volume` is the only flag that removes it.
 
 The authorization check is an unauthenticated read of `infra_probe.probe`. `{ ping: 1 }` is not the oracle. Only an authorization rejection passes that check. A connection error does not. The read does not send the root username or password.
+
+`mongo-t01-isolated.sh` is a separate Compose project for a clean T01. Its project, container, and network are `commercecore-mongo-t01`. Its volume is `commercecore-mongo-t01-data`. Its publish is `127.0.0.1:27018`. Its keyfile and runtime env are under `tmp/mongo-t01/`. It reads `.env.local` and does not write that file, `tmp/mongo/keyfile`, or the live volume. It removes only the isolated names, and only after checking they are not the live names. A pass prints `T01_ISOLATED_PASS` and `t01-live=NOT_CLAIMED`. It does not print `mongo-infra-smoke: PASS` and it does not claim G5. That result is not the live volume's T01.
 
 If Docker is missing or the daemon is unreachable, `mongo-up.sh` and `mongo-smoke.sh` exit 2 and print `WAITING_OWNER_LOCAL`. Exit 2 is not a pass and not G5.
 
@@ -59,4 +62,8 @@ On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Do
 
 The same run left volume `commercecore-mongo-data` and container `7121f393320f` up and healthy. `docker ps` showed `27017/tcp` with no host mapping. `docker port commercecore-mongo 27017/tcp` reported that no public port was published. The read-only inspect showed `NetworkSettings.Ports={"27017/tcp":null}`, `HostConfig.PortBindings` requesting `127.0.0.1:27017`, gateway empty, and the container attached only to `commercecore-mongo`. The file at that SHA had `internal: true`.
 
-This correction does not delete that volume, does not rewrite `.env.local` or the keyfile, and does not recreate the container. The implementation machine for this change had no Docker daemon, so the corrected smoke was not executed here. A later `--resume` is revalidation only. It is not a T01 through T09 pass and not G5.
+This correction does not delete that volume, does not rewrite `.env.local` or the keyfile, and does not recreate the container. The implementation machine for this change had no Docker daemon, so the corrected smoke was not executed here. A later `--resume` is revalidation only. It is not a clean T01 and not G5.
+
+On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh --resume` against `15e46e5f94e1b21b517a7b673240079914a14508`. Exit 0. The console excerpt showed `resume existing volume`, `t01=NOT_CLAIMED`, `mongo-up: PASS`, `anonymous infra_probe read rejected`, the existing probe document, T02 through T09, `port 127.0.0.1:27017`, then `matrix=NOT_CLAIMED`, `REVALIDATION_ONLY`, and `g5: NOT_CLAIMED`. No full log and no `mongod` version line were supplied. That is a non-destructive revalidation of T02–T09 on the existing volume. It is not a clean T01, not the full matrix, and not G5. The live volume stays.
+
+The isolated clean T01 has not been executed. This machine has no Docker daemon, so `mongo-t01-isolated.sh` was not run here. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass.
