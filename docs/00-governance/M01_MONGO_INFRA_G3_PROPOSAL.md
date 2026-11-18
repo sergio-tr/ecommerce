@@ -207,7 +207,11 @@ The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra
 
 ## Acceptance matrix
 
-No row below is passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01.
+No row below is a clean-matrix pass. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. `t01=ISOLATED_PASS` is only the separate empty-volume start below. It is not this table's T02–T09 and not G5.
+
+On 2026-11-18 the owner reported `bash tools/mongo/mongo-smoke.sh --resume` on `15e46e5f94e1b21b517a7b673240079914a14508` with exit 0. The console excerpt showed T02–T09 revalidated, `port 127.0.0.1:27017`, `t01=NOT_CLAIMED`, `matrix=NOT_CLAIMED`, and `g5: NOT_CLAIMED`. No full log and no `mongod --version` line were supplied. That report does not pass the clean T01 row.
+
+`tools/mongo/mongo-t01-isolated.sh` is the clean T01 that leaves `commercecore-mongo-data` untouched. It is a second project, `commercecore-mongo-t01`, with Docker volume `commercecore-mongo-t01-data`, network `commercecore-mongo-t01`, and publish `127.0.0.1:27018`. `compose.yaml` still names the owner volume and `127.0.0.1:27017`. The member host stays `mongo:27017` inside the isolated container. The image pin is unchanged. The command does not read `.env.local`. A success deletes only the isolated project. An existing isolated volume, container, or network stops the command, and `--fresh` is rejected. This harness was not run. T01 stays not passed. R1 and R2 are unchanged: K2 stays the application runtime, the M01-D05 StatefulSet and PVC stay specified and unbuilt, and the owner publish stays loopback.
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Docker 29.1.3 and Compose 5.3.0, against `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3`. Before that run the named volume was absent, the container was absent, and port 27017 was free. The reported log showed T01 clean start, `mongo-up: PASS`, then `mongo-infra-smoke: anonymous ping succeeded`, and exit 1. T02–T09 did not run. That run is not a T01 pass and not G5. `{ ping: 1 }` is not an authorization check. The oracle is an unauthenticated read of `infra_probe.probe`. The same read is the T05 check. This correction does not change `--auth` to make ping fail.
 
