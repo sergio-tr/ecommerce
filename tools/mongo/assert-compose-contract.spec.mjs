@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -367,9 +367,29 @@ test('isolated T01 uses distinct names and does not remove the live volume', () 
   if (!compose.includes('127.0.0.1:${MONGO_T01_PUBLISH_PORT:-27018}:27017')) {
     throw new Error('isolated publish is not loopback port 27018');
   }
-  for (const forbidden of ['--fresh', 'mongo-smoke.sh', 'mongo-up.sh', 'mongo-down.sh']) {
+  for (const forbidden of [
+    '--fresh',
+    'down -v',
+    'volume rm',
+    'compose down',
+    'mongo-smoke.sh',
+    'mongo-up.sh',
+    'mongo-down.sh',
+  ]) {
     if (script.includes(forbidden)) {
       throw new Error(`isolated script references ${forbidden}`);
+    }
+  }
+  for (const required of [
+    'isolated volume ${ISO_VOLUME} already exists',
+    'isolated container ${ISO_CONTAINER} already exists',
+    'isolated network ${ISO_NETWORK} already exists',
+    'isolated project ${ISO_PROJECT} already exists',
+    'T01_ISOLATED_PASS',
+    't01-live=NOT_CLAIMED',
+  ]) {
+    if (!script.includes(required)) {
+      throw new Error(`isolated script is missing ${required}`);
     }
   }
   if (!script.includes('LIVE_VOLUME=commercecore-mongo-data')) {
@@ -426,6 +446,210 @@ test('isolated T01 uses distinct names and does not remove the live volume', () 
     const log = readFileSync(docker.log, 'utf8');
     if (log.includes('down') || log.includes('volume') || log.includes('rm')) {
       throw new Error(`isolated T01 called docker past the daemon check:\n${log}`);
+    }
+  } finally {
+    rmSync(docker.dir, { recursive: true, force: true });
+    rmSync(env.dir, { recursive: true, force: true });
+    rmSync(runtime, { recursive: true, force: true });
+  }
+});
+
+function isolatedDocker({
+  volume = false,
+  container = false,
+  network = false,
+  project = false,
+  afterUp = false,
+} = {}) {
+  const dir = mkdtempSync(path.join(tmpdir(), 'mongo-t01-docker-'));
+  const log = path.join(dir, 'log');
+  const bin = path.join(dir, 'docker');
+  const flag = (value) => (value ? '1' : '0');
+  writeFileSync(log, '');
+  writeFileSync(
+    bin,
+    `#!/bin/sh
+printf '%s\\n' "$*" >> '${log}'
+mark='${dir}/created'
+cmd="$1"
+shift
+if [ "$cmd" = info ]; then
+  exit 0
+fi
+if [ "$cmd" = rm ]; then
+  case "$*" in
+    *commercecore-mongo-data*|*commercecore-mongo-t01-data*) exit 99 ;;
+  esac
+  exit 0
+fi
+if [ "$cmd" = compose ]; then
+  flat="$*"
+  case "$flat" in
+    *version*) exit 0 ;;
+    *'ls --all'*)
+      if [ '${flag(project)}' = 1 ]; then
+        printf '%s\\n' '[{"Name":"commercecore-mongo-t01","Status":"running(1)"}]'
+      else
+        printf '%s\\n' '[]'
+      fi
+      exit 0
+      ;;
+    *'config --volumes'*)
+      printf '%s\\n' commercecore-mongo-t01-data
+      exit 0
+      ;;
+    *'config --images'*)
+      printf '%s\\n' '${pinnedImage}'
+      exit 0
+      ;;
+    *' up -d'*)
+      if [ '${flag(afterUp)}' = 1 ]; then
+        echo 1 > "$mark"
+        exit 0
+      fi
+      exit 1
+      ;;
+    *exec*) exit 10 ;;
+    *) exit 1 ;;
+  esac
+fi
+started=0
+if [ -f "$mark" ] && [ "$(cat "$mark")" = 1 ]; then
+  started=1
+fi
+if [ "$cmd" = volume ] || [ "$cmd" = container ] || [ "$cmd" = network ]; then
+  if [ "$1" = rm ]; then
+    if [ "$cmd" = volume ]; then exit 99; fi
+    exit 0
+  fi
+  if [ "$1" != inspect ]; then
+    exit 1
+  fi
+  name="$2"
+  printing=0
+  if [ "$name" = --format ]; then
+    name="$4"
+    printing=1
+  fi
+  present=0
+  if [ "$cmd" = volume ] && [ "$name" = commercecore-mongo-t01-data ]; then
+    if [ '${flag(volume)}' = 1 ] || [ "$started" = 1 ]; then present=1; fi
+  fi
+  if [ "$cmd" = container ] && [ "$name" = commercecore-mongo-t01 ]; then
+    if [ '${flag(container)}' = 1 ] || [ "$started" = 1 ]; then present=1; fi
+  fi
+  if [ "$cmd" = network ] && [ "$name" = commercecore-mongo-t01 ]; then
+    if [ '${flag(network)}' = 1 ] || [ "$started" = 1 ]; then present=1; fi
+  fi
+  if [ "$present" != 1 ]; then
+    exit 1
+  fi
+  if [ "$printing" = 1 ]; then
+    printf '%s\\n' "id-\${cmd}-\${name}"
+  fi
+  exit 0
+fi
+exit 1
+`,
+    { mode: 0o755 },
+  );
+  return { dir, log, bin };
+}
+
+function assertNoIsolatedMutation(log) {
+  for (const line of log.split('\n')) {
+    if (/(^|\s)(rm|up|down)(\s|$)/.test(line)) {
+      throw new Error(`isolated T01 changed Docker before refusing:\n${log}`);
+    }
+  }
+}
+
+test('isolated T01 refuses an existing volume, container, network, or project', () => {
+  const env = writeEnv(
+    'MONGO_INITDB_ROOT_USERNAME="local-operator"\nMONGO_INITDB_ROOT_PASSWORD="local-test-credential"\n',
+  );
+  const cases = [
+    {
+      present: { volume: true },
+      message: 'isolated volume commercecore-mongo-t01-data already exists',
+    },
+    {
+      present: { container: true },
+      message: 'isolated container commercecore-mongo-t01 already exists',
+    },
+    {
+      present: { network: true },
+      message: 'isolated network commercecore-mongo-t01 already exists',
+    },
+    {
+      present: { project: true },
+      message: 'isolated project commercecore-mongo-t01 already exists',
+    },
+  ];
+  try {
+    for (const item of cases) {
+      const docker = isolatedDocker(item.present);
+      const runtime = mkdtempSync(path.join(tmpdir(), 'mongo-t01-collision-'));
+      try {
+        const result = run('mongo-t01-isolated.sh', [], {
+          MONGO_ENV_FILE: env.file,
+          MONGO_DOCKER_BIN: docker.bin,
+          MONGO_T01_RUNTIME_DIR: runtime,
+        });
+        if (result.status !== 1 || !result.stderr.includes(item.message)) {
+          throw new Error(
+            `${item.message} exited ${result.status}\n${result.stdout}\n${result.stderr}`,
+          );
+        }
+        if (result.stdout.includes('T01_ISOLATED_PASS')) {
+          throw new Error(`${item.message} printed T01_ISOLATED_PASS`);
+        }
+        assertNoIsolatedMutation(readFileSync(docker.log, 'utf8'));
+        if (readdirSync(runtime).length !== 0) {
+          throw new Error(`${item.message} wrote a runtime file`);
+        }
+      } finally {
+        rmSync(docker.dir, { recursive: true, force: true });
+        rmSync(runtime, { recursive: true, force: true });
+      }
+    }
+  } finally {
+    rmSync(env.dir, { recursive: true, force: true });
+  }
+});
+
+test('isolated T01 keeps the volume when its own start fails', () => {
+  const docker = isolatedDocker({ afterUp: true });
+  const env = writeEnv(
+    'MONGO_INITDB_ROOT_USERNAME="local-operator"\nMONGO_INITDB_ROOT_PASSWORD="local-test-credential"\n',
+  );
+  const runtime = mkdtempSync(path.join(tmpdir(), 'mongo-t01-created-'));
+  try {
+    const result = run('mongo-t01-isolated.sh', [], {
+      MONGO_ENV_FILE: env.file,
+      MONGO_DOCKER_BIN: docker.bin,
+      MONGO_T01_RUNTIME_DIR: runtime,
+    });
+    if (
+      result.status !== 1 ||
+      !result.stderr.includes('bootstrap rejected the replica set shape')
+    ) {
+      throw new Error(
+        `created-start failure exited ${result.status}\n${result.stdout}\n${result.stderr}`,
+      );
+    }
+    if (result.stdout.includes('T01_ISOLATED_PASS')) {
+      throw new Error('a failed isolated start printed T01_ISOLATED_PASS');
+    }
+    const log = readFileSync(docker.log, 'utf8');
+    if (!log.includes('rm -f id-container-commercecore-mongo-t01')) {
+      throw new Error(`cleanup did not remove the created container id:\n${log}`);
+    }
+    if (!log.includes('network rm id-network-commercecore-mongo-t01')) {
+      throw new Error(`cleanup did not remove the created network id:\n${log}`);
+    }
+    if (log.includes('volume rm') || log.includes('down -v') || log.includes(' down')) {
+      throw new Error(`cleanup removed a volume or stopped the project:\n${log}`);
     }
   } finally {
     rmSync(docker.dir, { recursive: true, force: true });

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Clean T01 on a separate Compose project. This does not claim the live volume's T01 or G5.
-# It never removes commercecore-mongo-data, commercecore-mongo, or the live keyfile.
+# It never removes commercecore-mongo-data, commercecore-mongo, commercecore-mongo-t01-data,
+# or the live keyfile. An existing isolated volume, container, network, or project stops
+# the command before Docker is changed.
 set -euo pipefail
 
 MONGO_LOG_PREFIX=mongo-t01-isolated
@@ -46,12 +48,18 @@ fi
 mongo_load_credentials
 mongo_require_docker
 
-started=0
-cleaned=0
+preexisting_absent=0
+invoked_up=0
+volume_seen_after_up=0
+cleanup_attempted=0
 in_trap=0
 live_recorded=0
 live_volume_before=0
 live_container_before=0
+live_container_id=""
+live_network_id=""
+created_container_id=""
+created_network_id=""
 
 iso_compose() {
   mongo_docker compose \
@@ -81,46 +89,70 @@ assert_isolated_config() {
   volumes="$(trim "$(iso_compose config --volumes)")"
   images="$(trim "$(iso_compose config --images)")"
   if [[ "$volumes" != "$ISO_VOLUME" || "$volumes" == "$LIVE_VOLUME" ]]; then
-    refuse "isolated compose volumes are not ${ISO_VOLUME}"
+    refuse "isolated compose volumes are not ${ISO_VOLUME}" || return 1
   fi
   if [[ "$images" != "$PINNED_IMAGE" ]]; then
-    refuse "isolated compose image is not the pinned index"
+    refuse "isolated compose image is not the pinned index" || return 1
   fi
 }
 
-remove_isolated_names() {
-  assert_isolated_config
-  if [[ "$ISO_CONTAINER" != "commercecore-mongo-t01" || "$ISO_VOLUME" != "commercecore-mongo-t01-data" || "$ISO_NETWORK" != "commercecore-mongo-t01" ]]; then
-    refuse "refusing to remove live names"
-  fi
-  iso_compose down -v
-  if mongo_docker container inspect "$ISO_CONTAINER" >/dev/null 2>&1; then
-    mongo_docker rm -f "$ISO_CONTAINER"
-  fi
-  if mongo_docker volume inspect "$ISO_VOLUME" >/dev/null 2>&1; then
-    mongo_docker volume rm "$ISO_VOLUME"
-  fi
-  if mongo_docker network inspect "$ISO_NETWORK" >/dev/null 2>&1; then
-    mongo_docker network rm "$ISO_NETWORK"
-  fi
-}
-
-live_exists() {
+resource_exists() {
   local kind="$1"
   local name="$2"
   mongo_docker "$kind" inspect "$name" >/dev/null 2>&1
 }
 
+resource_id() {
+  local kind="$1"
+  local name="$2"
+  mongo_docker "$kind" inspect --format '{{.Id}}' "$name"
+}
+
 record_live() {
   live_volume_before=0
   live_container_before=0
-  if live_exists volume "$LIVE_VOLUME"; then
+  live_container_id=""
+  live_network_id=""
+  if resource_exists volume "$LIVE_VOLUME"; then
     live_volume_before=1
   fi
-  if live_exists container "$LIVE_CONTAINER"; then
+  if resource_exists container "$LIVE_CONTAINER"; then
     live_container_before=1
+    live_container_id="$(resource_id container "$LIVE_CONTAINER")"
+  fi
+  if resource_exists network "$LIVE_NETWORK"; then
+    live_network_id="$(resource_id network "$LIVE_NETWORK")"
   fi
   live_recorded=1
+}
+
+refuse_existing_isolated() {
+  local projects=""
+  if resource_exists volume "$ISO_VOLUME"; then
+    mongo_fail "isolated volume ${ISO_VOLUME} already exists"
+  fi
+  if resource_exists container "$ISO_CONTAINER"; then
+    mongo_fail "isolated container ${ISO_CONTAINER} already exists"
+  fi
+  if resource_exists network "$ISO_NETWORK"; then
+    mongo_fail "isolated network ${ISO_NETWORK} already exists"
+  fi
+  if ! projects="$(mongo_docker compose ls --all --format json)"; then
+    mongo_fail "cannot list compose projects"
+  fi
+  projects="${projects//$'\r'/}"
+  case "$projects" in
+    "" | "[]" | "null") ;;
+    "["* | "{"*)
+      if [[ "$projects" == *"\"Name\":\"${ISO_PROJECT}\""* || "$projects" == *"\"Name\": \"${ISO_PROJECT}\""* ]]; then
+        mongo_fail "isolated project ${ISO_PROJECT} already exists"
+      fi
+      ;;
+    *)
+      mongo_fail "cannot list compose projects"
+      ;;
+  esac
+  preexisting_absent=1
 }
 
 assert_live_unchanged() {
@@ -129,10 +161,10 @@ assert_live_unchanged() {
   if [[ "$live_recorded" -ne 1 ]]; then
     return 0
   fi
-  if live_exists volume "$LIVE_VOLUME"; then
+  if resource_exists volume "$LIVE_VOLUME"; then
     volume_after=1
   fi
-  if live_exists container "$LIVE_CONTAINER"; then
+  if resource_exists container "$LIVE_CONTAINER"; then
     container_after=1
   fi
   if [[ "$volume_after" -ne "$live_volume_before" || "$container_after" -ne "$live_container_before" ]]; then
@@ -141,12 +173,56 @@ assert_live_unchanged() {
   fi
 }
 
+capture_created() {
+  created_container_id=""
+  created_network_id=""
+  if resource_exists container "$ISO_CONTAINER"; then
+    created_container_id="$(resource_id container "$ISO_CONTAINER")"
+  fi
+  if resource_exists network "$ISO_NETWORK"; then
+    created_network_id="$(resource_id network "$ISO_NETWORK")"
+  fi
+  if resource_exists volume "$ISO_VOLUME"; then
+    volume_seen_after_up=1
+  fi
+}
+
+cleanup_this_invocation() {
+  if [[ "$preexisting_absent" -ne 1 || "$invoked_up" -ne 1 || "$cleanup_attempted" -eq 1 ]]; then
+    return 0
+  fi
+  cleanup_attempted=1
+  if [[ "$ISO_VOLUME" != "commercecore-mongo-t01-data" || "$ISO_CONTAINER" != "commercecore-mongo-t01" || "$ISO_NETWORK" != "commercecore-mongo-t01" || "$ISO_PROJECT" != "commercecore-mongo-t01" ]]; then
+    printf '%s: refusing cleanup because isolated names changed\n' "$MONGO_LOG_PREFIX" >&2
+    return 1
+  fi
+  if [[ -n "$created_container_id" && "$created_container_id" == "$live_container_id" ]]; then
+    printf '%s: refusing cleanup because the container id is the live container\n' "$MONGO_LOG_PREFIX" >&2
+    return 1
+  fi
+  if [[ -n "$created_network_id" && "$created_network_id" == "$live_network_id" ]]; then
+    printf '%s: refusing cleanup because the network id is the live network\n' "$MONGO_LOG_PREFIX" >&2
+    return 1
+  fi
+  assert_isolated_config || return 1
+  if [[ -n "$created_container_id" ]]; then
+    mongo_docker rm -f "$created_container_id" || return 1
+  fi
+  if [[ -n "$created_network_id" ]]; then
+    mongo_docker network rm "$created_network_id" || return 1
+  fi
+  if [[ "$volume_seen_after_up" -eq 1 ]] && ! resource_exists volume "$ISO_VOLUME"; then
+    printf '%s: isolated volume disappeared during cleanup\n' "$MONGO_LOG_PREFIX" >&2
+    return 1
+  fi
+}
+
 on_exit() {
   local status=$?
   trap - EXIT
   in_trap=1
-  if [[ "$started" -eq 1 && "$cleaned" -eq 0 ]]; then
-    remove_isolated_names >/dev/null 2>&1 || true
+  if ! cleanup_this_invocation; then
+    status=1
   fi
   if ! assert_live_unchanged; then
     status=1
@@ -156,6 +232,7 @@ on_exit() {
 trap on_exit EXIT
 
 record_live
+refuse_existing_isolated
 
 umask 077
 mkdir -p "$runtime_dir"
@@ -174,12 +251,17 @@ export MONGO_T01_PUBLISH_PORT="$ISO_PORT"
 export MONGO_T01_KEYFILE_FILE="$keyfile"
 export MONGO_T01_RUNTIME_ENV="$runtime_env"
 
-started=1
-remove_isolated_names
-printf '%s: publish=127.0.0.1:%s\n' "$MONGO_LOG_PREFIX" "$ISO_PORT"
-if ! iso_compose up -d; then
+assert_isolated_config
+invoked_up=1
+set +e
+iso_compose up -d
+up_code=$?
+set -e
+capture_created
+if [[ "$up_code" -ne 0 ]]; then
   mongo_fail "isolated compose up failed"
 fi
+printf '%s: publish=127.0.0.1:%s\n' "$MONGO_LOG_PREFIX" "$ISO_PORT"
 
 ready=0
 for _ in $(seq 1 90); do
@@ -217,10 +299,13 @@ if [[ "$read_status" -eq 0 || "$token" != "AUTH_REJECTED" ]]; then
 fi
 printf '%s: anonymous infra_probe read rejected\n' "$MONGO_LOG_PREFIX"
 
-remove_isolated_names
-cleaned=1
-assert_live_unchanged
-printf '%s: live volume unchanged\n' "$MONGO_LOG_PREFIX"
+if ! cleanup_this_invocation; then
+  mongo_fail "isolated cleanup failed"
+fi
+if ! assert_live_unchanged; then
+  mongo_fail "live volume or container changed"
+fi
+printf '%s: isolated volume kept\n' "$MONGO_LOG_PREFIX"
 printf '%s: T01_ISOLATED_PASS\n' "$MONGO_LOG_PREFIX"
 printf '%s: t01-live=NOT_CLAIMED\n' "$MONGO_LOG_PREFIX"
 printf '%s: matrix=NOT_CLAIMED\n' "$MONGO_LOG_PREFIX"

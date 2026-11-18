@@ -34,7 +34,7 @@ bash tools/mongo/mongo-down.sh --destroy-volume
 
 The authorization check is an unauthenticated read of `infra_probe.probe`. `{ ping: 1 }` is not the oracle. Only an authorization rejection passes that check. A connection error does not. The read does not send the root username or password.
 
-`mongo-t01-isolated.sh` is a separate Compose project for a clean T01. Its project, container, and network are `commercecore-mongo-t01`. Its volume is `commercecore-mongo-t01-data`. Its publish is `127.0.0.1:27018`. Its keyfile and runtime env are under `tmp/mongo-t01/`. It reads `.env.local` and does not write that file, `tmp/mongo/keyfile`, or the live volume. It removes only the isolated names, and only after checking they are not the live names. A pass prints `T01_ISOLATED_PASS` and `t01-live=NOT_CLAIMED`. It does not print `mongo-infra-smoke: PASS` and it does not claim G5. That result is not the live volume's T01.
+`mongo-t01-isolated.sh` is a separate Compose project for a clean T01. Its project, container, and network are `commercecore-mongo-t01`. Its volume is `commercecore-mongo-t01-data`. Its publish is `127.0.0.1:27018`. Its keyfile and runtime env are under `tmp/mongo-t01/`. It reads `.env.local` and does not write that file, `tmp/mongo/keyfile`, or either named volume. Before it creates anything, it inspects the isolated volume, container, network, and Compose project. If any of them already exists, it exits 1 and leaves them. It takes no arguments. Cleanup may remove only the container id and network id created by that same start. It does not remove either named volume. A pass prints `T01_ISOLATED_PASS` and `t01-live=NOT_CLAIMED`. It does not print `mongo-infra-smoke: PASS` and it does not claim G5. That result is not the live volume's T01. This change does not execute that command.
 
 If Docker is missing or the daemon is unreachable, `mongo-up.sh` and `mongo-smoke.sh` exit 2 and print `WAITING_OWNER_LOCAL`. Exit 2 is not a pass and not G5.
 
@@ -54,7 +54,7 @@ The username and password are not part of that URI. `directConnection` is not a 
 
 ## Static checks
 
-`pnpm run mongo:check` reads the Compose file and the scripts. It checks a missing credential file, an empty password, a Docker-unavailable start, the teardown plan, the unauthenticated-read classifier, and that the loopback publish is not paired with `internal: true`. It does not start MongoDB and it does not mark T01 through T09 as run.
+`pnpm run mongo:check` reads the Compose file and the scripts. It checks a missing credential file, an empty password, a Docker-unavailable start, the teardown plan, the unauthenticated-read classifier, and that the loopback publish is not paired with `internal: true`. It also checks that the isolated command refuses an existing isolated volume, container, network, or project before creating one. It does not start MongoDB and it does not mark T01 through T09 as run.
 
 ## Evidence
 
@@ -66,4 +66,4 @@ This correction does not delete that volume, does not rewrite `.env.local` or th
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh --resume` against `15e46e5f94e1b21b517a7b673240079914a14508`. Exit 0. The console excerpt showed `resume existing volume`, `t01=NOT_CLAIMED`, `mongo-up: PASS`, `anonymous infra_probe read rejected`, the existing probe document, T02 through T09, `port 127.0.0.1:27017`, then `matrix=NOT_CLAIMED`, `REVALIDATION_ONLY`, and `g5: NOT_CLAIMED`. No full log and no `mongod` version line were supplied. That is a non-destructive revalidation of T02–T09 on the existing volume. It is not a clean T01, not the full matrix, and not G5. The live volume stays.
 
-The isolated clean T01 has not been executed. This machine has no Docker daemon, so `mongo-t01-isolated.sh` was not run here. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass.
+The isolated clean T01 has not been executed. This machine has no Docker daemon, so `mongo-t01-isolated.sh` was not run here. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. The command is not a request to delete an existing isolated volume.
