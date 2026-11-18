@@ -183,7 +183,7 @@ The pin paragraph above said G4 stayed `READY_PENDING_MERGE` until the pin chang
 | Digest pinned and CI green | True. [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) merged at that SHA. [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) concluded `success` for `validate`, `chart`, and `image`. The pin remains the OCI index in the image pin section |
 | Normative conflict inside this slice | None found. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. The Compose named volume is not that PVC. `D-05-MONGO` stays PENDING and outside this slice |
 
-`G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. T01–T09 stay `NOT_RUN` until `tools/mongo/mongo-smoke.sh` is actually executed.
+`G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. The owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` exited 1. T01 is not passed. T02–T09 stay `NOT_RUN`.
 
 The library GitCommit `5fd7eb19024b73c9ec84644f1b23acbb33bee8b0` is still not an OCI digest. This digest is not selected for the M01-D05 StatefulSet.
 
@@ -197,23 +197,29 @@ One Compose project, one `mongod`, replica set name `rs0`, one member. Auth is r
 
 The only published port is `127.0.0.1:27017`. If that port is taken, the implementation records another loopback port. It never publishes `0.0.0.0`.
 
+The Compose network keeps the name `commercecore-mongo`. It is a dedicated bridge and `internal` is false. R2 is the loopback publish, not a ClusterIP and not a public bind. On Docker 29 an internal-only network accepts `HostConfig.PortBindings` and leaves `NetworkSettings.Ports` null, so that publish is not installed. The owner inspect on 2026-11-18 showed `{"27017/tcp":null}`, a requested bind of `127.0.0.1:27017`, an empty gateway, and container `7121f393320f` attached only to `commercecore-mongo`. The merged file at that time had `internal: true`. This correction turns that flag off so the loopback bind can exist. The container can open outbound connections, because that gateway is what Docker uses to install the publish. R1 is unchanged. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. This agent did not recreate the container and did not delete the volume.
+
 The data volume is the named volume `commercecore-mongo-data`. It is not a bind mount of the repository and not a PVC. Default teardown removes the container and keeps the volume. Removing the volume requires an explicit destructive flag.
 
 The member host stored by initiate is `mongo`, the Compose service name, which resolves inside the Compose network. The host does not resolve that name by itself. The pass path is an in-container `rs.status()` that shows one PRIMARY named `mongo:27017`, plus a host client that uses the documented URI. If that URI needs the name `mongo`, the operator's untracked hosts file maps it to `127.0.0.1`. `directConnection=true` is not a pass. A second start on the same volume must not initiate again and must not wipe data.
 
-The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra_probe`, collection `probe`. That database is not `commercecore_dev` and holds no order, payment, inventory, or catalog document. NestJS is not a client. The API chart is not changed. The Compose network is not attached to k3d.
+The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra_probe`, collection `probe`. That database is not `commercecore_dev` and holds no order, payment, inventory, or catalog document. A clean T01 writes that document. `--resume` reads it and does not delete the volume. NestJS is not a client. The API chart is not changed. The Compose network is not attached to k3d.
 
 ## Acceptance matrix
 
-Every row is TEST_PLANNED / NOT_RUN. The implementation machine for the Compose files had no Docker daemon on 2026-11-18, so `tools/mongo/mongo-smoke.sh` was not executed. `pnpm run mongo:check` is a static file and script check. It does not mark any row below as run. Exit 2 from the smoke, with `WAITING_OWNER_LOCAL`, is not a pass.
+No row below is passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01.
+
+On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Docker 29.1.3 and Compose 5.3.0, against `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3`. Before that run the named volume was absent, the container was absent, and port 27017 was free. The reported log showed T01 clean start, `mongo-up: PASS`, then `mongo-infra-smoke: anonymous ping succeeded`, and exit 1. T02–T09 did not run. That run is not a T01 pass and not G5. `{ ping: 1 }` is not an authorization check. The oracle is an unauthenticated read of `infra_probe.probe`. The same read is the T05 check. This correction does not change `--auth` to make ping fail.
+
+After that run the volume `commercecore-mongo-data` existed. The read-only inspect showed container `7121f393320f` healthy, `NetworkSettings.Ports={"27017/tcp":null}`, and `HostConfig.PortBindings` requesting `127.0.0.1:27017`. `--resume` is the non-destructive revalidation. `--fresh` deletes the volume and is not the recovery for that volume. The next owner `mongo-up` can recreate the container to apply the network change. It keeps the named volume. This agent did not run that command.
 
 | ID | When | Pass | Fail |
 |---|---|---|---|
-| MONGO-INFRA-T01 | clean start on an empty volume | one PRIMARY in `rs0`; credentialed ping succeeds; anonymous ping fails | a second member, or a ready port without auth |
+| MONGO-INFRA-T01 | clean start on an empty volume | one PRIMARY in `rs0`; the credentialed `infra_probe` write succeeds; an unauthenticated read of `infra_probe.probe` is rejected with an authorization error. A ping response is not the oracle | a second member, an unauthenticated read that is accepted, or a network error counted as rejection |
 | MONGO-INFRA-T02 | start again on the same volume | already-initialized set is left in place; the probe document is still there | initiate error treated as success by deleting the volume |
 | MONGO-INFRA-T03 | restart the container | the same probe document is readable | data present only in memory |
 | MONGO-INFRA-T04 | new container, same named volume | the probe document survives | a fresh empty volume silently replaces the named one |
-| MONGO-INFRA-T05 | missing `.env.local` or empty password | non-zero exit; no anonymous ready port | a default user or an open unauthenticated port |
+| MONGO-INFRA-T05 | missing `.env.local` or empty password | non-zero exit before Docker changes the server; the unauthenticated `infra_probe` read is still rejected | a default user, an unauthenticated read that is accepted, or a network error counted as rejection |
 | MONGO-INFRA-T06 | inspect the published port | `127.0.0.1` only | `0.0.0.0` or any non-loopback bind |
 | MONGO-INFRA-T07 | read `rs.conf()` inside the container and connect from the host with the documented URI | member host resolves in the container; host check succeeds without `directConnection=true` | pass claimed through `directConnection=true` |
 | MONGO-INFRA-T08 | read the Compose image reference | tag plus `@sha256:` equal to the pinned OCI index digest in the image pin section; `mongod --version` matches `8.0.38` | `latest`, floating `8`, a platform-manifest digest used as the pin, or a digest that was not printed by the registry read |
@@ -228,7 +234,7 @@ M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. 
 
 The owner named this request ID on 2026-11-17 at 23:23 Europe/Amsterdam and granted it only after the three conditions in the owner ratification section. Merge of PR #50 is not that grant. Merge of PR #51 satisfied condition 1 only. The image pin section wrote condition 2 and, before PR #52 merged, left the label `READY_PENDING_MERGE`. The G4 effective scoped section records that all three conditions are true on `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`.
 
-The grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. The smoke has not been run. G5 is not claimed.
+The grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. The owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` exited 1 before T02. G5 is not claimed.
 
 ## Out of scope
 
