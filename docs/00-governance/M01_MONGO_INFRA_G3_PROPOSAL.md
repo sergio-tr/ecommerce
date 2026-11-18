@@ -215,7 +215,7 @@ After that run the volume `commercecore-mongo-data` existed. The read-only inspe
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh --resume` against `15e46e5f94e1b21b517a7b673240079914a14508`. Exit 0. The console excerpt showed T02–T09 on the existing volume, `port 127.0.0.1:27017`, `t01=NOT_CLAIMED`, `matrix=NOT_CLAIMED`, `REVALIDATION_ONLY`, and `g5: NOT_CLAIMED`. No full log and no `mongod` version line were supplied. That revalidation is not a clean T01 and not G5.
 
-A clean T01 that does not touch the live volume is `tools/mongo/mongo-t01-isolated.sh`. It uses project `commercecore-mongo-t01`, volume `commercecore-mongo-t01-data`, and `127.0.0.1:27018`. It has not been executed. `T01_ISOLATED_PASS` would still not claim the live T01 or G5.
+A clean T01 that does not touch the live volume is `tools/mongo/mongo-t01-isolated.sh`. It uses project `commercecore-mongo-t01`, volume `commercecore-mongo-t01-data`, and `127.0.0.1:27018`. It reads `.env.local` and does not write that file. If the isolated volume, container, network, or project already exists, it exits before changing Docker and does not delete them. It has not been executed. `T01_ISOLATED_PASS` would still not claim the live T01 or G5.
 
 | ID | When | Pass | Fail |
 |---|---|---|---|
