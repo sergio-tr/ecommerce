@@ -213,6 +213,10 @@ On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Do
 
 After that run the volume `commercecore-mongo-data` existed. The read-only inspect showed container `7121f393320f` healthy, `NetworkSettings.Ports={"27017/tcp":null}`, and `HostConfig.PortBindings` requesting `127.0.0.1:27017`. `--resume` is the non-destructive revalidation. `--fresh` deletes the volume and is not the recovery for that volume. The next owner `mongo-up` can recreate the container to apply the network change. It keeps the named volume. This agent did not run that command.
 
+On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh --resume` against `15e46e5f94e1b21b517a7b673240079914a14508`. Exit 0. The console excerpt showed T02–T09 on the existing volume, `port 127.0.0.1:27017`, `t01=NOT_CLAIMED`, `matrix=NOT_CLAIMED`, `REVALIDATION_ONLY`, and `g5: NOT_CLAIMED`. No full log and no `mongod` version line were supplied. That revalidation is not a clean T01 and not G5.
+
+A clean T01 that does not touch the live volume is `tools/mongo/mongo-t01-isolated.sh`. It uses project `commercecore-mongo-t01`, volume `commercecore-mongo-t01-data`, and `127.0.0.1:27018`. It has not been executed. `T01_ISOLATED_PASS` would still not claim the live T01 or G5.
+
 | ID | When | Pass | Fail |
 |---|---|---|---|
 | MONGO-INFRA-T01 | clean start on an empty volume | one PRIMARY in `rs0`; the credentialed `infra_probe` write succeeds; an unauthenticated read of `infra_probe.probe` is rejected with an authorization error. A ping response is not the oracle | a second member, an unauthenticated read that is accepted, or a network error counted as rejection |
