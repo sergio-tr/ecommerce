@@ -8,7 +8,7 @@ services:
     image: docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c
     hostname: mongo
     container_name: commercecore-mongo
-    entrypoint: ["bash", "/bootstrap/entrypoint.sh"]
+    entrypoint: ['bash', '/bootstrap/entrypoint.sh']
     command:
       - mongod
       - --replSet
@@ -20,7 +20,7 @@ services:
     env_file:
       - ${MONGO_RUNTIME_ENV:?set MONGO_RUNTIME_ENV to the untracked runtime env file}
     ports:
-      - "127.0.0.1:${MONGO_PUBLISH_PORT:-27017}:27017"
+      - '127.0.0.1:${MONGO_PUBLISH_PORT:-27017}:27017'
     volumes:
       - commercecore-mongo-data:/data/db
       - ./entrypoint.sh:/bootstrap/entrypoint.sh:ro
@@ -32,7 +32,7 @@ services:
       - mongo-keyfile
     networks:
       private: {}
-    restart: "no"
+    restart: 'no'
     healthcheck:
       test:
         - CMD-SHELL
