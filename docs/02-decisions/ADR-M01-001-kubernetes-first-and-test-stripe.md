@@ -58,7 +58,7 @@ The four are documentary **technical specifications**, not actual scaffolded app
 
 ## Later scoped record, 2026-11-17
 
-`PROP-2026-11-17-M01-MONGO-INFRA-01` accepts `MONGO-RUNTIME-COMPOSE` for task `M01-MONGO-01` only. D-1 K2 remains the application runtime. D-3 DATA-A is not amended: the M01-D05 StatefulSet and PVC stay specified and unbuilt, and the Compose named volume is not that PVC. The record is [M01_MONGO_INFRA_G3_PROPOSAL.md](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md). G4 request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is conditional and not effective. No image digest is selected in this ADR. `D-05-MONGO` stays PENDING.
+`PROP-2026-11-17-M01-MONGO-INFRA-01` accepts `MONGO-RUNTIME-COMPOSE` for task `M01-MONGO-01` only. D-1 K2 remains the application runtime. D-3 DATA-A is not amended: the M01-D05 StatefulSet and PVC stay specified and unbuilt, and the Compose named volume is not that PVC. The record is [M01_MONGO_INFRA_G3_PROPOSAL.md](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md). That proposal pins the Compose image to the OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. This ADR does not select that digest for DATA-A or the unbuilt StatefulSet. G4 request `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is `READY_PENDING_MERGE` and not effective. `D-05-MONGO` stays PENDING.
 
 ## Official verification sources consulted 2026-10-30
 

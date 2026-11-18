@@ -5,7 +5,7 @@
 **Owner:** @sergio-tr. **Milestone:** M01, with D-05-MONGO/M00.1 and M00.2 still independently blocking financial/stock effects.
 **Implementation:** NOT AUTHORIZED / NOT PERFORMED.
 
-> **2026-11-17 scoped ratification, not a replacement:** [M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) (`PROP-2026-11-17-M01-MONGO-INFRA-01`, Linear SER-138) accepts Compose for one local replica-set member only. The StatefulSet, PVC, `commercecore_dev`, `commercecloud_dev`, and their users in this file stay specified and unbuilt. No digest is selected here. G4 is conditional and not effective. `D-05-MONGO` stays PENDING.
+> **2026-11-18 scoped pin, not a replacement:** [M01-MONGO-01](../../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) (`PROP-2026-11-17-M01-MONGO-INFRA-01`, Linear SER-138) accepts Compose for one local replica-set member only and pins that Compose image to OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. The StatefulSet, PVC, `commercecore_dev`, `commercecloud_dev`, and their users in this file stay specified and unbuilt. This file does not select that digest for the StatefulSet. G4 is `READY_PENDING_MERGE` and not effective. `D-05-MONGO` stays PENDING.
 
 ## Objective and hard exclusions
 
