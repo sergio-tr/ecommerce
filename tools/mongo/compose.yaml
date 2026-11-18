@@ -1,0 +1,56 @@
+name: commercecore-mongo
+
+# Local one-member replica set for M01-MONGO-01. The host publish is loopback.
+# --bind_ip_all is inside the container network namespace so the Compose name
+# mongo and the published port can reach mongod. It is not a host bind.
+services:
+  mongo:
+    image: docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c
+    hostname: mongo
+    container_name: commercecore-mongo
+    entrypoint: ['bash', '/bootstrap/entrypoint.sh']
+    command:
+      - mongod
+      - --replSet
+      - rs0
+      - --bind_ip_all
+      - --auth
+      - --keyFile
+      - /run/secrets/mongo-keyfile
+    env_file:
+      - ${MONGO_RUNTIME_ENV:?set MONGO_RUNTIME_ENV to the untracked runtime env file}
+    ports:
+      - '127.0.0.1:${MONGO_PUBLISH_PORT:-27017}:27017'
+    volumes:
+      - commercecore-mongo-data:/data/db
+      - ./entrypoint.sh:/bootstrap/entrypoint.sh:ro
+      - ./bootstrap.sh:/bootstrap/bootstrap.sh:ro
+      - ./bootstrap.js:/bootstrap/bootstrap.js:ro
+      - ./probe-write.js:/bootstrap/probe-write.js:ro
+      - ./probe-read.js:/bootstrap/probe-read.js:ro
+    secrets:
+      - mongo-keyfile
+    networks:
+      private: {}
+    restart: 'no'
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mongosh --quiet --username "$$MONGO_INITDB_ROOT_USERNAME" --password "$$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --eval "const status = rs.status(); if (!status || status.ok !== 1 || status.myState !== 1 || !status.members || status.members.length !== 1) { quit(1); }"
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 60s
+
+volumes:
+  commercecore-mongo-data:
+    name: commercecore-mongo-data
+
+networks:
+  private:
+    name: commercecore-mongo
+    internal: true
+
+secrets:
+  mongo-keyfile:
+    file: ${MONGO_KEYFILE_FILE:?set MONGO_KEYFILE_FILE to the untracked keyfile}
