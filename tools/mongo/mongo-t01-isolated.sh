@@ -1,219 +1,190 @@
 #!/usr/bin/env bash
-# Clean T01 on a second Compose project. This does not claim T02-T09 or G5.
-# It does not read .env.local, does not write tmp/mongo, and does not delete
-# commercecore-mongo-data. --fresh is not accepted. A pre-existing isolated
-# volume, container, or network is left in place and the command stops.
+# Clean T01 on a separate Compose project. This does not claim the live volume's T01 or G5.
+# It never removes commercecore-mongo-data, commercecore-mongo, or the live keyfile.
 set -euo pipefail
 
 MONGO_LOG_PREFIX=mongo-t01-isolated
 # shellcheck source=lib.sh
 source "$(dirname "$0")/lib.sh"
 
-project=commercecore-mongo-t01
-container=commercecore-mongo-t01
-volume=commercecore-mongo-t01-data
-network=commercecore-mongo-t01
-port=27018
-owner_volume=commercecore-mongo-data
-owner_container=commercecore-mongo
-owner_network=commercecore-mongo
-started=0
-removed=0
-snapshots_ready=0
+LIVE_VOLUME=commercecore-mongo-data
+LIVE_CONTAINER=commercecore-mongo
+LIVE_NETWORK=commercecore-mongo
+LIVE_PORT=27017
+ISO_VOLUME=commercecore-mongo-t01-data
+ISO_CONTAINER=commercecore-mongo-t01
+ISO_NETWORK=commercecore-mongo-t01
+ISO_PORT=27018
+ISO_PROJECT=commercecore-mongo-t01
+PINNED_IMAGE=docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c
 
-t01_owner_unchanged() {
-  [[ "$(t01_inspect_text volume "$owner_volume" '{{.Name}}|{{.CreatedAt}}|{{.Mountpoint}}|{{json .Labels}}|{{json .Options}}')" == "$owner_volume_snapshot" ]] \
-    && [[ "$(t01_inspect_text container "$owner_container" '{{.Id}}|{{.State.Status}}|{{json .HostConfig.PortBindings}}|{{json .Mounts}}')" == "$owner_container_snapshot" ]] \
-    && [[ "$(t01_inspect_text network "$owner_network" '{{.Id}}|{{.Internal}}|{{json .Containers}}')" == "$owner_network_snapshot" ]] \
-    && [[ "$(t01_file_digest "$owner_keyfile")" == "$owner_keyfile_snapshot" ]] \
-    && [[ "$(t01_file_digest "$owner_env")" == "$owner_env_snapshot" ]]
-}
-
-on_exit() {
-  local code=$?
-  if [[ "$snapshots_ready" -eq 1 ]]; then
-    if ! t01_owner_unchanged; then
-      printf 'mongo-t01-isolated: owner resources changed\n' >&2
-      code=1
-    fi
-  fi
-  if [[ "$code" -ne 0 && "$started" -eq 1 && "$removed" -ne 1 ]]; then
-    printf 'mongo-t01-isolated: isolated resources were left in place and were not deleted\n' >&2
-  fi
-  exit "$code"
-}
-trap on_exit EXIT
-
-if [[ $# -ne 0 ]]; then
-  mongo_fail "no arguments are accepted. --fresh is not available and nothing was deleted"
+if [[ "$#" -ne 0 ]]; then
+  mongo_fail "arguments are not accepted"
 fi
-
-if [[ "$project" == "commercecore-mongo" || "$container" == "$owner_container" || "$volume" == "$owner_volume" || "$network" == "$owner_network" || "$port" == "27017" ]]; then
-  mongo_fail "isolated names collide with the owner Mongo resources. Nothing was deleted"
+if [[ "$ISO_VOLUME" == "$LIVE_VOLUME" || "$ISO_CONTAINER" == "$LIVE_CONTAINER" || "$ISO_NETWORK" == "$LIVE_NETWORK" || "$ISO_PORT" == "$LIVE_PORT" || "$ISO_PROJECT" == "mongo" ]]; then
+  mongo_fail "isolated names collide with the live project"
 fi
-
-mongo_require_docker
+if [[ "${MONGO_T01_PUBLISH_PORT:-27018}" != "$ISO_PORT" ]]; then
+  mongo_fail "isolated T01 publish port is fixed at ${ISO_PORT}"
+fi
 
 root="$(mongo_root)"
 runtime_dir="${MONGO_T01_RUNTIME_DIR:-${root}/tmp/mongo-t01}"
-owner_keyfile="${root}/tmp/mongo/keyfile"
-owner_env="${root}/.env.local"
-override="${root}/tools/mongo/compose.t01-isolated.yaml"
-checker="${root}/tools/mongo/assert-isolated-config.js"
+live_runtime="${root}/tmp/mongo"
+case "$runtime_dir" in
+  "$live_runtime"|"${live_runtime}/")
+    mongo_fail "refusing to use the live runtime directory"
+    ;;
+esac
 
-t01_canonical_dir() {
-  local dir="$1"
-  local parent base
-  if [[ -d "$dir" ]]; then
-    (cd "$dir" && pwd)
-    return
-  fi
-  parent="$(dirname "$dir")"
-  base="$(basename "$dir")"
-  if [[ -d "$parent" ]]; then
-    printf '%s/%s' "$(cd "$parent" && pwd)" "$base"
-    return
-  fi
-  printf '%s' "$dir"
-}
-
-owner_runtime="$(t01_canonical_dir "${root}/tmp/mongo")"
-t01_runtime="$(t01_canonical_dir "$runtime_dir")"
-if [[ "$t01_runtime" == "$owner_runtime" || "$t01_runtime" == "$owner_runtime"/* ]]; then
-  mongo_fail "isolated runtime dir collides with tmp/mongo. Nothing was deleted"
+if [[ "${MONGO_T01_PLAN_ONLY:-}" == "1" ]]; then
+  printf 'volume=%s\ncontainer=%s\nnetwork=%s\nport=%s\nproject=%s\nruntime=%s\n' \
+    "$ISO_VOLUME" "$ISO_CONTAINER" "$ISO_NETWORK" "$ISO_PORT" "$ISO_PROJECT" "$runtime_dir"
+  exit 0
 fi
 
-t01_inspect_text() {
-  local kind="$1"
-  local name="$2"
-  local format="$3"
-  local out code
-  set +e
-  out="$(mongo_docker "$kind" inspect --format "$format" "$name" 2>/dev/null)"
-  code=$?
-  set -e
-  if [[ "$code" -ne 0 ]]; then
-    printf 'ABSENT'
-    return 0
-  fi
-  printf '%s' "${out//$'\n'/ }"
-}
+mongo_load_credentials
+mongo_require_docker
 
-t01_inspect_code() {
-  local kind="$1"
-  local name="$2"
-  local code
-  set +e
-  mongo_docker "$kind" inspect "$name" >/dev/null 2>&1
-  code=$?
-  set -e
-  printf '%s' "$code"
-}
+started=0
+cleaned=0
+in_trap=0
+live_recorded=0
+live_volume_before=0
+live_container_before=0
 
-t01_file_digest() {
-  local file="$1"
-  if [[ ! -f "$file" ]]; then
-    printf 'ABSENT'
-    return 0
-  fi
-  if command -v sha256sum >/dev/null 2>&1; then
-    sha256sum "$file" | awk '{print $1}'
-    return 0
-  fi
-  shasum -a 256 "$file" | awk '{print $1}'
-}
-
-t01_compose() {
+iso_compose() {
   mongo_docker compose \
+    --project-name "$ISO_PROJECT" \
     --project-directory "${root}/tools/mongo" \
-    --project-name "$project" \
-    --file "${root}/tools/mongo/compose.yaml" \
-    --file "$override" \
+    --file "${root}/tools/mongo/compose.t01.yaml" \
     "$@"
 }
 
-t01_bounded_attempts() {
+trim() {
   local value="$1"
-  local label="$2"
-  if [[ ! "$value" =~ ^[0-9]+$ ]] || ((value < 1 || value > 90)); then
-    mongo_fail "${label} must be an integer from 1 to 90"
-  fi
+  value="${value//$'\r'/}"
+  value="${value#"${value%%[![:space:]]*}"}"
+  value="${value%"${value##*[![:space:]]}"}"
   printf '%s' "$value"
 }
 
-t01_refuse_existing() {
-  local kind="$1"
-  local name="$2"
-  local label="$3"
-  local code
-  code="$(t01_inspect_code "$kind" "$name")"
-  if [[ "$code" -eq 0 ]]; then
-    mongo_fail "isolated ${label} ${name} already exists. It was not deleted"
+refuse() {
+  if [[ "$in_trap" -eq 1 ]]; then
+    return 1
   fi
-  if [[ "$code" -ne 1 ]]; then
-    mongo_fail "could not inspect isolated ${label} ${name}. Nothing was deleted"
+  mongo_fail "$1"
+}
+
+assert_isolated_config() {
+  local volumes images
+  volumes="$(trim "$(iso_compose config --volumes)")"
+  images="$(trim "$(iso_compose config --images)")"
+  if [[ "$volumes" != "$ISO_VOLUME" || "$volumes" == "$LIVE_VOLUME" ]]; then
+    refuse "isolated compose volumes are not ${ISO_VOLUME}"
+  fi
+  if [[ "$images" != "$PINNED_IMAGE" ]]; then
+    refuse "isolated compose image is not the pinned index"
   fi
 }
 
-owner_volume_snapshot="$(t01_inspect_text volume "$owner_volume" '{{.Name}}|{{.CreatedAt}}|{{.Mountpoint}}|{{json .Labels}}|{{json .Options}}')"
-owner_container_snapshot="$(t01_inspect_text container "$owner_container" '{{.Id}}|{{.State.Status}}|{{json .HostConfig.PortBindings}}|{{json .Mounts}}')"
-owner_network_snapshot="$(t01_inspect_text network "$owner_network" '{{.Id}}|{{.Internal}}|{{json .Containers}}')"
-owner_keyfile_snapshot="$(t01_file_digest "$owner_keyfile")"
-owner_env_snapshot="$(t01_file_digest "$owner_env")"
-snapshots_ready=1
+remove_isolated_names() {
+  assert_isolated_config
+  if [[ "$ISO_CONTAINER" != "commercecore-mongo-t01" || "$ISO_VOLUME" != "commercecore-mongo-t01-data" || "$ISO_NETWORK" != "commercecore-mongo-t01" ]]; then
+    refuse "refusing to remove live names"
+  fi
+  iso_compose down -v
+  if mongo_docker container inspect "$ISO_CONTAINER" >/dev/null 2>&1; then
+    mongo_docker rm -f "$ISO_CONTAINER"
+  fi
+  if mongo_docker volume inspect "$ISO_VOLUME" >/dev/null 2>&1; then
+    mongo_docker volume rm "$ISO_VOLUME"
+  fi
+  if mongo_docker network inspect "$ISO_NETWORK" >/dev/null 2>&1; then
+    mongo_docker network rm "$ISO_NETWORK"
+  fi
+}
 
-t01_refuse_existing volume "$volume" volume
-t01_refuse_existing container "$container" container
-t01_refuse_existing network "$network" network
+live_exists() {
+  local kind="$1"
+  local name="$2"
+  mongo_docker "$kind" inspect "$name" >/dev/null 2>&1
+}
 
-listing="$(mongo_docker ps -a --format '{{.Names}} {{.Ports}}')"
-if [[ "$listing" == *":${port}->"* ]]; then
-  mongo_fail "127.0.0.1:${port} is already published. Nothing was deleted"
-fi
+record_live() {
+  live_volume_before=0
+  live_container_before=0
+  if live_exists volume "$LIVE_VOLUME"; then
+    live_volume_before=1
+  fi
+  if live_exists container "$LIVE_CONTAINER"; then
+    live_container_before=1
+  fi
+  live_recorded=1
+}
 
-if ! command -v node >/dev/null 2>&1; then
-  mongo_fail "node is required for the isolated config check. Nothing was started and nothing was deleted"
-fi
-if ! command -v od >/dev/null 2>&1; then
-  mongo_fail "od is required to mint the isolated credential. Nothing was started and nothing was deleted"
-fi
+assert_live_unchanged() {
+  local volume_after=0
+  local container_after=0
+  if [[ "$live_recorded" -ne 1 ]]; then
+    return 0
+  fi
+  if live_exists volume "$LIVE_VOLUME"; then
+    volume_after=1
+  fi
+  if live_exists container "$LIVE_CONTAINER"; then
+    container_after=1
+  fi
+  if [[ "$volume_after" -ne "$live_volume_before" || "$container_after" -ne "$live_container_before" ]]; then
+    printf '%s: live volume or container changed\n' "$MONGO_LOG_PREFIX" >&2
+    return 1
+  fi
+}
+
+on_exit() {
+  local status=$?
+  trap - EXIT
+  in_trap=1
+  if [[ "$started" -eq 1 && "$cleaned" -eq 0 ]]; then
+    remove_isolated_names >/dev/null 2>&1 || true
+  fi
+  if ! assert_live_unchanged; then
+    status=1
+  fi
+  exit "$status"
+}
+trap on_exit EXIT
+
+record_live
 
 umask 077
 mkdir -p "$runtime_dir"
-chmod 700 "$runtime_dir"
 keyfile="${runtime_dir}/keyfile"
 runtime_env="${runtime_dir}/runtime.env"
-head -c 756 /dev/urandom | base64 >"$keyfile"
+if [[ ! -s "$keyfile" ]]; then
+  head -c 756 /dev/urandom | base64 >"$keyfile"
+fi
 chmod 400 "$keyfile"
-username="t01-isolate"
-password="$(od -An -tx1 -N 24 /dev/urandom | tr -d ' \n')"
-mongo_reject_credential MONGO_INITDB_ROOT_USERNAME "$username"
-mongo_reject_credential MONGO_INITDB_ROOT_PASSWORD "$password"
 {
-  printf 'MONGO_INITDB_ROOT_USERNAME="%s"\n' "$username"
-  printf 'MONGO_INITDB_ROOT_PASSWORD="%s"\n' "$password"
+  printf 'MONGO_INITDB_ROOT_USERNAME="%s"\n' "$MONGO_USERNAME"
+  printf 'MONGO_INITDB_ROOT_PASSWORD="%s"\n' "$MONGO_PASSWORD"
 } >"$runtime_env"
 chmod 600 "$runtime_env"
-unset password
-export MONGO_PUBLISH_PORT="$port"
-export MONGO_KEYFILE_FILE="$keyfile"
-export MONGO_RUNTIME_ENV="$runtime_env"
-
-bootstrap_attempts="$(t01_bounded_attempts "${MONGO_T01_BOOTSTRAP_ATTEMPTS:-90}" MONGO_T01_BOOTSTRAP_ATTEMPTS)"
-mongosh_attempts="$(t01_bounded_attempts "${MONGO_T01_MONGOSH_ATTEMPTS:-90}" MONGO_T01_MONGOSH_ATTEMPTS)"
-
-summary="$(t01_compose config --format json | node "$checker")"
-printf 'mongo-t01-isolated: %s\n' "$summary"
+export MONGO_T01_PUBLISH_PORT="$ISO_PORT"
+export MONGO_T01_KEYFILE_FILE="$keyfile"
+export MONGO_T01_RUNTIME_ENV="$runtime_env"
 
 started=1
-if ! t01_compose up -d; then
-  mongo_fail "isolated compose up failed. Owner resources were not removed"
+remove_isolated_names
+printf '%s: publish=127.0.0.1:%s\n' "$MONGO_LOG_PREFIX" "$ISO_PORT"
+if ! iso_compose up -d; then
+  mongo_fail "isolated compose up failed"
 fi
 
 ready=0
-for _ in $(seq 1 "$bootstrap_attempts"); do
+for _ in $(seq 1 90); do
   set +e
-  t01_compose exec -T mongo bash /bootstrap/bootstrap.sh
+  iso_compose exec -T mongo bash /bootstrap/bootstrap.sh
   code=$?
   set -e
   if [[ "$code" -eq 0 ]]; then
@@ -229,99 +200,28 @@ if [[ "$ready" -ne 1 ]]; then
   mongo_fail "replica set bootstrap did not become primary"
 fi
 
-wrote=0
-for _ in $(seq 1 "$mongosh_attempts"); do
-  if t01_compose exec -T mongo bash -lc \
-    "mongosh --quiet --username \"\$MONGO_INITDB_ROOT_USERNAME\" --password \"\$MONGO_INITDB_ROOT_PASSWORD\" --authenticationDatabase admin --file /bootstrap/probe-write.js"; then
-    wrote=1
-    break
-  fi
-  sleep 1
-done
-if [[ "$wrote" -ne 1 ]]; then
-  mongo_fail "credentialed infra_probe write did not succeed"
+iso_compose exec -T mongo bash -lc \
+  'mongosh --quiet --username "$MONGO_INITDB_ROOT_USERNAME" --password "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --file /bootstrap/probe-write.js'
+
+set +e
+token="$(
+  iso_compose exec -T mongo \
+    bash --noprofile --norc -c \
+    'unset MONGO_INITDB_ROOT_USERNAME MONGO_INITDB_ROOT_PASSWORD MONGODB_URI; exec mongosh --quiet --norc --file /bootstrap/probe-anonymous.js'
+)"
+read_status=$?
+set -e
+token="$(trim "$token")"
+if [[ "$read_status" -eq 0 || "$token" != "AUTH_REJECTED" ]]; then
+  mongo_fail "anonymous infra_probe read was not rejected"
 fi
+printf '%s: anonymous infra_probe read rejected\n' "$MONGO_LOG_PREFIX"
 
-anonymous_data_read_rejected() {
-  local status token err_file err
-  err_file="$(mktemp)"
-  set +e
-  token="$(
-    t01_compose exec -T mongo \
-      bash --noprofile --norc -c \
-      'unset MONGO_INITDB_ROOT_USERNAME MONGO_INITDB_ROOT_PASSWORD MONGODB_URI; exec mongosh --quiet --norc --file /bootstrap/probe-anonymous.js' \
-      2>"$err_file"
-  )"
-  status=$?
-  set -e
-  err="$(cat "$err_file" 2>/dev/null || true)"
-  rm -f "$err_file"
-  token="${token//$'\r'/}"
-  token="${token#"${token%%[![:space:]]*}"}"
-  token="${token%"${token##*[![:space:]]}"}"
-  if [[ "$status" -eq 0 || "$token" == "AUTH_BYPASS" ]]; then
-    mongo_fail "anonymous infra_probe read succeeded"
-  fi
-  if [[ "$token" == "AUTH_REJECTED" ]]; then
-    printf 'mongo-t01-isolated: anonymous infra_probe read rejected\n'
-    return 0
-  fi
-  if [[ "$token" == "NETWORK" || "$status" -eq 4 || "$err" == *"ECONNREFUSED"* || "$err" == *"Server selection"* || "$err" == *"getaddrinfo"* || "$err" == *"timed out"* ]]; then
-    mongo_fail "anonymous infra_probe read failed before authorization"
-  fi
-  mongo_fail "anonymous infra_probe read was not an authorization rejection"
-}
-
-printf 'mongo-t01-isolated: T01 clean start\n'
-anonymous_data_read_rejected
-
-published="$(mongo_docker port "$container" 27017/tcp)"
-published="${published//$'\r'/}"
-published="${published#"${published%%[![:space:]]*}"}"
-published="${published%"${published##*[![:space:]]}"}"
-printf 'mongo-t01-isolated: port %s\n' "$published"
-if [[ "$published" != "127.0.0.1:${port}" ]]; then
-  mongo_fail "isolated published port is not 127.0.0.1:${port}"
-fi
-
-version="$(t01_compose exec -T mongo mongod --version)"
-printf '%s\n' "$version"
-if [[ "$version" != *"v8.0.38"* ]]; then
-  mongo_fail "mongod --version does not report 8.0.38"
-fi
-
-if ! t01_owner_unchanged; then
-  mongo_fail "owner resources changed before isolated teardown"
-fi
-
-summary_down="$(t01_compose config --format json | node "$checker")"
-if [[ "$summary_down" != "$summary" ]]; then
-  mongo_fail "isolated config changed before teardown. Isolated resources were not deleted"
-fi
-
-t01_compose down -v
-
-if [[ "$(t01_inspect_code volume "$volume")" -ne 1 ]]; then
-  mongo_fail "isolated volume remained after teardown"
-fi
-if [[ "$(t01_inspect_code container "$container")" -ne 1 ]]; then
-  mongo_fail "isolated container remained after teardown"
-fi
-if [[ "$(t01_inspect_code network "$network")" -ne 1 ]]; then
-  mongo_fail "isolated network remained after teardown"
-fi
-if ! t01_owner_unchanged; then
-  mongo_fail "owner resources changed"
-fi
-
-rm -f "$keyfile" "$runtime_env"
-removed=1
-
-printf 'mongo-t01-isolated: owner volume unchanged\n'
-printf 'mongo-t01-isolated: isolated volume removed\n'
-printf 'mongo-t01-isolated: t01=ISOLATED_PASS\n'
-printf 'mongo-t01-isolated: t02-t09=NOT_RUN\n'
-printf 'mongo-t01-isolated: t06=NOT_CLAIMED\n'
-printf 'mongo-t01-isolated: t08=NOT_CLAIMED\n'
-printf 'mongo-t01-isolated: matrix=NOT_CLAIMED\n'
+remove_isolated_names
+cleaned=1
+assert_live_unchanged
+printf '%s: live volume unchanged\n' "$MONGO_LOG_PREFIX"
+printf '%s: T01_ISOLATED_PASS\n' "$MONGO_LOG_PREFIX"
+printf '%s: t01-live=NOT_CLAIMED\n' "$MONGO_LOG_PREFIX"
+printf '%s: matrix=NOT_CLAIMED\n' "$MONGO_LOG_PREFIX"
 printf 'g5: NOT_CLAIMED\n'
