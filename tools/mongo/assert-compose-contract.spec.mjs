@@ -1,9 +1,13 @@
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
+
+const require = createRequire(import.meta.url);
+const { classifyAnonymousRead } = require('./probe-anonymous.js');
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const pinnedImage =
@@ -16,6 +20,7 @@ const implementationFiles = [
   'bootstrap.js',
   'probe-write.js',
   'probe-read.js',
+  'probe-anonymous.js',
   'mongo-up.sh',
   'mongo-down.sh',
   'mongo-smoke.sh',
@@ -60,13 +65,32 @@ test('the compose file pins the OCI index and the loopback publish', () => {
   if (!compose.includes('name: commercecore-mongo-data')) {
     throw new Error('compose does not pin the named volume');
   }
-  if (!compose.includes('internal: true')) {
-    throw new Error('compose network is not internal');
+  const network = compose.slice(compose.lastIndexOf('networks:'));
+  if (!network.includes('name: commercecore-mongo\n') || network.includes('internal: true')) {
+    throw new Error('compose network is not the dedicated non-internal bridge');
+  }
+  if (!network.includes('internal: false')) {
+    throw new Error('compose does not record that the bridge is not internal');
+  }
+  const publishedPorts = [...compose.matchAll(/^\s+-\s+'([^']+)'\s*$/gm)].map((match) => match[1]);
+  if (
+    publishedPorts.length !== 1 ||
+    publishedPorts[0] !== '127.0.0.1:${MONGO_PUBLISH_PORT:-27017}:27017'
+  ) {
+    throw new Error(
+      `published ports are not the single loopback bind: ${publishedPorts.join(', ')}`,
+    );
+  }
+  if (compose.includes('0.0.0.0')) {
+    throw new Error('compose publishes on every interface');
   }
   for (const required of ['--replSet', 'rs0', '--auth', '--keyFile', 'hostname: mongo']) {
     if (!compose.includes(required)) {
       throw new Error(`compose is missing ${required}`);
     }
+  }
+  if (!compose.includes('./probe-anonymous.js:/bootstrap/probe-anonymous.js:ro')) {
+    throw new Error('compose does not mount the unauthenticated read');
   }
 });
 
@@ -159,15 +183,17 @@ test('a present credential file without docker is WAITING_OWNER_LOCAL', () => {
     if (result.status !== 2 || !result.stdout.includes('WAITING_OWNER_LOCAL')) {
       throw new Error(`expected exit 2, got ${result.status}\n${result.stdout}\n${result.stderr}`);
     }
-    const smoke = run('mongo-smoke.sh', ['--fresh'], {
-      MONGO_ENV_FILE: env.file,
-      MONGO_DOCKER_BIN: docker.bin,
-      MONGO_RUNTIME_DIR: runtime,
-    });
-    if (smoke.status !== 2 || !smoke.stdout.includes('WAITING_OWNER_LOCAL')) {
-      throw new Error(
-        `smoke expected exit 2, got ${smoke.status}\n${smoke.stdout}\n${smoke.stderr}`,
-      );
+    for (const args of [['--fresh'], ['--resume']]) {
+      const smoke = run('mongo-smoke.sh', args, {
+        MONGO_ENV_FILE: env.file,
+        MONGO_DOCKER_BIN: docker.bin,
+        MONGO_RUNTIME_DIR: runtime,
+      });
+      if (smoke.status !== 2 || !smoke.stdout.includes('WAITING_OWNER_LOCAL')) {
+        throw new Error(
+          `smoke ${args.join(' ')} expected exit 2, got ${smoke.status}\n${smoke.stdout}\n${smoke.stderr}`,
+        );
+      }
     }
     const log = readFileSync(docker.log, 'utf8');
     if (log.includes('down') || log.includes('volume')) {
@@ -199,7 +225,120 @@ test('teardown keeps the volume unless the destructive flag is explicit', () => 
   }
   const smoke = read('mongo-smoke.sh');
   const destructiveCalls = smoke.split('\n').filter((line) => line.includes('--destroy-volume'));
-  if (destructiveCalls.length !== 1 || !smoke.includes('if [[ "$fresh" -eq 1 ]]; then')) {
+  if (destructiveCalls.length !== 1 || !smoke.includes('if [[ "$mode" == "fresh" ]]; then')) {
     throw new Error('smoke can remove the volume without --fresh');
+  }
+  const resumeStart = smoke.indexOf('# resume-only-start');
+  const resumeEnd = smoke.indexOf('# resume-only-end');
+  const resume = smoke.slice(resumeStart, resumeEnd);
+  if (resumeStart < 0 || resumeEnd < resumeStart) {
+    throw new Error('resume path markers are missing');
+  }
+  for (const forbidden of ['--destroy-volume', '--fresh', 'probe-write.js', 'PASS']) {
+    if (resume.includes(forbidden)) {
+      throw new Error(`resume path contains ${forbidden}`);
+    }
+  }
+  if (!resume.includes('t01=NOT_CLAIMED') || !resume.includes('REVALIDATION_ONLY')) {
+    throw new Error('resume path can be read as a T01 or matrix pass');
+  }
+  if (resume.includes('mongo-infra-smoke: PASS')) {
+    throw new Error('resume path prints the full smoke pass token');
+  }
+});
+
+test('anonymous infra_probe read is the authorization oracle', () => {
+  const smoke = read('mongo-smoke.sh');
+  const probe = read('probe-anonymous.js');
+  const probeCode = probe.replace(/\/\/.*$/gm, '');
+  if (smoke.includes('anonymous_ping_fails') || probeCode.includes('ping')) {
+    throw new Error('the authorization oracle still uses ping');
+  }
+  for (const required of [
+    'probe-anonymous.js',
+    '--norc',
+    'unset MONGO_INITDB_ROOT_USERNAME MONGO_INITDB_ROOT_PASSWORD MONGODB_URI',
+    'AUTH_REJECTED',
+    'anonymous infra_probe read succeeded',
+    'failed before authorization',
+  ]) {
+    if (!smoke.includes(required)) {
+      throw new Error(`smoke is missing ${required}`);
+    }
+  }
+  if (smoke.split('probe-write.js').length !== 2) {
+    throw new Error('probe write is not limited to the clean T01 path');
+  }
+  const kept = smoke
+    .split('\n')
+    .find((line) => line.includes('volume commercecore-mongo-data already exists'));
+  if (
+    !kept ||
+    kept.includes('--fresh') ||
+    !kept.includes('--resume') ||
+    !kept.includes('not deleted')
+  ) {
+    throw new Error('an existing volume is not kept behind --resume');
+  }
+  const unauthorized = classifyAnonymousRead(
+    {
+      code: 13,
+      codeName: 'Unauthorized',
+      name: 'MongoServerError',
+      message: 'Command find requires authentication',
+    },
+    null,
+  );
+  if (unauthorized !== 13) {
+    throw new Error(`unauthorized read classified as ${unauthorized}`);
+  }
+  const bypass = classifyAnonymousRead(null, {
+    ok: 1,
+    cursor: { firstBatch: [{ probe: 'mongo-infra' }] },
+  });
+  if (bypass !== 0) {
+    throw new Error(`accepted read classified as ${bypass}`);
+  }
+  const emptyAuthorized = classifyAnonymousRead(null, { ok: 1, cursor: { firstBatch: [] } });
+  if (emptyAuthorized !== 0) {
+    throw new Error(`authorized empty read classified as ${emptyAuthorized}`);
+  }
+  const reported = classifyAnonymousRead(null, {
+    ok: 0,
+    code: 13,
+    codeName: 'Unauthorized',
+    message: 'command find requires authentication',
+  });
+  if (reported !== 13) {
+    throw new Error(`ok:0 unauthorized result classified as ${reported}`);
+  }
+  const network = classifyAnonymousRead(
+    {
+      code: 13,
+      codeName: 'Unauthorized',
+      name: 'MongoNetworkError',
+      message: 'connect ECONNREFUSED 127.0.0.1:27017',
+    },
+    null,
+  );
+  if (network !== 4) {
+    throw new Error(`network error classified as ${network}`);
+  }
+  const timeout = classifyAnonymousRead(
+    { name: 'MongoServerSelectionError', message: 'Server selection timed out' },
+    null,
+  );
+  if (timeout !== 4) {
+    throw new Error(`selection timeout classified as ${timeout}`);
+  }
+  const wrongCredentials = classifyAnonymousRead(
+    { code: 18, codeName: 'AuthenticationFailed', message: 'Authentication failed.' },
+    null,
+  );
+  if (wrongCredentials !== 5) {
+    throw new Error(`presented credentials classified as ${wrongCredentials}`);
+  }
+  if (probe.includes('MONGO_INITDB_ROOT_PASSWORD') || probe.includes('print(result')) {
+    throw new Error('anonymous probe can print a credential or the read result');
   }
 });

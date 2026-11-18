@@ -28,6 +28,7 @@ services:
       - ./bootstrap.js:/bootstrap/bootstrap.js:ro
       - ./probe-write.js:/bootstrap/probe-write.js:ro
       - ./probe-read.js:/bootstrap/probe-read.js:ro
+      - ./probe-anonymous.js:/bootstrap/probe-anonymous.js:ro
     secrets:
       - mongo-keyfile
     networks:
@@ -46,10 +47,14 @@ volumes:
   commercecore-mongo-data:
     name: commercecore-mongo-data
 
+# Docker 29 records a requested bind and leaves NetworkSettings.Ports null
+# when the container's only network is internal, so the loopback publish
+# is never installed. This dedicated bridge is not internal. The bind stays
+# on loopback.
 networks:
   private:
     name: commercecore-mongo
-    internal: true
+    internal: false
 
 secrets:
   mongo-keyfile:
