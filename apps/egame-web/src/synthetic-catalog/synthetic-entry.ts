@@ -64,6 +64,30 @@ export function parseSyntheticEntryList(input: unknown): readonly SyntheticEntry
   return Object.freeze(parsed);
 }
 
+export function readSyntheticEntry(input: unknown): SyntheticEntry {
+  return parseEntry(input);
+}
+
+export function isPedagogicalProductId(input: string): boolean {
+  return isProductId(input);
+}
+
+export function isSyntheticLabel(input: string): boolean {
+  return isLabel(input);
+}
+
+/** Positive integer text. Leading zeros are rejected so the wire value stays exact. */
+export function parseExpectedRevision(input: string): number | null {
+  if (!/^[1-9][0-9]*$/.test(input)) {
+    return null;
+  }
+  const value = Number(input);
+  if (!isRevision(value)) {
+    return null;
+  }
+  return value;
+}
+
 function parseEntry(input: unknown): SyntheticEntry {
   if (!isRecord(input)) {
     throw new SyntheticCatalogClientError('type');
