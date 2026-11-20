@@ -4,7 +4,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const fixtureDirectory = path.join(root, 'libs/commercecore/catalog/domain/src/__negative__');
+const domainRelative = process.argv[2] ?? 'libs/commercecore/catalog/domain';
+if (
+  !/^libs\/commercecore\/[a-z0-9-]+\/domain$/.test(domainRelative) ||
+  domainRelative.includes('..')
+) {
+  throw new Error(`refusing unexpected domain path: ${domainRelative}`);
+}
+const fixtureDirectory = path.join(root, domainRelative, 'src/__negative__');
 const nestFixture = path.join(fixtureDirectory, 'nestjs-import.fixture.ts');
 const crossContextFixture = path.join(fixtureDirectory, 'commercecloud-import.fixture.ts');
 
@@ -42,7 +49,7 @@ try {
   assertFailure(crossContextResult, 'commercecloud', 'CommerceCloud fixture');
   restore();
 
-  const clean = runEslint(path.join(root, 'libs/commercecore/catalog/domain'));
+  const clean = runEslint(path.join(root, domainRelative));
   if (clean.status !== 0) {
     process.stderr.write(clean.stdout);
     process.stderr.write(clean.stderr);
@@ -51,7 +58,7 @@ try {
 
   const status = spawnSync(
     'git',
-    ['status', '--porcelain', '--', 'libs/commercecore/catalog/domain/src/__negative__'],
+    ['status', '--porcelain', '--', path.posix.join(domainRelative, 'src/__negative__')],
     { cwd: root, encoding: 'utf8' },
   );
   if (status.status !== 0 || status.stdout.trim() !== '') {
@@ -83,14 +90,10 @@ function assertFailure(result, needle, label) {
 }
 
 function assertCommittedDomainIsClean() {
-  const check = spawnSync(
-    'pnpm',
-    ['exec', 'eslint', 'libs/commercecore/catalog/domain', '--max-warnings=0'],
-    {
-      cwd: root,
-      encoding: 'utf8',
-    },
-  );
+  const check = spawnSync('pnpm', ['exec', 'eslint', domainRelative, '--max-warnings=0'], {
+    cwd: root,
+    encoding: 'utf8',
+  });
   if (check.status !== 0) {
     process.stderr.write(check.stdout);
     process.stderr.write(check.stderr);

@@ -49,7 +49,11 @@ export default [
     },
   },
   {
-    files: ['apps/commercecore-api/**/*.ts', 'libs/commercecore/catalog/domain/**/*.ts'],
+    files: [
+      'apps/commercecore-api/**/*.ts',
+      'libs/commercecore/catalog/domain/**/*.ts',
+      'libs/commercecore/identity/domain/**/*.ts',
+    ],
     rules: {
       '@nx/enforce-module-boundaries': [
         'error',
@@ -75,8 +79,14 @@ export default [
     },
   },
   {
-    files: ['libs/commercecore/catalog/domain/**/*.ts'],
-    ignores: ['libs/commercecore/catalog/domain/**/*.spec.ts'],
+    files: [
+      'libs/commercecore/catalog/domain/**/*.ts',
+      'libs/commercecore/identity/domain/**/*.ts',
+    ],
+    ignores: [
+      'libs/commercecore/catalog/domain/**/*.spec.ts',
+      'libs/commercecore/identity/domain/**/*.spec.ts',
+    ],
     rules: {
       'commercecore/domain-import-boundary': 'error',
       'no-restricted-imports': [
@@ -85,11 +95,11 @@ export default [
           patterns: [
             {
               group: ['@nestjs', '@nestjs/*'],
-              message: 'Pure catalog domain cannot import NestJS.',
+              message: 'Pure domain cannot import NestJS.',
             },
             {
               group: ['stripe', '@stripe/*', 'mongodb', 'mongoose', 'kafkajs', '@kubernetes/*'],
-              message: 'Pure catalog domain cannot import providers.',
+              message: 'Pure domain cannot import providers.',
             },
           ],
         },

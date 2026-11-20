@@ -204,6 +204,7 @@ test('workflow validates main pushes without a privileged trigger', () => {
     /nx format:check --base="\$\{NX_FORMAT_BASE\}" --head="\$\{NX_FORMAT_HEAD\}"/,
   );
   assert.match(workflow, /commercecore-catalog-domain:architecture/);
+  assert.match(workflow, /commercecore-identity-domain:architecture/);
   assert.match(workflow, /assert-project-graph\.mjs/);
   assert.match(workflow, /pnpm run local-representative-demo/);
   assert.equal(workflow.includes('origin main:main'), false);

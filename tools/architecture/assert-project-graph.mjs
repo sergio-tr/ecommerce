@@ -11,7 +11,11 @@ const graph = raw.graph ?? raw;
 const nodes = graph.nodes ?? {};
 const dependencies = graph.dependencies ?? {};
 
-const required = ['commercecore-api', 'commercecore-catalog-domain'];
+const required = [
+  'commercecore-api',
+  'commercecore-catalog-domain',
+  'commercecore-identity-domain',
+];
 for (const name of required) {
   if (!nodes[name]) {
     throw new Error(`Project graph is missing ${name}`);
@@ -19,19 +23,22 @@ for (const name of required) {
 }
 
 const app = nodes['commercecore-api'];
-const domain = nodes['commercecore-catalog-domain'];
 const appType = app.type ?? app.data?.projectType;
-const domainType = domain.type ?? domain.data?.projectType;
 if (appType !== 'app' && appType !== 'application') {
   throw new Error(`commercecore-api type is ${appType}, expected app`);
 }
-if (domainType !== 'lib' && domainType !== 'library') {
-  throw new Error(`commercecore-catalog-domain type is ${domainType}, expected lib`);
-}
 
-const domainDeps = dependencies['commercecore-catalog-domain'] ?? [];
-if (domainDeps.length !== 0) {
-  throw new Error(`Domain has dependencies: ${JSON.stringify(domainDeps)}`);
+const isolatedDomains = ['commercecore-catalog-domain', 'commercecore-identity-domain'];
+for (const name of isolatedDomains) {
+  const domain = nodes[name];
+  const domainType = domain.type ?? domain.data?.projectType;
+  if (domainType !== 'lib' && domainType !== 'library') {
+    throw new Error(`${name} type is ${domainType}, expected lib`);
+  }
+  const domainDeps = dependencies[name] ?? [];
+  if (domainDeps.length !== 0) {
+    throw new Error(`${name} has dependencies: ${JSON.stringify(domainDeps)}`);
+  }
 }
 
 const visiting = new Set();
@@ -71,5 +78,7 @@ if (appProjects.length !== 1 || appProjects[0] !== 'commercecore-api') {
 
 const names = Object.keys(nodes).sort();
 process.stdout.write(`project-graph: acyclic projects=${names.join(',')}\n`);
-process.stdout.write('project-graph: commercecore-api and commercecore-catalog-domain present\n');
-process.stdout.write('project-graph: catalog domain has no project dependencies\n');
+process.stdout.write(
+  'project-graph: commercecore-api, commercecore-catalog-domain, and commercecore-identity-domain present\n',
+);
+process.stdout.write('project-graph: catalog and identity domains have no project dependencies\n');

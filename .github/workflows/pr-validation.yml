@@ -72,6 +72,7 @@ jobs:
           pnpm exec nx run-many -t lint typecheck test build secret-scan --parallel=3 --output-style=static
           pnpm exec nx format:check --base="${NX_FORMAT_BASE}" --head="${NX_FORMAT_HEAD}"
           pnpm exec nx run commercecore-catalog-domain:architecture --output-style=static
+          pnpm exec nx run commercecore-identity-domain:architecture --output-style=static
           mkdir -p tmp
           pnpm exec nx graph --file=tmp/nx-graph.json
           node tools/architecture/assert-project-graph.mjs tmp/nx-graph.json
