@@ -4,9 +4,11 @@
   "projectType": "application",
   "sourceRoot": "apps/commercecore-api/src",
   "tags": ["scope:commercecore", "context:composition", "layer:app", "runtime:node"],
+  "implicitDependencies": ["commercecore-catalog-domain"],
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "dependsOn": ["^build", { "projects": ["commercecore-catalog-domain"], "target": "build" }],
       "options": {
         "command": "tsc -p apps/commercecore-api/tsconfig.app.json"
       }

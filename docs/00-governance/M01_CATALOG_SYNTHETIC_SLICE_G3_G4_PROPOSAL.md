@@ -1,11 +1,19 @@
 # Proposal — local synthetic catalog slice G3/G4
 
 **Decision ID:** `PROP-2026-11-17-M01-CATALOG-SYNTHETIC-01`  
-**Status:** `G3_ACCEPTED_2026-11-17` / `G4_NOT_GRANTED`  
+**Status:** `G3_ACCEPTED_2026-11-17` / `G4_EFFECTIVE_SCOPED` for GitHub #64 only, base `f059b840abe47a60d6679ecac2daaf56ea004cc5`  
 **Date:** 2026-11-17  
 **Accountable owner:** @sergio-tr  
 **Base reviewed:** `origin/main` `e67480c6372af4b106f06f7c8a91be70885f8eb2`  
 **Open pull requests at review:** none. **Running agent:** this documentation task only.  
+
+## Scoped G4, 2026-11-20
+
+@sergio-tr ratified [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md) with Q1=A, Q2=A, Q3=A, and Q4=A, and authorized one scoped G4 for this contract only. The issue is GitHub [#64](https://github.com/sergio-tr/ecommerce/issues/64). The base is `origin/main` `f059b840abe47a60d6679ecac2daaf56ea004cc5`, the merge of PR #63. Push CI [Actions run 44809676364](https://github.com/sergio-tr/ecommerce/actions/runs/44809676364) completed `success`. Jobs `validate`, `chart`, and `image` each completed `success`.
+
+`G4_EFFECTIVE_SCOPED` covers the four routes, the label, the revision, the eight-entry cap, and the process-local map in the existing `commercecore-api`. It does not grant a commercial Catalog, Product, Variant, SKU, Offer, Listing, Quote, Money, tax, tenant, stock, or license model. The contract text below is unchanged. The 2026-11-17 paragraphs stay the decision of that date, including the sentence that withheld G4 then.
+
+AC-CAT-08 stays `WAIT_OWNER_SMOKE` until the owner runs `node tools/local-catalog-synthetic-smoke/run.mjs` on WSL2. AC-CAT-09 is the implementation pull request's `pr-validation` run. AC-CAT-11 does not change a register: AUD-P0-01..04 stay OPEN/BLOCKING and the 148 original experiments stay TEST_PLANNED/NOT_RUN. A green documentation diff is not those checks.
 
 ## Owner decision, 2026-11-17
 
@@ -206,4 +214,4 @@ All of the following stay `TEST_PLANNED / NOT_RUN` until a scoped G4 exists and 
 
 G3 for this exact contract is accepted. G4 is not. The next planned implementation slice is M01-K8S-01, and it needs its own G4 before any cluster, image, or Helm work. These catalog routes stay unbuilt until that sequence reaches them and a later G4 names one issue and one base SHA. No Linear or GitHub issue currently covers this slice. SER-134 is the completed bootstrap and does not authorize it.
 
-**2026-11-20 sequencing note:** M01-K8S-01 later received its own scoped G4 and a one-server local G5. That pass does not grant G4 for these routes. [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md) is `PLANNING_PROPOSED`. It asks whether this slice is the next unit. The routes stay unbuilt. No issue was created by that proposal.
+**2026-11-20 sequencing note:** M01-K8S-01 later received its own scoped G4 and a one-server local G5. That pass does not grant G4 for these routes. [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md) was `PLANNING_PROPOSED` when it merged and did not create an issue. The later owner sentence, recorded in the scoped G4 section above, names GitHub #64 and accepts this contract as the next nonfinancial unit. Commercial catalog G4 stays withheld.

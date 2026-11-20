@@ -11,10 +11,12 @@ RUN corepack enable && corepack prepare pnpm@11.10.0 --activate
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY nx.json tsconfig.json tsconfig.base.json ./
+COPY libs/commercecore/catalog/domain libs/commercecore/catalog/domain
 COPY apps/commercecore-api apps/commercecore-api
 
 RUN printf '\nnode-linker=hoisted\nstore-dir=/src/.pnpm-store\n' >> .npmrc \
   && pnpm install --frozen-lockfile \
+  && pnpm exec tsc -p libs/commercecore/catalog/domain/tsconfig.lib.json \
   && pnpm exec tsc -p apps/commercecore-api/tsconfig.app.json \
   && pnpm prune --prod
 
@@ -22,6 +24,7 @@ FROM node:24.22.2-bookworm-slim@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3
 
 WORKDIR /app
 COPY --from=build --chown=node:node /src/node_modules ./node_modules
+COPY --from=build --chown=node:node /src/dist/libs/commercecore/catalog/domain ./dist/libs/commercecore/catalog/domain
 COPY --from=build --chown=node:node /src/dist/apps/commercecore-api ./dist/apps/commercecore-api
 COPY --from=build --chown=node:node /src/package.json ./package.json
 

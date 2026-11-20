@@ -93,8 +93,8 @@ Missing or invalid `COMMERCECORE_*` values exit 1 with a JSON line naming the fi
 
 ## Layout
 
-- `apps/commercecore-api`: NestJS composition root and `GET /health/live`.
-- `libs/commercecore/catalog/domain`: pedagogical immutable `ProductId` only. It is not a Product, Offer, or Quote model.
+- `apps/commercecore-api`: NestJS composition root, `GET /health/live`, and the process-local synthetic catalog routes.
+- `libs/commercecore/catalog/domain`: pedagogical immutable `ProductId` and `SyntheticLabel`. It is not a Product, Offer, or Quote model. The API build emits this library before the app, and the image copies that emit.
 - `tools/architecture-fixtures/commercecloud-private-adapter.ts`: mocked private adapter. CommerceCloud itself is not generated. The negative test's scope is this fixture path, not a future Cloud project graph.
 
 ## Failure diagnostics
