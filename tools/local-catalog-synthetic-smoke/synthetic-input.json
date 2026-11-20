@@ -1,0 +1,11 @@
+{
+  "boundary": "process-local",
+  "financial": false,
+  "provider": "none",
+  "persistence": "memory",
+  "productId": "prd_01ARZ3NDEKTSV4RRFFQ69G5FAV",
+  "otherProductId": "prd_01ARZ3NDEKTSV4RRFFQ69G5FAW",
+  "syntheticLabel": "synthetic-entry-a",
+  "updatedLabel": "synthetic-entry-b",
+  "rejectedProductId": "prd_not-valid"
+}

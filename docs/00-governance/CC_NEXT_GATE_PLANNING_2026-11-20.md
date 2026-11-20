@@ -21,7 +21,7 @@ These statements stay as they are. This file does not reopen them.
 | [M01-K8S-01](../development/M01_K8S_01_LOCAL.md) | Scoped local G5 `PASSED` | One k3d server and `GET /health/live` on `affde2ce87e7569595598f7bc116819e65a67785`. SER-137 is Done. |
 | [PROP-2026-11-17-M01-MONGO-INFRA-01](M01_MONGO_INFRA_G3_PROPOSAL.md) | G3 accepted, `G4_EFFECTIVE_SCOPED`, scoped G5 `PASSED_LOCAL` | Auxiliary local Compose, one member, loopback, named volume. SER-138 is Done. K2 stays the application runtime. |
 | [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md) | `G3_ACCEPTED — DESIGN_ONLY` | Q1=A through Q6=A. Not G4. D05-T01..T10 stay `NOT_RUN`. |
-| [PROP-2026-11-17-M01-CATALOG-SYNTHETIC-01](M01_CATALOG_SYNTHETIC_SLICE_G3_G4_PROPOSAL.md) | `G3_ACCEPTED_2026-11-17` / `G4_NOT_GRANTED` | Four process-local routes, `syntheticLabel`, `revision`, eight-entry cap, `409` on a duplicate create. Routes stay unbuilt. |
+| [PROP-2026-11-17-M01-CATALOG-SYNTHETIC-01](M01_CATALOG_SYNTHETIC_SLICE_G3_G4_PROPOSAL.md) | `G3_ACCEPTED_2026-11-17` / `G4_EFFECTIVE_SCOPED` for GitHub #64 only | Four process-local routes, `syntheticLabel`, `revision`, eight-entry cap, `409` on a duplicate create. Commercial catalog G4 stays withheld. The 2026-11-20 addendum records the owner sentence. |
 | [ADR-M01-001](../02-decisions/ADR-M01-001-kubernetes-first-and-test-stripe.md) D-1 K2 | ACCEPTED | The application runtime is local Kubernetes. Compose is not that runtime. |
 | ADR-M01-001 D-3 DATA-A | ACCEPTED, not amended | One local replica set and a PVC remain specified. The Compose volume is not that PVC. |
 | [REGISTER.md](../04-audit/REGISTER.md) | unchanged | AUD-P0-01..04 OPEN/BLOCKING. AUD-P1-05 OPEN. |
@@ -88,6 +88,8 @@ This unit is done as a proposal when all of the following are true.
 - No application code, Compose file, chart, secret, volume, or workflow file changes.
 - An independent reader can see that K2 is the application runtime and that Compose is only the auxiliary database path.
 
+The checklist above is the planning unit as merged. The addendum supersedes only its catalog G4 line.
+
 ## Owner questions
 
 Answer by a separate sentence. Merging this pull request is not that sentence.
@@ -108,3 +110,7 @@ Answer by a separate sentence. Merging this pull request is not that sentence.
 - Orders, payments, inventory, fulfillment, Stripe, or license effects.
 - Closing GitHub #1–#10, #12, or #13, or marking SER-126 Done.
 - Dispatching the next unit from this change.
+
+## Addendum — owner answers, 2026-11-20
+
+@sergio-tr answered Q1=A, Q2=A, Q3=A, and Q4=A after this file merged. That sentence is the ratification. It selects the synthetic catalog slice and authorizes one scoped G4 for GitHub [#64](https://github.com/sergio-tr/ecommerce/issues/64) on base `f059b840abe47a60d6679ecac2daaf56ea004cc5`. Q4's fallback is not selected. The two-replica remainder, the StatefulSet and PVC, NestJS Mongo, the Core and Cloud databases, and every financial slice stay unstarted. `D-05-CONCURRENCY` and `D-05-OPS` stay PENDING. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 historical experiments stay TEST_PLANNED/NOT_RUN. Commercial catalog G4 stays withheld. The status change lives in [M01_CATALOG_SYNTHETIC_SLICE_G3_G4_PROPOSAL.md](M01_CATALOG_SYNTHETIC_SLICE_G3_G4_PROPOSAL.md).
