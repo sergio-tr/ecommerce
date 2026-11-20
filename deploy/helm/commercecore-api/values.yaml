@@ -1,3 +1,4 @@
+# Default local health workload. Two pods are opt-in via values-two-replica.yaml.
 replicaCount: 1
 
 image:

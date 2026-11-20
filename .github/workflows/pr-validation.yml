@@ -102,6 +102,7 @@ jobs:
         run: |
           set -euo pipefail
           helm lint deploy/helm/commercecore-api
+          helm lint deploy/helm/commercecore-api --values deploy/helm/commercecore-api/values-two-replica.yaml
           node --test tools/k8s/assert-local-contract.spec.mjs
 
   image:

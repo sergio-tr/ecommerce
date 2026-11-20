@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "required": ["replicaCount", "image", "service", "env", "resources"],
   "properties": {
-    "replicaCount": { "type": "integer", "enum": [1] },
+    "replicaCount": { "type": "integer", "enum": [1, 2] },
     "image": {
       "type": "object",
       "additionalProperties": false,

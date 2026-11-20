@@ -72,7 +72,7 @@ helm lint deploy/helm/commercecore-api
 pnpm run k8s:check
 ```
 
-`pnpm run k8s:check` renders the chart and rejects `NodePort`, `LoadBalancer`, `imagePullPolicy=Always`, `replicaCount=2`, an ingress value, and `enableServiceLinks=true`. Expected result: the Node test reporter shows four passing tests. The default render includes `enableServiceLinks: false` once.
+`pnpm run k8s:check` renders the chart and rejects `NodePort`, `LoadBalancer`, `imagePullPolicy=Always`, a replica count other than 1 or 2, an ingress value, and `enableServiceLinks=true`. The default render is still one replica and includes `enableServiceLinks: false` once. Expected result: the Node test reporter shows seven passing tests.
 
 ## Image build
 
@@ -117,6 +117,22 @@ The script creates one k3d server, no agents, no server load balancer, and Traef
 | 1 and `k3d-smoke: FAIL` | The cluster started and the probe did not succeed |
 
 This is one server node, not the two-agent learning topology. It does not prove a second replica, a killed pod, or MongoDB restart.
+
+## Two pods on one server
+
+```bash
+bash tools/k8s/k3d-two-replica-smoke.sh
+```
+
+The chart default stays `replicaCount: 1`. `values-two-replica.yaml` sets 2, and the schema rejects every other count. The script creates cluster `commercecore-two-replica` with one server, no agents, no load balancer, and Traefik disabled. It installs that values file, requires two ready pods and two ClusterIP endpoints, probes `/health/live` on the Service and on each pod, then rolls back an image tag that cannot be pulled. The trap deletes only `commercecore-two-replica`.
+
+| Exit | Meaning |
+|---|---|
+| 0 and `k3d-two-replica: PASS` | Those checks succeeded. The output still says `g5: NOT_CLAIMED` and `ha: NOT_CLAIMED` |
+| 2 and `k3d-two-replica: PENDING_OWNER_LOCAL` | Docker, the daemon, k3d, kubectl, Helm, curl, or node is missing. This is not a pass |
+| 1 and `k3d-two-replica: FAIL` | The cluster started and a check failed |
+
+Traefik stays disabled, so this route is the ClusterIP, not an Ingress. Two pods on one server are not high availability. A pass of this command is not the scoped K8S G5 record.
 
 ## Limitations
 
