@@ -12,7 +12,7 @@
 **Image pin base:** `origin/main` `898fa77f69110ab97205245ded2716c48d35be9d`, merge of [PR #51](https://github.com/sergio-tr/ecommerce/pull/51). Push CI [Actions run 44203521366](https://github.com/sergio-tr/ecommerce/actions/runs/44203521366) `success`; jobs `validate`, `chart`, and `image` each `success`  
 **G4 evidence base:** `origin/main` `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`, merge of [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) by @sergio-tr at 2026-11-18 06:45 Europe/Amsterdam. Push CI [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) `success`; jobs `validate`, `chart`, and `image` each `success`  
 **G5-A record base:** `origin/main` `455ca288024d01f61ce004dde2a7ed8ed0606795`, merge of [PR #59](https://github.com/sergio-tr/ecommerce/pull/59). Push CI [Actions run 44762498521](https://github.com/sergio-tr/ecommerce/actions/runs/44762498521) `success`; jobs `validate`, `chart`, and `image` each `success`. That merge recorded the excerpt and left G5 unpassed. `PASSED_LOCAL` waits for a manual merge of the acceptance record and a green push CI of that merge. The post-merge check section is the later result of that wait. This file does not close SER-138.  
-**Not this task:** [SER-126](https://linear.app/sergiotr/issue/SER-126) / GitHub #9 / `D-05-MONGO` / `AUD-P1-05`
+**Not this task:** [SER-126](https://linear.app/sergiotr/issue/SER-126) / GitHub #9 / `D-05-MONGO` / `AUD-P1-05`. The durability design is separately `G3_ACCEPTED — DESIGN_ONLY` in [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md). This infrastructure file does not grant a durability G4 and does not close AUD-P1-05.
 
 ## Owner ratification
 
@@ -32,7 +32,7 @@ On 2026-11-17 at 23:23 Europe/Amsterdam, after [PR #50](https://github.com/sergi
 
 1. This ratification is in a reviewed and merged pull request. The merge of PR #50 does not count. That merge recorded the proposal and left R1–R4 unanswered.
 2. A real OCI digest for `docker.io/library/mongo:8.0.38-noble` is copied from a registry inspect for the host platform and pinned. At ratification time this file had no digest. The image pin section records the later registry read. A digest written without that read does not count.
-3. No normative conflict remains inside this slice. R1–R4 close the conflicts named below. `D-05-MONGO` stays PENDING and outside this slice. It is not accepted here, and it is not a reason to widen the slice.
+3. No normative conflict remains inside this slice. R1–R4 close the conflicts named below. `D-05-MONGO` stays outside this slice. It is not accepted here, and it is not a reason to widen the slice.
 
 While any of the three is false, Compose, a container, and the implementation unit stay forbidden. At the time this section was written, item 1 was false until the ratification pull request merged, and item 2 was false because the digest was unknown. Merging that ratification pull request satisfied item 1 only. The G4 effective scoped section records the later check in which all three are true.
 
@@ -66,7 +66,7 @@ This file began as a documentation proposal for one local MongoDB process. The p
 | SER-137 | Linear status `Done`, `completedAt` 2026-11-17 22:33 Europe/Amsterdam. The closure paragraph in the k3d note still says `Todo`; that sentence is the earlier text, not this check |
 | GitHub #45 | closed by @sergio-tr at 2026-11-17 22:05 Europe/Amsterdam, `state_reason` `completed`. The body still says K8S G5 is not passed. This proposal does not edit it |
 
-`AUD-P0-01` through `AUD-P0-04` stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. Catalog G4 stays not granted. `D-05-MONGO` stays PENDING. The audit register still says `AUD-P1-05` is OPEN. Linear showed SER-126 as `In Review` when this file was written. Neither tracker was edited.
+`AUD-P0-01` through `AUD-P0-04` stay OPEN/BLOCKING. The 148 original experiments stay TEST_PLANNED/NOT_RUN. Catalog G4 stays not granted. `D-05-MONGO` stays outside this slice. The audit register still says `AUD-P1-05` is OPEN. Linear showed SER-126 as `In Review` when this file was written. Neither tracker was edited.
 
 ## What the accepted records already say
 
@@ -77,7 +77,7 @@ This file began as a documentation proposal for one local MongoDB process. The p
 | [M01-D03](../architecture/m01/M01_D03_K8S_TOPOLOGY_AND_NETWORK.md) | documentary spec | one member, PVC, ClusterIP in `commerce-data`, no NodePort or LoadBalancer | image digest not selected; host not inspected when the spec was written |
 | [M01-D05](../architecture/m01/M01_D05_MONGODB_PERSISTENCE_AND_RECOVERY.md) | documentary spec | StatefulSet, `rs0`, `commercecore_dev` and `commercecloud_dev`, least-privilege users, idempotent bootstrap, MongoDB 8.x with patch and digest pending | no G4; T01–T12 are TEST_PLANNED/NOT_RUN |
 | [M01-D06](../architecture/m01/M01_D06_CONFIGURATION_SECRETS_AND_TRUST.md) | documentary spec | credentials outside git; loopback for host ports; no secret in the repo | Kubernetes Secret injection is the specified path |
-| [D-05](../02-decisions/D-05-full-adr.md) | ACCEPTED policy only | durable local record before an external effect; Inbox/Outbox direction | `D-05-MONGO` PENDING. No schema and no physical write concern |
+| [D-05](../02-decisions/D-05-full-adr.md) | ACCEPTED policy only | durable local record before an external effect; Inbox/Outbox direction | `D-05-MONGO` is `G3_ACCEPTED — DESIGN_ONLY` in its own record. No schema and no physical write concern in this slice |
 | [Roadmap](../06-planning/ROADMAP.md) | accepted direction | K2, DATA-A, Mongo as a later M01 deliverable after the local Kubernetes health slice | the 2026-10-30 paragraph that says no chart exists is historical. It is not updated here |
 
 The owner queue of 2026-11-17 selects M1–M10 as technical direction for this unit, subject to this reconciliation. That queue is the source of the candidate below. It is not a new ADR. The Fit column is the reading at proposal time. The owner answers are in the ratification section.
@@ -182,7 +182,7 @@ The pin paragraph above said G4 stayed `READY_PENDING_MERGE` until the pin chang
 |---|---|
 | Ratification merged | True. [PR #51](https://github.com/sergio-tr/ecommerce/pull/51) is an ancestor of `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`. R1–R4 stay the accepted sentences |
 | Digest pinned and CI green | True. [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) merged at that SHA. [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) concluded `success` for `validate`, `chart`, and `image`. The pin remains the OCI index in the image pin section |
-| Normative conflict inside this slice | None found. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. The Compose named volume is not that PVC. `D-05-MONGO` stays PENDING and outside this slice |
+| Normative conflict inside this slice | None found. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. The Compose named volume is not that PVC. `D-05-MONGO` stays outside this slice |
 
 `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. At this 2026-11-18 check the owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` had exited 1, T01 was not passed, and T02–T09 were `NOT_RUN`. The 2026-11-20 evidence record is later. It does not widen this G4 scope and it does not pass G5. The G5-A section does not widen this G4 scope.
 
@@ -272,7 +272,7 @@ Both Compose files pin `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d0
 
 The owner then ran `docker run --rm --network none --entrypoint mongod docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c --version` with no volume and no secret environment. The owner reported `db version v8.0.38`, gitVersion `b2f7afe3a6838999fd375c7a7ea678189f795568`, OpenSSL 3.0.13, distmod `ubuntu2404`, and `x86_64`. That report is the pinned image binary, not a read of the isolated data volume. This agent did not run Docker.
 
-One member is not HA. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. `D-05-MONGO` stays PENDING. SER-126 stays separate. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 experiments stay `TEST_PLANNED/NOT_RUN`. Catalog G4 stays not granted.
+One member is not HA. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. `D-05-MONGO` stays outside this infrastructure pass. SER-126 stays separate. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 experiments stay `TEST_PLANNED/NOT_RUN`. Catalog G4 stays not granted.
 
 ### 2026-11-20 post-merge check of the G5-A condition
 
@@ -280,7 +280,7 @@ One member is not HA. K2 stays the application runtime. The M01-D05 StatefulSet 
 
 The G5-A section says `PASSED_LOCAL` applies after @sergio-tr merges that record by hand and the push CI of that merge succeeds. [PR #60](https://github.com/sergio-tr/ecommerce/pull/60) is that merge, at `1b589e5ac5db51c49169f1ea5df80249bbd9e091`, on 2026-11-20 at 17:14 Europe/Amsterdam. Push CI [Actions run 44771417719](https://github.com/sergio-tr/ecommerce/actions/runs/44771417719) completed `success` at 17:15 Europe/Amsterdam. Jobs `validate`, `chart`, and `image` each completed `success`. This paragraph records that check. It does not rerun Docker.
 
-The script tokens stay `g5: NOT_CLAIMED`, `t01-live=NOT_CLAIMED`, and `matrix=NOT_CLAIMED`. The live volume still has no fresh T01. One member is not HA. Linear SER-138 was already `Done` when this paragraph was written (`completedAt` 2026-11-20 20:16 Europe/Amsterdam). This paragraph did not set that status. `D-05-MONGO` stays PENDING. The durability design is [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md) and is `G3_PROPOSED`. It is not part of this infrastructure pass.
+The script tokens stay `g5: NOT_CLAIMED`, `t01-live=NOT_CLAIMED`, and `matrix=NOT_CLAIMED`. The live volume still has no fresh T01. One member is not HA. Linear SER-138 was already `Done` when this paragraph was written (`completedAt` 2026-11-20 20:16 Europe/Amsterdam). This paragraph did not set that status. The durability design is [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md). The owner later accepted it as `G3_ACCEPTED — DESIGN_ONLY`. That acceptance is not part of this infrastructure pass and is not G4.
 
 ## G4 request, effective for the local Compose path
 
@@ -295,7 +295,7 @@ The grant covers only the Compose file, the pinned image, the named volume, the 
 
 - Changing K2, NET-A, DATA-A, or STRIPE-A.
 - Editing `D-05-MONGO`, SER-126, or GitHub #9.
-- Write concern, journaling, transactions, uncertain commit, Inbox, or Outbox. Those belong to the later design unit, [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md), which stays `G3_PROPOSED`.
+- Write concern, journaling, transactions, uncertain commit, Inbox, or Outbox. Those belong to [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md), which is `G3_ACCEPTED — DESIGN_ONLY` and not a change to this infrastructure slice.
 - Closing AUD-P0-01..04 or marking any of the 148 experiments run.
 - Catalog routes. Catalog G4 stays not granted.
 - A second replica, failover, or any HA claim.

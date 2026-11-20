@@ -28,7 +28,7 @@ Race: a license may have been exposed despite losing its HTTP reply; Ordering ma
 | AUD-P1-02 | OPEN | Duplicate Order, CheckoutProcess and Payment authority | Ownership/coordination policies ACCEPTED; Checkout FSM-MIN remains PENDING |
 | AUD-P1-03 | OPEN | Financially safe retry windows and stock-hoarding | Double relative+absolute window is a proposal NOT RATIFIED |
 | AUD-P1-04 | OPEN | Stripe Connect, capture mode, store payment policies | Provider-account and API-version-specific contracts pending |
-| AUD-P1-05 | OPEN | Mongo write concern, journaling, multi-document transactions, commit unknown | D-05-MONGO PENDING. [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md) is `G3_PROPOSED` and is not accepted |
+| AUD-P1-05 | OPEN | Mongo write concern, journaling, multi-document transactions, commit unknown | `D-05-MONGO` is `G3_ACCEPTED — DESIGN_ONLY` in [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md). Not G4. D05-T01..T10 stay NOT_RUN. SER-126 stays In Review. GitHub #9 stays open |
 | AUD-P1-06 | OPEN | Multi-line all-or-nothing stock and license preparation | Capacity conservation and irreversible disclosure pending M00.2 |
 
 ## P2 quality and traceability findings

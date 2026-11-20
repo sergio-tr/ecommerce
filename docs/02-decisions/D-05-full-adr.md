@@ -34,8 +34,8 @@ Safety requires durable states, context-specific authority, bounded commercial f
 
 - D-05-INBOX, D-05-OUTBOX and D-05-RECOVERY ACCEPTED.
 - D-05-IMPL PROPOSED — SELECTED.
-- D-05-CONCURRENCY, D-05-MONGO, D-05-OPS PENDING.
-- [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md) is a later design proposal for `D-05-MONGO`. It is `G3_PROPOSED`. It does not change this PENDING status.
+- D-05-CONCURRENCY and D-05-OPS PENDING. Worker leases and fences are not selected. The operation receipt is not a worker lease.
+- D-05-MONGO is `G3_ACCEPTED — DESIGN_ONLY` as of the 2026-11-20 owner sentence Q1=A through Q6=A, recorded in [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md). That acceptance is the owner-local transaction design only. It is not G4, not an implementation, and not a measured `getDefaultRWConcern`. One member is not HA. D05-T01..T10 stay NOT_RUN. Clauses 1–14 above were already accepted policy and are not newly accepted here.
 - AUD-P0-02 provider proof and AUD-P0-03 physical propagation blockers persist.
 
 ## Future verification

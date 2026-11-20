@@ -10,6 +10,6 @@ AUD-P1-02-OWNERSHIP-POLICY and AUD-P1-02-COORDINATION-POLICY ACCEPTED: Order own
 Double commercial admission deadline (relative post-negative + absolute checkout window) is a candidate presented for review; Sergio has not ratified it. It must never permit time-based release of unknown payments. [Candidate analysis](../04-audit/AUD-P1-03-retry-windows-proposal.md). AUD13-T01–T16 are only proposed tests. D-06-RETRY-WINDOW and exact window values remain PENDING.
 
 ## Remaining P1 issues
-AUD-P1-04 actual Stripe Connect charge/capture and payment-method enforcement. AUD-P1-05 Mongo transaction/document/durability and worker crash guarantees. The 2026-11-20 proposal [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md) is `G3_PROPOSED`; `D-05-MONGO` stays PENDING. AUD-P1-06 multi-line capacity, exclusive license assignment and preparation before any irreversible disclosure.
+AUD-P1-04 actual Stripe Connect charge/capture and payment-method enforcement. AUD-P1-05 Mongo transaction/document/durability and worker crash guarantees stay OPEN. [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md) is `G3_ACCEPTED — DESIGN_ONLY` for `D-05-MONGO`. That is not G4, and D05-T01..T10 stay NOT_RUN. SER-126 stays In Review. AUD-P1-06 multi-line capacity, exclusive license assignment and preparation before any irreversible disclosure.
 
 All statuses are maintained in [the exact scoped register](decision-register.json). Nothing in this index closes M00.1.
