@@ -2,7 +2,10 @@
 
 const path = require('node:path');
 
-const DOMAIN_MARKER = `${path.sep}libs${path.sep}commercecore${path.sep}catalog${path.sep}domain${path.sep}`;
+const DOMAIN_MARKERS = [
+  `${path.sep}libs${path.sep}commercecore${path.sep}catalog${path.sep}domain${path.sep}`,
+  `${path.sep}libs${path.sep}commercecore${path.sep}identity${path.sep}domain${path.sep}`,
+];
 
 /** @type {import('eslint').Rule.RuleModule} */
 module.exports = {
@@ -10,22 +13,20 @@ module.exports = {
     type: 'problem',
     docs: {
       description:
-        'Reject framework, provider, and cross-context imports from the pedagogical catalog domain.',
+        'Reject framework, provider, and cross-context imports from a pedagogical pure domain.',
     },
     schema: [],
     messages: {
-      forbidden: 'Pure catalog domain cannot import "{{source}}". {{detail}}',
+      forbidden: 'Pure domain cannot import "{{source}}". {{detail}}',
     },
   },
   create(context) {
     const filename = context.filename ?? context.getFilename();
-    if (!filename.includes(DOMAIN_MARKER) || filename.endsWith('.spec.ts')) {
+    const marker = DOMAIN_MARKERS.find((candidate) => filename.includes(candidate));
+    if (!marker || filename.endsWith('.spec.ts')) {
       return {};
     }
-    const domainRoot = filename.slice(
-      0,
-      filename.indexOf(DOMAIN_MARKER) + DOMAIN_MARKER.length - 1,
-    );
+    const domainRoot = filename.slice(0, filename.indexOf(marker) + marker.length - 1);
 
     return {
       ImportDeclaration(node) {
@@ -81,7 +82,7 @@ function check(context, filename, domainRoot, source, node) {
       context.report({
         node,
         messageId: 'forbidden',
-        data: { source, detail: 'Imports must stay inside the catalog domain root.' },
+        data: { source, detail: 'Imports must stay inside this domain root.' },
       });
     }
     return;

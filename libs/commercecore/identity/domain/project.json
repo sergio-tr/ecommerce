@@ -1,0 +1,53 @@
+{
+  "name": "commercecore-identity-domain",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/commercecore/identity/domain/src",
+  "tags": [
+    "scope:commercecore",
+    "context:identity",
+    "layer:domain",
+    "runtime:agnostic",
+    "example:pedagogical"
+  ],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p libs/commercecore/identity/domain/tsconfig.lib.json"
+      }
+    },
+    "compile-tests": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "tsc -p libs/commercecore/identity/domain/tsconfig.spec.json"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p libs/commercecore/identity/domain/tsconfig.lib.json --noEmit && tsc -p libs/commercecore/identity/domain/tsconfig.spec.json --noEmit"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint libs/commercecore/identity/domain --max-warnings=0"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["compile-tests"],
+      "options": {
+        "command": "node tools/run-node-tests.mjs dist/test/libs/commercecore/identity/domain"
+      }
+    },
+    "architecture": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/architecture/run-negative-fixtures.mjs libs/commercecore/identity/domain"
+      }
+    }
+  }
+}
