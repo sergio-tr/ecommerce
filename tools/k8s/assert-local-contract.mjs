@@ -46,7 +46,13 @@ export function assertDefaultRender(rendered) {
     const match = document.match(/^kind:\s*(\S+)/m);
     return match ? match[1] : '';
   });
-  for (const forbidden of ['Ingress', 'Secret', 'NetworkPolicy']) {
+  for (const forbidden of [
+    'Ingress',
+    'Secret',
+    'NetworkPolicy',
+    'StatefulSet',
+    'PersistentVolumeClaim',
+  ]) {
     if (kinds.includes(forbidden)) {
       throw new Error(`rendered chart includes ${forbidden}`);
     }

@@ -1,0 +1,2 @@
+# Opt-in stateless pair for one local k3d server. This is not cluster HA.
+replicaCount: 2
