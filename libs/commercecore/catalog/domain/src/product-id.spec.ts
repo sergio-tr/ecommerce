@@ -56,7 +56,8 @@ test('rejects invalid product ids without echoing the input', () => {
 
 test('committed domain sources do not import frameworks or other contexts', () => {
   const sourceRoot = path.join(process.cwd(), 'libs/commercecore/catalog/domain/src');
-  const forbidden = /@nestjs|['"]stripe['"]|['"]mongodb['"]|['"]mongoose['"]|commercecloud/;
+  const forbidden =
+    /@nestjs|['"]stripe['"]|['"]mongodb['"]|['"]mongoose['"]|commercecloud|identity\/domain|synthetic-catalog/;
   for (const file of listTypeScript(sourceRoot)) {
     if (file.endsWith('.spec.ts')) {
       continue;
