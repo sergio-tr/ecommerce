@@ -47,7 +47,7 @@ This ratification unit is done when all of the following are true.
 - G4 for this design is not granted.
 - An independent reader can see that one member is not HA.
 
-`CC-NEXT-GATE` waits until this ratification record is merged and the push CI of that merge is green, and until no other agent or pull request is open. This file does not start that unit.
+`CC-NEXT-GATE` is [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md). It is `PLANNING_PROPOSED`. This durability record does not start that unit and does not grant its G4.
 
 ## What is already accepted
 
@@ -176,4 +176,4 @@ These were the questions in the proposal. The ratification section records the o
 - A Kubernetes StatefulSet or a second replica member.
 - Orders, payments, inventory, fulfillment, Stripe, or license effects.
 - Closing SER-126, GitHub #9, or any AUD-P0.
-- `CC-NEXT-GATE`. That unit waits until this ratification record is merged and the push CI of that merge is green.
+- `CC-NEXT-GATE`. [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md) is that later planning record. It is `PLANNING_PROPOSED`. Merging it does not grant a durability G4 and does not start an implementation.

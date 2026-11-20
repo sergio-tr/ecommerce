@@ -24,6 +24,8 @@
 
 **2026-11-18 scoped record, not a change to item (4):** [M01-MONGO-01](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md) accepts an auxiliary local Compose path for one MongoDB member and pins that path to OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. K2 stays the application runtime. The PVC in item (4) and the M01-D05 StatefulSet stay specified and unbuilt. G4 for that Compose path is `G4_EFFECTIVE_SCOPED` on `main` `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`. T01–T09 stay `NOT_RUN`.
 
+**2026-11-20 next-gate proposal, not a new G4:** [PROP-2026-11-20-CC-NEXT-GATE-01](../00-governance/CC_NEXT_GATE_PLANNING_2026-11-20.md) is `PLANNING_PROPOSED`. It recommends the already-accepted synthetic catalog slice as the next nonfinancial unit and does not grant its G4. Scoped local K8S G5 remains one k3d server and `GET /health/live`. The two-replica health test inside item (3) is not that pass. Item (4) stays unbuilt. K2 stays the application runtime. Compose stays the auxiliary Mongo path.
+
 **Exit gate (future):** actual pinned clean install/build/typecheck/lint/architecture tests, reproducible cluster/bootstrap, independently reachable apps, health/rollout and Service balancing logs, container secret isolation, database restart/volume evidence and safe teardown. **No G3/G4/G5 pass is claimed from these documentary specifications.**
 
 ## M02 — Multi-tenant foundation and identity
