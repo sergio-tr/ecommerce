@@ -2,7 +2,7 @@
 
 **Cutoff:** 2026-10-13. **Source of truth:** explicit user ratifications govern only their own scope. The 181 inherited decisions are in the separate historical register, with immutable source statuses. This table contains **79 preexisting scoped records plus four newly accepted explicit governance policies**. No P0 blocker is closed. All relevant future tests remain TEST_PLANNED; no VERIFIED provider evidence.
 
-**Special notes:** D-01-SM remains PROPOSED — SELECTED; AUD-P1-02-FSM-MIN remains PENDING (an explicit user correction). AUD-P1-03's double-window suggestion is NOT RATIFIED; its inherited display status is preserved, not upgraded. D-03-CAPTURE is a noncanonical audit reference for a PENDING topic, not a user-approved new decision ID.
+**Special notes:** D-01-SM remains PROPOSED — SELECTED; AUD-P1-02-FSM-MIN remains PENDING (an explicit user correction). AUD-P1-03's double-window suggestion is NOT RATIFIED; its inherited display status is preserved, not upgraded. D-03-CAPTURE is a noncanonical audit reference for a PENDING topic, not a user-approved new decision ID. On 2026-11-20 the owner accepted `D-05-MONGO` as `G3_ACCEPTED — DESIGN_ONLY` only. That row is not a new acceptance of D-05 clauses 1–14, not G4, and not a measured server read. `D-05-CONCURRENCY` and `D-05-OPS` stay PENDING. `AUD-P1-05` stays OPEN.
 
 | ID | Exact recorded state | English scope and meaning |
 |---|---|---|
@@ -28,7 +28,7 @@
 | D-05-RECOVERY | ACCEPTED | Durable crash and message recovery for business saga |
 | D-05-IMPL | PROPOSED — SELECTED | Candidate physical inbox/outbox/worker polling |
 | D-05-CONCURRENCY | PENDING | Worker leasing, fencing and concurrency pending |
-| D-05-MONGO | PENDING | Mongo write concern, transaction atomicity, journaling and commit-unknown behavior pending |
+| D-05-MONGO | G3_ACCEPTED — DESIGN_ONLY | Owner-local one-member transaction design accepted 2026-11-20. Not G4, not HA, and not a measured `getDefaultRWConcern` |
 | D-05-OPS | PENDING | Polling, reconciliation, alerts and escalation pending |
 | D-06-EXCL | ACCEPTED | Only one potentially collectible commercial opportunity at once |
 | D-06-P01 | PROPOSED — SELECTED | Two hosted commercial Sessions candidate, not ratified |

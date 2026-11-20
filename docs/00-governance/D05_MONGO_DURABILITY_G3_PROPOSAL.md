@@ -1,16 +1,53 @@
 # Proposal — D-05-MONGO owner-local atomicity and durability G3
 
 **Decision ID:** `PROP-2026-11-20-D05-MONGO-01`  
-**Task:** `CC-MONGO-DURABILITY-DESIGN-46`  
-**Status:** `G3_PROPOSED`  
+**Task:** `CC-MONGO-DURABILITY-DESIGN-46`, recorded by `CC-D05-MONGO-G3-RATIFICATION-47`  
+**Status:** `G3_ACCEPTED — DESIGN_ONLY`  
 **Date:** 2026-11-20  
 **Accountable owner:** @sergio-tr  
-**Linear:** [SER-126](https://linear.app/sergiotr/issue/SER-126/aud-p1-05-atomicidad-y-durabilidad-mongodb) (`In Review` when this file was written; this file does not change it)  
+**Linear:** [SER-126](https://linear.app/sergiotr/issue/SER-126/aud-p1-05-atomicidad-y-durabilidad-mongodb) (`In Review`; this file does not change it)  
 **GitHub issue:** [#9](https://github.com/sergio-tr/ecommerce/issues/9) (open; this file does not close it)  
-**Audit:** `AUD-P1-05` stays OPEN. `D-05-MONGO` stays PENDING.  
-**Proposal base:** `origin/main` `1b589e5ac5db51c49169f1ea5df80249bbd9e091`, merge of [PR #60](https://github.com/sergio-tr/ecommerce/pull/60). Push CI [Actions run 44771417719](https://github.com/sergio-tr/ecommerce/actions/runs/44771417719) `success`; jobs `validate`, `chart`, and `image` each `success`.
+**Audit:** `AUD-P1-05` stays OPEN. `D-05-MONGO` is `G3_ACCEPTED — DESIGN_ONLY`. That is not G4.  
+**Proposal base:** `origin/main` `1b589e5ac5db51c49169f1ea5df80249bbd9e091`, merge of [PR #60](https://github.com/sergio-tr/ecommerce/pull/60). Push CI [Actions run 44771417719](https://github.com/sergio-tr/ecommerce/actions/runs/44771417719) `success`; jobs `validate`, `chart`, and `image` each `success`.  
+**Ratification base:** `origin/main` `db807664fab19de643e3483555ddec8744a25d6d`, merge of [PR #61](https://github.com/sergio-tr/ecommerce/pull/61). Push CI [Actions run 44803692671](https://github.com/sergio-tr/ecommerce/actions/runs/44803692671) `success`; jobs `validate`, `chart`, and `image` each `success`.
 
-Merging this proposal does not accept `D-05-MONGO`, does not close `AUD-P1-05`, and does not authorize an implementation. The questions at the end need a separate owner sentence.
+[PR #61](https://github.com/sergio-tr/ecommerce/pull/61) merged this proposal and did not accept `D-05-MONGO`. The owner sentence on 2026-11-20 at 19:42 Europe/Amsterdam does. It does not close `AUD-P1-05`, does not grant G4, and does not authorize an implementation.
+
+## Owner ratification, 2026-11-20
+
+@sergio-tr ratified `PROP-2026-11-20-D05-MONGO-01` with Q1=A, Q2=A, Q3=A, Q4=A, Q5=A, and Q6=A. The sentence is [CC_OWNER_D05_MONGO_G3_RATIFIED](https://sergiotr.slack.com/archives/C0C8YHEPASV/p1795203760044739). This section is the repository record of that sentence. It does not add a second choice.
+
+| Id | Accepted sentence |
+|---|---|
+| Q1 | Owner-local transaction on the one-member local `rs0`: commit `writeConcern` `w: "majority"`, snapshot read concern, primary read preference, one immutable scoped operation receipt inside the transaction, deterministic readback, and no new external action after `UnknownTransactionCommitResult`. Design only. |
+| Q2 | Majority on this one member is that member's own journaled acknowledgement, subject to the server setting. It is not a second durability copy and it is not HA. |
+| Q3 | DATA-A stays. `commercecore_dev`, `commercecloud_dev`, their users, and the Kubernetes StatefulSet and PVC stay uncreated. |
+| Q4 | The driver transaction retry stays bounded. There is no second unbounded retry loop. An uncertain commit fails closed and is resolved by reading the receipt. |
+| Q5 | `D-05-CONCURRENCY` stays PENDING for worker leases and fences. `D-05-OPS` stays PENDING. The receipt is not proof of a worker lease. |
+| Q6 | A live `getDefaultRWConcern` read stays `TEST_PLANNED`. It has not been measured. The manual default is not a server printout. |
+
+`D-05` clauses 1–14 stay the already accepted policy. This ratification does not accept a new financial policy, a schema, a worker, or a G4. `D05-T01` through `D05-T10` stay `NOT_RUN`. The 148 historical experiments stay `TEST_PLANNED` / `NOT_RUN`. `AUD-P0-01` through `AUD-P0-04` stay OPEN/BLOCKING. Catalog G4 stays not granted. Local Compose G5 stays `PASSED_LOCAL` for that infrastructure slice only. The scripts still print `g5: NOT_CLAIMED`, `t01-live=NOT_CLAIMED`, and `matrix=NOT_CLAIMED`.
+
+Dated snapshots written before this sentence, including the 2026-11-12 dependency matrix, still say `D-05-MONGO` PENDING. The register row changed in this record is the later status for this id only.
+
+## Trace and definition of done for the ratification
+
+The decision row is `D-05-MONGO` in [decision-register.json](../02-decisions/decision-register.json). The ADR note is [D-05-full-adr.md](../02-decisions/D-05-full-adr.md). The audit row is `AUD-P1-05` in [REGISTER.md](../04-audit/REGISTER.md), and it stays OPEN. SER-126 stays `In Review`. GitHub #9 stays open. The index row is [status-matrix.md](../02-decisions/status-matrix.md).
+
+This ratification unit is done when all of the following are true.
+
+- The six answers above match the owner sentence and are not widened.
+- `D-05-MONGO` is `G3_ACCEPTED — DESIGN_ONLY` in the register and in the ADR note.
+- `D-05` itself is not newly accepted. Clauses 1–14 were already accepted policy.
+- `D-05-CONCURRENCY` and `D-05-OPS` stay PENDING.
+- `AUD-P1-05` stays OPEN. SER-126 stays `In Review`. GitHub #9 stays open.
+- `AUD-P0-01` through `AUD-P0-04` stay OPEN/BLOCKING.
+- `D05-T01` through `D05-T10` and the 148 catalog experiments stay `NOT_RUN`.
+- No collection, index, NestJS module, Compose change, secret, volume change, or StatefulSet was added.
+- G4 for this design is not granted.
+- An independent reader can see that one member is not HA.
+
+`CC-NEXT-GATE` waits until this ratification record is merged and the push CI of that merge is green, and until no other agent or pull request is open. This file does not start that unit.
 
 ## What is already accepted
 
@@ -39,11 +76,11 @@ That pass is one local `mongod`, replica set `rs0`, one member. The executable S
 
 The pinned image is `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. One member is not HA, not a failover test, and not the unbuilt M01-D05 StatefulSet. K2 stays the application runtime. No business collection was created. `infra_probe` is not an owner aggregate.
 
-[PR #28](https://github.com/sergio-tr/ecommerce/pull/28) merged on 2026-10-30 and [PR #29](https://github.com/sergio-tr/ecommerce/pull/29) merged on 2026-11-06. They put the candidate contract in [D_05_MONGO_EXACT_OWNER_TRANSACTION_CONTRACT.md](../architecture/m00/D_05_MONGO_EXACT_OWNER_TRANSACTION_CONTRACT.md). That file is still `NOT RATIFIED`. This proposal does not edit it and does not promote it. Where this file and that candidate disagree, the disagreement is listed below and stays unresolved until an owner sentence.
+[PR #28](https://github.com/sergio-tr/ecommerce/pull/28) merged on 2026-10-30 and [PR #29](https://github.com/sergio-tr/ecommerce/pull/29) merged on 2026-11-06. They put the candidate contract in [D_05_MONGO_EXACT_OWNER_TRANSACTION_CONTRACT.md](../architecture/m00/D_05_MONGO_EXACT_OWNER_TRANSACTION_CONTRACT.md). That file is still `NOT RATIFIED`. This record does not edit it and does not promote it. Where this file and that candidate disagree, the owner sentence accepts the last column for this design only.
 
-## Conflict kept open
+## Conflict with the earlier candidate
 
-| Topic | Earlier text | Later constraint | Proposal |
+| Topic | Earlier text | Later constraint | Accepted for this design |
 |---|---|---|---|
 | Databases | DATA-A and the 2026-10-30 candidate name separate CommerceCore and CommerceCloud databases | R3: `M01-MONGO-01` does not create `commercecore_dev`, `commercecloud_dev`, or their users | Do not create them in this design. DATA-A is not amended. They remain specified for the unbuilt Kubernetes path. |
 | Topology | The candidate allows a one-member set for local learning | The running set is that one member, with a named volume | Use that set as the only local target this design may talk about. Do not call it HA. |
@@ -52,7 +89,7 @@ The pinned image is `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d0570
 
 ## Recommended default
 
-The recommended default is an owner-local MongoDB transaction on the existing one-member `rs0`, with an explicit commit concern and an immutable operation receipt. It is a design, not a driver module.
+The owner accepted this default as the design on 2026-11-20. The acceptance is design only. The default is an owner-local MongoDB transaction on the existing one-member `rs0`, with an explicit commit concern and an immutable operation receipt. It is not a driver module.
 
 1. **Boundary.** One transaction belongs to one owner: Ordering, Payments, Inventory, or Fulfillment. The transaction may update that owner's documents, that owner's inbox receipt, and that owner's outbox rows. It must not write another context's private collections. It must not call Stripe, another service, or the clock of an external provider.
 2. **When a transaction is required.** Use one document when the whole invariant fits in that document. Use a transaction when the owner fact and the inbox or outbox are separate documents, or when two of that owner's documents must change together. Inventory StockPool and Reservation stay separate documents if the later inventory contract still says so. This proposal does not choose their schema.
@@ -104,34 +141,33 @@ Every row is `TEST_PLANNED` / `NOT_RUN`. None of these runs happened for this pr
 
 A future implementation would record the operation id, the owner, and the outcome class: committed, duplicate, version conflict, unknown commit, or incident. It would not record credentials, card data, or license material. A log line is not the receipt. The receipt document is the local evidence. Driver error labels are the classification. This proposal does not add a logger, a metric, or a dashboard.
 
-## Definition of done for this design unit
+## Definition of done for the proposal unit
 
-This unit is done as a proposal when all of the following are true.
+[PR #61](https://github.com/sergio-tr/ecommerce/pull/61) met this bar while the status was `G3_PROPOSED`. The ratification section is the later status. These checks still hold except the old PENDING line, which that section replaces.
 
 - This file lists the accepted policy, the recommended default, the rejected alternatives, and the conflicts with DATA-A and R3.
-- `D-05-MONGO` is still PENDING in [decision-register.json](../02-decisions/decision-register.json).
 - `AUD-P1-05` is still OPEN in [REGISTER.md](../04-audit/REGISTER.md).
 - `AUD-P0-01` through `AUD-P0-04` stay OPEN/BLOCKING.
 - The 148 catalog experiments stay `TEST_PLANNED` / `NOT_RUN`.
 - Catalog G4 stays not granted.
 - No collection, index, NestJS module, Compose change, secret, or StatefulSet was added.
 - An independent reader can see that one member is not HA and that the infrastructure G5 is not a durability pass.
-- The owner questions below are unanswered in this file.
+- The owner questions below were unanswered when [PR #61](https://github.com/sergio-tr/ecommerce/pull/61) merged. The ratification section above is the later owner sentence.
 
-A later ratification unit may change `D-05-MONGO` only after an explicit owner sentence. A later evidence unit may run the matrix only after a separate G4. This proposal requests neither.
+A later evidence unit may run the matrix only after a separate G4. This record does not grant that G4.
 
 ## Owner questions
 
-Answer by a separate sentence. Merging this pull request is not that sentence.
+These were the questions in the proposal. The ratification section records the owner sentence. The recommended answers were accepted as written there, still design only.
 
-| Id | Question | Recommended answer, still unratified |
+| Id | Question | Owner answer |
 |---|---|---|
-| Q1 | Accept the recommended default as the `D-05-MONGO` design for a future application integration? | Yes, design only. No implementation and no G4. |
-| Q2 | Accept that majority on this one-member set is one journaled acknowledgement on that member, not multi-node durability? | Yes. HA stays unclaimed. |
-| Q3 | Leave `commercecore_dev` and `commercecloud_dev` uncreated, and leave DATA-A and the StatefulSet unamended? | Yes. |
-| Q4 | Keep the driver helper's retry budget and refuse an extra unbounded loop? | Yes. A different numeric cap would be a new choice. |
-| Q5 | Leave worker leasing in `D-05-CONCURRENCY` PENDING? | Yes. The receipt is only the proposed local fence. |
-| Q6 | Treat a measured `getDefaultRWConcern` read as a later evidence item rather than a fact already proved? | Yes. The manual default is not a server printout. |
+| Q1 | Accept the recommended default as the `D-05-MONGO` design for a future application integration? | A. Design only. No implementation and no G4. |
+| Q2 | Accept that majority on this one-member set is one journaled acknowledgement on that member, not multi-node durability? | A. HA stays unclaimed. |
+| Q3 | Leave `commercecore_dev` and `commercecloud_dev` uncreated, and leave DATA-A and the StatefulSet unamended? | A. |
+| Q4 | Keep the driver helper's retry budget and refuse an extra unbounded loop? | A. A different numeric cap would be a new choice. |
+| Q5 | Leave worker leasing in `D-05-CONCURRENCY` PENDING? | A. The receipt is not a worker lease. `D-05-OPS` stays PENDING. |
+| Q6 | Treat a measured `getDefaultRWConcern` read as a later evidence item rather than a fact already proved? | A. The manual default is not a server printout. The read stays `TEST_PLANNED`. |
 
 ## Out of scope
 
@@ -140,4 +176,4 @@ Answer by a separate sentence. Merging this pull request is not that sentence.
 - A Kubernetes StatefulSet or a second replica member.
 - Orders, payments, inventory, fulfillment, Stripe, or license effects.
 - Closing SER-126, GitHub #9, or any AUD-P0.
-- `CC-NEXT-GATE`. That unit waits until this proposal is merged and its push CI is checked, and until any ratification the owner still requires.
+- `CC-NEXT-GATE`. That unit waits until this ratification record is merged and the push CI of that merge is green.

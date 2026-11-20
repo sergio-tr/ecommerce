@@ -250,18 +250,21 @@
     },
     {
       "id": "D-05-MONGO",
-      "status": "PENDING",
-      "summary": "Mongo write concern, transaction atomicity, journaling and commit-unknown behavior pending",
-      "evidenceStatus": "NOT_EVALUATED",
+      "status": "G3_ACCEPTED — DESIGN_ONLY",
+      "summary": "Owner-local one-member Mongo transaction design accepted 2026-11-20. Majority on that member, snapshot read, immutable operation receipt, uncertain-commit readback. Not G4 and not HA.",
+      "evidenceStatus": "TEST_PLANNED",
       "sourceCategory": "POST_R0.10_RATIFICATION_OR_AUDIT",
       "sourceLinks": [
-        "docs/02-decisions/D-05-full-adr.md"
+        "docs/02-decisions/D-05-full-adr.md",
+        "docs/00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md"
       ],
       "date": "2026-10-13",
-      "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "ratifiedOn": "2026-11-20",
+      "currentRecommendedDesignReference": "docs/00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md",
+      "earlierUnratifiedCandidate": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
       "proposedDurabilityG3": "docs/00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md",
-      "proposedDurabilityG3Status": "G3_PROPOSED",
-      "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
+      "proposedDurabilityG3Status": "G3_ACCEPTED — DESIGN_ONLY",
+      "underlyingEvidenceStatus": "UNVERIFIED; D05-T01..T10 NOT_RUN; design ratified; implementation and G4 not accepted"
     },
     {
       "id": "D-05-OPS",
