@@ -205,3 +205,5 @@ All of the following stay `TEST_PLANNED / NOT_RUN` until a scoped G4 exists and 
 ## Authorization still required
 
 G3 for this exact contract is accepted. G4 is not. The next planned implementation slice is M01-K8S-01, and it needs its own G4 before any cluster, image, or Helm work. These catalog routes stay unbuilt until that sequence reaches them and a later G4 names one issue and one base SHA. No Linear or GitHub issue currently covers this slice. SER-134 is the completed bootstrap and does not authorize it.
+
+**2026-11-20 sequencing note:** M01-K8S-01 later received its own scoped G4 and a one-server local G5. That pass does not grant G4 for these routes. [PROP-2026-11-20-CC-NEXT-GATE-01](CC_NEXT_GATE_PLANNING_2026-11-20.md) is `PLANNING_PROPOSED`. It asks whether this slice is the next unit. The routes stay unbuilt. No issue was created by that proposal.
