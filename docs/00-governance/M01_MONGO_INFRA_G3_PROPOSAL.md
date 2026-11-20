@@ -2,7 +2,7 @@
 
 **Decision ID:** `PROP-2026-11-17-M01-MONGO-INFRA-01`  
 **Task:** `M01-MONGO-01`  
-**Status:** `G3_ACCEPTED_2026-11-17` for `M01-MONGO-01` local Compose infrastructure only / `G4_EFFECTIVE_SCOPED` / scoped local G5 `G5_PROPOSED_PENDING_MERGE`  
+**Status:** `G3_ACCEPTED_2026-11-17` for `M01-MONGO-01` local Compose infrastructure only / `G4_EFFECTIVE_SCOPED` / scoped local G5 `PASSED_LOCAL` after the post-merge check below  
 **Date:** 2026-11-17  
 **Accountable owner:** @sergio-tr  
 **Linear:** [SER-138](https://linear.app/sergiotr/issue/SER-138/m01-mongo-01-local-compose-mongodb-infrastructure-g3)  
@@ -11,7 +11,7 @@
 **Ratification base:** `origin/main` `d6e24c35f41c67e7d55bab10ba72e13ef5a667a1`, merge of [PR #50](https://github.com/sergio-tr/ecommerce/pull/50)  
 **Image pin base:** `origin/main` `898fa77f69110ab97205245ded2716c48d35be9d`, merge of [PR #51](https://github.com/sergio-tr/ecommerce/pull/51). Push CI [Actions run 44203521366](https://github.com/sergio-tr/ecommerce/actions/runs/44203521366) `success`; jobs `validate`, `chart`, and `image` each `success`  
 **G4 evidence base:** `origin/main` `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`, merge of [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) by @sergio-tr at 2026-11-18 06:45 Europe/Amsterdam. Push CI [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) `success`; jobs `validate`, `chart`, and `image` each `success`  
-**G5-A record base:** `origin/main` `455ca288024d01f61ce004dde2a7ed8ed0606795`, merge of [PR #59](https://github.com/sergio-tr/ecommerce/pull/59). Push CI [Actions run 44762498521](https://github.com/sergio-tr/ecommerce/actions/runs/44762498521) `success`; jobs `validate`, `chart`, and `image` each `success`. That merge recorded the excerpt and left G5 unpassed. `PASSED_LOCAL` waits for a manual merge of the acceptance record and a green push CI of that merge. This file does not close SER-138.  
+**G5-A record base:** `origin/main` `455ca288024d01f61ce004dde2a7ed8ed0606795`, merge of [PR #59](https://github.com/sergio-tr/ecommerce/pull/59). Push CI [Actions run 44762498521](https://github.com/sergio-tr/ecommerce/actions/runs/44762498521) `success`; jobs `validate`, `chart`, and `image` each `success`. That merge recorded the excerpt and left G5 unpassed. `PASSED_LOCAL` waits for a manual merge of the acceptance record and a green push CI of that merge. The post-merge check section is the later result of that wait. This file does not close SER-138.  
 **Not this task:** [SER-126](https://linear.app/sergiotr/issue/SER-126) / GitHub #9 / `D-05-MONGO` / `AUD-P1-05`
 
 ## Owner ratification
@@ -208,7 +208,7 @@ The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra
 
 ## Acceptance matrix
 
-The rows below are the contract. They are not marked G5-passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. The 2026-11-20 owner excerpt is the evidence record after this table. Live T01 stays `NOT_CLAIMED`. Merging the excerpt does not pass G5. The G5-A section is the later owner decision and stays `G5_PROPOSED_PENDING_MERGE` until that record is manually merged and its push CI succeeds.
+The rows below are the contract. They are not marked G5-passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. The 2026-11-20 owner excerpt is the evidence record after this table. Live T01 stays `NOT_CLAIMED`. Merging the excerpt does not pass G5. The G5-A section is the later owner decision and stays `G5_PROPOSED_PENDING_MERGE` until that record is manually merged and its push CI succeeds. The post-merge check section is the later result of that condition.
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Docker 29.1.3 and Compose 5.3.0, against `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3`. Before that run the named volume was absent, the container was absent, and port 27017 was free. The reported log showed T01 clean start, `mongo-up: PASS`, then `mongo-infra-smoke: anonymous ping succeeded`, and exit 1. T02–T09 did not run. That run is not a T01 pass and not G5. `{ ping: 1 }` is not an authorization check. The oracle is an unauthenticated read of `infra_probe.probe`. The same read is the T05 check. This correction does not change `--auth` to make ping fail.
 
@@ -274,6 +274,14 @@ The owner then ran `docker run --rm --network none --entrypoint mongod docker.io
 
 One member is not HA. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. `D-05-MONGO` stays PENDING. SER-126 stays separate. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 experiments stay `TEST_PLANNED/NOT_RUN`. Catalog G4 stays not granted.
 
+### 2026-11-20 post-merge check of the G5-A condition
+
+**Status:** `PASSED_LOCAL` for this local Compose infrastructure slice only.
+
+The G5-A section says `PASSED_LOCAL` applies after @sergio-tr merges that record by hand and the push CI of that merge succeeds. [PR #60](https://github.com/sergio-tr/ecommerce/pull/60) is that merge, at `1b589e5ac5db51c49169f1ea5df80249bbd9e091`, on 2026-11-20 at 17:14 Europe/Amsterdam. Push CI [Actions run 44771417719](https://github.com/sergio-tr/ecommerce/actions/runs/44771417719) completed `success` at 17:15 Europe/Amsterdam. Jobs `validate`, `chart`, and `image` each completed `success`. This paragraph records that check. It does not rerun Docker.
+
+The script tokens stay `g5: NOT_CLAIMED`, `t01-live=NOT_CLAIMED`, and `matrix=NOT_CLAIMED`. The live volume still has no fresh T01. One member is not HA. Linear SER-138 was already `Done` when this paragraph was written (`completedAt` 2026-11-20 20:16 Europe/Amsterdam). This paragraph did not set that status. `D-05-MONGO` stays PENDING. The durability design is [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md) and is `G3_PROPOSED`. It is not part of this infrastructure pass.
+
 ## G4 request, effective for the local Compose path
 
 **Request ID:** `G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01`  
@@ -281,13 +289,13 @@ One member is not HA. K2 stays the application runtime. The M01-D05 StatefulSet 
 
 The owner named this request ID on 2026-11-17 at 23:23 Europe/Amsterdam and granted it only after the three conditions in the owner ratification section. Merge of PR #50 is not that grant. Merge of PR #51 satisfied condition 1 only. The image pin section wrote condition 2 and, before PR #52 merged, left the label `READY_PENDING_MERGE`. The G4 effective scoped section records that all three conditions are true on `ae55c22aa82a8148bfeea3bcb867d85ecf4a5b19`.
 
-The grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. The owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` exited 1 before T02. That sentence is the 2026-11-18 check. The G5-A section is the later scoped decision and stays `G5_PROPOSED_PENDING_MERGE`. It does not widen this grant.
+The grant covers only the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and a smoke for T01–T09. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. The owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` exited 1 before T02. That sentence is the 2026-11-18 check. The G5-A section is the later scoped decision and stays `G5_PROPOSED_PENDING_MERGE` until its own merge condition. The post-merge check section is that later result. It does not widen this grant.
 
 ## Out of scope
 
 - Changing K2, NET-A, DATA-A, or STRIPE-A.
 - Editing `D-05-MONGO`, SER-126, or GitHub #9.
-- Write concern, journaling, transactions, uncertain commit, Inbox, or Outbox. Those belong to the later design unit.
+- Write concern, journaling, transactions, uncertain commit, Inbox, or Outbox. Those belong to the later design unit, [PROP-2026-11-20-D05-MONGO-01](D05_MONGO_DURABILITY_G3_PROPOSAL.md), which stays `G3_PROPOSED`.
 - Closing AUD-P0-01..04 or marking any of the 148 experiments run.
 - Catalog routes. Catalog G4 stays not granted.
 - A second replica, failover, or any HA claim.

@@ -35,6 +35,7 @@ Safety requires durable states, context-specific authority, bounded commercial f
 - D-05-INBOX, D-05-OUTBOX and D-05-RECOVERY ACCEPTED.
 - D-05-IMPL PROPOSED — SELECTED.
 - D-05-CONCURRENCY, D-05-MONGO, D-05-OPS PENDING.
+- [PROP-2026-11-20-D05-MONGO-01](../00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md) is a later design proposal for `D-05-MONGO`. It is `G3_PROPOSED`. It does not change this PENDING status.
 - AUD-P0-02 provider proof and AUD-P0-03 physical propagation blockers persist.
 
 ## Future verification
