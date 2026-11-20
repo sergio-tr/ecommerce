@@ -183,7 +183,7 @@ The pin paragraph above said G4 stayed `READY_PENDING_MERGE` until the pin chang
 | Digest pinned and CI green | True. [PR #52](https://github.com/sergio-tr/ecommerce/pull/52) merged at that SHA. [Actions run 44246479138](https://github.com/sergio-tr/ecommerce/actions/runs/44246479138) concluded `success` for `validate`, `chart`, and `image`. The pin remains the OCI index in the image pin section |
 | Normative conflict inside this slice | None found. K2 stays the application runtime. The M01-D05 StatefulSet and PVC stay specified and unbuilt. The Compose named volume is not that PVC. `D-05-MONGO` stays PENDING and outside this slice |
 
-`G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. The owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` exited 1. T01 is not passed. T02–T09 stay `NOT_RUN`.
+`G4-REQUEST-2026-11-17-M01-MONGO-INFRA-01` is therefore `G4_EFFECTIVE_SCOPED`. The scope is the Compose file, the pinned image, the named volume, the loopback publish, reading `.env.local`, the idempotent bootstrap, and the T01–T09 smoke. It does not cover a NestJS module, a Mongo driver in the API, a Helm database, a k3d StatefulSet, domain collections, Stripe, orders, payments, inventory, a cloud account, or a registry push. One member is not HA. This status is not G5. At this 2026-11-18 check the owner smoke on `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3` had exited 1, T01 was not passed, and T02–T09 were `NOT_RUN`. The 2026-11-20 evidence record is later. It does not widen this G4 scope and it does not pass G5.
 
 The library GitCommit `5fd7eb19024b73c9ec84644f1b23acbb33bee8b0` is still not an OCI digest. This digest is not selected for the M01-D05 StatefulSet.
 
@@ -207,7 +207,7 @@ The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra
 
 ## Acceptance matrix
 
-No row below is passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01.
+The rows below are the contract. They are not marked G5-passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. The 2026-11-20 owner excerpt is the evidence record after this table. Live T01 stays `NOT_CLAIMED`. Scoped local G5 stays `NOT_PASSED`. Merging the excerpt does not pass it.
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Docker 29.1.3 and Compose 5.3.0, against `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3`. Before that run the named volume was absent, the container was absent, and port 27017 was free. The reported log showed T01 clean start, `mongo-up: PASS`, then `mongo-infra-smoke: anonymous ping succeeded`, and exit 1. T02–T09 did not run. That run is not a T01 pass and not G5. `{ ping: 1 }` is not an authorization check. The oracle is an unauthenticated read of `infra_probe.probe`. The same read is the T05 check. This correction does not change `--auth` to make ping fail.
 
@@ -230,6 +230,28 @@ A clean T01 that does not touch the live volume is `tools/mongo/mongo-t01-isolat
 | MONGO-INFRA-T09 | teardown | default path keeps the named volume; the explicit destructive flag removes it | an undocumented volume delete |
 
 M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. This matrix does not retire them.
+
+### 2026-11-20 owner excerpt
+
+**SHA:** `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`  
+**G5:** `NOT_PASSED`. The commands printed `g5: NOT_CLAIMED`. This record does not convert that token into a pass.  
+**Provenance:** owner WSL2 sanitized console excerpt posted on 2026-11-20. The report does not give a separate clock time for the commands. Full logs `/tmp/mongo-t01-final.log` and `/tmp/mongo-resume-final.log` were not copied into this repository and were not read for this record. No credential value is recorded.
+
+| Row | Excerpt | Limit |
+|---|---|---|
+| Live T01 | `t01-live=NOT_CLAIMED` and `t01=NOT_CLAIMED` | The isolated pass is not a fresh start of `commercecore-mongo-data` |
+| Isolated T01 | `exit=0`, `publish=127.0.0.1:27018`, `anonymous infra_probe read rejected`, `isolated volume kept`, `T01_ISOLATED_PASS`, `matrix=NOT_CLAIMED`, `g5: NOT_CLAIMED` | No `mongod --version` line and no separate `rs.status()` line in this excerpt |
+| T02–T04 | `--resume` exit 0: start again, restart, recreate | Existing live volume. `REVALIDATION_ONLY`, not `mongo-infra-smoke: PASS` |
+| T05 | missing env and empty password rejected; anonymous read rejected | Same resume. Not a clean matrix |
+| T06 | `127.0.0.1:27017` | Same resume |
+| T07 | host client completed | The excerpt does not quote `rs.conf()` |
+| T08 | `db version v8.0.38` and the pinned image check | This version line is from `--resume`, not from the isolated T01 excerpt |
+| T09 | `mongo-down: volume kept`, then `mongo-up: PASS` | The live volume stayed |
+| G5 | `g5: NOT_CLAIMED` on both commands | Stays `NOT_PASSED`. The excerpt has no isolated `mongod --version` or `rs.status()` line, and the full logs are not in the repository |
+
+Before the commands, `docker compose ls --all` showed live `commercecore-mongo` as `exited(1)`. That is not the isolated T01 result. Node was `v24.22.2`. Docker was available. The isolated volume, container, and network were absent, and port 27018 was free. `.env.t01.local` and `.env.local` were nonempty and gitignored.
+
+`tools/mongo/compose.yaml` and `tools/mongo/compose.t01.yaml` at this SHA share the OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`, hostname `mongo`, the same bootstrap and probe files, `mongod --replSet rs0 --bind_ip_all --auth --keyFile`, the one-member primary healthcheck, `internal: false`, and a loopback publish. They differ in project, container, volume, and network names, in the runtime env and keyfile variables, and in host port `27017` versus `27018`. That source comparison supports R4 D1 for this scoped local clean start. It is not a fresh start of the live volume. R4 D2 is the separate env file. R4 D3 is the same SHA. R4 D4 is that both named volumes stayed. AUD-P0-01..04 stay OPEN/BLOCKING. The 148 experiments stay `TEST_PLANNED/NOT_RUN`. Catalog G4 stays not granted. `D-05-MONGO` and SER-126 stay outside this record. One member is not HA.
 
 ## G4 request, effective for the local Compose path
 
