@@ -1,6 +1,7 @@
 node_modules/
 dist/
 tmp/
+.angular/
 .nx/
 coverage/
 *.tsbuildinfo

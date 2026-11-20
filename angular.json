@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "apps",
+  "projects": {
+    "egame-web": {
+      "projectType": "application",
+      "root": "apps/egame-web",
+      "sourceRoot": "apps/egame-web/src",
+      "prefix": "egame",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/apps/egame-web",
+            "browser": "apps/egame-web/src/main.ts",
+            "index": "apps/egame-web/src/index.html",
+            "tsConfig": "apps/egame-web/tsconfig.app.json",
+            "styles": ["apps/egame-web/src/styles.css"],
+            "aot": true
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "buildTarget": "egame-web:build:development",
+            "proxyConfig": "apps/egame-web/proxy.conf.json",
+            "host": "127.0.0.1",
+            "port": 4200,
+            "allowedHosts": ["127.0.0.1", "localhost"]
+          }
+        }
+      }
+    }
+  }
+}

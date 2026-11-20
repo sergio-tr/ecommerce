@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": ["node"],
+    "outDir": "../../dist/test/apps/egame-web",
+    "rootDir": "src",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": ["src/**/*.spec.ts", "src/synthetic-catalog/**/*.ts"],
+  "exclude": ["src/**/*.component.ts", "src/main.ts"]
+}

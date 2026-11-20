@@ -51,6 +51,7 @@ export default [
   {
     files: [
       'apps/commercecore-api/**/*.ts',
+      'apps/egame-web/**/*.ts',
       'libs/commercecore/catalog/domain/**/*.ts',
       'libs/commercecore/identity/domain/**/*.ts',
     ],
@@ -72,6 +73,44 @@ export default [
             {
               sourceTag: 'scope:commercecore',
               notDependOnLibsWithTags: ['scope:commercecloud', 'scope:egame'],
+            },
+            {
+              sourceTag: 'scope:egame',
+              onlyDependOnLibsWithTags: ['scope:egame'],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['apps/egame-web/**/*.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            { name: 'stripe', message: 'eGame does not call Stripe.' },
+            { name: 'mongodb', message: 'eGame does not call MongoDB.' },
+            { name: 'mongoose', message: 'eGame does not call MongoDB.' },
+          ],
+          patterns: [
+            {
+              group: ['@nestjs', '@nestjs/*'],
+              message: 'eGame does not import the NestJS runtime.',
+            },
+            {
+              group: ['@stripe/*', '@kubernetes/*', 'kafkajs'],
+              message: 'Provider SDKs stay out of eGame.',
+            },
+            {
+              group: [
+                '**/commercecore-api/**',
+                '**/catalog/domain/**',
+                '**/identity/domain/**',
+                '**/commercecloud/**',
+              ],
+              message: 'eGame keeps its own synthetic DTO.',
             },
           ],
         },

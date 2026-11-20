@@ -10,3 +10,8 @@ packages: []
 allowBuilds:
   nx: true
   '@parcel/watcher': true
+  # @angular/build invokes esbuild. The package postinstall only selects the
+  # published platform binary; it does not compile from source.
+  esbuild: true
+  lmdb: false
+  msgpackr-extract: false
