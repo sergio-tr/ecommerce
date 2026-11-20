@@ -207,7 +207,7 @@ The smoke may write one document `{ "probe": "mongo-infra" }` in database `infra
 
 ## Acceptance matrix
 
-The rows below are the contract. They are not marked G5-passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. The 2026-11-20 owner excerpt is the evidence record after this table. Live T01 stays `NOT_CLAIMED`. Scoped local G5 stays `NOT_PASSED`.
+The rows below are the contract. They are not marked G5-passed. `pnpm run mongo:check` is a static file and script check. It does not mark a row as run. Exit 2, `WAITING_OWNER_LOCAL`, is not a pass. `mongo-infra-smoke: REVALIDATION_ONLY` is not a pass and does not claim T01. The 2026-11-20 owner excerpt is the evidence record after this table. Live T01 stays `NOT_CLAIMED`. Scoped local G5 stays `NOT_PASSED`. Merging the excerpt does not pass it.
 
 On 2026-11-18 the owner ran `bash tools/mongo/mongo-smoke.sh` on WSL2 x86_64, Docker 29.1.3 and Compose 5.3.0, against `92a8f7d1a541fd0a465a0976504a9b2196f1d2a3`. Before that run the named volume was absent, the container was absent, and port 27017 was free. The reported log showed T01 clean start, `mongo-up: PASS`, then `mongo-infra-smoke: anonymous ping succeeded`, and exit 1. T02–T09 did not run. That run is not a T01 pass and not G5. `{ ping: 1 }` is not an authorization check. The oracle is an unauthenticated read of `infra_probe.probe`. The same read is the T05 check. This correction does not change `--auth` to make ping fail.
 
@@ -234,7 +234,7 @@ M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. 
 ### 2026-11-20 owner excerpt
 
 **SHA:** `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`  
-**G5:** `NOT_PASSED` while this record is unmerged. The G5 row states the scoped result after review, manual merge, and push CI.  
+**G5:** `NOT_PASSED`. The commands printed `g5: NOT_CLAIMED`. This record does not convert that token into a pass.  
 **Provenance:** owner WSL2 sanitized console excerpt posted on 2026-11-20. The report does not give a separate clock time for the commands. Full logs `/tmp/mongo-t01-final.log` and `/tmp/mongo-resume-final.log` were not copied into this repository and were not read for this record. No credential value is recorded.
 
 | Row | Excerpt | Limit |
@@ -247,7 +247,7 @@ M01-D05-T02, T03, T04, and T10 stay TEST_PLANNED/NOT_RUN on that specification. 
 | T07 | host client completed | The excerpt does not quote `rs.conf()` |
 | T08 | `db version v8.0.38` and the pinned image check | This version line is from `--resume`, not from the isolated T01 excerpt |
 | T09 | `mongo-down: volume kept`, then `mongo-up: PASS` | The live volume stayed |
-| G5 | `g5: NOT_CLAIMED` on both commands | `NOT_PASSED` while this record is unmerged. After owner review, manual merge, and success of that merge's push CI, `PASSED_LOCAL` only for this excerpt |
+| G5 | `g5: NOT_CLAIMED` on both commands | Stays `NOT_PASSED`. The excerpt has no isolated `mongod --version` or `rs.status()` line, and the full logs are not in the repository |
 
 Before the commands, `docker compose ls --all` showed live `commercecore-mongo` as `exited(1)`. That is not the isolated T01 result. Node was `v24.22.2`. Docker was available. The isolated volume, container, and network were absent, and port 27018 was free. `.env.t01.local` and `.env.local` were nonempty and gitignored.
 

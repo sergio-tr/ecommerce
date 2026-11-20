@@ -3,7 +3,7 @@
 **Status:** `G4_EFFECTIVE_SCOPED` for this local Compose path only.  
 **Decision:** [PROP-2026-11-17-M01-MONGO-INFRA-01](../00-governance/M01_MONGO_INFRA_G3_PROPOSAL.md).  
 **Linear:** [SER-138](https://linear.app/sergiotr/issue/SER-138/m01-mongo-01-local-compose-mongodb-infrastructure-g3).  
-**Runtime rows:** Live T01 is `NOT_CLAIMED`. On 2026-11-20 the owner reported an isolated `T01_ISOLATED_PASS` and a same-SHA `--resume` of T02–T09 on `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`. Both excerpts print `g5: NOT_CLAIMED`. Scoped local G5 stays `NOT_PASSED` while this record is unmerged.
+**Runtime rows:** Live T01 is `NOT_CLAIMED`. On 2026-11-20 the owner reported an isolated `T01_ISOLATED_PASS` and a same-SHA `--resume` of T02–T09 on `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`. Both excerpts print `g5: NOT_CLAIMED`. Scoped local G5 stays `NOT_PASSED`.
 
 One `mongod`, replica set `rs0`, one member. The image is the OCI index `docker.io/library/mongo:8.0.38-noble@sha256:76a93cc399d05709baeea4e55385749657aa0085ad5b497c851380778eccea2c`. The named volume is `commercecore-mongo-data`. The Compose network `commercecore-mongo` is a dedicated bridge and is not internal. Docker 29 does not install a host publish on an internal-only network. The only host publish is `127.0.0.1`.
 
@@ -70,7 +70,7 @@ On 2026-11-18 the owner ran `MONGO_ENV_FILE` pointing at the gitignored `.env.t0
 
 ### 2026-11-20 owner excerpt on `93ef364`
 
-**G5:** `NOT_PASSED` while this record is unmerged. The commands printed `g5: NOT_CLAIMED`. Owner review, a manual merge, and success of that merge's push CI make the scoped result `PASSED_LOCAL` only for this excerpt: isolated `T01_ISOLATED_PASS` plus same-SHA T02–T09 `REVALIDATION_ONLY`. That is not a fresh start of `commercecore-mongo-data`, not HA, and not a close of AUD-P0-01..04, the 148 experiments, or catalog G4. This agent did not run either command and did not read `/tmp/mongo-t01-final.log` or `/tmp/mongo-resume-final.log`. Those files stayed on the owner machine. The report was posted on 2026-11-20 and does not give a separate clock time for the commands. `main` at the time of this record is `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`.
+**G5:** `NOT_PASSED`. The commands printed `g5: NOT_CLAIMED`. This record does not turn that token into a pass. The isolated excerpt has no `mongod --version` line and no separate `rs.status()` line, and the full logs are not in the repository, so a scoped pass is not supported by the excerpt alone. Live T01 stays `NOT_CLAIMED`. The resume is `REVALIDATION_ONLY`, not a fresh start of `commercecore-mongo-data` and not HA. AUD-P0-01..04 stay OPEN/BLOCKING, the 148 experiments stay `TEST_PLANNED/NOT_RUN`, and catalog G4 stays not granted. This agent did not run either command and did not read `/tmp/mongo-t01-final.log` or `/tmp/mongo-resume-final.log`. Those files stayed on the owner machine. The report was posted on 2026-11-20 and does not give a separate clock time for the commands. `main` at the time of this record is `93ef364f05e8fcbcecc96ed2f7c54f7481763e50`.
 
 Preconditions in the excerpt: Docker was available, Node was `v24.22.2`, the gitignored `.env.t01.local` and `.env.local` were both nonempty, the isolated volume, container, and network were absent, and port 27018 was free. No credential value is copied here. Before the commands, `docker compose ls --all` showed the live project `commercecore-mongo` as `exited(1)`. That state is not an isolated T01 failure. The later `--resume` printed `mongo-up: PASS`.
 
