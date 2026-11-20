@@ -3,17 +3,28 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
 import {
+  alertFor,
   loadSyntheticEntries,
   SYNTHETIC_ENTRIES_PATH,
+  WRITE_REJECTION_MESSAGE,
   type FetchLike,
+  type MutationFetch,
+  type MutationInit,
+  type MutationResponse,
+  type WriteRejection,
 } from './synthetic-catalog-client';
+import { refreshAfterWrite, SyntheticCatalogEditor } from './synthetic-catalog-editor';
 import {
   ERROR_VIEW,
   LOADING_VIEW,
   SYNTHETIC_DEMO_BADGE,
   viewForEntries,
 } from './synthetic-catalog-view';
-import { parseSyntheticEntryList, SyntheticCatalogClientError } from './synthetic-entry';
+import {
+  parseSyntheticEntryList,
+  SyntheticCatalogClientError,
+  type SyntheticEntry,
+} from './synthetic-entry';
 
 const PRODUCT_ID = 'prd_01ARZ3NDEKTSV4RRFFQ69G5FAV';
 const OTHER_PRODUCT_ID = 'prd_01ARZ3NDEKTSV4RRFFQ69G5FAW';
@@ -152,6 +163,16 @@ test('eGame sources do not import the API, domain, or a remote host', () => {
   assert.match(component, /status === 'empty'/);
   assert.match(component, /status === 'error'/);
   assert.match(component, /status === 'list'/);
+  assert.match(component, /id="create-product-id"/);
+  assert.match(component, /id="create-label"/);
+  assert.match(component, /id="update-label"/);
+  assert.match(component, /id="update-revision"/);
+  assert.equal(component.includes('id="update-product-id"'), false);
+  assert.match(component, /\[disabled\]="busy\(\)"/);
+  assert.match(component, /shouldRefreshList|refreshAfterWrite/);
+  assert.match(component, /Two API pods do not share/);
+  assert.match(component, /not high availability/);
+  assert.equal(/\b(price|sku|stock|stripe|tenant)\b/i.test(component), false);
 
   const proxy = JSON.parse(
     readFileSync(path.join(process.cwd(), 'apps/egame-web/proxy.conf.json'), 'utf8'),
@@ -159,6 +180,188 @@ test('eGame sources do not import the API, domain, or a remote host', () => {
   assert.deepEqual(Object.keys(proxy), ['/catalog']);
   assert.equal(proxy['/catalog'].target, 'http://127.0.0.1:3000');
 });
+
+test('creates and updates a synthetic entry, then refreshes only after success', async () => {
+  const created = entry(1);
+  const updated = entry(2, 'synthetic-entry-b');
+  const calls: Array<{ path: string; init: MutationInit }> = [];
+  const fetchImpl: MutationFetch = (path, init) => {
+    calls.push({ path, init });
+    const body = init.method === 'POST' ? created : updated;
+    const status = init.method === 'POST' ? 201 : 200;
+    return Promise.resolve(jsonResponse(status, body));
+  };
+  const editor = new SyntheticCatalogEditor(fetchImpl);
+  editor.createProductId = PRODUCT_ID;
+  editor.createLabel = 'synthetic-entry-a';
+  const createdOutcome = await editor.submitCreate();
+  assert.equal(createdOutcome.kind, 'success');
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0]?.path, SYNTHETIC_ENTRIES_PATH);
+  assert.equal(calls[0]?.init.method, 'POST');
+  assert.equal(
+    calls[0]?.init.body,
+    JSON.stringify({ productId: PRODUCT_ID, syntheticLabel: 'synthetic-entry-a' }),
+  );
+  assert.deepEqual(calls[0]?.init.headers, {
+    accept: 'application/json',
+    'content-type': 'application/json',
+  });
+  assert.equal(editor.createProductId, '');
+  assert.equal(editor.createLabel, '');
+  assert.equal(alertFor(createdOutcome), null);
+
+  let reloads = 0;
+  const refreshed = await refreshAfterWrite(createdOutcome, async () => {
+    reloads += 1;
+    return [created];
+  });
+  assert.equal(reloads, 1);
+  assert.equal(refreshed?.length, 1);
+
+  editor.beginEdit(created);
+  editor.updateLabel = 'synthetic-entry-b';
+  const updatedOutcome = await editor.submitUpdate();
+  assert.equal(updatedOutcome.kind, 'success');
+  if (updatedOutcome.kind === 'success') {
+    assert.equal(updatedOutcome.entry.revision, 2);
+    assert.equal(updatedOutcome.entry.syntheticLabel, 'synthetic-entry-b');
+  }
+  assert.equal(calls[1]?.path, `${SYNTHETIC_ENTRIES_PATH}/${PRODUCT_ID}`);
+  assert.equal(calls[1]?.init.method, 'PATCH');
+  assert.equal(
+    calls[1]?.init.body,
+    JSON.stringify({ syntheticLabel: 'synthetic-entry-b', expectedRevision: 1 }),
+  );
+  assert.equal(editor.updateProductId, PRODUCT_ID);
+  assert.equal(editor.updateLabel, 'synthetic-entry-b');
+  assert.equal(editor.updateRevision, '2');
+  const skipped = await refreshAfterWrite({ kind: 'rejected', rejection: 'stale' }, async () => {
+    reloads += 1;
+    return [];
+  });
+  assert.equal(skipped, null);
+  assert.equal(reloads, 1);
+});
+
+test('keeps rejected input out of validation and API errors', async () => {
+  let calls = 0;
+  const editor = new SyntheticCatalogEditor(() => {
+    calls += 1;
+    return Promise.resolve(jsonResponse(201, entry(1)));
+  });
+  editor.createProductId = SECRET;
+  editor.createLabel = 'synthetic-entry-a';
+  const idOutcome = await editor.submitCreate();
+  assert.deepEqual(idOutcome, { kind: 'rejected', rejection: 'product-id' });
+  assert.equal(alertFor(idOutcome), WRITE_REJECTION_MESSAGE['product-id']);
+  assert.equal(alertFor(idOutcome)?.includes(SECRET), false);
+  assert.equal(JSON.stringify(idOutcome).includes(SECRET), false);
+  assert.equal(editor.createProductId, SECRET);
+  assert.equal(calls, 0);
+
+  editor.createProductId = PRODUCT_ID;
+  editor.createLabel = 'NOT-A-LABEL';
+  const labelOutcome = await editor.submitCreate();
+  assert.deepEqual(labelOutcome, { kind: 'rejected', rejection: 'label' });
+  assert.equal(alertFor(labelOutcome)?.includes('NOT-A-LABEL'), false);
+  assert.equal(calls, 0);
+
+  const leaked = new SyntheticCatalogEditor(() =>
+    Promise.resolve(
+      jsonResponse(400, {
+        code: 'LABEL_INVALID',
+        reason: 'format',
+        syntheticLabel: 'NOT-A-LABEL',
+        note: SECRET,
+      }),
+    ),
+  );
+  leaked.createProductId = PRODUCT_ID;
+  leaked.createLabel = 'synthetic-entry-a';
+  const echoed = await leaked.submitCreate();
+  assert.deepEqual(echoed, { kind: 'rejected', rejection: 'label' });
+  assert.equal(alertFor(echoed)?.includes(SECRET), false);
+  assert.equal(alertFor(echoed)?.includes('NOT-A-LABEL'), false);
+  assert.equal(JSON.stringify(echoed).includes(SECRET), false);
+  assert.equal(leaked.createLabel, 'synthetic-entry-a');
+});
+
+test('reports duplicate, capacity, stale revision, and a missing entry without changing the draft', async () => {
+  const samples: Array<{ status: number; code: string; rejection: WriteRejection }> = [
+    { status: 409, code: 'DUPLICATE_PRODUCT_ID', rejection: 'duplicate' },
+    { status: 409, code: 'CAPACITY_EXCEEDED', rejection: 'capacity' },
+    { status: 409, code: 'REVISION_CONFLICT', rejection: 'stale' },
+    { status: 404, code: 'NOT_FOUND', rejection: 'missing' },
+  ];
+  for (const sample of samples) {
+    const editor = new SyntheticCatalogEditor(() =>
+      Promise.resolve(
+        jsonResponse(sample.status, {
+          code: sample.code,
+          reason: 'fixed',
+          syntheticLabel: SECRET,
+        }),
+      ),
+    );
+    editor.beginEdit(entry(1));
+    editor.updateLabel = 'synthetic-entry-b';
+    editor.updateRevision = '9';
+    const outcome = await editor.submitUpdate();
+    assert.deepEqual(outcome, { kind: 'rejected', rejection: sample.rejection });
+    const message = alertFor(outcome);
+    assert.equal(message, WRITE_REJECTION_MESSAGE[sample.rejection]);
+    assert.equal(message?.includes(SECRET), false);
+    assert.equal(message?.includes('synthetic-entry-b'), false);
+    assert.equal(JSON.stringify(outcome).includes(SECRET), false);
+    assert.equal(editor.updateProductId, PRODUCT_ID);
+    assert.equal(editor.updateLabel, 'synthetic-entry-b');
+    assert.equal(editor.updateRevision, '9');
+  }
+});
+
+test('a transport failure and a second click do not send another request', async () => {
+  const thrown = new SyntheticCatalogEditor(() => Promise.reject(new Error(SECRET)));
+  thrown.createProductId = PRODUCT_ID;
+  thrown.createLabel = 'synthetic-entry-a';
+  const transport = await thrown.submitCreate();
+  assert.deepEqual(transport, { kind: 'rejected', rejection: 'http' });
+  assert.equal(alertFor(transport)?.includes(SECRET), false);
+  assert.equal(thrown.createProductId, PRODUCT_ID);
+  assert.equal(thrown.createLabel, 'synthetic-entry-a');
+
+  let calls = 0;
+  let release: (response: MutationResponse) => void = () => undefined;
+  const pending = new Promise<MutationResponse>((resolve) => {
+    release = resolve;
+  });
+  const editor = new SyntheticCatalogEditor(() => {
+    calls += 1;
+    return pending;
+  });
+  editor.createProductId = PRODUCT_ID;
+  editor.createLabel = 'synthetic-entry-a';
+  const first = editor.submitCreate();
+  const second = await editor.submitCreate();
+  assert.deepEqual(second, { kind: 'busy' });
+  assert.equal(calls, 1);
+  assert.equal(editor.busy, true);
+  editor.beginEdit(entry(4, 'synthetic-entry-b'));
+  assert.equal(editor.updateProductId, '');
+  release(jsonResponse(201, entry(1)));
+  const done = await first;
+  assert.equal(done.kind, 'success');
+  assert.equal(editor.busy, false);
+  assert.equal(editor.createProductId, '');
+});
+
+function entry(revision: number, syntheticLabel = 'synthetic-entry-a'): SyntheticEntry {
+  return { productId: PRODUCT_ID, syntheticLabel, revision };
+}
+
+function jsonResponse(status: number, body: unknown): MutationResponse {
+  return { status, json: () => Promise.resolve(body) };
+}
 
 function listFiles(directory: string): string[] {
   const files: string[] = [];
