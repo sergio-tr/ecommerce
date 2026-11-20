@@ -259,6 +259,8 @@
       ],
       "date": "2026-10-13",
       "currentRecommendedDesignReference": "docs/architecture/m00/P0_03_FINAL_DESIGN_DECISION.md",
+      "proposedDurabilityG3": "docs/00-governance/D05_MONGO_DURABILITY_G3_PROPOSAL.md",
+      "proposedDurabilityG3Status": "G3_PROPOSED",
       "underlyingEvidenceStatus": "UNVERIFIED; prior decision status unchanged"
     },
     {
