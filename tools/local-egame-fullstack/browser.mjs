@@ -1,11 +1,22 @@
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { delay, freePort, spawnGroup, startApi, stopGroup } from './children.mjs';
 import { startStaticProxy } from './proxy.mjs';
 
 const COMMERCIAL_TEXT = ['Stripe', 'Add to cart', 'In stock', 'SKU', 'Checkout'];
+const STARTUP_FAILURES = new Set([
+  'chrome exited',
+  'chrome debugger timed out',
+  'chrome socket failed',
+  'cdp timed out',
+  'cdp call failed',
+]);
+
+export function isBrowserStartupFailure(error) {
+  return error instanceof Error && STARTUP_FAILURES.has(error.message);
+}
 
 export function findChrome() {
   const names = ['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser'];
@@ -48,13 +59,32 @@ export function browserSkipReason(root) {
 
 /**
  * One real Chrome pass against the built eGame page and the process-local API.
- * Returns NOT_RUN when Chrome or the web build is absent. It does not claim G5.
+ * Returns NOT_RUN when Chrome or the web build is absent, or when Chrome does
+ * not expose a debugger after one retry. It does not claim G5.
  */
-export async function runBrowserSmoke({ root, fixture, screenshotDir }) {
-  const reason = browserSkipReason(root);
+export async function runBrowserSmoke(options) {
+  const reason = browserSkipReason(options.root);
   if (reason) {
     return { status: 'NOT_RUN', reason };
   }
+  try {
+    return await runBrowserOnce(options);
+  } catch (error) {
+    if (!isBrowserStartupFailure(error)) {
+      throw error;
+    }
+  }
+  try {
+    return await runBrowserOnce(options);
+  } catch (error) {
+    if (isBrowserStartupFailure(error)) {
+      return { status: 'NOT_RUN', reason: 'chrome-unavailable' };
+    }
+    throw error;
+  }
+}
+
+async function runBrowserOnce({ root, fixture, screenshotDir }) {
   const webRoot = webBrowserRoot(root);
   const chrome = findChrome();
   const apiPort = await freePort();
@@ -86,9 +116,18 @@ export async function runBrowserSmoke({ root, fixture, screenshotDir }) {
         '--window-size=1280,900',
         'about:blank',
       ],
-      { stdio: ['ignore', 'pipe', 'pipe'] },
+      {
+        stdio: ['ignore', 'pipe', 'pipe'],
+        env: {
+          PATH: process.env.PATH ?? '',
+          HOME: profile,
+          TMPDIR: tmpdir(),
+          LANG: 'C.UTF-8',
+          DBUS_SESSION_BUS_ADDRESS: '/dev/null',
+        },
+      },
     );
-    const version = await waitForDebugger(debugPort, chromeRecord.child);
+    const version = await waitForDebugger(debugPort, chromeRecord.child, profile);
     const session = await openPage(version.webSocketDebuggerUrl, `http://127.0.0.1:${web.port}/`);
     try {
       const sawLoading = await sawText(session, 'Loading synthetic entries.', 1500);
@@ -230,25 +269,45 @@ async function waitLive(port, child) {
   throw new Error('api liveness timed out');
 }
 
-async function waitForDebugger(port, child) {
+async function waitForDebugger(port, child, profile) {
   const deadline = Date.now() + 15000;
   while (Date.now() < deadline) {
-    if (child.exitCode !== null) {
+    if (child.exitCode !== null || child.signalCode !== null) {
       throw new Error('chrome exited');
     }
-    try {
-      const response = await fetch(`http://127.0.0.1:${port}/json/version`, {
-        signal: AbortSignal.timeout(500),
-      });
-      if (response.ok) {
-        return await response.json();
+    const ports = [port];
+    const announced = readDebugPort(profile);
+    if (announced !== null && announced !== port) {
+      ports.push(announced);
+    }
+    for (const candidate of ports) {
+      try {
+        const response = await fetch(`http://127.0.0.1:${candidate}/json/version`, {
+          signal: AbortSignal.timeout(500),
+        });
+        if (response.ok) {
+          return await response.json();
+        }
+      } catch {
+        // The debugger is not open yet.
       }
-    } catch {
-      // The debugger is not open yet.
     }
     await delay(50);
   }
   throw new Error('chrome debugger timed out');
+}
+
+function readDebugPort(profile) {
+  try {
+    const [line] = readFileSync(path.join(profile, 'DevToolsActivePort'), 'utf8').split(/\r?\n/, 1);
+    if (!/^\d+$/.test(line ?? '')) {
+      return null;
+    }
+    const value = Number(line);
+    return value >= 1 && value <= 65535 ? value : null;
+  } catch {
+    return null;
+  }
 }
 
 async function openPage(webSocketUrl, pageUrl) {

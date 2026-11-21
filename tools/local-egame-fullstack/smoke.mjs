@@ -317,8 +317,9 @@ async function main() {
       fixture,
       screenshotDir: process.env.EGAME_SCREENSHOT_DIR,
     });
-  } catch {
-    fail('browser smoke failed');
+  } catch (error) {
+    const message = error instanceof Error ? error.message : '';
+    fail(/^[a-z][a-z -]{0,60}$/.test(message) ? message : 'browser smoke failed');
   }
   if (browser.status === 'NOT_RUN') {
     lines.push(`browser-smoke: NOT_RUN reason=${browser.reason}`);

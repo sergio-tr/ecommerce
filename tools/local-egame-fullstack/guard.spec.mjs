@@ -5,11 +5,19 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { isBrowserStartupFailure } from './browser.mjs';
 import { pidAlive, spawnGroup, stopGroup } from './children.mjs';
 import { loadCatalogProxyRule, startCatalogProxy } from './proxy.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const upScript = path.join(root, 'tools/local-egame-fullstack/up.mjs');
+
+test('browser startup failures stay distinct from a missing page', () => {
+  assert.equal(isBrowserStartupFailure(new Error('chrome debugger timed out')), true);
+  assert.equal(isBrowserStartupFailure(new Error('chrome exited')), true);
+  assert.equal(isBrowserStartupFailure(new Error('empty state missing')), false);
+  assert.equal(isBrowserStartupFailure(new Error('created entry missing')), false);
+});
 
 test('catalog proxy rule stays on loopback', () => {
   assert.deepEqual(loadCatalogProxyRule(root), {

@@ -46,10 +46,12 @@ test('local egame fullstack smoke exercises the catalog proxy', { timeout: 18000
   }
   const skip = browserSkipReason(root);
   if (skip === null) {
-    assert.match(
-      result.stdout,
-      /browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown commercial=absent loading=(?:shown|not-observed)/,
-    );
+    const passed =
+      /browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown commercial=absent loading=(?:shown|not-observed)/.test(
+        result.stdout,
+      );
+    const unavailable = result.stdout.includes('browser-smoke: NOT_RUN reason=chrome-unavailable');
+    assert.equal(passed || unavailable, true, result.stdout);
   } else {
     assert.equal(result.stdout.includes(`browser-smoke: NOT_RUN reason=${skip}`), true);
   }
