@@ -19,6 +19,7 @@
     "local-representative-demo": "node --test tools/local-representative-demo/run.spec.mjs",
     "local-egame-fullstack": "node tools/local-egame-fullstack/up.mjs",
     "local-egame-fullstack-smoke": "node --test --test-timeout=180000 tools/local-egame-fullstack/smoke.spec.mjs",
+    "local-commercecloud-shell-smoke": "node --test --test-timeout=120000 tools/local-commercecloud-shell/smoke.spec.mjs",
     "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs",
     "mongo:check": "node --test tools/mongo/assert-compose-contract.spec.mjs"
   },
@@ -71,7 +72,7 @@
         "executor": "nx:run-commands",
         "cache": false,
         "options": {
-          "command": "node --test --test-reporter spec tools/architecture/assert-project-graph.spec.mjs tools/ci/resolve-nx-format-range.spec.mjs tools/mongo/assert-compose-contract.spec.mjs tools/local-egame-fullstack/guard.spec.mjs"
+          "command": "node --test --test-reporter spec tools/architecture/assert-project-graph.spec.mjs tools/architecture/assert-commercecloud-boundary.spec.mjs tools/ci/resolve-nx-format-range.spec.mjs tools/mongo/assert-compose-contract.spec.mjs tools/local-egame-fullstack/guard.spec.mjs"
         }
       }
     }

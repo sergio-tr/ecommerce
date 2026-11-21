@@ -1,15 +1,16 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
-const APPROVED_APPS = ['commercecore-api', 'egame-web'];
+const APPROVED_APPS = ['commercecore-api', 'egame-web', 'commercecloud-api'];
 const ISOLATED_DOMAINS = ['commercecore-catalog-domain', 'commercecore-identity-domain'];
+const ISOLATED_APPS = ['egame-web', 'commercecloud-api'];
 
 export function assertProjectGraph(raw) {
   const graph = raw.graph ?? raw;
   const nodes = graph.nodes ?? {};
   const dependencies = graph.dependencies ?? {};
 
-  const required = ['commercecore-api', ...ISOLATED_DOMAINS, 'egame-web'];
+  const required = ['commercecore-api', ...ISOLATED_DOMAINS, ...ISOLATED_APPS];
   for (const name of required) {
     if (!nodes[name]) {
       throw new Error(`Project graph is missing ${name}`);
@@ -20,9 +21,11 @@ export function assertProjectGraph(raw) {
   if (appType !== 'app' && appType !== 'application') {
     throw new Error(`commercecore-api type is ${appType}, expected app`);
   }
-  const egameType = projectType(nodes['egame-web']);
-  if (egameType !== 'app' && egameType !== 'application') {
-    throw new Error(`egame-web type is ${egameType}, expected app`);
+  for (const name of ISOLATED_APPS) {
+    const isolatedType = projectType(nodes[name]);
+    if (isolatedType !== 'app' && isolatedType !== 'application') {
+      throw new Error(`${name} type is ${isolatedType}, expected app`);
+    }
   }
 
   for (const name of ISOLATED_DOMAINS) {
@@ -37,14 +40,16 @@ export function assertProjectGraph(raw) {
   }
 
   for (const name of Object.keys(nodes)) {
-    if (name.toLowerCase().includes('commercecloud')) {
+    if (name.toLowerCase().includes('commercecloud') && name !== 'commercecloud-api') {
       throw new Error(`Unapproved CommerceCloud project ${name}`);
     }
   }
 
-  const egameDeps = (dependencies['egame-web'] ?? []).map(edgeTarget).filter(Boolean);
-  if (egameDeps.length !== 0) {
-    throw new Error(`egame-web must not depend on other projects: ${egameDeps.join(',')}`);
+  for (const name of ISOLATED_APPS) {
+    const isolatedDeps = (dependencies[name] ?? []).map(edgeTarget).filter(Boolean);
+    if (isolatedDeps.length !== 0) {
+      throw new Error(`${name} must not depend on other projects: ${isolatedDeps.join(',')}`);
+    }
   }
 
   const visiting = new Set();
@@ -89,8 +94,8 @@ export function assertProjectGraph(raw) {
     `project-graph: acyclic projects=${names.join(',')}`,
     'project-graph: commercecore-api, commercecore-catalog-domain, and commercecore-identity-domain present',
     'project-graph: catalog and identity domains have no project dependencies',
-    'project-graph: apps are commercecore-api and egame-web',
-    'project-graph: egame-web has no project dependencies',
+    'project-graph: apps are commercecore-api, egame-web, and commercecloud-api',
+    'project-graph: egame-web and commercecloud-api have no project dependencies',
   ];
 }
 

@@ -21,6 +21,7 @@ function approvedGraph(extra = {}) {
         'commercecore-catalog-domain': node('commercecore-catalog-domain', 'lib'),
         'commercecore-identity-domain': node('commercecore-identity-domain', 'lib'),
         'egame-web': node('egame-web', 'app'),
+        'commercecloud-api': node('commercecloud-api', 'app'),
         ecommerce: node('ecommerce', 'lib'),
         ...extra.nodes,
       },
@@ -29,6 +30,7 @@ function approvedGraph(extra = {}) {
         'commercecore-catalog-domain': [],
         'commercecore-identity-domain': [],
         'egame-web': [],
+        'commercecloud-api': [],
         ecommerce: [],
         ...extra.dependencies,
       },
@@ -36,9 +38,9 @@ function approvedGraph(extra = {}) {
   };
 }
 
-test('accepts the API and eGame apps and rejects a third app or CommerceCloud', () => {
+test('accepts the three local apps and rejects another app or CommerceCloud project', () => {
   const lines = assertProjectGraph(approvedGraph());
-  assert.match(lines.join('\n'), /apps are commercecore-api and egame-web/);
+  assert.match(lines.join('\n'), /apps are commercecore-api, egame-web, and commercecloud-api/);
   assert.throws(
     () =>
       assertProjectGraph(approvedGraph({ nodes: { 'store-admin': node('store-admin', 'app') } })),
@@ -47,16 +49,16 @@ test('accepts the API and eGame apps and rejects a third app or CommerceCloud', 
   assert.throws(
     () =>
       assertProjectGraph(
-        approvedGraph({ nodes: { 'commercecloud-api': node('commercecloud-api', 'app') } }),
+        approvedGraph({ nodes: { 'commercecloud-worker': node('commercecloud-worker', 'app') } }),
       ),
-    /CommerceCloud/,
+    /Unapproved CommerceCloud project/,
   );
   const missing = approvedGraph();
-  delete missing.graph.nodes['egame-web'];
-  assert.throws(() => assertProjectGraph(missing), /missing egame-web/);
+  delete missing.graph.nodes['commercecloud-api'];
+  assert.throws(() => assertProjectGraph(missing), /missing commercecloud-api/);
 });
 
-test('rejects an eGame dependency on the API, domain, or another project', () => {
+test('rejects an eGame or CommerceCloud dependency on another project', () => {
   assert.throws(
     () =>
       assertProjectGraph(
@@ -67,6 +69,19 @@ test('rejects an eGame dependency on the API, domain, or another project', () =>
         }),
       ),
     /egame-web must not depend/,
+  );
+  assert.throws(
+    () =>
+      assertProjectGraph(
+        approvedGraph({
+          dependencies: {
+            'commercecloud-api': [
+              { source: 'commercecloud-api', target: 'commercecore-catalog-domain' },
+            ],
+          },
+        }),
+      ),
+    /commercecloud-api must not depend/,
   );
   assert.throws(
     () =>
@@ -92,7 +107,7 @@ test('the CLI prints the approved app lines and fails closed', () => {
 
   const passed = spawnSync(process.execPath, [script, good], { encoding: 'utf8' });
   assert.equal(passed.status, 0);
-  assert.match(passed.stdout, /egame-web has no project dependencies/);
+  assert.match(passed.stdout, /egame-web and commercecloud-api have no project dependencies/);
 
   const failed = spawnSync(process.execPath, [script, bad], { encoding: 'utf8' });
   assert.equal(failed.status, 1);

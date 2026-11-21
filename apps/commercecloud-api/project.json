@@ -1,0 +1,41 @@
+{
+  "name": "commercecloud-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/commercecloud-api/src",
+  "tags": ["scope:commercecloud", "context:control-plane", "layer:app", "runtime:node"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/commercecloud-api/tsconfig.app.json"
+      }
+    },
+    "compile-tests": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "tsc -p apps/commercecloud-api/tsconfig.spec.json"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p apps/commercecloud-api/tsconfig.app.json --noEmit && tsc -p apps/commercecloud-api/tsconfig.spec.json --noEmit"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint apps/commercecloud-api --max-warnings=0"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["compile-tests"],
+      "options": {
+        "command": "node tools/run-node-tests.mjs dist/test/apps/commercecloud-api"
+      }
+    }
+  }
+}
