@@ -89,6 +89,12 @@ jobs:
           NX_NO_CLOUD: 'true'
         run: pnpm run local-egame-fullstack-smoke
 
+      - name: Local commercecloud shell smoke
+        env:
+          NX_DAEMON: 'false'
+          NX_NO_CLOUD: 'true'
+        run: pnpm run local-commercecloud-shell-smoke
+
   chart:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

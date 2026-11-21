@@ -51,6 +51,7 @@ export default [
   {
     files: [
       'apps/commercecore-api/**/*.ts',
+      'apps/commercecloud-api/**/*.ts',
       'apps/egame-web/**/*.ts',
       'libs/commercecore/catalog/domain/**/*.ts',
       'libs/commercecore/identity/domain/**/*.ts',
@@ -77,6 +78,40 @@ export default [
             {
               sourceTag: 'scope:egame',
               onlyDependOnLibsWithTags: ['scope:egame'],
+            },
+            {
+              sourceTag: 'scope:commercecloud',
+              onlyDependOnLibsWithTags: ['scope:commercecloud'],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['apps/commercecloud-api/**/*.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            { name: 'stripe', message: 'CommerceCloud shell does not call Stripe.' },
+            { name: 'mongodb', message: 'CommerceCloud shell does not call MongoDB.' },
+            { name: 'mongoose', message: 'CommerceCloud shell does not call MongoDB.' },
+          ],
+          patterns: [
+            {
+              group: ['@stripe/*', '@kubernetes/*', 'kafkajs'],
+              message: 'Provider SDKs stay out of the CommerceCloud shell.',
+            },
+            {
+              group: [
+                '**/commercecore-api/**',
+                '**/egame-web/**',
+                '**/catalog/domain/**',
+                '**/identity/domain/**',
+              ],
+              message: 'CommerceCloud does not import CommerceCore or eGame internals.',
             },
           ],
         },
