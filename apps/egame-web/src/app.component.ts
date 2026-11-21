@@ -1,8 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import {
   loadSyntheticEntries,
   type WriteOutcome,
 } from './synthetic-catalog/synthetic-catalog-client';
+import {
+  DEFAULT_DISCOVERY_SORT,
+  discoverEntries,
+  isDiscoverySort,
+  type DiscoverySort,
+  type DiscoverySummary,
+} from './synthetic-catalog/synthetic-catalog-discovery';
 import {
   alertFor,
   refreshAfterWrite,
@@ -55,27 +62,73 @@ import {
           <p id="create-alert" class="alert" role="alert">{{ alert }}</p>
         }
       </form>
+      @if (view().status !== 'loading') {
+        <div class="discovery">
+          <div class="discovery-actions">
+            <label for="catalog-search">
+              Search synthetic entries
+              <input
+                id="catalog-search"
+                name="catalogSearch"
+                [value]="searchQuery()"
+                (input)="onSearch($event)"
+                [disabled]="busy()"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </label>
+            <button
+              type="button"
+              (click)="clearSearch()"
+              [disabled]="busy() || searchQuery().length === 0"
+            >
+              Clear search
+            </button>
+            <label for="catalog-sort">
+              Sort synthetic entries
+              <select
+                id="catalog-sort"
+                [value]="sortOrder()"
+                (change)="onSort($event)"
+                [disabled]="busy()"
+              >
+                <option value="id-asc">Product id, ascending</option>
+                <option value="id-desc">Product id, descending</option>
+                <option value="label-asc">Label, ascending</option>
+                <option value="label-desc">Label, descending</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      }
       @if (view().status === 'loading') {
         <p role="status">Loading synthetic entries.</p>
-      }
-      @if (view().status === 'empty') {
-        <p>No synthetic entries.</p>
       }
       @if (view().status === 'error') {
         <p role="alert">The synthetic list could not be loaded.</p>
         <button type="button" (click)="reload()" [disabled]="busy()">Retry</button>
       }
-      @if (view().status === 'list') {
-        <ul>
-          @for (entry of entries(); track entry.productId) {
-            <li>
-              <span class="id">{{ entry.productId }}</span>
-              <span>{{ entry.syntheticLabel }}</span>
-              <span class="rev">rev {{ entry.revision }}</span>
-              <button type="button" (click)="edit(entry)" [disabled]="busy()">Edit</button>
-            </li>
+      @if (catalogSummary(); as summary) {
+        <p id="catalog-count" class="count">showing {{ summary.shown }} of {{ summary.total }}</p>
+        @if (view().status === 'empty') {
+          <p>No synthetic entries.</p>
+        }
+        @if (view().status === 'list') {
+          @if (summary.noMatches) {
+            <p>No matching synthetic entries.</p>
+          } @else {
+            <ul id="catalog-results">
+              @for (entry of summary.entries; track entry.productId) {
+                <li [attr.data-product-id]="entry.productId">
+                  <span class="id">{{ entry.productId }}</span>
+                  <span>{{ entry.syntheticLabel }}</span>
+                  <span class="rev">rev {{ entry.revision }}</span>
+                  <button type="button" (click)="edit(entry)" [disabled]="busy()">Edit</button>
+                </li>
+              }
+            </ul>
           }
-        </ul>
+        }
       }
       <form (submit)="updateEntry($event)">
         <h2>Update a synthetic entry</h2>
@@ -128,9 +181,19 @@ export class AppComponent {
   protected readonly updateLabel = signal('');
   protected readonly updateRevision = signal('');
   protected readonly updateAlert = signal<string | null>(null);
+  protected readonly searchQuery = signal('');
+  protected readonly sortOrder = signal<DiscoverySort>(DEFAULT_DISCOVERY_SORT);
   private readonly editor = new SyntheticCatalogEditor((path, init) =>
     globalThis.fetch(path, init),
   );
+  protected readonly catalogSummary = computed((): DiscoverySummary | null => {
+    const current = this.view();
+    if (current.status !== 'list' && current.status !== 'empty') {
+      return null;
+    }
+    const entries = current.status === 'list' ? current.entries : [];
+    return discoverEntries(entries, this.searchQuery(), this.sortOrder());
+  });
 
   constructor() {
     void this.reload();
@@ -148,11 +211,6 @@ export class AppComponent {
       .catch(() => {
         this.view.set(ERROR_VIEW);
       });
-  }
-
-  protected entries(): readonly SyntheticEntry[] {
-    const current = this.view();
-    return current.status === 'list' ? current.entries : [];
   }
 
   protected edit(entry: SyntheticEntry): void {
@@ -192,6 +250,24 @@ export class AppComponent {
   protected onUpdateRevision(event: Event): void {
     this.editor.updateRevision = inputValue(event);
     this.updateRevision.set(this.editor.updateRevision);
+  }
+
+  protected onSearch(event: Event): void {
+    this.searchQuery.set(inputValue(event));
+  }
+
+  protected clearSearch(): void {
+    if (this.busy()) {
+      return;
+    }
+    this.searchQuery.set('');
+  }
+
+  protected onSort(event: Event): void {
+    const value = selectValue(event);
+    if (isDiscoverySort(value)) {
+      this.sortOrder.set(value);
+    }
   }
 
   private write(which: 'create' | 'update'): Promise<void> {
@@ -253,6 +329,14 @@ export class AppComponent {
 function inputValue(event: Event): string {
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) {
+    return '';
+  }
+  return target.value;
+}
+
+function selectValue(event: Event): string {
+  const target = event.target;
+  if (!(target instanceof HTMLSelectElement)) {
     return '';
   }
   return target.value;

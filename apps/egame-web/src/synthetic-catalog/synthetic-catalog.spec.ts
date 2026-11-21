@@ -15,6 +15,11 @@ import {
 } from './synthetic-catalog-client';
 import { refreshAfterWrite, SyntheticCatalogEditor } from './synthetic-catalog-editor';
 import {
+  discoverEntries,
+  NO_MATCH_TEXT,
+  normalizeDiscoveryQuery,
+} from './synthetic-catalog-discovery';
+import {
   ERROR_VIEW,
   LOADING_VIEW,
   SYNTHETIC_DEMO_BADGE,
@@ -163,6 +168,13 @@ test('eGame sources do not import the API, domain, or a remote host', () => {
   assert.match(component, /status === 'empty'/);
   assert.match(component, /status === 'error'/);
   assert.match(component, /status === 'list'/);
+  assert.match(component, /id="catalog-search"/);
+  assert.match(component, /id="catalog-sort"/);
+  assert.match(component, /Clear search/);
+  assert.match(component, /showing \{\{ summary\.shown \}\} of \{\{ summary\.total \}\}/);
+  assert.match(component, /No matching synthetic entries\./);
+  assert.equal(component.includes('summary.query'), false);
+  assert.equal(component.includes('searchQuery.set'), true);
   assert.match(component, /id="create-product-id"/);
   assert.match(component, /id="create-label"/);
   assert.match(component, /id="update-label"/);
@@ -353,6 +365,116 @@ test('a transport failure and a second click do not send another request', async
   assert.equal(done.kind, 'success');
   assert.equal(editor.busy, false);
   assert.equal(editor.createProductId, '');
+});
+
+test('normalizes a discovery query without locale ordering', () => {
+  assert.equal(normalizeDiscoveryQuery('  SYNTHETIC-ENTRY-A  '), 'synthetic-entry-a');
+  assert.equal(normalizeDiscoveryQuery('synthetic\u00a0entry-a'), 'synthetic entry-a');
+  assert.equal(normalizeDiscoveryQuery('\uFF21'), 'a');
+  assert.equal(normalizeDiscoveryQuery('   '), '');
+  assert.equal(NO_MATCH_TEXT.includes('NOT-A-LABEL'), false);
+  assert.equal(NO_MATCH_TEXT.includes(SECRET), false);
+});
+
+test('filters and sorts the loaded list without mutating it or echoing the query', () => {
+  const first = entry(2, 'synthetic-entry-b');
+  const second = { ...entry(1, 'synthetic-entry-a'), productId: OTHER_PRODUCT_ID };
+  const tied = { ...entry(1, 'synthetic-entry-a'), productId: PRODUCT_ID };
+  const original = [first, second];
+  const before = original.map((item) => item.productId);
+
+  const all = discoverEntries(original, '   ', 'id-asc');
+  assert.deepEqual(
+    all.entries.map((item) => item.productId),
+    [PRODUCT_ID, OTHER_PRODUCT_ID],
+  );
+  assert.equal(all.emptyData, false);
+  assert.equal(all.noMatches, false);
+  assert.equal(all.shown, 2);
+  assert.equal(all.total, 2);
+  assert.deepEqual(
+    original.map((item) => item.productId),
+    before,
+  );
+
+  const byLabel = discoverEntries(original, '  ENTRY-A ', 'label-desc');
+  assert.deepEqual(
+    byLabel.entries.map((item) => item.productId),
+    [OTHER_PRODUCT_ID],
+  );
+  const byId = discoverEntries(original, 'q69g5fav', 'id-asc');
+  assert.deepEqual(
+    byId.entries.map((item) => item.productId),
+    [PRODUCT_ID],
+  );
+  const none = discoverEntries(original, 'missing-label', 'id-asc');
+  assert.equal(none.noMatches, true);
+  assert.equal(none.emptyData, false);
+  assert.equal(none.shown, 0);
+  assert.equal(none.total, 2);
+  assert.equal(JSON.stringify(none).includes('missing-label'), false);
+
+  const empty = discoverEntries([], 'entry', 'id-asc');
+  assert.equal(empty.emptyData, true);
+  assert.equal(empty.noMatches, false);
+  assert.equal(empty.shown, 0);
+  assert.equal(empty.total, 0);
+
+  const sameLabel = discoverEntries([second, tied], '', 'label-desc');
+  assert.deepEqual(
+    sameLabel.entries.map((item) => item.productId),
+    [PRODUCT_ID, OTHER_PRODUCT_ID],
+  );
+  const codePointOrder = discoverEntries(
+    [
+      { productId: OTHER_PRODUCT_ID, syntheticLabel: 'a-2', revision: 1 },
+      { productId: PRODUCT_ID, syntheticLabel: 'a-10', revision: 1 },
+    ],
+    '',
+    'label-asc',
+  );
+  assert.deepEqual(
+    codePointOrder.entries.map((item) => item.syntheticLabel),
+    ['a-10', 'a-2'],
+  );
+});
+
+test('keeps the same search when a later list edits the matching label', () => {
+  const query = 'ENTRY-A';
+  const sort = 'label-asc' as const;
+  const before = discoverEntries(
+    [entry(2, 'synthetic-entry-b'), { ...entry(1), productId: OTHER_PRODUCT_ID }],
+    query,
+    sort,
+  );
+  assert.deepEqual(
+    before.entries.map((item) => item.productId),
+    [OTHER_PRODUCT_ID],
+  );
+  const afterEdit = discoverEntries(
+    [
+      entry(2, 'synthetic-entry-b'),
+      { productId: OTHER_PRODUCT_ID, syntheticLabel: 'synthetic-entry-c', revision: 2 },
+    ],
+    query,
+    sort,
+  );
+  assert.equal(afterEdit.noMatches, true);
+  assert.equal(afterEdit.shown, 0);
+  assert.equal(afterEdit.total, 2);
+  assert.equal(JSON.stringify(afterEdit).includes(query), false);
+  const widened = discoverEntries(
+    [
+      entry(2, 'synthetic-entry-b'),
+      { productId: OTHER_PRODUCT_ID, syntheticLabel: 'synthetic-entry-c', revision: 2 },
+    ],
+    'entry',
+    'id-desc',
+  );
+  assert.deepEqual(
+    widened.entries.map((item) => item.productId),
+    [OTHER_PRODUCT_ID, PRODUCT_ID],
+  );
 });
 
 function entry(revision: number, syntheticLabel = 'synthetic-entry-a'): SyntheticEntry {

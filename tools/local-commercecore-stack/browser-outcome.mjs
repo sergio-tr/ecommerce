@@ -28,6 +28,16 @@ const REASONS = new Set([
   'create-field-missing',
   'create-control-missing',
   'created-entry-missing',
+  'discovery-missing',
+  'search-field-missing',
+  'sort-control-missing',
+  'search-did-not-filter',
+  'clear-search-missing',
+  'search-reset',
+  'sort-order-mismatch',
+  'match-count-missing',
+  'no-match-state-missing',
+  'search-not-preserved',
   'duplicate-alert-missing',
   'duplicate-cleared-input',
   'edit-control-missing',
@@ -80,6 +90,15 @@ const MESSAGE_TO = new Map([
   ['create label field missing', ['page', 'create-field-missing']],
   ['create button missing', ['page', 'create-control-missing']],
   ['created entry missing', ['page', 'created-entry-missing']],
+  ['search field missing', ['page', 'search-field-missing']],
+  ['sort control missing', ['page', 'sort-control-missing']],
+  ['search did not filter', ['page', 'search-did-not-filter']],
+  ['clear search missing', ['page', 'clear-search-missing']],
+  ['search reset', ['page', 'search-reset']],
+  ['sort order mismatch', ['page', 'sort-order-mismatch']],
+  ['match count missing', ['page', 'match-count-missing']],
+  ['no-match state missing', ['page', 'no-match-state-missing']],
+  ['search not preserved', ['page', 'search-not-preserved']],
   ['duplicate alert missing', ['page', 'duplicate-alert-missing']],
   ['duplicate cleared the product id', ['page', 'duplicate-cleared-input']],
   ['edit button missing', ['page', 'edit-control-missing']],
@@ -130,13 +149,19 @@ export function preflightFrom({ apiBuilt, cloudBuilt, chrome, webBuilt }) {
 
 export function requiredBrowserLine(result) {
   if (result?.status === 'PASS') {
+    if (result.search !== 'shown' || result.sort !== 'shown') {
+      return {
+        exitCode: 1,
+        line: 'browser-smoke: FAIL stage=page reason=discovery-missing',
+      };
+    }
     const loading = result.loading === 'shown' ? 'shown' : 'not-observed';
     return {
       exitCode: 0,
       line:
         'browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown ' +
         'stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live ' +
-        `cloud-after=live loading=${loading}`,
+        `cloud-after=live loading=${loading} search=shown sort=shown`,
     };
   }
   const stage = STAGES.has(result?.stage) ? result.stage : 'unknown';
