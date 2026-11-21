@@ -62,16 +62,18 @@ export function startApi(root, port, environment = 'test') {
 
 export async function stopGroup(record, timeoutMs = 2000) {
   const child = record?.child;
-  if (!child || child.pid === undefined || hasExited(child)) {
+  if (!child || child.pid === undefined) {
     return;
   }
-  const exited = waitExit(child, timeoutMs);
-  signalGroup(child.pid, 'SIGTERM');
-  if (await exited) {
-    return;
-  }
+  const pid = child.pid;
   if (!hasExited(child)) {
-    signalGroup(child.pid, 'SIGKILL');
+    signalGroup(pid, 'SIGTERM');
+    await waitExit(child, timeoutMs);
+  }
+  // The group leader can exit while a descendant, such as the Angular
+  // dev server, still holds the listen socket. Signal that group only.
+  signalOne(-pid, 'SIGKILL');
+  if (!hasExited(child)) {
     await waitExit(child, 1000);
   }
 }
@@ -125,13 +127,16 @@ function hasExited(child) {
 }
 
 function signalGroup(pid, signal) {
-  for (const target of [-pid, pid]) {
-    try {
-      process.kill(target, signal);
-    } catch (error) {
-      if (error?.code !== 'ESRCH') {
-        throw error;
-      }
+  signalOne(-pid, signal);
+  signalOne(pid, signal);
+}
+
+function signalOne(pid, signal) {
+  try {
+    process.kill(pid, signal);
+  } catch (error) {
+    if (error?.code !== 'ESRCH') {
+      throw error;
     }
   }
 }

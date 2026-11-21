@@ -6,7 +6,13 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { pidAlive, portBusy, spawnGroup, stopGroup } from '../local-egame-fullstack/children.mjs';
+import {
+  delay,
+  pidAlive,
+  portBusy,
+  spawnGroup,
+  stopGroup,
+} from '../local-egame-fullstack/children.mjs';
 import { CLOUD_PORT, STACK_PORTS } from './ports.mjs';
 import { createSupervisor } from './supervisor.mjs';
 
@@ -173,9 +179,7 @@ async function assertDoubleSignal() {
     const code = await waitClose(child, 15000);
     assert.equal(code, 0, stdout);
     assert.equal(stdout.includes('local-commercecore-stack: stopped'), true);
-    for (const port of STACK_PORTS) {
-      assert.equal(await portBusy(port), false, String(port));
-    }
+    await assertPortsReleased();
     assert.equal(pidAlive(bystander.child.pid), true);
   } finally {
     if (child.exitCode === null) {
@@ -183,6 +187,25 @@ async function assertDoubleSignal() {
     }
     await stopGroup(bystander);
   }
+}
+
+async function assertPortsReleased() {
+  const deadline = Date.now() + 2000;
+  let busy = null;
+  do {
+    busy = null;
+    for (const port of STACK_PORTS) {
+      if (await portBusy(port)) {
+        busy = port;
+        break;
+      }
+    }
+    if (busy === null) {
+      return;
+    }
+    await delay(50);
+  } while (Date.now() < deadline);
+  assert.equal(await portBusy(busy), false, String(busy));
 }
 
 function waitFor(child, ready, timeoutMs) {
