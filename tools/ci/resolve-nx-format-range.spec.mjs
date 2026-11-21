@@ -209,6 +209,7 @@ test('workflow validates main pushes without a privileged trigger', () => {
   assert.match(workflow, /pnpm run local-representative-demo/);
   assert.match(workflow, /pnpm run local-egame-fullstack-smoke/);
   assert.match(workflow, /pnpm run local-commercecloud-shell-smoke/);
+  assert.match(workflow, /pnpm run local-commercecore-stack-smoke/);
   assert.equal(workflow.includes('origin main:main'), false);
   assert.equal(
     workflow.includes('group: pr-validation-${{ github.event.pull_request.number }}'),

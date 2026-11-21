@@ -14,6 +14,11 @@ export function spawnGroup(command, args, options = {}) {
     stdio,
   });
   let output = '';
+  let spawnFailed = false;
+  child.on('error', (error) => {
+    spawnFailed = true;
+    output += `spawn-error:${error.code ?? 'error'}\n`;
+  });
   if (child.stdout) {
     child.stdout.setEncoding('utf8');
     child.stdout.on('data', (chunk) => {
@@ -31,13 +36,16 @@ export function spawnGroup(command, args, options = {}) {
     output() {
       return output;
     },
+    exited() {
+      return spawnFailed || child.exitCode !== null || child.signalCode !== null;
+    },
   };
 }
 
-export function apiEnv(port) {
+export function apiEnv(port, environment = 'test') {
   return {
     PATH: process.env.PATH ?? '',
-    COMMERCECORE_ENV: 'test',
+    COMMERCECORE_ENV: environment,
     COMMERCECORE_HTTP_HOST: '127.0.0.1',
     COMMERCECORE_HTTP_PORT: String(port),
     COMMERCECORE_LOG_LEVEL: 'info',
@@ -45,10 +53,10 @@ export function apiEnv(port) {
   };
 }
 
-export function startApi(root, port) {
+export function startApi(root, port, environment = 'test') {
   return spawnGroup(process.execPath, ['dist/apps/commercecore-api/main.js'], {
     cwd: root,
-    env: apiEnv(port),
+    env: apiEnv(port, environment),
   });
 }
 
