@@ -150,6 +150,11 @@ select {
   color: #8a1c1c;
 }
 
+.status {
+  margin: 0.25rem 0 0;
+  color: #1f3b2c;
+}
+
 @media (max-width: 40rem) {
   main {
     padding: 1rem 0.75rem 2rem;

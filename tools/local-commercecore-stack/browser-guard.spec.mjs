@@ -65,19 +65,29 @@ test('a required browser pass names the checks and no payload', () => {
     loading: 'shown',
     search: 'shown',
     sort: 'shown',
+    recover: 'shown',
   });
   assert.equal(passed.exitCode, 0);
   assert.match(
     passed.line,
-    /^browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live cloud-after=live loading=shown search=shown sort=shown$/,
+    /^browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live cloud-after=live loading=shown search=shown sort=shown recover=shown$/,
   );
+  const withoutRecover = requiredBrowserLine({
+    status: 'PASS',
+    loading: 'shown',
+    search: 'shown',
+    sort: 'shown',
+  });
+  assert.equal(withoutRecover.exitCode, 1);
+  assert.equal(withoutRecover.line, 'browser-smoke: FAIL stage=page reason=recover-missing');
   const unseen = requiredBrowserLine({
     status: 'PASS',
     loading: 'maybe',
     search: 'shown',
     sort: 'shown',
+    recover: 'shown',
   });
-  assert.match(unseen.line, /loading=not-observed search=shown sort=shown$/);
+  assert.match(unseen.line, /loading=not-observed search=shown sort=shown recover=shown$/);
   assert.equal(/prd_|NOT-A-LABEL|127\.0\.0\.1|missing-label/.test(passed.line), false);
 });
 

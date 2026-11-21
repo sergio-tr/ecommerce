@@ -14,6 +14,7 @@ import {
   type WriteRejection,
 } from './synthetic-catalog-client';
 import { refreshAfterWrite, SyntheticCatalogEditor } from './synthetic-catalog-editor';
+import { recoveryStatusText, SyntheticRevisionRecovery } from './synthetic-catalog-recovery';
 import {
   discoverEntries,
   NO_MATCH_TEXT,
@@ -179,7 +180,19 @@ test('eGame sources do not import the API, domain, or a remote host', () => {
   assert.match(component, /id="create-label"/);
   assert.match(component, /id="update-label"/);
   assert.match(component, /id="update-revision"/);
+  assert.match(component, /id="recover-revision"/);
+  assert.match(component, /Recover latest revision/);
+  assert.match(component, /id="recovery-status"/);
+  assert.match(component, /role="status"/);
+  assert.match(component, /SyntheticRevisionRecovery/);
   assert.equal(component.includes('id="update-product-id"'), false);
+  const recoverBody = component.slice(
+    component.indexOf('recoverRevision()'),
+    component.indexOf('private write'),
+  );
+  assert.equal(recoverBody.includes('submitUpdate'), false);
+  assert.equal(recoverBody.includes('submitCreate'), false);
+  assert.equal(recoverBody.includes('PATCH'), false);
   assert.match(component, /\[disabled\]="busy\(\)"/);
   assert.match(component, /shouldRefreshList|refreshAfterWrite/);
   assert.match(component, /Two API pods do not share/);
@@ -248,6 +261,7 @@ test('creates and updates a synthetic entry, then refreshes only after success',
   assert.equal(editor.updateProductId, PRODUCT_ID);
   assert.equal(editor.updateLabel, 'synthetic-entry-b');
   assert.equal(editor.updateRevision, '2');
+  assert.equal(editor.canRecoverRevision, false);
   const skipped = await refreshAfterWrite({ kind: 'rejected', rejection: 'stale' }, async () => {
     reloads += 1;
     return [];
@@ -329,6 +343,7 @@ test('reports duplicate, capacity, stale revision, and a missing entry without c
     assert.equal(editor.updateProductId, PRODUCT_ID);
     assert.equal(editor.updateLabel, 'synthetic-entry-b');
     assert.equal(editor.updateRevision, '9');
+    assert.equal(editor.canRecoverRevision, sample.rejection === 'stale');
   }
 });
 
@@ -475,6 +490,145 @@ test('keeps the same search when a later list edits the matching label', () => {
     widened.entries.map((item) => item.productId),
     [OTHER_PRODUCT_ID, PRODUCT_ID],
   );
+});
+
+test('a stale rejection recovers the stored revision without a patch and keeps the draft', async () => {
+  const calls: Array<{ path: string; init: MutationInit }> = [];
+  const editor = new SyntheticCatalogEditor((path, init) => {
+    calls.push({ path, init });
+    if (init.body.includes('"expectedRevision":9')) {
+      return Promise.resolve(jsonResponse(409, { code: 'REVISION_CONFLICT', note: SECRET }));
+    }
+    return Promise.resolve(jsonResponse(200, entry(3, 'synthetic-entry-c')));
+  });
+  editor.beginEdit(entry(2));
+  editor.updateLabel = 'synthetic-entry-c';
+  editor.updateRevision = '9';
+  const stale = await editor.submitUpdate();
+  assert.deepEqual(stale, { kind: 'rejected', rejection: 'stale' });
+  assert.equal(editor.canRecoverRevision, true);
+  assert.equal(editor.updateLabel, 'synthetic-entry-c');
+  assert.equal(editor.updateRevision, '9');
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0]?.path, `${SYNTHETIC_ENTRIES_PATH}/${PRODUCT_ID}`);
+
+  let reads = 0;
+  const recovery = new SyntheticRevisionRecovery(async () => {
+    reads += 1;
+    return [entry(2, 'synthetic-entry-a')];
+  });
+  const ignored = await recovery.recover(PRODUCT_ID, false);
+  assert.deepEqual(ignored, { kind: 'ignored' });
+  assert.equal(reads, 0);
+
+  const ready = await recovery.recover(PRODUCT_ID, editor.canRecoverRevision);
+  assert.equal(reads, 1);
+  assert.equal(ready.kind, 'ready');
+  if (ready.kind !== 'ready') {
+    return;
+  }
+  const status = recoveryStatusText(ready);
+  assert.match(status ?? '', /^Latest stored revision is 2\. Stored label synthetic-entry-a\. /);
+  assert.equal(status?.includes('synthetic-entry-c'), false);
+  assert.equal(status?.includes(SECRET), false);
+  assert.equal(status?.includes('9'), false);
+  assert.equal(calls.length, 1);
+  assert.equal(editor.applyRecoveredRevision(PRODUCT_ID, ready.revision), true);
+  assert.equal(editor.updateRevision, '2');
+  assert.equal(editor.updateLabel, 'synthetic-entry-c');
+  assert.equal(editor.canRecoverRevision, true);
+
+  editor.updateProductId = OTHER_PRODUCT_ID;
+  assert.equal(editor.applyRecoveredRevision(PRODUCT_ID, 4), false);
+  editor.updateProductId = PRODUCT_ID;
+  assert.equal(editor.updateRevision, '2');
+
+  const saved = await editor.submitUpdate();
+  assert.equal(saved.kind, 'success');
+  assert.equal(calls.length, 2);
+  assert.equal(calls[1]?.init.method, 'PATCH');
+  assert.equal(
+    calls[1]?.init.body,
+    JSON.stringify({ syntheticLabel: 'synthetic-entry-c', expectedRevision: 2 }),
+  );
+  assert.equal(editor.updateRevision, '3');
+  assert.equal(editor.updateLabel, 'synthetic-entry-c');
+  assert.equal(editor.canRecoverRevision, false);
+
+  editor.beginEdit(entry(2));
+  editor.updateRevision = '9';
+  const again = await editor.submitUpdate();
+  assert.equal(again.kind, 'rejected');
+  editor.beginEdit(entry(2, 'synthetic-entry-a'));
+  assert.equal(editor.canRecoverRevision, false);
+  assert.equal(editor.updateLabel, 'synthetic-entry-a');
+  assert.equal(editor.updateRevision, '2');
+});
+
+test('recovery misses, fails, and drops a read when the selection moves', async () => {
+  const editor = new SyntheticCatalogEditor(() => {
+    throw new Error('patch');
+  });
+  editor.beginEdit(entry(1));
+  editor.updateLabel = 'synthetic-entry-c';
+  editor.updateRevision = '9';
+  editor.applyRecoveredRevision(PRODUCT_ID, 2);
+  assert.equal(editor.updateRevision, '9');
+
+  const missing = await new SyntheticRevisionRecovery(async () => [
+    { productId: OTHER_PRODUCT_ID, syntheticLabel: 'synthetic-entry-a', revision: 1 },
+  ]).recover(PRODUCT_ID, true);
+  assert.equal(missing.kind, 'missing');
+  assert.equal(recoveryStatusText(missing)?.includes('synthetic-entry-c'), false);
+  assert.equal(recoveryStatusText(missing)?.includes(SECRET), false);
+  assert.equal(editor.updateRevision, '9');
+  assert.equal(editor.updateLabel, 'synthetic-entry-c');
+
+  const broken = await new SyntheticRevisionRecovery(async () => {
+    parseSyntheticEntryList({
+      entries: [
+        { productId: PRODUCT_ID, syntheticLabel: 'synthetic-entry-a', revision: 2, price: 4 },
+      ],
+    });
+    return [];
+  }).recover(PRODUCT_ID, true);
+  assert.deepEqual(broken, { kind: 'unavailable' });
+  const unavailable = recoveryStatusText(broken);
+  assert.equal(unavailable, 'The latest revision could not be read. The draft was kept.');
+  assert.equal(unavailable?.includes('price'), false);
+  assert.equal(unavailable?.includes(SECRET), false);
+
+  const skipped = await new SyntheticRevisionRecovery(() =>
+    Promise.reject(new Error(SECRET)),
+  ).recover('', true);
+  assert.deepEqual(skipped, { kind: 'ignored' });
+  const closed = await new SyntheticRevisionRecovery(() =>
+    Promise.reject(new Error(SECRET)),
+  ).recover(PRODUCT_ID, true);
+  assert.deepEqual(closed, { kind: 'unavailable' });
+  assert.equal(JSON.stringify(closed).includes(SECRET), false);
+
+  let reads = 0;
+  let release: (entries: readonly SyntheticEntry[]) => void = () => undefined;
+  const pending = new Promise<readonly SyntheticEntry[]>((resolve) => {
+    release = resolve;
+  });
+  const recovery = new SyntheticRevisionRecovery(() => {
+    reads += 1;
+    return pending;
+  });
+  const first = recovery.recover(PRODUCT_ID, true);
+  const second = await recovery.recover(PRODUCT_ID, true);
+  assert.deepEqual(second, { kind: 'ignored' });
+  assert.equal(reads, 1);
+  recovery.moveSelection();
+  release([entry(4, 'synthetic-entry-a')]);
+  const moved = await first;
+  assert.deepEqual(moved, { kind: 'moved' });
+  assert.equal(recoveryStatusText(moved), null);
+  assert.equal(editor.updateRevision, '9');
+  assert.equal(editor.updateLabel, 'synthetic-entry-c');
+  assert.equal(editor.applyRecoveredRevision(PRODUCT_ID, 4), false);
 });
 
 function entry(revision: number, syntheticLabel = 'synthetic-entry-a'): SyntheticEntry {

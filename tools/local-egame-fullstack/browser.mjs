@@ -264,8 +264,88 @@ export async function exerciseSyntheticCatalog(
   if (COMMERCIAL_TEXT.some((phrase) => stale.includes(phrase))) {
     throw new Error('commercial text present');
   }
+  await exerciseStaleRecovery(session, fixture, screenshotDir);
   await capture(session, screenshotDir, screenshotName);
   return sawLoading ? 'shown' : 'not-observed';
+}
+
+export async function exerciseStaleRecovery(session, fixture, screenshotDir) {
+  const keptDraft = 'synthetic-entry-b1';
+  if ((await inputValue(session, 'update-label')) !== fixture.updatedLabel) {
+    throw new Error('recovered draft changed');
+  }
+  if ((await inputValue(session, 'update-revision')) !== String(fixture.staleRevision)) {
+    throw new Error('stale revision was cleared');
+  }
+  if (!(await fill(session, 'update-label', keptDraft))) {
+    throw new Error('update label field missing');
+  }
+  if (!(await fill(session, 'catalog-search', 'ENTRY-B'))) {
+    throw new Error('search field missing');
+  }
+  if (!(await chooseSort(session, 'label-desc'))) {
+    throw new Error('sort control missing');
+  }
+  if (!(await waitForCount(session, 'showing 1 of 1'))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await clickEnabled(session, 'Recover latest revision'))) {
+    throw new Error('recover control missing');
+  }
+  const recovered = await waitForText(session, 'Latest stored revision is 2.', 10000);
+  if (recovered === null || !recovered.includes(`Stored label ${fixture.updatedLabel}.`)) {
+    throw new Error('recovered revision missing');
+  }
+  if (recovered.includes('rev 3')) {
+    throw new Error('recover wrote the entry');
+  }
+  if ((await inputValue(session, 'update-revision')) !== '2') {
+    throw new Error('recovered revision missing');
+  }
+  if ((await inputValue(session, 'update-label')) !== keptDraft) {
+    throw new Error('recovered draft changed');
+  }
+  if ((await inputValue(session, 'catalog-search')) !== 'ENTRY-B') {
+    throw new Error('search not preserved');
+  }
+  if ((await sortValue(session)) !== 'label-desc') {
+    throw new Error('sort order mismatch');
+  }
+  const status = await statusText(session);
+  if (
+    status.includes(String(fixture.staleRevision)) ||
+    status.includes(keptDraft) ||
+    status.includes('NOT-A-LABEL')
+  ) {
+    throw new Error('rejected value echoed');
+  }
+  await capture(session, screenshotDir, 'three-app-browser-recover.png');
+  if (!(await clickEnabled(session, 'Save synthetic label'))) {
+    throw new Error('save button missing');
+  }
+  const saved = await waitForText(session, 'rev 3', 10000);
+  if (saved === null || !saved.includes(keptDraft)) {
+    throw new Error('recovered save missing');
+  }
+  if ((await inputValue(session, 'update-revision')) !== '3') {
+    throw new Error('recovered save missing');
+  }
+  if ((await inputValue(session, 'update-label')) !== keptDraft) {
+    throw new Error('recovered draft changed');
+  }
+  if ((await inputValue(session, 'catalog-search')) !== 'ENTRY-B') {
+    throw new Error('search not preserved');
+  }
+  if ((await sortValue(session)) !== 'label-desc') {
+    throw new Error('sort order mismatch');
+  }
+  const alert = await alertText(session);
+  if (alert.includes('The revision is stale. The entry was not changed.')) {
+    throw new Error('stale status stayed');
+  }
+  if ((await pageText(session)).includes('Latest stored revision is 2.')) {
+    throw new Error('stale status stayed');
+  }
 }
 
 export async function exerciseCatalogDiscovery(session, fixture, screenshotDir) {
@@ -605,6 +685,14 @@ async function alertText(session) {
     `[...document.querySelectorAll('[role="alert"]')].map((item) => item.textContent ?? '').join('\\n')`,
   );
   return typeof alert === 'string' ? alert : '';
+}
+
+async function statusText(session) {
+  const status = await evaluate(
+    session,
+    `[...document.querySelectorAll('[role="status"]')].map((item) => item.textContent ?? '').join('\\n')`,
+  );
+  return typeof status === 'string' ? status : '';
 }
 
 async function sawText(session, needle, timeoutMs) {

@@ -121,6 +121,7 @@ async function runOnce(fixture, screenshotDir) {
       loading,
       search: discovery.search,
       sort: discovery.sort,
+      recover: 'shown',
     };
   } catch (error) {
     failure = error;
