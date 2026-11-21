@@ -190,6 +190,127 @@ export function assessCluster({ nodes, pods, endpoints, service, serviceCurls, p
   }
 }
 
+const ipv4Pattern = /^(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)$/;
+const healthUrlPattern =
+  /^http:\/\/(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d):3000\/health\/live$/;
+
+export function clusterIsListed(payload, name) {
+  const items = Array.isArray(payload) ? payload : payload?.clusters;
+  if (!Array.isArray(items)) {
+    throw new Error('k3d cluster list was not a list');
+  }
+  return items.some((item) => item?.name === name);
+}
+
+export function clusterTargets({ pods, service }) {
+  if (service.spec?.type !== 'ClusterIP') {
+    throw new Error('service is not ClusterIP');
+  }
+  const port = service.spec?.ports?.[0]?.port;
+  if (port !== 3000) {
+    throw new Error('service port is not 3000');
+  }
+  const clusterIP = service.spec?.clusterIP;
+  if (typeof clusterIP !== 'string' || !ipv4Pattern.test(clusterIP)) {
+    throw new Error('service clusterIP is not an IPv4 address');
+  }
+  const selector = service.spec?.selector ?? {};
+  const selected = (pods.items ?? []).filter((pod) => labelsMatch(pod.metadata?.labels, selector));
+  const ready = selected.filter((pod) => isReady(pod));
+  if (ready.length !== 2) {
+    throw new Error(`expected 2 ready pods, found ${ready.length}`);
+  }
+  const podUrls = ready.map((pod) => {
+    const ip = pod.status?.podIP;
+    if (typeof ip !== 'string' || !ipv4Pattern.test(ip)) {
+      throw new Error('ready pod has no IPv4 address');
+    }
+    return `http://${ip}:3000/health/live`;
+  });
+  return {
+    serviceUrl: `http://${clusterIP}:3000/health/live`,
+    podUrls,
+  };
+}
+
+export function probePodManifest(targets) {
+  const urls = [...Array.from({ length: 8 }, () => targets.serviceUrl), ...targets.podUrls];
+  if (targets.podUrls?.length !== 2 || urls.length !== 10) {
+    throw new Error('expected 8 service probes and 2 pod probes');
+  }
+  if (urls.some((url) => !healthUrlPattern.test(url))) {
+    throw new Error('probe url is not an in-cluster health address');
+  }
+  return {
+    apiVersion: 'v1',
+    kind: 'Pod',
+    metadata: {
+      name: 'commercecore-two-replica-probe',
+      namespace: 'commerce-apps',
+      labels: {
+        'app.kubernetes.io/component': 'two-replica-probe',
+      },
+    },
+    spec: {
+      restartPolicy: 'Never',
+      automountServiceAccountToken: false,
+      hostNetwork: false,
+      containers: [
+        {
+          name: 'probe',
+          image: 'commercecore-api:local',
+          imagePullPolicy: 'Never',
+          command: ['node', '/probe/two-replica-probe.mjs'],
+          args: urls,
+          env: [{ name: 'HOME', value: '/tmp' }],
+          securityContext: {
+            runAsNonRoot: true,
+            runAsUser: 1000,
+            runAsGroup: 1000,
+            allowPrivilegeEscalation: false,
+            readOnlyRootFilesystem: true,
+            capabilities: { drop: ['ALL'] },
+          },
+          volumeMounts: [
+            { name: 'probe', mountPath: '/probe', readOnly: true },
+            { name: 'tmp', mountPath: '/tmp' },
+          ],
+        },
+      ],
+      volumes: [
+        {
+          name: 'probe',
+          configMap: { name: 'commercecore-two-replica-probe' },
+        },
+        { name: 'tmp', emptyDir: {} },
+      ],
+    },
+  };
+}
+
+export function assertProbeLog(log, targets) {
+  const lines = log.split('\n').filter((line) => line.length > 0);
+  const urls = [...Array.from({ length: 8 }, () => targets.serviceUrl), ...targets.podUrls];
+  if (lines.length !== urls.length) {
+    throw new Error(`expected ${urls.length} probe lines, found ${lines.length}`);
+  }
+  for (const line of lines) {
+    const tab = line.indexOf('\t');
+    if (tab < 0) {
+      throw new Error('probe line has no status');
+    }
+    const status = line.slice(0, tab);
+    const body = line.slice(tab + 1);
+    if (status !== '200') {
+      throw new Error(`probe status is not 200`);
+    }
+    if (urls.some((url) => body.includes(url))) {
+      throw new Error('probe body echoes a target url');
+    }
+    assertHealthBody(body);
+  }
+}
+
 function readJson(file) {
   return JSON.parse(readFileSync(file, 'utf8'));
 }
@@ -212,8 +333,26 @@ function runCli(argv) {
     });
     return;
   }
+  if (command === 'cluster-exists') {
+    const listed = clusterIsListed(readJson(args[1]), args[0]);
+    process.exit(listed ? 0 : 2);
+  }
+  if (command === 'print-targets') {
+    process.stdout.write(
+      `${JSON.stringify(clusterTargets({ pods: readJson(args[0]), service: readJson(args[1]) }))}\n`,
+    );
+    return;
+  }
+  if (command === 'write-probe-pod') {
+    process.stdout.write(`${JSON.stringify(probePodManifest(readJson(args[0])))}\n`);
+    return;
+  }
+  if (command === 'check-probe-log') {
+    assertProbeLog(readFileSync(args[0], 'utf8'), readJson(args[1]));
+    return;
+  }
   throw new Error(
-    'usage: two-replica-contract.mjs check-health <file> | check-cluster <nodes> <pods> <endpoints> <service> <serviceCurls> <podCurls>',
+    'usage: two-replica-contract.mjs check-health <file> | check-cluster <nodes> <pods> <endpoints> <service> <serviceCurls> <podCurls> | cluster-exists <name> <file> | print-targets <pods> <service> | write-probe-pod <targets> | check-probe-log <log> <targets>',
   );
 }
 

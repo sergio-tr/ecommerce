@@ -124,15 +124,17 @@ This is one server node, not the two-agent learning topology. It does not prove 
 bash tools/k8s/k3d-two-replica-smoke.sh
 ```
 
-The chart default stays `replicaCount: 1`. `values-two-replica.yaml` sets 2, and the schema rejects every other count. The script creates cluster `commercecore-two-replica` with one server, no agents, no load balancer, and Traefik disabled. It installs that values file, requires two ready pods and two ClusterIP endpoints, probes `/health/live` on the Service and on each pod, then rolls back an image tag that cannot be pulled. The trap deletes only `commercecore-two-replica`.
+The chart default stays `replicaCount: 1`. `values-two-replica.yaml` sets 2, and the schema rejects every other count. The script is opt-in. It returns before creating anything when `commercecore-two-replica` already exists, and it does not delete that preexisting cluster. On a clear name it creates one server, no agents, no load balancer, and Traefik disabled. The API port is `127.0.0.1` only. k3d does not update the default kubeconfig or switch the current context. `kubectl` and Helm use the temporary kubeconfig and `--context k3d-commercecore-two-replica`.
+
+A short-lived pod, built from the already imported local image, sends eight `GET /health/live` calls to the ClusterIP and one call to each ready pod IP. Those calls stay inside the cluster. The same health JSON does not show which pod answered, so the record says `balance: NOT_PROVEN`. The trap deletes only a cluster this invocation created.
 
 | Exit | Meaning |
 |---|---|
-| 0 and `k3d-two-replica: PASS` | Those checks succeeded. The output still says `g5: NOT_CLAIMED` and `ha: NOT_CLAIMED` |
-| 2 and `k3d-two-replica: PENDING_OWNER_LOCAL` | Docker, the daemon, k3d, kubectl, Helm, curl, or node is missing. This is not a pass |
-| 1 and `k3d-two-replica: FAIL` | The cluster started and a check failed |
+| 0 and `k3d-two-replica-smoke: PASS` | The in-cluster checks succeeded. The output still says `G5: NOT_CLAIMED`, `ha: NOT_CLAIMED`, and `balance: NOT_PROVEN` |
+| 2 and `k3d-two-replica-smoke: PENDING_OWNER_LOCAL` | Docker, the daemon, k3d, kubectl, Helm, or node is missing. This is not a pass |
+| 1 and `k3d-two-replica-smoke: FAIL` | The name was already taken, or a live check failed |
 
-Traefik stays disabled, so this route is the ClusterIP, not an Ingress. Two pods on one server are not high availability. A pass of this command is not the scoped K8S G5 record.
+CI runs the Node shims and fixture rejections. It does not start Docker or k3d, and a green CI job is not this pass. Traefik stays disabled, so this route is the ClusterIP, not an Ingress. Two pods on one server are not high availability. A pass of this command is not the scoped K8S G5 record.
 
 ## Limitations
 
