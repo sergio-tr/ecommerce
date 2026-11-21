@@ -83,6 +83,12 @@ jobs:
           NX_NO_CLOUD: 'true'
         run: pnpm run local-representative-demo
 
+      - name: Local egame fullstack smoke
+        env:
+          NX_DAEMON: 'false'
+          NX_NO_CLOUD: 'true'
+        run: pnpm run local-egame-fullstack-smoke
+
   chart:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
