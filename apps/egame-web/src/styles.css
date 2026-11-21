@@ -79,7 +79,8 @@ li button {
 }
 
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible {
   outline: 3px solid #8a4b08;
   outline-offset: 2px;
 }
@@ -108,7 +109,8 @@ label {
   font-weight: 600;
 }
 
-input {
+input,
+select {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #8b97a6;
@@ -117,6 +119,30 @@ input {
   color: inherit;
   padding: 0.5rem 0.65rem;
   font: inherit;
+}
+
+.discovery {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.discovery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.discovery-actions label {
+  display: grid;
+  gap: 0.25rem;
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.count {
+  margin: 0.75rem 0 0;
 }
 
 .alert {

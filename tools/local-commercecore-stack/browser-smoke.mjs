@@ -10,6 +10,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   browserSkipReason,
+  exerciseCatalogDiscovery,
   exerciseReloadFailure,
   exerciseSyntheticCatalog,
   isBrowserStartupFailure,
@@ -108,13 +109,19 @@ async function runOnce(fixture, screenshotDir) {
       'three-app-browser-create.png',
       { rejectLabel: true },
     );
+    const discovery = await exerciseCatalogDiscovery(chrome.session, fixture, screenshotDir);
     await assertCloudLive(cloudPort, 'cloud down before core stop');
     await stopGroup(core);
     await assertPortsFree([corePort]);
     await assertCloudLive(cloudPort, 'cloud down after core stop');
     await assertClosedSurface(cloudPort);
     await exerciseReloadFailure(chrome.session, screenshotDir, 'three-app-browser-error.png');
-    return { status: 'PASS', loading };
+    return {
+      status: 'PASS',
+      loading,
+      search: discovery.search,
+      sort: discovery.sort,
+    };
   } catch (error) {
     failure = error;
     throw error;

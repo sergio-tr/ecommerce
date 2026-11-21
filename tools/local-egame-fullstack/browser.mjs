@@ -268,6 +268,145 @@ export async function exerciseSyntheticCatalog(
   return sawLoading ? 'shown' : 'not-observed';
 }
 
+export async function exerciseCatalogDiscovery(session, fixture, screenshotDir) {
+  if ((await inputValue(session, 'catalog-search')) === null) {
+    throw new Error('search field missing');
+  }
+  if (!(await chooseSort(session, 'id-asc'))) {
+    throw new Error('sort control missing');
+  }
+  if (!(await fill(session, 'catalog-search', '  SYNTHETIC-ENTRY-B  '))) {
+    throw new Error('search field missing');
+  }
+  if (!(await waitForCount(session, 'showing 1 of 1'))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await waitForIds(session, [fixture.productId]))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await fill(session, 'catalog-search', 'q69g5fav'))) {
+    throw new Error('search field missing');
+  }
+  if (!(await waitForIds(session, [fixture.productId]))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await fill(session, 'catalog-search', 'missing-label'))) {
+    throw new Error('search field missing');
+  }
+  if (!(await waitForCount(session, 'showing 0 of 1'))) {
+    throw new Error('match count missing');
+  }
+  const unmatched = await pageText(session);
+  if (!unmatched.includes('No matching synthetic entries.')) {
+    throw new Error('no-match state missing');
+  }
+  const alert = await alertText(session);
+  const count = await countText(session);
+  if (alert.includes('missing-label') || count.includes('missing-label')) {
+    throw new Error('rejected value echoed');
+  }
+  if ((await resultIds(session)) !== null) {
+    throw new Error('no-match state missing');
+  }
+  await capture(session, screenshotDir, 'three-app-browser-no-match.png');
+  if (!(await clickEnabled(session, 'Clear search'))) {
+    throw new Error('clear search missing');
+  }
+  if ((await inputValue(session, 'catalog-search')) !== '') {
+    throw new Error('search reset');
+  }
+  if (!(await waitForCount(session, 'showing 1 of 1'))) {
+    throw new Error('search reset');
+  }
+  if (!(await fill(session, 'catalog-search', fixture.updatedLabel))) {
+    throw new Error('search field missing');
+  }
+  if (!(await fill(session, 'create-product-id', fixture.otherProductId))) {
+    throw new Error('create id field missing');
+  }
+  if (!(await fill(session, 'create-label', fixture.syntheticLabel))) {
+    throw new Error('create label field missing');
+  }
+  if (!(await clickEnabled(session, 'Create synthetic entry'))) {
+    throw new Error('create button missing');
+  }
+  if (!(await waitForCount(session, 'showing 1 of 2'))) {
+    throw new Error('created entry missing');
+  }
+  if (!(await waitForIds(session, [fixture.productId]))) {
+    throw new Error('search did not filter');
+  }
+  if ((await inputValue(session, 'catalog-search')) !== fixture.updatedLabel) {
+    throw new Error('search not preserved');
+  }
+  if (!(await clickEnabled(session, 'Clear search'))) {
+    throw new Error('clear search missing');
+  }
+  if (!(await waitForCount(session, 'showing 2 of 2'))) {
+    throw new Error('match count missing');
+  }
+  const orders = [
+    ['id-asc', [fixture.productId, fixture.otherProductId]],
+    ['id-desc', [fixture.otherProductId, fixture.productId]],
+    ['label-asc', [fixture.otherProductId, fixture.productId]],
+    ['label-desc', [fixture.productId, fixture.otherProductId]],
+  ];
+  for (const [sort, ids] of orders) {
+    if (!(await chooseSort(session, sort))) {
+      throw new Error('sort control missing');
+    }
+    if (!(await waitForIds(session, ids))) {
+      throw new Error('sort order mismatch');
+    }
+  }
+  await capture(session, screenshotDir, 'three-app-browser-discovery.png');
+  if (!(await fill(session, 'catalog-search', 'ENTRY-A'))) {
+    throw new Error('search field missing');
+  }
+  if (!(await waitForCount(session, 'showing 1 of 2'))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await waitForIds(session, [fixture.otherProductId]))) {
+    throw new Error('search did not filter');
+  }
+  if (!(await clickEnabled(session, 'Edit'))) {
+    throw new Error('edit button missing');
+  }
+  if ((await inputValue(session, 'update-revision')) !== '1') {
+    throw new Error('edit did not load revision 1');
+  }
+  if (!(await fill(session, 'update-label', 'synthetic-entry-c'))) {
+    throw new Error('update label field missing');
+  }
+  if (!(await clickEnabled(session, 'Save synthetic label'))) {
+    throw new Error('save button missing');
+  }
+  if (!(await waitForCount(session, 'showing 0 of 2'))) {
+    throw new Error('search did not filter');
+  }
+  const afterEdit = await pageText(session);
+  if (!afterEdit.includes('No matching synthetic entries.')) {
+    throw new Error('no-match state missing');
+  }
+  if ((await inputValue(session, 'catalog-search')) !== 'ENTRY-A') {
+    throw new Error('search not preserved');
+  }
+  if ((await sortValue(session)) !== 'label-desc') {
+    throw new Error('sort order mismatch');
+  }
+  if (!(await clickEnabled(session, 'Clear search'))) {
+    throw new Error('clear search missing');
+  }
+  if (!(await waitForIds(session, [fixture.otherProductId, fixture.productId]))) {
+    throw new Error('sort order mismatch');
+  }
+  const finished = await pageText(session);
+  if (COMMERCIAL_TEXT.some((phrase) => finished.includes(phrase))) {
+    throw new Error('commercial text present');
+  }
+  return { search: 'shown', sort: 'shown' };
+}
+
 export async function exerciseRejectedLabel(session, fixture) {
   if (!(await fill(session, 'create-product-id', fixture.otherProductId))) {
     throw new Error('create id field missing');
@@ -515,6 +654,96 @@ async function inputValue(session, id) {
       return field instanceof HTMLInputElement ? field.value : null;
     })()`,
   );
+}
+
+async function chooseSort(session, value) {
+  const selected = await evaluate(
+    session,
+    `(() => {
+      const field = document.getElementById('catalog-sort');
+      if (!(field instanceof HTMLSelectElement) || field.disabled) return false;
+      const known = [...field.options].some((item) => item.value === ${JSON.stringify(value)});
+      if (!known) return false;
+      field.focus();
+      field.value = ${JSON.stringify(value)};
+      field.dispatchEvent(new Event('input', { bubbles: true }));
+      field.dispatchEvent(new Event('change', { bubbles: true }));
+      return field.value === ${JSON.stringify(value)};
+    })()`,
+  );
+  return selected === true;
+}
+
+async function sortValue(session) {
+  const value = await evaluate(
+    session,
+    `(() => {
+      const field = document.getElementById('catalog-sort');
+      return field instanceof HTMLSelectElement ? field.value : null;
+    })()`,
+  );
+  return typeof value === 'string' ? value : null;
+}
+
+async function countText(session) {
+  const text = await evaluate(
+    session,
+    `(() => {
+      const node = document.getElementById('catalog-count');
+      return node ? (node.textContent ?? '') : '';
+    })()`,
+  );
+  return typeof text === 'string' ? text.trim() : '';
+}
+
+async function resultIds(session) {
+  const ids = await evaluate(
+    session,
+    `(() => {
+      const list = document.getElementById('catalog-results');
+      if (!(list instanceof HTMLElement)) return null;
+      return [...list.querySelectorAll('li')].map((item) => item.dataset.productId ?? '');
+    })()`,
+  );
+  return Array.isArray(ids) ? ids : null;
+}
+
+async function waitForCount(session, expected) {
+  const deadline = Date.now() + 10000;
+  while (Date.now() < deadline) {
+    if ((await countText(session)) === expected) {
+      return true;
+    }
+    await delay(100);
+  }
+  return false;
+}
+
+async function waitForIds(session, expected) {
+  const deadline = Date.now() + 10000;
+  while (Date.now() < deadline) {
+    const actual = await resultIds(session);
+    if (
+      Array.isArray(actual) &&
+      actual.length === expected.length &&
+      actual.every((id, index) => id === expected[index])
+    ) {
+      return true;
+    }
+    await delay(100);
+  }
+  return false;
+}
+
+async function clickEnabled(session, label) {
+  const deadline = Date.now() + 5000;
+  while (Date.now() < deadline) {
+    if (await clickButton(session, label)) {
+      return true;
+    }
+    await delay(50);
+  }
+  return false;
 }
 
 async function clickButton(session, label) {

@@ -57,15 +57,28 @@ test('a required browser skip is a failure and cannot pass', () => {
 });
 
 test('a required browser pass names the checks and no payload', () => {
-  const passed = requiredBrowserLine({ status: 'PASS', loading: 'shown' });
+  const incomplete = requiredBrowserLine({ status: 'PASS', loading: 'shown' });
+  assert.equal(incomplete.exitCode, 1);
+  assert.equal(incomplete.line, 'browser-smoke: FAIL stage=page reason=discovery-missing');
+  const passed = requiredBrowserLine({
+    status: 'PASS',
+    loading: 'shown',
+    search: 'shown',
+    sort: 'shown',
+  });
   assert.equal(passed.exitCode, 0);
   assert.match(
     passed.line,
-    /^browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live cloud-after=live loading=shown$/,
+    /^browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live cloud-after=live loading=shown search=shown sort=shown$/,
   );
-  const unseen = requiredBrowserLine({ status: 'PASS', loading: 'maybe' });
-  assert.match(unseen.line, /loading=not-observed$/);
-  assert.equal(/prd_|NOT-A-LABEL|127\.0\.0\.1/.test(passed.line), false);
+  const unseen = requiredBrowserLine({
+    status: 'PASS',
+    loading: 'maybe',
+    search: 'shown',
+    sort: 'shown',
+  });
+  assert.match(unseen.line, /loading=not-observed search=shown sort=shown$/);
+  assert.equal(/prd_|NOT-A-LABEL|127\.0\.0\.1|missing-label/.test(passed.line), false);
 });
 
 test('preflight fails closed before chrome, the web build, or the APIs exist', () => {
