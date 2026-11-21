@@ -41,6 +41,22 @@
       "options": {
         "command": "ng serve egame-web"
       }
+    },
+    "fullstack-smoke": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": ["build", { "projects": ["commercecore-api"], "target": "build" }],
+      "options": {
+        "command": "node --test --test-timeout=180000 tools/local-egame-fullstack/smoke.spec.mjs"
+      }
+    },
+    "fullstack-up": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": [{ "projects": ["commercecore-api"], "target": "build" }],
+      "options": {
+        "command": "node tools/local-egame-fullstack/up.mjs"
+      }
     }
   }
 }
