@@ -48,6 +48,13 @@ const REASONS = new Set([
   'revision-field-missing',
   'stale-alert-missing',
   'stale-cleared-input',
+  'recover-missing',
+  'recover-control-missing',
+  'recovered-revision-missing',
+  'recovered-draft-changed',
+  'recover-wrote-entry',
+  'recovered-save-missing',
+  'stale-status-stayed',
   'reload-control-missing',
   'reload-error-missing',
   'error-alert-missing',
@@ -109,6 +116,12 @@ const MESSAGE_TO = new Map([
   ['revision field missing', ['page', 'revision-field-missing']],
   ['stale alert missing', ['page', 'stale-alert-missing']],
   ['stale revision was cleared', ['page', 'stale-cleared-input']],
+  ['recover control missing', ['page', 'recover-control-missing']],
+  ['recovered revision missing', ['page', 'recovered-revision-missing']],
+  ['recovered draft changed', ['page', 'recovered-draft-changed']],
+  ['recover wrote the entry', ['page', 'recover-wrote-entry']],
+  ['recovered save missing', ['page', 'recovered-save-missing']],
+  ['stale status stayed', ['page', 'stale-status-stayed']],
   ['reload button missing', ['page', 'reload-control-missing']],
   ['reload error missing', ['page', 'reload-error-missing']],
   ['error alert missing', ['page', 'error-alert-missing']],
@@ -155,13 +168,19 @@ export function requiredBrowserLine(result) {
         line: 'browser-smoke: FAIL stage=page reason=discovery-missing',
       };
     }
+    if (result.recover !== 'shown') {
+      return {
+        exitCode: 1,
+        line: 'browser-smoke: FAIL stage=page reason=recover-missing',
+      };
+    }
     const loading = result.loading === 'shown' ? 'shown' : 'not-observed';
     return {
       exitCode: 0,
       line:
         'browser-smoke: PASS empty=shown list=shown error=shown duplicate-alert=shown ' +
         'stale-alert=shown rejected-echo=absent commercial=absent cloud-before=live ' +
-        `cloud-after=live loading=${loading} search=shown sort=shown`,
+        `cloud-after=live loading=${loading} search=shown sort=shown recover=shown`,
     };
   }
   const stage = STAGES.has(result?.stage) ? result.stage : 'unknown';

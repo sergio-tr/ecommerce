@@ -15,6 +15,10 @@ import {
   refreshAfterWrite,
   SyntheticCatalogEditor,
 } from './synthetic-catalog/synthetic-catalog-editor';
+import {
+  recoveryStatusText,
+  SyntheticRevisionRecovery,
+} from './synthetic-catalog/synthetic-catalog-recovery';
 import type { SyntheticEntry } from './synthetic-catalog/synthetic-entry';
 import {
   ERROR_VIEW,
@@ -165,6 +169,19 @@ import {
         @if (updateAlert(); as alert) {
           <p id="update-alert" class="alert" role="alert">{{ alert }}</p>
         }
+        @if (canRecover()) {
+          <button
+            type="button"
+            id="recover-revision"
+            (click)="recoverRevision()"
+            [disabled]="busy()"
+          >
+            Recover latest revision
+          </button>
+        }
+        @if (recoveryStatus(); as status) {
+          <p id="recovery-status" class="status" role="status">{{ status }}</p>
+        }
       </form>
       <button type="button" (click)="reload()" [disabled]="busy()">Reload</button>
     </main>
@@ -181,11 +198,14 @@ export class AppComponent {
   protected readonly updateLabel = signal('');
   protected readonly updateRevision = signal('');
   protected readonly updateAlert = signal<string | null>(null);
+  protected readonly canRecover = signal(false);
+  protected readonly recoveryStatus = signal<string | null>(null);
   protected readonly searchQuery = signal('');
   protected readonly sortOrder = signal<DiscoverySort>(DEFAULT_DISCOVERY_SORT);
   private readonly editor = new SyntheticCatalogEditor((path, init) =>
     globalThis.fetch(path, init),
   );
+  private readonly recovery = new SyntheticRevisionRecovery(() => this.loadEntries());
   protected readonly catalogSummary = computed((): DiscoverySummary | null => {
     const current = this.view();
     if (current.status !== 'list' && current.status !== 'empty') {
@@ -204,7 +224,7 @@ export class AppComponent {
       return Promise.resolve();
     }
     this.view.set(LOADING_VIEW);
-    return loadSyntheticEntries((path, init) => globalThis.fetch(path, init))
+    return this.loadEntries()
       .then((entries) => {
         this.view.set(viewForEntries(entries));
       })
@@ -217,9 +237,62 @@ export class AppComponent {
     if (this.busy()) {
       return;
     }
+    this.recovery.moveSelection();
     this.editor.beginEdit(entry);
     this.syncUpdateFields();
     this.updateAlert.set(null);
+    this.recoveryStatus.set(null);
+    this.canRecover.set(false);
+  }
+
+  protected recoverRevision(): Promise<void> {
+    if (this.busy() || !this.editor.canRecoverRevision) {
+      return Promise.resolve();
+    }
+    const productId = this.editor.updateProductId;
+    const label = this.editor.updateLabel;
+    const revision = this.editor.updateRevision;
+    const search = this.searchQuery();
+    const sort = this.sortOrder();
+    this.busy.set(true);
+    return this.recovery
+      .recover(productId, true)
+      .then((result) => {
+        this.searchQuery.set(search);
+        this.sortOrder.set(sort);
+        if (this.editor.updateProductId !== productId) {
+          return;
+        }
+        this.editor.updateLabel = label;
+        if (result.kind === 'ready') {
+          const applied = this.editor.applyRecoveredRevision(productId, result.revision);
+          if (!applied) {
+            this.editor.updateRevision = revision;
+            this.syncUpdateFields();
+            return;
+          }
+          this.view.set(viewForEntries(result.entries));
+          this.recoveryStatus.set(recoveryStatusText(result));
+          this.syncUpdateFields();
+          return;
+        }
+        if (result.kind === 'missing') {
+          this.editor.updateRevision = revision;
+          this.view.set(viewForEntries(result.entries));
+          this.recoveryStatus.set(recoveryStatusText(result));
+          this.syncUpdateFields();
+          return;
+        }
+        if (result.kind === 'unavailable') {
+          this.editor.updateRevision = revision;
+          this.recoveryStatus.set(recoveryStatusText(result));
+          this.syncUpdateFields();
+        }
+      })
+      .finally(() => {
+        this.busy.set(false);
+        this.canRecover.set(this.editor.canRecoverRevision);
+      });
   }
 
   protected createEntry(event: Event): Promise<void> {
@@ -296,13 +369,25 @@ export class AppComponent {
       return;
     }
     this.syncUpdateFields();
-    if (outcome.kind !== 'busy') {
-      this.updateAlert.set(alert);
+    if (outcome.kind === 'busy') {
+      return;
     }
+    this.updateAlert.set(alert);
+    if (
+      outcome.kind === 'success' ||
+      (outcome.kind === 'rejected' && outcome.rejection === 'stale')
+    ) {
+      this.recoveryStatus.set(null);
+    }
+    this.canRecover.set(this.editor.canRecoverRevision);
+  }
+
+  private loadEntries(): Promise<readonly SyntheticEntry[]> {
+    return loadSyntheticEntries((path, init) => globalThis.fetch(path, init));
   }
 
   private reloadAfterWrite(): Promise<readonly SyntheticEntry[]> {
-    return loadSyntheticEntries((path, init) => globalThis.fetch(path, init)).then(
+    return this.loadEntries().then(
       (entries) => {
         this.view.set(viewForEntries(entries));
         return entries;

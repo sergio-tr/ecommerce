@@ -11,7 +11,8 @@ import type { SyntheticEntry } from './synthetic-entry';
 /**
  * Create and update drafts for the process-local synthetic catalog.
  * A rejection leaves the typed fields in place. A second call while a request
- * is in flight does not start another request.
+ * is in flight does not start another request. A stale rejection only offers
+ * a later explicit revision recovery; it does not write again.
  */
 export class SyntheticCatalogEditor {
   createProductId = '';
@@ -20,6 +21,7 @@ export class SyntheticCatalogEditor {
   updateLabel = '';
   updateRevision = '';
   private pending = false;
+  private stale = false;
 
   constructor(private readonly fetchImpl: MutationFetch) {}
 
@@ -27,13 +29,29 @@ export class SyntheticCatalogEditor {
     return this.pending;
   }
 
+  get canRecoverRevision(): boolean {
+    return this.stale && !this.pending && this.updateProductId.length > 0;
+  }
+
   beginEdit(entry: SyntheticEntry): void {
     if (this.pending) {
       return;
     }
+    this.stale = false;
     this.updateProductId = entry.productId;
     this.updateLabel = entry.syntheticLabel;
     this.updateRevision = String(entry.revision);
+  }
+
+  applyRecoveredRevision(productId: string, revision: number): boolean {
+    if (this.pending || !this.stale || productId !== this.updateProductId) {
+      return false;
+    }
+    if (!Number.isSafeInteger(revision) || revision < 1) {
+      return false;
+    }
+    this.updateRevision = String(revision);
+    return true;
   }
 
   submitCreate(): Promise<WriteOutcome> {
@@ -43,7 +61,10 @@ export class SyntheticCatalogEditor {
           productId: this.createProductId,
           syntheticLabel: this.createLabel,
         }),
-      () => {
+      (outcome) => {
+        if (outcome.kind !== 'success') {
+          return;
+        }
         this.createProductId = '';
         this.createLabel = '';
       },
@@ -59,18 +80,22 @@ export class SyntheticCatalogEditor {
           expectedRevision: this.updateRevision,
         }),
       (outcome) => {
-        if (outcome.kind !== 'success') {
+        if (outcome.kind === 'success') {
+          this.updateLabel = outcome.entry.syntheticLabel;
+          this.updateRevision = String(outcome.entry.revision);
+          this.stale = false;
           return;
         }
-        this.updateLabel = outcome.entry.syntheticLabel;
-        this.updateRevision = String(outcome.entry.revision);
+        if (outcome.kind === 'rejected' && outcome.rejection === 'stale') {
+          this.stale = true;
+        }
       },
     );
   }
 
   private async run(
     action: () => Promise<WriteOutcome>,
-    accept: (outcome: WriteOutcome) => void,
+    settle: (outcome: WriteOutcome) => void,
   ): Promise<WriteOutcome> {
     if (this.pending) {
       return { kind: 'busy' };
@@ -78,9 +103,7 @@ export class SyntheticCatalogEditor {
     this.pending = true;
     try {
       const outcome = await action();
-      if (outcome.kind === 'success') {
-        accept(outcome);
-      }
+      settle(outcome);
       return outcome;
     } finally {
       this.pending = false;
