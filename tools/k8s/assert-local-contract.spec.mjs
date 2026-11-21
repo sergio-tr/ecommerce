@@ -112,9 +112,13 @@ test('the two-replica smoke stays off mongo volumes and the one-replica cluster'
   assert.match(script, /--servers 1/);
   assert.match(script, /--agents 0/);
   assert.match(script, /--disable=traefik@server:0/);
+  assert.match(script, /k3d-two-replica-smoke: PASS/);
+  assert.match(script, /G5: NOT_CLAIMED/);
   assert.match(script, /g5: NOT_CLAIMED/);
   assert.match(script, /ha: NOT_CLAIMED/);
+  assert.match(script, /balance: NOT_PROVEN/);
   assert.match(script, /ingress: NOT_INSTALLED/);
+  assert.match(script, /--kubeconfig-switch-context=false/);
   assert.doesNotMatch(script, /commercecore-local/);
   assert.doesNotMatch(script, /commercecore-mongo/);
   assert.doesNotMatch(script, /volume rm|down -v|--fresh/);

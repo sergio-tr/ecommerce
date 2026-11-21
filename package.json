@@ -23,7 +23,8 @@
     "local-commercecore-stack": "node tools/local-commercecore-stack/up.mjs",
     "local-commercecore-stack-smoke": "node --test --test-timeout=90000 tools/local-commercecore-stack/guard.spec.mjs && node --test --test-timeout=120000 tools/local-commercecore-stack/smoke.spec.mjs",
     "local-commercecore-stack-browser": "node --test --test-timeout=30000 tools/local-commercecore-stack/browser-guard.spec.mjs && node tools/local-commercecore-stack/browser-smoke.mjs",
-    "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs",
+    "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs tools/k8s/k3d-two-replica-smoke.spec.mjs",
+    "k8s:two-replica-smoke": "bash tools/k8s/k3d-two-replica-smoke.sh",
     "mongo:check": "node --test tools/mongo/assert-compose-contract.spec.mjs"
   },
   "dependencies": {
@@ -75,7 +76,7 @@
         "executor": "nx:run-commands",
         "cache": false,
         "options": {
-          "command": "node --test --test-reporter spec tools/architecture/assert-project-graph.spec.mjs tools/architecture/assert-commercecloud-boundary.spec.mjs tools/ci/resolve-nx-format-range.spec.mjs tools/mongo/assert-compose-contract.spec.mjs tools/local-egame-fullstack/guard.spec.mjs"
+          "command": "node --test --test-reporter spec tools/architecture/assert-project-graph.spec.mjs tools/architecture/assert-commercecloud-boundary.spec.mjs tools/ci/resolve-nx-format-range.spec.mjs tools/mongo/assert-compose-contract.spec.mjs tools/local-egame-fullstack/guard.spec.mjs tools/k8s/k3d-two-replica-smoke.spec.mjs"
         }
       }
     }
