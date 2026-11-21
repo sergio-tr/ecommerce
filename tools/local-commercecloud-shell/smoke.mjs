@@ -37,17 +37,17 @@ function fail(reason) {
   throw new SmokeFailure(reason);
 }
 
-export function startCloud(port) {
+export function startCloud(port, environment = 'test') {
   return spawnGroup(process.execPath, [cloudEntry], {
     cwd: root,
-    env: cloudEnv(port),
+    env: cloudEnv(port, environment),
   });
 }
 
-export function cloudEnv(port) {
+export function cloudEnv(port, environment = 'test') {
   return {
     PATH: process.env.PATH ?? '',
-    COMMERCECLOUD_ENV: 'test',
+    COMMERCECLOUD_ENV: environment,
     COMMERCECLOUD_HTTP_HOST: '127.0.0.1',
     COMMERCECLOUD_HTTP_PORT: String(port),
     COMMERCECLOUD_LOG_LEVEL: 'info',

@@ -20,6 +20,8 @@
     "local-egame-fullstack": "node tools/local-egame-fullstack/up.mjs",
     "local-egame-fullstack-smoke": "node --test --test-timeout=180000 tools/local-egame-fullstack/smoke.spec.mjs",
     "local-commercecloud-shell-smoke": "node --test --test-timeout=120000 tools/local-commercecloud-shell/smoke.spec.mjs",
+    "local-commercecore-stack": "node tools/local-commercecore-stack/up.mjs",
+    "local-commercecore-stack-smoke": "node --test --test-timeout=90000 tools/local-commercecore-stack/guard.spec.mjs && node --test --test-timeout=120000 tools/local-commercecore-stack/smoke.spec.mjs",
     "k8s:check": "node --test tools/k8s/assert-local-contract.spec.mjs",
     "mongo:check": "node --test tools/mongo/assert-compose-contract.spec.mjs"
   },
