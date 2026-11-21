@@ -101,6 +101,12 @@ jobs:
           NX_NO_CLOUD: 'true'
         run: pnpm run local-commercecore-stack-smoke
 
+      - name: Local commercecore stack browser
+        env:
+          NX_DAEMON: 'false'
+          NX_NO_CLOUD: 'true'
+        run: pnpm run local-commercecore-stack-browser
+
   chart:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

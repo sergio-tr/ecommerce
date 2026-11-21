@@ -58,9 +58,10 @@ export function browserSkipReason(root) {
 }
 
 /**
- * One real Chrome pass against the built eGame page and the process-local API.
- * Returns NOT_RUN when Chrome or the web build is absent, or when Chrome does
- * not expose a debugger after one retry. It does not claim G5.
+ * Optional Chrome pass for the eGame fullstack smoke.
+ * NOT_RUN is allowed there when Chrome or the web build is absent, or when
+ * Chrome does not expose a debugger after one retry. The three-app CI browser
+ * command must not treat that skip as a pass. This function does not claim G5.
  */
 export async function runBrowserSmoke(options) {
   const reason = browserSkipReason(options.root);
@@ -86,17 +87,54 @@ export async function runBrowserSmoke(options) {
 
 async function runBrowserOnce({ root, fixture, screenshotDir }) {
   const webRoot = webBrowserRoot(root);
-  const chrome = findChrome();
   const apiPort = await freePort();
   const api = startApi(root, apiPort);
   let web = null;
-  let chromeRecord = null;
-  let profile = null;
+  let chrome = null;
   try {
     await waitLive(apiPort, api.child);
     web = await startStaticProxy({ apiPort, webRoot });
-    profile = await mkdtemp(path.join(tmpdir(), 'egame-chrome-'));
-    const debugPort = await freePort();
+    chrome = await openChromePage(`http://127.0.0.1:${web.port}/`);
+    const loading = await exerciseSyntheticCatalog(chrome.session, fixture, screenshotDir);
+    await stopGroup(api);
+    await exerciseReloadFailure(chrome.session, screenshotDir);
+    return { status: 'PASS', loading };
+  } finally {
+    if (chrome) {
+      await chrome.close();
+    }
+    if (web) {
+      await web.close();
+    }
+    await stopGroup(api);
+  }
+}
+
+/**
+ * Headless Chrome against one already-open loopback page.
+ * Closing the handle signals only this Chrome process group.
+ */
+export async function openChromePage(pageUrl) {
+  const chrome = findChrome();
+  if (!chrome) {
+    throw new Error('chrome exited');
+  }
+  const profile = await mkdtemp(path.join(tmpdir(), 'egame-chrome-'));
+  const debugPort = await freePort();
+  let chromeRecord = null;
+  let session = null;
+  const close = async () => {
+    if (session) {
+      await session.close();
+      session = null;
+    }
+    if (chromeRecord) {
+      await stopGroup(chromeRecord);
+      chromeRecord = null;
+    }
+    await rm(profile, { recursive: true, force: true });
+  };
+  try {
     chromeRecord = spawnGroup(
       chrome,
       [
@@ -128,124 +166,155 @@ async function runBrowserOnce({ root, fixture, screenshotDir }) {
       },
     );
     const version = await waitForDebugger(debugPort, chromeRecord.child, profile);
-    const session = await openPage(version.webSocketDebuggerUrl, `http://127.0.0.1:${web.port}/`);
-    try {
-      const sawLoading = await sawText(session, 'Loading synthetic entries.', 1500);
-      const empty = await waitForText(session, 'No synthetic entries.', 15000);
-      if (empty === null || !empty.includes('Synthetic demo, no commercial data')) {
-        throw new Error('empty state missing');
-      }
-      if (!empty.includes('This is not high availability and it is not a product catalog.')) {
-        throw new Error('process-local note missing');
-      }
-      if (COMMERCIAL_TEXT.some((phrase) => empty.includes(phrase))) {
-        throw new Error('commercial text present');
-      }
-      const title = await evaluate(session, 'document.title');
-      if (title !== 'eGame synthetic demo') {
-        throw new Error('document title mismatch');
-      }
-      if (!(await fill(session, 'create-product-id', fixture.productId))) {
-        throw new Error('create id field missing');
-      }
-      if (!(await fill(session, 'create-label', fixture.syntheticLabel))) {
-        throw new Error('create label field missing');
-      }
-      if (!(await clickButton(session, 'Create synthetic entry'))) {
-        throw new Error('create button missing');
-      }
-      const listed = await waitForText(session, 'rev 1', 10000);
-      if (listed === null || !listed.includes(fixture.productId)) {
-        throw new Error('created entry missing');
-      }
-      if (!(await fill(session, 'create-product-id', fixture.productId))) {
-        throw new Error('create id field missing');
-      }
-      if (!(await fill(session, 'create-label', fixture.syntheticLabel))) {
-        throw new Error('create label field missing');
-      }
-      if (!(await clickButton(session, 'Create synthetic entry'))) {
-        throw new Error('create button missing');
-      }
-      const duplicate = await waitForText(session, 'That product id is already stored.', 10000);
-      if (duplicate === null) {
-        throw new Error('duplicate alert missing');
-      }
-      if ((await inputValue(session, 'create-product-id')) !== fixture.productId) {
-        throw new Error('duplicate cleared the product id');
-      }
-      if (!(await clickButton(session, 'Edit'))) {
-        throw new Error('edit button missing');
-      }
-      if ((await inputValue(session, 'update-revision')) !== '1') {
-        throw new Error('edit did not load revision 1');
-      }
-      if (!(await fill(session, 'update-label', fixture.updatedLabel))) {
-        throw new Error('update label field missing');
-      }
-      if (!(await clickButton(session, 'Save synthetic label'))) {
-        throw new Error('save button missing');
-      }
-      const updated = await waitForText(session, 'rev 2', 10000);
-      if (updated === null || !updated.includes(fixture.updatedLabel)) {
-        throw new Error('updated entry missing');
-      }
-      if (!(await fill(session, 'update-revision', String(fixture.staleRevision)))) {
-        throw new Error('revision field missing');
-      }
-      if (!(await clickButton(session, 'Save synthetic label'))) {
-        throw new Error('save button missing');
-      }
-      const stale = await waitForText(
-        session,
-        'The revision is stale. The entry was not changed.',
-        10000,
-      );
-      if (stale === null) {
-        throw new Error('stale alert missing');
-      }
-      if ((await inputValue(session, 'update-revision')) !== String(fixture.staleRevision)) {
-        throw new Error('stale revision was cleared');
-      }
-      if (COMMERCIAL_TEXT.some((phrase) => stale.includes(phrase))) {
-        throw new Error('commercial text present');
-      }
-      await capture(session, screenshotDir, 'egame-fullstack-create.png');
-      await stopGroup(api);
-      if (!(await clickButton(session, 'Reload'))) {
-        throw new Error('reload button missing');
-      }
-      const failed = await waitForText(session, 'The synthetic list could not be loaded.', 10000);
-      if (failed === null) {
-        throw new Error('reload error missing');
-      }
-      const alert = await evaluate(
-        session,
-        `[...document.querySelectorAll('[role="alert"]')].map((item) => item.textContent ?? '').join('\\n')`,
-      );
-      if (typeof alert !== 'string' || !alert.includes('The synthetic list could not be loaded.')) {
-        throw new Error('error alert missing');
-      }
-      await capture(session, screenshotDir, 'egame-fullstack-error.png');
-      return {
-        status: 'PASS',
-        loading: sawLoading ? 'shown' : 'not-observed',
-      };
-    } finally {
-      await session.close();
-    }
-  } finally {
-    if (chromeRecord) {
-      await stopGroup(chromeRecord);
-    }
-    if (web) {
-      await web.close();
-    }
-    await stopGroup(api);
-    if (profile) {
-      await rm(profile, { recursive: true, force: true });
-    }
+    session = await openPage(version.webSocketDebuggerUrl, pageUrl);
+    return { session, debugPort, close };
+  } catch (error) {
+    await close();
+    throw error;
   }
+}
+
+export async function exerciseSyntheticCatalog(
+  session,
+  fixture,
+  screenshotDir,
+  screenshotName = 'egame-fullstack-create.png',
+  options = {},
+) {
+  const sawLoading = await sawText(session, 'Loading synthetic entries.', 1500);
+  const empty = await waitForText(session, 'No synthetic entries.', 15000);
+  if (empty === null || !empty.includes('Synthetic demo, no commercial data')) {
+    throw new Error('empty state missing');
+  }
+  if (!empty.includes('This is not high availability and it is not a product catalog.')) {
+    throw new Error('process-local note missing');
+  }
+  if (COMMERCIAL_TEXT.some((phrase) => empty.includes(phrase))) {
+    throw new Error('commercial text present');
+  }
+  const title = await evaluate(session, 'document.title');
+  if (title !== 'eGame synthetic demo') {
+    throw new Error('document title mismatch');
+  }
+  if (options.rejectLabel) {
+    await exerciseRejectedLabel(session, fixture);
+  }
+  if (!(await fill(session, 'create-product-id', fixture.productId))) {
+    throw new Error('create id field missing');
+  }
+  if (!(await fill(session, 'create-label', fixture.syntheticLabel))) {
+    throw new Error('create label field missing');
+  }
+  if (!(await clickButton(session, 'Create synthetic entry'))) {
+    throw new Error('create button missing');
+  }
+  const listed = await waitForText(session, 'rev 1', 10000);
+  if (listed === null || !listed.includes(fixture.productId)) {
+    throw new Error('created entry missing');
+  }
+  if (!(await fill(session, 'create-product-id', fixture.productId))) {
+    throw new Error('create id field missing');
+  }
+  if (!(await fill(session, 'create-label', fixture.syntheticLabel))) {
+    throw new Error('create label field missing');
+  }
+  if (!(await clickButton(session, 'Create synthetic entry'))) {
+    throw new Error('create button missing');
+  }
+  const duplicate = await waitForText(session, 'That product id is already stored.', 10000);
+  if (duplicate === null) {
+    throw new Error('duplicate alert missing');
+  }
+  if ((await inputValue(session, 'create-product-id')) !== fixture.productId) {
+    throw new Error('duplicate cleared the product id');
+  }
+  if (!(await clickButton(session, 'Edit'))) {
+    throw new Error('edit button missing');
+  }
+  if ((await inputValue(session, 'update-revision')) !== '1') {
+    throw new Error('edit did not load revision 1');
+  }
+  if (!(await fill(session, 'update-label', fixture.updatedLabel))) {
+    throw new Error('update label field missing');
+  }
+  if (!(await clickButton(session, 'Save synthetic label'))) {
+    throw new Error('save button missing');
+  }
+  const updated = await waitForText(session, 'rev 2', 10000);
+  if (updated === null || !updated.includes(fixture.updatedLabel)) {
+    throw new Error('updated entry missing');
+  }
+  if (!(await fill(session, 'update-revision', String(fixture.staleRevision)))) {
+    throw new Error('revision field missing');
+  }
+  if (!(await clickButton(session, 'Save synthetic label'))) {
+    throw new Error('save button missing');
+  }
+  const stale = await waitForText(
+    session,
+    'The revision is stale. The entry was not changed.',
+    10000,
+  );
+  if (stale === null) {
+    throw new Error('stale alert missing');
+  }
+  if ((await inputValue(session, 'update-revision')) !== String(fixture.staleRevision)) {
+    throw new Error('stale revision was cleared');
+  }
+  if (COMMERCIAL_TEXT.some((phrase) => stale.includes(phrase))) {
+    throw new Error('commercial text present');
+  }
+  await capture(session, screenshotDir, screenshotName);
+  return sawLoading ? 'shown' : 'not-observed';
+}
+
+export async function exerciseRejectedLabel(session, fixture) {
+  if (!(await fill(session, 'create-product-id', fixture.otherProductId))) {
+    throw new Error('create id field missing');
+  }
+  if (!(await fill(session, 'create-label', fixture.rejectedLabel))) {
+    throw new Error('create label field missing');
+  }
+  if (!(await clickButton(session, 'Create synthetic entry'))) {
+    throw new Error('create button missing');
+  }
+  const page = await waitForText(session, 'The synthetic label is not allowed.', 10000);
+  if (page === null || !page.includes('No synthetic entries.')) {
+    throw new Error('rejected alert missing');
+  }
+  const alert = await alertText(session);
+  if (!alert.includes('The synthetic label is not allowed.')) {
+    throw new Error('rejected alert missing');
+  }
+  if (
+    alert.includes(fixture.rejectedLabel) ||
+    alert.includes(fixture.rejectedProductId) ||
+    alert.includes(fixture.rejectedExtra)
+  ) {
+    throw new Error('rejected value echoed');
+  }
+  if ((await inputValue(session, 'create-label')) !== fixture.rejectedLabel) {
+    throw new Error('rejected label cleared');
+  }
+}
+
+export async function exerciseReloadFailure(
+  session,
+  screenshotDir,
+  screenshotName = 'egame-fullstack-error.png',
+) {
+  if (!(await clickButton(session, 'Reload'))) {
+    throw new Error('reload button missing');
+  }
+  const failed = await waitForText(session, 'The synthetic list could not be loaded.', 10000);
+  if (failed === null) {
+    throw new Error('reload error missing');
+  }
+  const alert = await alertText(session);
+  if (!alert.includes('The synthetic list could not be loaded.')) {
+    throw new Error('error alert missing');
+  }
+  await capture(session, screenshotDir, screenshotName);
 }
 
 async function waitLive(port, child) {
@@ -389,6 +458,14 @@ async function evaluate(session, expression) {
 async function pageText(session) {
   const text = await evaluate(session, 'document.body ? document.body.innerText : ""');
   return typeof text === 'string' ? text : '';
+}
+
+async function alertText(session) {
+  const alert = await evaluate(
+    session,
+    `[...document.querySelectorAll('[role="alert"]')].map((item) => item.textContent ?? '').join('\\n')`,
+  );
+  return typeof alert === 'string' ? alert : '';
 }
 
 async function sawText(session, needle, timeoutMs) {

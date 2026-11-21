@@ -2,7 +2,8 @@
  * Isolated loopback smoke for the three local apps.
  * Core and CommerceCloud listen on ephemeral ports, not 3000, 4200, or 3100.
  * Catalog GET, POST, and PATCH go through the same /catalog proxy prefix as
- * apps/egame-web/proxy.conf.json. Chrome is not launched.
+ * apps/egame-web/proxy.conf.json. Chrome is not launched. The required browser
+ * pass is `pnpm run local-commercecore-stack-browser`, and a skip there is FAIL.
  * This pass is not G5 and not AC-CAT-08. One API process is not multi-pod HA.
  */
 import { existsSync, readFileSync } from 'node:fs';

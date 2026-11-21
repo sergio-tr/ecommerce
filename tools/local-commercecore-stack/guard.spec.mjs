@@ -20,7 +20,14 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const upScript = path.join(root, 'tools/local-commercecore-stack/up.mjs');
 
 test('stack scripts do not kill by name, bind publicly, or delete volumes', () => {
-  const names = ['ports.mjs', 'supervisor.mjs', 'up.mjs', 'smoke.mjs'];
+  const names = [
+    'ports.mjs',
+    'supervisor.mjs',
+    'up.mjs',
+    'smoke.mjs',
+    'browser-smoke.mjs',
+    'browser-outcome.mjs',
+  ];
   const combined = names
     .map((name) => readFileSync(path.join(root, 'tools/local-commercecore-stack', name), 'utf8'))
     .join('\n');
